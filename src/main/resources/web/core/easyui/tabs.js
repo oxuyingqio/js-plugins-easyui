@@ -1,4 +1,13 @@
+/**
+ * tabs
+ * 
+ * Tab页
+ * 
+ * 对象扩展
+ */
+
 $.extend($.fn.tabs.methods, {
+
 	// 双击事件
 	onDblClick : function(jq, caller) {
 		return jq.each(function() {

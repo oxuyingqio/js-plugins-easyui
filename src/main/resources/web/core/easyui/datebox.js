@@ -1,19 +1,37 @@
+/**
+ * datebox
+ * 
+ * 日期输入框
+ * 
+ * 对象扩展
+ */
+
+/**
+ * 日期输入框格式化
+ */
 $.fn.datebox.defaults.formatter = function(date) {
-	var y = date.getFullYear();
-	var m = date.getMonth() + 1;
-	var d = date.getDate();
-	return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+
+	return date.format("yyyy-MM-dd");
 };
 
-$.fn.datebox.defaults.parser = function(s) {
-	if (!s)
+/**
+ * 日期输入框解析器
+ */
+$.fn.datebox.defaults.parser = function(str) {
+
+	if (!str)
 		return new Date();
-	var ss = s.split('-');
-	var y = parseInt(ss[0], 10);
-	var m = parseInt(ss[1], 10);
-	var d = parseInt(ss[2], 10);
-	if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
-		return new Date(y, m - 1, d);
+
+	var ss = str.split("-");
+	// 年
+	var year = parseInt(ss[0], 10);
+	// 月
+	var month = parseInt(ss[1], 10);
+	// 日
+	var day = parseInt(ss[2], 10);
+
+	if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
+		return new Date(year, month - 1, day);
 	} else {
 		return new Date();
 	}

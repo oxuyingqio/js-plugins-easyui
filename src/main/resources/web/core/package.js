@@ -1,7 +1,8 @@
 /**
- * EasyUI扩展包
+ * 包
  */
 
+// EasyUI扩展包
 core.easyui = {
 	// 数据列表封装包
 	datagrid : {},
