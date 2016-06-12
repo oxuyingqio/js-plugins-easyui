@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.component.form</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.4.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.4.5/themes/icon.css">
+
+</head>
+<body>
+	<div id="datagrid1"></div>
+	<div id="datagrid2"></div>
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-1.12.4/jquery-1.12.4.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+
+<script type="text/javascript" src="/~/core/easyui/datagrid/Datagrid.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var datagrid1 = new core.easyui.datagrid.Datagrid("datagrid1");
+		var datagrid2 = new core.easyui.datagrid.Datagrid("datagrid2");
+	});
+</script>
+
+</html>
