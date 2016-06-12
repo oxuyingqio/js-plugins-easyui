@@ -1,8 +1,10 @@
-// EasyUI扩展包
-core.easyui = {};
+/**
+ * EasyUI扩展包
+ */
 
-// 弹出框封装包
-core.easyui.dialog = {};
-
-// 数据列表封装包
-core.easyui.datagrid = {};
+core.easyui = {
+	// 数据列表封装包
+	datagrid : {},
+	// 弹出框封装包
+	dialog : {}
+};
