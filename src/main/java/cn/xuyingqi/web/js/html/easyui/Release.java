@@ -1,4 +1,4 @@
-package cn.xuyingqi.web.front.easyui;
+package cn.xuyingqi.web.js.html.easyui;
 
 import java.io.File;
 
@@ -24,7 +24,7 @@ public class Release {
 		// 前台核心公共路径
 		String jsCommonPath = "/src/main/resources/web/core/";
 		// 前台核心包路径集合
-		String[] packagePaths = { "package.js", "easyui" };
+		String[] packagePaths = { "package.js", "html/easyui" };
 
 		// 文件类型
 		String fileType = ".js";

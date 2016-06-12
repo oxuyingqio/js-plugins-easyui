@@ -4,10 +4,10 @@
 
 	<!-- 模块信息 -->
 	<groupId>cn.xuyingqi</groupId>
-	<artifactId>web-front-easyui</artifactId>
+	<artifactId>web-js-html-easyui</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
-	<name>web前台EasyUI扩展</name>
+	<name>HTML EasyUI扩展</name>
 	<url>http://maven.apache.org</url>
 
 	<!-- 公共配置 -->
@@ -32,7 +32,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>cn.xuyingqi</groupId>
-			<artifactId>web-front-core</artifactId>
+			<artifactId>web-js</artifactId>
 			<version>${xuyingqi.version}</version>
 			<classifier>web</classifier>
 		</dependency>

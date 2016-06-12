@@ -6,7 +6,7 @@
  * 类
  */
 
-core.easyui.datagrid.Datagrid = (function() {
+core.html.easyui.datagrid.Datagrid = (function() {
 
 	// 默认配置
 	var DEFAULT_CONFIG = {
@@ -56,8 +56,8 @@ core.easyui.datagrid.Datagrid = (function() {
 		pagePosition : "bottom",
 		pageNumber : 1,
 		// 分页数
-		pageSize : core.html.util.Cookie.getCookie().get("core.easyui.datagrid.Datagrid") == null ? 20
-				: core.html.util.Cookie.getCookie().get("core.easyui.datagrid.Datagrid"),
+		pageSize : core.html.util.Cookie.getCookie().get("core.html.easyui.datagrid.Datagrid") == null ? 20
+				: core.html.util.Cookie.getCookie().get("core.html.easyui.datagrid.Datagrid"),
 		// 分页数可选列表
 		pageList : [ 10, 20, 30, 40, 50 ],
 		// 传入后台的参数
@@ -189,7 +189,7 @@ core.easyui.datagrid.Datagrid = (function() {
 		// 模板所在Div的jQuery对象
 		var $datagrid = $("#" + divid);
 		if ($datagrid.length === 0) {
-			throw "core.easyui.datagrid.Datagrid:构造异常.DIV(ID:" + divid + ")不存在.";
+			throw "core.html.easyui.datagrid.Datagrid:构造异常.DIV(ID:" + divid + ")不存在.";
 		}
 	};
 
