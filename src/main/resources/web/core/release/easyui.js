@@ -9,7 +9,10 @@ core.html.easyui = {
 	datagrid : {},
 
 	// dialog模板包
-	dialog : {}
+	dialog : {},
+
+	// message模板包
+	message : {}
 };
 /**
  * datebox
