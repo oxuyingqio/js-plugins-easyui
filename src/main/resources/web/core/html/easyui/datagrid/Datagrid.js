@@ -421,6 +421,17 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	};
 
 	/**
+	 * 模板所在Div 初始化
+	 * 
+	 * @param $datagrid
+	 *            模板所在Div的jQuery对象
+	 */
+	function divInit($datagrid) {
+
+		$datagrid.empty();
+	}
+
+	/**
 	 * 打包封装模板的jQuery对象
 	 * 
 	 * @param $datagrid
@@ -1175,17 +1186,6 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		};
 
 		return $datagrid;
-	}
-
-	/**
-	 * 模板所在Div 初始化
-	 * 
-	 * @param $datagrid
-	 *            模板所在Div的jQuery对象
-	 */
-	function divInit($datagrid) {
-
-		$datagrid.empty();
 	}
 
 	/**
