@@ -2053,6 +2053,12 @@ core.html.easyui.datagrid.Datagrid = (function() {
 
 		// 生成对应的datagrid
 		$datagrid.datagrid(this.getDatagridConfig());
+		// 修改分页数,设置cookie值保存本地
+		$datagrid.datagrid("getPager").pagination({
+			onChangePageSize : function(pageSize) {
+				cookie.set("coreHtmlEasyuiDatagrid", pageSize);
+			}
+		});
 
 		return packagejQuery($datagrid);
 	};
