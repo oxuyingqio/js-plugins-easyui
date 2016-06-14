@@ -63,7 +63,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		// 默认页码
 		pageNumber : 1,
 		// 分页数
-		pageSize : cookie.get("coreHtmlEasyuiDatagrid") == null ? 20 : cookie.getCookie().get("coreHtmlEasyuiDatagrid"),
+		pageSize : cookie.get("coreHtmlEasyuiDatagrid") == null ? 20 : cookie.get("coreHtmlEasyuiDatagrid"),
 		// 分页数可选列表
 		pageList : [ 10, 20, 30, 40, 50 ],
 		// 传入后台的参数
