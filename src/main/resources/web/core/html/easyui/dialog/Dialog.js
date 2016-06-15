@@ -121,111 +121,152 @@ core.html.easyui.dialog.Dialog = (function() {
 	};
 
 	Constructor.prototype.getTitle = function() {
+
 		return this.getDialogConfig().title;
 	};
 
 	Constructor.prototype.setTitle = function(title) {
-		return this.getDialogConfig().title = title;
+
+		this.getDialogConfig().title = title;
+		return this;
 	};
 
 	Constructor.prototype.getWidth = function() {
+
 		return this.getDialogConfig().width;
 	};
 
 	Constructor.prototype.setWidth = function(width) {
-		return this.getDialogConfig().width = width;
+
+		this.getDialogConfig().width = width;
+		return this;
 	};
 
 	Constructor.prototype.getHeight = function() {
+
 		return this.getDialogConfig().height;
 	};
 
 	Constructor.prototype.setHeight = function(height) {
-		return this.getDialogConfig().height = height;
+
+		this.getDialogConfig().height = height;
+		return this;
 	};
 
 	Constructor.prototype.getLeft = function() {
+
 		return this.getDialogConfig().left;
 	};
 
 	Constructor.prototype.setLeft = function(left) {
-		return this.getDialogConfig().left = left;
+
+		this.getDialogConfig().left = left;
+		return this;
 	};
 
 	Constructor.prototype.getTop = function() {
+
 		return this.getDialogConfig().top;
 	};
 
 	Constructor.prototype.setTop = function(top) {
-		return this.getDialogConfig().top = top;
+
+		this.getDialogConfig().top = top;
+		return this;
 	};
 
 	Constructor.prototype.getBorder = function() {
+
 		return this.getDialogConfig().border;
 	};
 
 	Constructor.prototype.setBorder = function(border) {
-		return this.getDialogConfig().border = border;
+
+		this.getDialogConfig().border = border;
+		return this;
 	};
 
 	Constructor.prototype.getContent = function() {
+
 		return this.getDialogConfig().content;
 	};
 
 	Constructor.prototype.setContent = function(content) {
-		return this.getDialogConfig().content = content;
+
+		this.getDialogConfig().content = content;
+		return this;
 	};
 
 	Constructor.prototype.getCollapsible = function() {
+
 		return this.getDialogConfig().collapsible;
 	};
 
 	Constructor.prototype.setCollapsible = function(collapsible) {
-		return this.getDialogConfig().collapsible = collapsible;
+
+		this.getDialogConfig().collapsible = collapsible;
+		return this;
 	};
 
 	Constructor.prototype.getMinimizable = function() {
+
 		return this.getDialogConfig().minimizable;
 	};
 
 	Constructor.prototype.setMinimizable = function(minimizable) {
-		return this.getDialogConfig().minimizable = minimizable;
+
+		this.getDialogConfig().minimizable = minimizable;
+		return this;
 	};
 
 	Constructor.prototype.getMaximizable = function() {
+
 		return this.getDialogConfig().maximizable;
 	};
 
 	Constructor.prototype.setMaximizable = function(maximizable) {
-		return this.getDialogConfig().maximizable = maximizable;
+
+		this.getDialogConfig().maximizable = maximizable;
+		return this;
 	};
 
 	Constructor.prototype.getResizable = function() {
+
 		return this.getDialogConfig().resizable;
 	};
 
 	Constructor.prototype.setResizable = function(resizable) {
-		return this.getDialogConfig().resizable = resizable;
+
+		this.getDialogConfig().resizable = resizable;
+		return this;
 	};
 
 	Constructor.prototype.getToolbar = function() {
+
 		return this.getDialogConfig().toolbar;
 	};
 
 	Constructor.prototype.setToolbar = function(toolbar) {
-		return this.getDialogConfig().toolbar = toolbar;
+
+		this.getDialogConfig().toolbar = toolbar;
+		return this;
 	};
 
 	Constructor.prototype.getButtons = function() {
+
 		return this.getDialogConfig().buttons;
 	};
 
 	Constructor.prototype.setButtons = function(buttons) {
-		return this.getDialogConfig().buttons = buttons;
+
+		this.getDialogConfig().buttons = buttons;
+		return this;
 	};
 
 	/**
 	 * 模板初始化
+	 * 
+	 * @returns
 	 */
 	Constructor.prototype.init = function() {
 
