@@ -8,6 +8,10 @@
 
 /**
  * 日期输入框格式化
+ * 
+ * @param date{Date}
+ *            日期
+ * @returns {String}
  */
 $.fn.datebox.defaults.formatter = function(date) {
 
@@ -16,6 +20,10 @@ $.fn.datebox.defaults.formatter = function(date) {
 
 /**
  * 日期输入框解析器
+ * 
+ * @param str{String}
+ *            日期字符串
+ * @returns {Date}
  */
 $.fn.datebox.defaults.parser = function(str) {
 

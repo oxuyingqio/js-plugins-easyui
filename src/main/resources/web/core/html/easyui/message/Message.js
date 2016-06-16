@@ -1,20 +1,20 @@
 /**
  * Message
  * 
- * 消息
+ * 消息处理
  * 
- * 对象
+ * 类
  */
 
 core.html.easyui.message.Message = (function() {
 
-	// 消息
+	// 消息处理者
 	var message;
 
 	/**
 	 * 处理标题头
 	 * 
-	 * @param title
+	 * @param title{String}
 	 *            标题头
 	 * @returns {String}
 	 */
@@ -39,63 +39,67 @@ core.html.easyui.message.Message = (function() {
 	/**
 	 * 弹出框
 	 * 
-	 * @param title
+	 * @param title{String}
 	 *            标题
-	 * @param msg
+	 * @param msg{String}
 	 *            信息
-	 * @param icon
+	 * @param icon{String}
 	 *            图标
-	 * @param fn
+	 * @param fn{function}
 	 *            回调
-	 * @returns
+	 * @returns {core.html.easyui.message.Message}
 	 */
 	Constructor.prototype.alert = function(title, msg, icon, fn) {
 
+		// 默认标题
 		title = title === null ? "警告" : title;
-
+		// EasyUI弹出
 		$.messager.alert(dealTitle(title), msg, icon === null ? "error" : icon, fn);
+
+		return this;
 	};
 
 	/**
 	 * 弹出异常
 	 * 
-	 * @param e
+	 * @param e{Object}
 	 *            异常对象
-	 * @param attr
+	 * @param attr{String}
 	 *            异常对象属性
-	 * @returns
+	 * @returns {core.html.easyui.message.Message}
 	 */
 	Constructor.prototype.alertException = function(e, attr) {
 
-		this.alert(null, e[attr === undefined ? "responseText" : attr], null);
+		return this.alert(null, e[attr === undefined ? "responseText" : attr], null);
 	};
 
 	/**
 	 * 确认框
 	 * 
-	 * @param title
+	 * @param title{String}
 	 *            标题头
-	 * @param msg
+	 * @param msg{String}
 	 *            信息
-	 * @param fn
+	 * @param fn{function}
 	 *            回调
-	 * @returns
+	 * @returns {core.html.easyui.message.Message}
 	 */
 	Constructor.prototype.confirm = function(title, msg, fn) {
 
 		$.messager.confirm(dealTitle(title), msg, fn);
+		return this;
 	};
 
 	/**
 	 * 提示框
 	 * 
-	 * @param title
+	 * @param title{String}
 	 *            标题头
-	 * @param msg
+	 * @param msg{String}
 	 *            信息
-	 * @param time
+	 * @param time{Number}
 	 *            显示时间
-	 * @returns
+	 * @returns {core.html.easyui.message.Message}
 	 */
 	Constructor.prototype.show = function(title, msg, time) {
 
@@ -110,26 +114,28 @@ core.html.easyui.message.Message = (function() {
 				bottom : ""
 			}
 		});
+
+		return this;
 	};
 
 	/**
 	 * 提示成功
 	 * 
-	 * @returns
+	 * @returns {core.html.easyui.message.Message}
 	 */
 	Constructor.prototype.showSuccess = function() {
 
-		this.show(null, "操作成功!", null);
+		return this.show(null, "操作成功!", null);
 	};
 
 	/**
 	 * 提示失败
 	 * 
-	 * @returns
+	 * @returns {core.html.easyui.message.Message}
 	 */
 	Constructor.prototype.showFail = function() {
 
-		this.show(null, "操作失败!", null);
+		return this.show(null, "操作失败!", null);
 	};
 
 	return {
@@ -137,10 +143,11 @@ core.html.easyui.message.Message = (function() {
 		/**
 		 * 获取消息处理者
 		 * 
-		 * @returns {core.html.easyui.message.Message.Constructor}
+		 * @returns {core.html.easyui.message.Message}
 		 */
-		getMessage : function() {
+		getInstance : function() {
 
+			// 不存在,则创建
 			if (!message) {
 				message = new Constructor();
 			}

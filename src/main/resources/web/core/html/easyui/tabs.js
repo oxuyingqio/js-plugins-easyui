@@ -8,7 +8,12 @@
 
 $.extend($.fn.tabs.methods, {
 
-	// 双击事件
+	/**
+	 * 双击事件
+	 * 
+	 * @param jq
+	 * @param caller
+	 */
 	onDblClick : function(jq, caller) {
 		return jq.each(function() {
 			var that = this;
