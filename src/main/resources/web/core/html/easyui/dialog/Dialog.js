@@ -110,6 +110,7 @@ core.html.easyui.dialog.Dialog = (function() {
 		 * @returns {String}
 		 */
 		this.getDivid = function() {
+
 			return divid;
 		};
 
@@ -119,6 +120,7 @@ core.html.easyui.dialog.Dialog = (function() {
 		 * @returns {Object}
 		 */
 		this.getDialogjQuery = function() {
+
 			return $dialog;
 		};
 
@@ -128,6 +130,7 @@ core.html.easyui.dialog.Dialog = (function() {
 		 * @returns {Object}
 		 */
 		this.getDialogConfig = function() {
+
 			return dialogConfig;
 		};
 
@@ -139,7 +142,9 @@ core.html.easyui.dialog.Dialog = (function() {
 		 * @returns {core.html.easyui.dialog.Dialog}
 		 */
 		this.setDialogConfig = function(_dialogConfig) {
+
 			dialogConfig = _dialogConfig;
+
 			return this;
 		};
 	};
@@ -164,6 +169,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setTitle = function(title) {
 
 		this.getDialogConfig().title = title;
+
 		return this;
 	};
 
@@ -187,6 +193,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setWidth = function(width) {
 
 		this.getDialogConfig().width = width;
+
 		return this;
 	};
 
@@ -210,6 +217,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setHeight = function(height) {
 
 		this.getDialogConfig().height = height;
+
 		return this;
 	};
 
@@ -233,6 +241,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setLeft = function(left) {
 
 		this.getDialogConfig().left = left;
+
 		return this;
 	};
 
@@ -256,6 +265,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setTop = function(top) {
 
 		this.getDialogConfig().top = top;
+
 		return this;
 	};
 
@@ -279,6 +289,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setBorder = function(border) {
 
 		this.getDialogConfig().border = border;
+
 		return this;
 	};
 
@@ -302,6 +313,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setContent = function(content) {
 
 		this.getDialogConfig().content = content;
+
 		return this;
 	};
 
@@ -325,6 +337,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setCollapsible = function(collapsible) {
 
 		this.getDialogConfig().collapsible = collapsible;
+
 		return this;
 	};
 
@@ -348,6 +361,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setMinimizable = function(minimizable) {
 
 		this.getDialogConfig().minimizable = minimizable;
+
 		return this;
 	};
 
@@ -371,6 +385,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setMaximizable = function(maximizable) {
 
 		this.getDialogConfig().maximizable = maximizable;
+
 		return this;
 	};
 
@@ -394,6 +409,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setResizable = function(resizable) {
 
 		this.getDialogConfig().resizable = resizable;
+
 		return this;
 	};
 
@@ -417,6 +433,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setToolbar = function(toolbar) {
 
 		this.getDialogConfig().toolbar = toolbar;
+
 		return this;
 	};
 
@@ -440,6 +457,7 @@ core.html.easyui.dialog.Dialog = (function() {
 	Constructor.prototype.setButtons = function(buttons) {
 
 		this.getDialogConfig().buttons = buttons;
+
 		return this;
 	};
 

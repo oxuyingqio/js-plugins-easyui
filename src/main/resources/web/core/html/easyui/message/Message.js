@@ -87,6 +87,7 @@ core.html.easyui.message.Message = (function() {
 	Constructor.prototype.confirm = function(title, msg, fn) {
 
 		$.messager.confirm(dealTitle(title), msg, fn);
+
 		return this;
 	};
 

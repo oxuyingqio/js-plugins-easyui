@@ -449,6 +449,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.options = function() {
+
 			return $datagrid.datagrid("options");
 		};
 
@@ -458,6 +459,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.getPager = function() {
+
 			return $datagrid.datagrid("getPager");
 		};
 
@@ -467,6 +469,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.getPanel = function() {
+
 			return $datagrid.datagrid("getPanel");
 		};
 
@@ -477,6 +480,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.getColumnFields = function(frozen) {
+
 			return $datagrid.datagrid("getPanel", frozen);
 		};
 
@@ -487,6 +491,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.getColumnOption = function(field) {
+
 			return $datagrid.datagrid("getColumnOption", field);
 		};
 
@@ -498,6 +503,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.resize = function(param) {
+
 			return $datagrid.datagrid("resize", param);
 		};
 
@@ -509,6 +515,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.load = function(param) {
+
 			return $datagrid.datagrid("load", param);
 		};
 
@@ -520,6 +527,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.reload = function(param) {
+
 			return $datagrid.datagrid("reload", param);
 		};
 
@@ -539,6 +547,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.loading = function() {
+
 			return $datagrid.datagrid("loading");
 		};
 
@@ -548,6 +557,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.loaded = function() {
+
 			return $datagrid.datagrid("loaded");
 		};
 
@@ -557,6 +567,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.fitColumns = function() {
+
 			return $datagrid.datagrid("fitColumns");
 		};
 
@@ -568,6 +579,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.fixColumnSize = function(field) {
+
 			return $datagrid.datagrid("fixColumnSize", field);
 		};
 
@@ -579,6 +591,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.fixRowHeight = function(index) {
+
 			return $datagrid.datagrid("fixRowHeight", index);
 		};
 
@@ -590,6 +603,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.freezeRow = function(index) {
+
 			return $datagrid.datagrid("freezeRow", index);
 		};
 
@@ -601,6 +615,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.autoSizeColumn = function(field) {
+
 			return $datagrid.datagrid("autoSizeColumn", field);
 		};
 
@@ -612,6 +627,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.loadData = function(data) {
+
 			return $datagrid.datagrid("loadData", data);
 		};
 
@@ -621,6 +637,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Array}
 		 */
 		$datagrid.getData = function() {
+
 			return $datagrid.datagrid("getData");
 		};
 
@@ -630,6 +647,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Array}
 		 */
 		$datagrid.getRows = function() {
+
 			return $datagrid.datagrid("getRows");
 		};
 
@@ -639,6 +657,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.getFooterRows = function() {
+
 			return $datagrid.datagrid("getFooterRows");
 		};
 
@@ -650,6 +669,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Number}
 		 */
 		$datagrid.getRowIndex = function(row) {
+
 			return $datagrid.datagrid("getRowIndex", row);
 		};
 
@@ -659,6 +679,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.getChecked = function() {
+
 			return $datagrid.datagrid("getChecked");
 		};
 
@@ -668,6 +689,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		$datagrid.getSelected = function() {
+
 			return $datagrid.datagrid("getSelected");
 		};
 
@@ -677,6 +699,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Array}
 		 */
 		$datagrid.getSelections = function() {
+
 			return $datagrid.datagrid("getSelections");
 		};
 
@@ -686,6 +709,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.clearSelections = function() {
+
 			return $datagrid.datagrid("clearSelections");
 		};
 
@@ -695,6 +719,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.clearChecked = function() {
+
 			return $datagrid.datagrid("clearChecked");
 		};
 
@@ -706,6 +731,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.scrollTo = function(index) {
+
 			return $datagrid.datagrid("scrollTo", index);
 		};
 
@@ -717,6 +743,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.gotoPage = function(param) {
+
 			return $datagrid.datagrid("gotoPage", param);
 		};
 
@@ -728,6 +755,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.highlightRow = function(index) {
+
 			return $datagrid.datagrid("highlightRow", index);
 		};
 
@@ -737,6 +765,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.selectAll = function() {
+
 			return $datagrid.datagrid("selectAll");
 		};
 
@@ -746,6 +775,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.unselectAll = function() {
+
 			return $datagrid.datagrid("unselectAll");
 		};
 
@@ -757,6 +787,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.selectRow = function(index) {
+
 			return $datagrid.datagrid("selectRow", index);
 		};
 
@@ -768,6 +799,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.selectRecord = function(idValue) {
+
 			return $datagrid.datagrid("selectRecord", idValue);
 		};
 
@@ -779,6 +811,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.unselectRow = function(index) {
+
 			return $datagrid.datagrid("unselectRow", index);
 		};
 
@@ -788,6 +821,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.checkAll = function() {
+
 			return $datagrid.datagrid("checkAll");
 		};
 
@@ -797,6 +831,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.uncheckAll = function() {
+
 			return $datagrid.datagrid("uncheckAll");
 		};
 
@@ -808,6 +843,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.checkRow = function(index) {
+
 			return $datagrid.datagrid("checkRow", index);
 		};
 
@@ -819,6 +855,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.uncheckRow = function(index) {
+
 			return $datagrid.datagrid("uncheckRow", index);
 		};
 
@@ -830,6 +867,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.beginEdit = function(index) {
+
 			return $datagrid.datagrid("beginEdit", index);
 		};
 
@@ -841,6 +879,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.endEdit = function(index) {
+
 			return $datagrid.datagrid("endEdit", index);
 		};
 
@@ -852,6 +891,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.cancelEdit = function(index) {
+
 			return $datagrid.datagrid("cancelEdit", index);
 		};
 
@@ -863,6 +903,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.getEditors = function(index) {
+
 			return $datagrid.datagrid("getEditors", index);
 		};
 
@@ -874,6 +915,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.getEditor = function(options) {
+
 			return $datagrid.datagrid("getEditor", options);
 		};
 
@@ -885,6 +927,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.refreshRow = function(index) {
+
 			return $datagrid.datagrid("refreshRow", index);
 		};
 
@@ -896,6 +939,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.validateRow = function(index) {
+
 			return $datagrid.datagrid("validateRow", index);
 		};
 
@@ -907,6 +951,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.updateRow = function(param) {
+
 			return $datagrid.datagrid("updateRow", param);
 		};
 
@@ -918,6 +963,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.appendRow = function(row) {
+
 			return $datagrid.datagrid("appendRow", row);
 		};
 
@@ -929,6 +975,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		$datagrid.insertRow = function(param) {
+
 			return $datagird.datagrid("insertRow", param);
 		};
 
@@ -1215,6 +1262,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {String}
 		 */
 		this.getDivid = function() {
+
 			return divid;
 		};
 
@@ -1224,6 +1272,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		this.getDatagridjQuery = function() {
+
 			return $datagrid;
 		};
 
@@ -1233,6 +1282,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {Object}
 		 */
 		this.getDatagridConfig = function() {
+
 			return datagridConfig;
 		};
 
@@ -1244,6 +1294,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {core.html.easyui.datagrid.Datagrid}
 		 */
 		this.setDatagridConfig = function(_datagridConfig) {
+
 			datagridConfig = _datagridConfig;
 			return this;
 		};
@@ -1269,6 +1320,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setWidth = function(width) {
 
 		this.getDatagridConfig().width = width;
+
 		return this;
 	};
 
@@ -1292,6 +1344,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setHeight = function(height) {
 
 		this.getDatagridConfig().height = height;
+
 		return this;
 	};
 
@@ -1315,6 +1368,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setColumns = function(columns) {
 
 		this.getDatagridConfig().columns = columns;
+
 		return this;
 	};
 
@@ -1338,6 +1392,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setFrozenColumns = function(frozenColumns) {
 
 		this.getDatagridConfig().frozenColumns = frozenColumns;
+
 		return this;
 	};
 
@@ -1361,6 +1416,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setFitColumns = function(fitColumns) {
 
 		this.getDatagridConfig().fitColumns = fitColumns;
+
 		return this;
 	};
 
@@ -1384,6 +1440,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setResizeHandle = function(resizeHandle) {
 
 		this.getDatagridConfig().resizeHandle = resizeHandle;
+
 		return this;
 	};
 
@@ -1407,6 +1464,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setAutoRowHeight = function(autoRowHeight) {
 
 		this.getDatagridConfig().autoRowHeight = autoRowHeight;
+
 		return this;
 	};
 
@@ -1430,6 +1488,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setToolbar = function(toolbar) {
 
 		this.getDatagridConfig().toolbar = toolbar;
+
 		return this;
 	};
 
@@ -1453,6 +1512,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setStriped = function(striped) {
 
 		this.getDatagridConfig().striped = striped;
+
 		return this;
 	};
 
@@ -1476,6 +1536,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setMethod = function(method) {
 
 		this.getDatagridConfig().method = method;
+
 		return this;
 	};
 
@@ -1499,6 +1560,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setNowrap = function(nowrap) {
 
 		this.getDatagridConfig().nowrap = nowrap;
+
 		return this;
 	};
 
@@ -1522,6 +1584,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setIdField = function(idField) {
 
 		this.getDatagridConfig().idField = idField;
+
 		return this;
 	};
 
@@ -1545,6 +1608,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setUrl = function(url) {
 
 		this.getDatagridConfig().url = url;
+
 		return this;
 	};
 
@@ -1568,6 +1632,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setData = function(data) {
 
 		this.getDatagridConfig().data = data;
+
 		return this;
 	};
 
@@ -1591,6 +1656,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setLoadMsg = function(loadMsg) {
 
 		this.getDatagridConfig().loadMsg = loadMsg;
+
 		return this;
 	};
 
@@ -1614,6 +1680,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setPagination = function(pagination) {
 
 		this.getDatagridConfig().pagination = pagination;
+
 		return this;
 	};
 
@@ -1637,6 +1704,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setRownumbers = function(rownumbers) {
 
 		this.getDatagridConfig().rownumbers = rownumbers;
+
 		return this;
 	};
 
@@ -1660,6 +1728,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setSingleSelect = function(singleSelect) {
 
 		this.getDatagridConfig().singleSelect = singleSelect;
+
 		return this;
 	};
 
@@ -1683,6 +1752,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setCtrlSelect = function(ctrlSelect) {
 
 		this.getDatagridConfig().ctrlSelect = ctrlSelect;
+
 		return this;
 	};
 
@@ -1706,6 +1776,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setCheckOnSelect = function(checkOnSelect) {
 
 		this.getDatagridConfig().checkOnSelect = checkOnSelect;
+
 		return this;
 	};
 
@@ -1729,6 +1800,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setSelectOnCheck = function(selectOnCheck) {
 
 		this.getDatagridConfig().selectOnCheck = selectOnCheck;
+
 		return this;
 	};
 
@@ -1752,6 +1824,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setPagePosition = function(pagePosition) {
 
 		this.getDatagridConfig().pagePosition = pagePosition;
+
 		return this;
 	};
 
@@ -1775,6 +1848,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setPageNumber = function(pageNumber) {
 
 		this.getDatagridConfig().pageNumber = pageNumber;
+
 		return this;
 	};
 
@@ -1798,6 +1872,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setPageSize = function(pageSize) {
 
 		this.getDatagridConfig().pageSize = pageSize;
+
 		return this;
 	};
 
@@ -1821,6 +1896,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setPageList = function(pageList) {
 
 		this.getDatagridConfig().pageList = pageList;
+
 		return this;
 	};
 
@@ -1844,6 +1920,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setQueryParams = function(queryParams) {
 
 		this.getDatagridConfig().queryParams = queryParams;
+
 		return this;
 	};
 
@@ -1867,6 +1944,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setSortName = function(sortName) {
 
 		this.getDatagridConfig().sortName = sortName;
+
 		return this;
 	};
 
@@ -1890,6 +1968,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setSortOrder = function(sortOrder) {
 
 		this.getDatagridConfig().sortOrder = sortOrder;
+
 		return this;
 	};
 
@@ -1912,6 +1991,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setMultiSort = function(multiSort) {
 
 		this.getDatagridConfig().multiSort = multiSort;
+
 		return this;
 	};
 
@@ -1935,6 +2015,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setRemoteSort = function(remoteSort) {
 
 		this.getDatagridConfig().remoteSort = remoteSort;
+
 		return this;
 	};
 
@@ -1958,6 +2039,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setShowHeader = function(showHeader) {
 
 		this.getDatagridConfig().showHeader = showHeader;
+
 		return this;
 	};
 
@@ -1981,6 +2063,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setShowFooter = function(showFooter) {
 
 		this.getDatagridConfig().showFooter = showFooter;
+
 		return this;
 	};
 
@@ -2003,6 +2086,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setScrollbarSize = function(scrollbarSize) {
 
 		this.getDatagridConfig().scrollbarSize = scrollbarSize;
+
 		return this;
 	};
 
@@ -2026,6 +2110,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setRowStyler = function(rowStyler) {
 
 		this.getDatagridConfig().rowStyler = rowStyler;
+
 		return this;
 	};
 
@@ -2060,6 +2145,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setLoadFilter = function(loadFilter) {
 
 		this.getDatagridConfig().loadFilter = loadFilter;
+
 		return this;
 	};
 
@@ -2083,6 +2169,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setEditors = function(editors) {
 
 		this.getDatagridConfig().editors = editors;
+
 		return this;
 	};
 
@@ -2117,6 +2204,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnLoadSuccess = function(onLoadSuccess) {
 
 		this.getDatagridConfig().onLoadSuccess = onLoadSuccess;
+
 		return this;
 	};
 
@@ -2140,6 +2228,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnLoadError = function(onLoadError) {
 
 		this.getDatagridConfig().onLoadError = onLoadError;
+
 		return this;
 	};
 
@@ -2163,6 +2252,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeLoad = function(onBeforeLoad) {
 
 		this.getDatagridConfig().onBeforeLoad = onBeforeLoad;
+
 		return this;
 	};
 
@@ -2186,6 +2276,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnClickRow = function(onClickRow) {
 
 		this.getDatagridConfig().onClickRow = onClickRow;
+
 		return this;
 	};
 
@@ -2209,6 +2300,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnDblClickRow = function(onDblClickRow) {
 
 		this.getDatagridConfig().onDblClickRow = onDblClickRow;
+
 		return this;
 	};
 
@@ -2232,6 +2324,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnClickCell = function(onClickCell) {
 
 		this.getDatagridConfig().onClickCell = onClickCell;
+
 		return this;
 	};
 
@@ -2255,6 +2348,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnDblClickCell = function(onDblClickCell) {
 
 		this.getDatagridConfig().onDblClickCell = onDblClickCell;
+
 		return this;
 	};
 
@@ -2278,6 +2372,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeSortColumn = function(onBeforeSortColumn) {
 
 		this.getDatagridConfig().onBeforeSortColumn = onBeforeSortColumn;
+
 		return this;
 	};
 
@@ -2301,6 +2396,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnSortColumn = function(onSortColumn) {
 
 		this.getDatagridConfig().onSortColumn = onSortColumn;
+
 		return this;
 	};
 
@@ -2324,6 +2420,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnResizeColumn = function(onResizeColumn) {
 
 		this.getDatagridConfig().onResizeColumn = onResizeColumn;
+
 		return this;
 	};
 
@@ -2347,6 +2444,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeSelect = function(onBeforeSelect) {
 
 		this.getDatagridConfig().onBeforeSelect = onBeforeSelect;
+
 		return this;
 	};
 
@@ -2370,6 +2468,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnSelect = function(onSelect) {
 
 		this.getDatagridConfig().onSelect = onSelect;
+
 		return this;
 	};
 
@@ -2393,6 +2492,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeUnselect = function(onBeforeUnselect) {
 
 		this.getDatagridConfig().onBeforeUnselect = onBeforeUnselect;
+
 		return this;
 	};
 
@@ -2416,6 +2516,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnUnselect = function(onUnselect) {
 
 		this.getDatagridConfig().onUnselect = onUnselect;
+
 		return this;
 	};
 
@@ -2439,6 +2540,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.getOnSelectAll = function(onSelectAll) {
 
 		this.getDatagridConfig().onSelectAll = onSelectAll;
+
 		return this;
 	};
 
@@ -2462,6 +2564,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnUnselectAll = function(onUnselectAll) {
 
 		this.getDatagridConfig().onUnselectAll = onUnselectAll;
+
 		return this;
 	};
 
@@ -2485,6 +2588,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeCheck = function(onBeforeCheck) {
 
 		this.getDatagridConfig().onBeforeCheck = onBeforeCheck;
+
 		return this;
 	};
 
@@ -2508,6 +2612,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnCheck = function(onCheck) {
 
 		this.getDatagridConfig().onCheck = onCheck;
+
 		return this;
 	};
 
@@ -2531,6 +2636,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeUncheck = function(onBeforeUncheck) {
 
 		this.getDatagridConfig().onBeforeUncheck = onBeforeUncheck;
+
 		return this;
 	};
 
@@ -2554,6 +2660,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnUncheck = function(onUncheck) {
 
 		this.getDatagridConfig().onUncheck = onUncheck;
+
 		return this;
 	};
 
@@ -2577,6 +2684,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnCheckAll = function(onCheckAll) {
 
 		this.getDatagridConfig().onCheckAll = onCheckAll;
+
 		return this;
 	};
 
@@ -2600,6 +2708,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnUncheckAll = function(onUncheckAll) {
 
 		this.getDatagridConfig().onUncheckAll = onUncheckAll;
+
 		return this;
 	};
 
@@ -2623,6 +2732,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeforeEdit = function(onBeforeEdit) {
 
 		this.getDatagridConfig().onBeforeEdit = onBeforeEdit;
+
 		return this;
 	};
 
@@ -2646,6 +2756,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnBeginEdit = function(onBeginEdit) {
 
 		this.getDatagridConfig().onBeginEdit = onBeginEdit;
+
 		return this;
 	};
 
@@ -2669,6 +2780,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnEndEdit = function(onEndEdit) {
 
 		this.getDatagridConfig().onEndEdit = onEndEdit;
+
 		return this;
 	};
 
@@ -2692,6 +2804,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnAfterEdit = function(onAfterEdit) {
 
 		this.getDatagridConfig().onAfterEdit = onAfterEdit;
+
 		return this;
 	};
 
@@ -2715,6 +2828,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnCancelEdit = function(onCancelEdit) {
 
 		this.getDatagridConfig().onCancelEdit = onCancelEdit;
+
 		return this;
 	};
 
@@ -2738,6 +2852,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnHeaderContextMenu = function(onHeaderContextMenu) {
 
 		this.getDatagridConfig().onHeaderContextMenu = onHeaderContextMenu;
+
 		return this;
 	};
 
@@ -2761,6 +2876,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.setOnRowContextMenu = function(onRowContextMenu) {
 
 		this.getDatagridConfig().onRowContextMenu = onRowContextMenu;
+
 		return this;
 	};
 
