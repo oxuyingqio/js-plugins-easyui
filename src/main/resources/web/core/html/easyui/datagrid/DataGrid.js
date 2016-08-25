@@ -1,13 +1,13 @@
 /**
- * @name Datagrid
- * @package core.html.easyui.datagrid
- * @desc datagrid模板
- * @type 类
+ * @name	DataGrid
+ * @package core.html.easyui.DataGrid
+ * @desc	DataGrid模板
+ * @type	类
  * 
- * @date 2016年8月25日 14:14:50
+ * @date	2016年8月25日 14:14:50
  */
 
-core.html.easyui.datagrid.Datagrid = (function() {
+core.html.easyui.datagrid.DataGrid = (function() {
 
 	/**
 	 * cookie操作
@@ -29,7 +29,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 */
 		height : null,
 
-		/** ==========datagrid属性========== */
+		/** ==========DataGrid属性========== */
 		/**
 		 * 列
 		 */
@@ -114,8 +114,8 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		/**
 		 * 分页数
 		 */
-		pageSize : cookie.get("coreHtmlEasyuiDatagridPageSize") == null ? 20 : cookie
-				.get("coreHtmlEasyuiDatagridPageSize"),
+		pageSize : cookie.get("coreHtmlEasyuiDataGridPageSize") == null ? 20 : cookie
+				.get("coreHtmlEasyuiDataGridPageSize"),
 		/**
 		 * 分页数可选列表
 		 */
@@ -177,7 +177,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		// what's this?
 		// view : null,
 
-		/** ==========datagrid事件========== */
+		/** ==========DataGrid事件========== */
 		/**
 		 * 数据加载成功
 		 * 
@@ -493,32 +493,32 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	/**
 	 * 模板所在Div 初始化
 	 * 
-	 * @param $datagrid{Object}
+	 * @param $dataGrid{Object}
 	 *            模板所在Div的jQuery对象
 	 */
-	function divInit($datagrid) {
+	function divInit($dataGrid) {
 
-		$datagrid.empty();
+		$dataGrid.empty();
 	}
 
 	/**
 	 * 打包封装模板的jQuery对象
 	 * 
-	 * @param $datagrid{Object}
+	 * @param $dataGrid{Object}
 	 *            模板的jQuery对象
 	 * @returns {Object} 模板的jQuery对象
 	 */
-	function packageJQuery($datagrid) {
+	function packageJQuery($dataGrid) {
 
-		/** ==========datagrid方法========== */
+		/** ==========DataGrid方法========== */
 		/**
 		 * 获取属性对象
 		 * 
 		 * @returns {Object}
 		 */
-		$datagrid.options = function() {
+		$dataGrid.options = function() {
 
-			return $datagrid.datagrid("options");
+			return $dataGrid.datagrid("options");
 		};
 
 		/**
@@ -526,9 +526,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Object}
 		 */
-		$datagrid.getPager = function() {
+		$dataGrid.getPager = function() {
 
-			return $datagrid.datagrid("getPager");
+			return $dataGrid.datagrid("getPager");
 		};
 
 		/**
@@ -536,9 +536,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Object}
 		 */
-		$datagrid.getPanel = function() {
+		$dataGrid.getPanel = function() {
 
-			return $datagrid.datagrid("getPanel");
+			return $dataGrid.datagrid("getPanel");
 		};
 
 		/**
@@ -547,9 +547,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @param frozen{Object}
 		 * @returns {Object}
 		 */
-		$datagrid.getColumnFields = function(frozen) {
+		$dataGrid.getColumnFields = function(frozen) {
 
-			return $datagrid.datagrid("getColumnFields", frozen);
+			return $dataGrid.datagrid("getColumnFields", frozen);
 		};
 
 		/**
@@ -558,9 +558,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @param field{Object}
 		 * @returns {Object}
 		 */
-		$datagrid.getColumnOption = function(field) {
+		$dataGrid.getColumnOption = function(field) {
 
-			return $datagrid.datagrid("getColumnOption", field);
+			return $dataGrid.datagrid("getColumnOption", field);
 		};
 
 		/**
@@ -570,9 +570,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.resize = function(param) {
+		$dataGrid.resize = function(param) {
 
-			return $datagrid.datagrid("resize", param);
+			return $dataGrid.datagrid("resize", param);
 		};
 
 		/**
@@ -582,9 +582,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.load = function(param) {
+		$dataGrid.load = function(param) {
 
-			return $datagrid.datagrid("load", param);
+			return $dataGrid.datagrid("load", param);
 		};
 
 		/**
@@ -594,9 +594,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.reload = function(param) {
+		$dataGrid.reload = function(param) {
 
-			return $datagrid.datagrid("reload", param);
+			return $dataGrid.datagrid("reload", param);
 		};
 
 		/**
@@ -605,8 +605,8 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @param footer{Object}
 		 * @returns
 		 */
-		$datagrid.reloadFooter = function(footer) {
-			return $datagrid.datagrid("reloadFooter", footer);
+		$dataGrid.reloadFooter = function(footer) {
+			return $dataGrid.datagrid("reloadFooter", footer);
 		};
 
 		/**
@@ -614,9 +614,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.loading = function() {
+		$dataGrid.loading = function() {
 
-			return $datagrid.datagrid("loading");
+			return $dataGrid.datagrid("loading");
 		};
 
 		/**
@@ -624,9 +624,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.loaded = function() {
+		$dataGrid.loaded = function() {
 
-			return $datagrid.datagrid("loaded");
+			return $dataGrid.datagrid("loaded");
 		};
 
 		/**
@@ -634,9 +634,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.fitColumns = function() {
+		$dataGrid.fitColumns = function() {
 
-			return $datagrid.datagrid("fitColumns");
+			return $dataGrid.datagrid("fitColumns");
 		};
 
 		/**
@@ -646,9 +646,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            字段
 		 * @returns
 		 */
-		$datagrid.fixColumnSize = function(field) {
+		$dataGrid.fixColumnSize = function(field) {
 
-			return $datagrid.datagrid("fixColumnSize", field);
+			return $dataGrid.datagrid("fixColumnSize", field);
 		};
 
 		/**
@@ -658,9 +658,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.fixRowHeight = function(index) {
+		$dataGrid.fixRowHeight = function(index) {
 
-			return $datagrid.datagrid("fixRowHeight", index);
+			return $dataGrid.datagrid("fixRowHeight", index);
 		};
 
 		/**
@@ -670,9 +670,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.freezeRow = function(index) {
+		$dataGrid.freezeRow = function(index) {
 
-			return $datagrid.datagrid("freezeRow", index);
+			return $dataGrid.datagrid("freezeRow", index);
 		};
 
 		/**
@@ -682,9 +682,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            列字段
 		 * @returns
 		 */
-		$datagrid.autoSizeColumn = function(field) {
+		$dataGrid.autoSizeColumn = function(field) {
 
-			return $datagrid.datagrid("autoSizeColumn", field);
+			return $dataGrid.datagrid("autoSizeColumn", field);
 		};
 
 		/**
@@ -694,9 +694,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            需要加载的数据
 		 * @returns
 		 */
-		$datagrid.loadData = function(data) {
+		$dataGrid.loadData = function(data) {
 
-			return $datagrid.datagrid("loadData", data);
+			return $dataGrid.datagrid("loadData", data);
 		};
 
 		/**
@@ -704,9 +704,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Array}
 		 */
-		$datagrid.getData = function() {
+		$dataGrid.getData = function() {
 
-			return $datagrid.datagrid("getData");
+			return $dataGrid.datagrid("getData");
 		};
 
 		/**
@@ -714,9 +714,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Array}
 		 */
-		$datagrid.getRows = function() {
+		$dataGrid.getRows = function() {
 
-			return $datagrid.datagrid("getRows");
+			return $dataGrid.datagrid("getRows");
 		};
 
 		/**
@@ -724,9 +724,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.getFooterRows = function() {
+		$dataGrid.getFooterRows = function() {
 
-			return $datagrid.datagrid("getFooterRows");
+			return $dataGrid.datagrid("getFooterRows");
 		};
 
 		/**
@@ -736,9 +736,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行对象
 		 * @returns {Number}
 		 */
-		$datagrid.getRowIndex = function(row) {
+		$dataGrid.getRowIndex = function(row) {
 
-			return $datagrid.datagrid("getRowIndex", row);
+			return $dataGrid.datagrid("getRowIndex", row);
 		};
 
 		/**
@@ -746,9 +746,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Object}
 		 */
-		$datagrid.getChecked = function() {
+		$dataGrid.getChecked = function() {
 
-			return $datagrid.datagrid("getChecked");
+			return $dataGrid.datagrid("getChecked");
 		};
 
 		/**
@@ -756,9 +756,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Object}
 		 */
-		$datagrid.getSelected = function() {
+		$dataGrid.getSelected = function() {
 
-			return $datagrid.datagrid("getSelected");
+			return $dataGrid.datagrid("getSelected");
 		};
 
 		/**
@@ -766,9 +766,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Array}
 		 */
-		$datagrid.getSelections = function() {
+		$dataGrid.getSelections = function() {
 
-			return $datagrid.datagrid("getSelections");
+			return $dataGrid.datagrid("getSelections");
 		};
 
 		/**
@@ -776,9 +776,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.clearSelections = function() {
+		$dataGrid.clearSelections = function() {
 
-			return $datagrid.datagrid("clearSelections");
+			return $dataGrid.datagrid("clearSelections");
 		};
 
 		/**
@@ -786,9 +786,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.clearChecked = function() {
+		$dataGrid.clearChecked = function() {
 
-			return $datagrid.datagrid("clearChecked");
+			return $dataGrid.datagrid("clearChecked");
 		};
 
 		/**
@@ -798,9 +798,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.scrollTo = function(index) {
+		$dataGrid.scrollTo = function(index) {
 
-			return $datagrid.datagrid("scrollTo", index);
+			return $dataGrid.datagrid("scrollTo", index);
 		};
 
 		/**
@@ -810,9 +810,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.gotoPage = function(param) {
+		$dataGrid.gotoPage = function(param) {
 
-			return $datagrid.datagrid("gotoPage", param);
+			return $dataGrid.datagrid("gotoPage", param);
 		};
 
 		/**
@@ -822,9 +822,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.highlightRow = function(index) {
+		$dataGrid.highlightRow = function(index) {
 
-			return $datagrid.datagrid("highlightRow", index);
+			return $dataGrid.datagrid("highlightRow", index);
 		};
 
 		/**
@@ -832,9 +832,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.selectAll = function() {
+		$dataGrid.selectAll = function() {
 
-			return $datagrid.datagrid("selectAll");
+			return $dataGrid.datagrid("selectAll");
 		};
 
 		/**
@@ -842,9 +842,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.unselectAll = function() {
+		$dataGrid.unselectAll = function() {
 
-			return $datagrid.datagrid("unselectAll");
+			return $dataGrid.datagrid("unselectAll");
 		};
 
 		/**
@@ -854,9 +854,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.selectRow = function(index) {
+		$dataGrid.selectRow = function(index) {
 
-			return $datagrid.datagrid("selectRow", index);
+			return $dataGrid.datagrid("selectRow", index);
 		};
 
 		/**
@@ -866,9 +866,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            id值
 		 * @returns
 		 */
-		$datagrid.selectRecord = function(idValue) {
+		$dataGrid.selectRecord = function(idValue) {
 
-			return $datagrid.datagrid("selectRecord", idValue);
+			return $dataGrid.datagrid("selectRecord", idValue);
 		};
 
 		/**
@@ -878,9 +878,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.unselectRow = function(index) {
+		$dataGrid.unselectRow = function(index) {
 
-			return $datagrid.datagrid("unselectRow", index);
+			return $dataGrid.datagrid("unselectRow", index);
 		};
 
 		/**
@@ -888,9 +888,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.checkAll = function() {
+		$dataGrid.checkAll = function() {
 
-			return $datagrid.datagrid("checkAll");
+			return $dataGrid.datagrid("checkAll");
 		};
 
 		/**
@@ -898,9 +898,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.uncheckAll = function() {
+		$dataGrid.uncheckAll = function() {
 
-			return $datagrid.datagrid("uncheckAll");
+			return $dataGrid.datagrid("uncheckAll");
 		};
 
 		/**
@@ -910,9 +910,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.checkRow = function(index) {
+		$dataGrid.checkRow = function(index) {
 
-			return $datagrid.datagrid("checkRow", index);
+			return $dataGrid.datagrid("checkRow", index);
 		};
 
 		/**
@@ -922,9 +922,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.uncheckRow = function(index) {
+		$dataGrid.uncheckRow = function(index) {
 
-			return $datagrid.datagrid("uncheckRow", index);
+			return $dataGrid.datagrid("uncheckRow", index);
 		};
 
 		/**
@@ -934,9 +934,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.beginEdit = function(index) {
+		$dataGrid.beginEdit = function(index) {
 
-			return $datagrid.datagrid("beginEdit", index);
+			return $dataGrid.datagrid("beginEdit", index);
 		};
 
 		/**
@@ -946,9 +946,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.endEdit = function(index) {
+		$dataGrid.endEdit = function(index) {
 
-			return $datagrid.datagrid("endEdit", index);
+			return $dataGrid.datagrid("endEdit", index);
 		};
 
 		/**
@@ -958,9 +958,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.cancelEdit = function(index) {
+		$dataGrid.cancelEdit = function(index) {
 
-			return $datagrid.datagrid("cancelEdit", index);
+			return $dataGrid.datagrid("cancelEdit", index);
 		};
 
 		/**
@@ -970,9 +970,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.getEditors = function(index) {
+		$dataGrid.getEditors = function(index) {
 
-			return $datagrid.datagrid("getEditors", index);
+			return $dataGrid.datagrid("getEditors", index);
 		};
 
 		/**
@@ -982,9 +982,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.getEditor = function(options) {
+		$dataGrid.getEditor = function(options) {
 
-			return $datagrid.datagrid("getEditor", options);
+			return $dataGrid.datagrid("getEditor", options);
 		};
 
 		/**
@@ -994,9 +994,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.refreshRow = function(index) {
+		$dataGrid.refreshRow = function(index) {
 
-			return $datagrid.datagrid("refreshRow", index);
+			return $dataGrid.datagrid("refreshRow", index);
 		};
 
 		/**
@@ -1006,9 +1006,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.validateRow = function(index) {
+		$dataGrid.validateRow = function(index) {
 
-			return $datagrid.datagrid("validateRow", index);
+			return $dataGrid.datagrid("validateRow", index);
 		};
 
 		/**
@@ -1018,9 +1018,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.updateRow = function(param) {
+		$dataGrid.updateRow = function(param) {
 
-			return $datagrid.datagrid("updateRow", param);
+			return $dataGrid.datagrid("updateRow", param);
 		};
 
 		/**
@@ -1030,9 +1030,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行对象
 		 * @returns
 		 */
-		$datagrid.appendRow = function(row) {
+		$dataGrid.appendRow = function(row) {
 
-			return $datagrid.datagrid("appendRow", row);
+			return $dataGrid.datagrid("appendRow", row);
 		};
 
 		/**
@@ -1042,9 +1042,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.insertRow = function(param) {
+		$dataGrid.insertRow = function(param) {
 
-			return $datagird.datagrid("insertRow", param);
+			return $dataGrid.datagrid("insertRow", param);
 		};
 
 		/**
@@ -1054,9 +1054,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.deleteRow = function(index) {
+		$dataGrid.deleteRow = function(index) {
 
-			return $datagrid.datagrid("deleteRow", index);
+			return $dataGrid.datagrid("deleteRow", index);
 		};
 
 		/**
@@ -1066,9 +1066,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            类型
 		 * @returns
 		 */
-		$datagrid.getChanges = function(type) {
+		$dataGrid.getChanges = function(type) {
 
-			return $datagrid.datagrid("getChanges", type);
+			return $dataGrid.datagrid("getChanges", type);
 		};
 
 		/**
@@ -1076,9 +1076,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.acceptChanges = function() {
+		$dataGrid.acceptChanges = function() {
 
-			return $datagrid.datagrid("acceptChanges");
+			return $dataGrid.datagrid("acceptChanges");
 		};
 
 		/**
@@ -1086,9 +1086,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.rejectChanges = function() {
+		$dataGrid.rejectChanges = function() {
 
-			return $datagird.datagrid("rejectChanges");
+			return $dataGrid.datagrid("rejectChanges");
 		};
 
 		/**
@@ -1097,9 +1097,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @param options{Object}
 		 * @returns
 		 */
-		$datagrid.mergeCells = function(options) {
+		$dataGrid.mergeCells = function(options) {
 
-			return $datagrid.datagrid("mergeCells", options);
+			return $dataGrid.datagrid("mergeCells", options);
 		};
 
 		/**
@@ -1109,9 +1109,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            列字段
 		 * @returns
 		 */
-		$datagrid.showColumn = function(field) {
+		$dataGrid.showColumn = function(field) {
 
-			return $datagrid.datagrid("showColumn", field);
+			return $dataGrid.datagrid("showColumn", field);
 		};
 
 		/**
@@ -1121,9 +1121,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            列字段
 		 * @returns
 		 */
-		$datagrid.hideColumn = function(field) {
+		$dataGrid.hideColumn = function(field) {
 
-			return $datagrid.datagrid("hideColumn", field);
+			return $dataGrid.datagrid("hideColumn", field);
 		};
 
 		/**
@@ -1133,9 +1133,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            参数
 		 * @returns
 		 */
-		$datagrid.sort = function(param) {
+		$dataGrid.sort = function(param) {
 
-			return $datagrid.datagrid("sort", param);
+			return $dataGrid.datagrid("sort", param);
 		};
 
 		/** ==========扩展方法========== */
@@ -1146,9 +1146,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            宽度
 		 * @returns
 		 */
-		$datagrid.setWidth = function(width) {
+		$dataGrid.setWidth = function(width) {
 
-			return $datagrid.resize({
+			return $dataGrid.resize({
 				width : width
 			});
 		};
@@ -1160,9 +1160,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            高度
 		 * @returns
 		 */
-		$datagrid.setHeight = function(height) {
+		$dataGrid.setHeight = function(height) {
 
-			return $datagrid.resize({
+			return $dataGrid.resize({
 				height : height
 			});
 		};
@@ -1172,9 +1172,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Number}
 		 */
-		$datagrid.getCurrentDataNum = function() {
+		$dataGrid.getCurrentDataNum = function() {
 
-			var data = $datagrid.getData();
+			var data = $dataGrid.getData();
 			return data.rows.length;
 		}
 
@@ -1183,9 +1183,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Number}
 		 */
-		$datagrid.getTotalDataNum = function() {
+		$dataGrid.getTotalDataNum = function() {
 
-			var data = $datagrid.getData();
+			var data = $dataGrid.getData();
 			return data.total;
 		}
 
@@ -1194,9 +1194,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Number}
 		 */
-		$datagrid.getPageSize = function() {
+		$dataGrid.getPageSize = function() {
 
-			var options = $datagrid.getPager().data("pagination").options;
+			var options = $dataGrid.getPager().data("pagination").options;
 			return options.pageSize;
 		}
 
@@ -1205,9 +1205,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Number}
 		 */
-		$datagrid.getPageNum = function() {
+		$dataGrid.getPageNum = function() {
 
-			var options = $datagrid.getPager().data("pagination").options;
+			var options = $dataGrid.getPager().data("pagination").options;
 			var total = options.total;
 			var max = Math.ceil(total / options.pageSize);
 			return max;
@@ -1218,9 +1218,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Number}
 		 */
-		$datagrid.getCurrentPageNum = function() {
+		$dataGrid.getCurrentPageNum = function() {
 
-			var options = $datagrid.getPager().data("pagination").options;
+			var options = $dataGrid.getPager().data("pagination").options;
 			return options.pageNumber;
 		}
 
@@ -1229,11 +1229,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.selectBeforePage = function() {
+		$dataGrid.selectBeforePage = function() {
 
-			var Pager = $datagrid.getPager();
+			var Pager = $dataGrid.getPager();
 			var options = Pager.data("pagination").options;
-			$datagrid.gotoPage(options.pageNumber - 1);
+			$dataGrid.gotoPage(options.pageNumber - 1);
 		}
 
 		/**
@@ -1241,11 +1241,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns
 		 */
-		$datagrid.selectNextPage = function() {
+		$dataGrid.selectNextPage = function() {
 
-			var Pager = $datagrid.getPager();
+			var Pager = $dataGrid.getPager();
 			var options = Pager.data("pagination").options;
-			$datagrid.gotoPage(options.pageNumber + 1);
+			$dataGrid.gotoPage(options.pageNumber + 1);
 		}
 
 		/**
@@ -1255,9 +1255,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号
 		 * @returns
 		 */
-		$datagrid.getRow = function(index) {
+		$dataGrid.getRow = function(index) {
 
-			return $datagrid.getRows()[index];
+			return $dataGrid.getRows()[index];
 		};
 
 		/**
@@ -1269,24 +1269,24 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 *            行号2
 		 * @returns
 		 */
-		$datagrid.changeRowOrder = function(index1, index2) {
+		$dataGrid.changeRowOrder = function(index1, index2) {
 
 			var min = index1 > index2 ? index2 : index1;
 			var max = index1 > index2 ? index1 : index2;
 
-			var rowMin = $datagrid.getRows()[min];
-			var rowMax = $datagrid.getRows()[max];
+			var rowMin = $dataGrid.getRows()[min];
+			var rowMax = $dataGrid.getRows()[max];
 
 			// 删除
-			$datagrid.deleteRow(max);
-			$datagrid.deleteRow(min);
+			$dataGrid.deleteRow(max);
+			$dataGrid.deleteRow(min);
 
 			// 添加
-			$datagrid.insertRow({
+			$dataGrid.insertRow({
 				index : min,
 				row : rowMax
 			});
-			$datagrid.insertRow({
+			$dataGrid.insertRow({
 				index : max,
 				row : rowMin
 			});
@@ -1297,12 +1297,12 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Number}
 		 */
-		$datagrid.getSelectedRowIndex = function() {
+		$dataGrid.getSelectedRowIndex = function() {
 
-			return $datagrid.getRowIndex($datagrid.getSelected());
+			return $dataGrid.getRowIndex($dataGrid.getSelected());
 		};
 
-		return $datagrid;
+		return $dataGrid;
 	}
 
 	/**
@@ -1316,13 +1316,13 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		// 模板所在的Div id
 		var divid = _divid;
 		// 模板所在Div的jQuery对象
-		var $datagrid = $("#" + divid);
-		if ($datagrid.length === 0) {
-			new core.lang.Exception("core.html.easyui.datagrid.Datagrid", "构造参数异常", "div(id:" + divid + ")不存在.");
+		var $dataGrid = $("#" + divid);
+		if ($dataGrid.length === 0) {
+			new core.lang.Exception("core.html.easyui.datagrid.DataGrid", "构造参数异常", "div(id:" + divid + ")不存在.");
 		}
 
-		// datagrid 配置
-		var datagridConfig = Object.clone(DEFAULT_CONFIG);
+		// DataGrid 配置
+		var dataGridConfig = Object.clone(DEFAULT_CONFIG);
 
 		/**
 		 * 获取模板所在Div ID
@@ -1339,9 +1339,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {jQuery}
 		 */
-		this.getDatagridJQuery = function() {
+		this.getDataGridJQuery = function() {
 
-			return $datagrid;
+			return $dataGrid;
 		};
 
 		/**
@@ -1349,21 +1349,21 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * 
 		 * @returns {Object}
 		 */
-		this.getDatagridConfig = function() {
+		this.getDataGridConfig = function() {
 
-			return datagridConfig;
+			return dataGridConfig;
 		};
 
 		/**
 		 * 设置模板配置
 		 * 
-		 * @param datagridConfig{Object}
+		 * @param dataGridConfig{Object}
 		 *            模板配置
-		 * @returns {core.html.easyui.datagrid.Datagrid}
+		 * @returns {core.html.easyui.datagrid.DataGrid}
 		 */
-		this.setDatagridConfig = function(_datagridConfig) {
+		this.setDataGridConfig = function(_dataGridConfig) {
 
-			datagridConfig = _datagridConfig;
+			dataGridConfig = _dataGridConfig;
 			return this;
 		};
 	};
@@ -1375,7 +1375,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getWidth = function() {
 
-		return this.getDatagridConfig().width;
+		return this.getDataGridConfig().width;
 	};
 
 	/**
@@ -1383,11 +1383,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param width{Number}
 	 *            宽度
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setWidth = function(width) {
 
-		this.getDatagridConfig().width = width;
+		this.getDataGridConfig().width = width;
 
 		return this;
 	};
@@ -1399,7 +1399,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getHeight = function() {
 
-		return this.getDatagridConfig().height;
+		return this.getDataGridConfig().height;
 	};
 
 	/**
@@ -1407,11 +1407,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param height{Number}
 	 *            高度
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setHeight = function(height) {
 
-		this.getDatagridConfig().height = height;
+		this.getDataGridConfig().height = height;
 
 		return this;
 	};
@@ -1423,7 +1423,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getColumns = function() {
 
-		return this.getDatagridConfig().columns;
+		return this.getDataGridConfig().columns;
 	};
 
 	/**
@@ -1431,11 +1431,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param columns{Array}
 	 *            列
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setColumns = function(columns) {
 
-		this.getDatagridConfig().columns = columns;
+		this.getDataGridConfig().columns = columns;
 
 		return this;
 	};
@@ -1447,7 +1447,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getFrozenColumns = function() {
 
-		return this.getDatagridConfig().frozenColumns;
+		return this.getDataGridConfig().frozenColumns;
 	};
 
 	/**
@@ -1455,11 +1455,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param frozenColumns{Array}
 	 *            冻结列
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setFrozenColumns = function(frozenColumns) {
 
-		this.getDatagridConfig().frozenColumns = frozenColumns;
+		this.getDataGridConfig().frozenColumns = frozenColumns;
 
 		return this;
 	};
@@ -1471,7 +1471,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getFitColumns = function() {
 
-		return this.getDatagridConfig().fitColumns;
+		return this.getDataGridConfig().fitColumns;
 	};
 
 	/**
@@ -1479,11 +1479,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param fitColumns{Boolean}
 	 *            是否列宽自适应
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setFitColumns = function(fitColumns) {
 
-		this.getDatagridConfig().fitColumns = fitColumns;
+		this.getDataGridConfig().fitColumns = fitColumns;
 
 		return this;
 	};
@@ -1495,7 +1495,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getResizeHandle = function() {
 
-		return this.getDatagridConfig().resizeHandle;
+		return this.getDataGridConfig().resizeHandle;
 	};
 
 	/**
@@ -1503,11 +1503,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param resizeHandle{Boolean}
 	 *            是否改变列头
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setResizeHandle = function(resizeHandle) {
 
-		this.getDatagridConfig().resizeHandle = resizeHandle;
+		this.getDataGridConfig().resizeHandle = resizeHandle;
 
 		return this;
 	};
@@ -1519,7 +1519,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getAutoRowHeight = function() {
 
-		return this.getDatagridConfig().autoRowHeight;
+		return this.getDataGridConfig().autoRowHeight;
 	};
 
 	/**
@@ -1527,11 +1527,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param autoRowHeight{Boolean}
 	 *            是否行高自适应
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setAutoRowHeight = function(autoRowHeight) {
 
-		this.getDatagridConfig().autoRowHeight = autoRowHeight;
+		this.getDataGridConfig().autoRowHeight = autoRowHeight;
 
 		return this;
 	};
@@ -1543,7 +1543,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getToolbar = function() {
 
-		return this.getDatagridConfig().toolbar;
+		return this.getDataGridConfig().toolbar;
 	};
 
 	/**
@@ -1551,11 +1551,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param toolbar{Array}
 	 *            工具条
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setToolbar = function(toolbar) {
 
-		this.getDatagridConfig().toolbar = toolbar;
+		this.getDataGridConfig().toolbar = toolbar;
 
 		return this;
 	};
@@ -1567,7 +1567,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getStriped = function() {
 
-		return this.getDatagridConfig().striped;
+		return this.getDataGridConfig().striped;
 	};
 
 	/**
@@ -1575,11 +1575,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param striped{Boolean}
 	 *            是否各行变色
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setStriped = function(striped) {
 
-		this.getDatagridConfig().striped = striped;
+		this.getDataGridConfig().striped = striped;
 
 		return this;
 	};
@@ -1591,7 +1591,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getMethod = function() {
 
-		return this.getDatagridConfig().method;
+		return this.getDataGridConfig().method;
 	};
 
 	/**
@@ -1599,11 +1599,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param method{String}
 	 *            提交方式
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setMethod = function(method) {
 
-		this.getDatagridConfig().method = method;
+		this.getDataGridConfig().method = method;
 
 		return this;
 	};
@@ -1615,7 +1615,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getNowrap = function() {
 
-		return this.getDatagridConfig().nowrap;
+		return this.getDataGridConfig().nowrap;
 	};
 
 	/**
@@ -1623,11 +1623,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param nowrap{Boolean}
 	 *            是否禁止文字自动换行
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setNowrap = function(nowrap) {
 
-		this.getDatagridConfig().nowrap = nowrap;
+		this.getDataGridConfig().nowrap = nowrap;
 
 		return this;
 	};
@@ -1639,7 +1639,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getIdField = function() {
 
-		return this.getDatagridConfig().idField;
+		return this.getDataGridConfig().idField;
 	};
 
 	/**
@@ -1647,11 +1647,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param idField{String}
 	 *            id字段
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setIdField = function(idField) {
 
-		this.getDatagridConfig().idField = idField;
+		this.getDataGridConfig().idField = idField;
 
 		return this;
 	};
@@ -1663,7 +1663,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getUrl = function() {
 
-		return this.getDatagridConfig().url;
+		return this.getDataGridConfig().url;
 	};
 
 	/**
@@ -1671,11 +1671,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param url{String}
 	 *            数据URL
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setUrl = function(url) {
 
-		this.getDatagridConfig().url = url;
+		this.getDataGridConfig().url = url;
 
 		return this;
 	};
@@ -1687,7 +1687,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getData = function() {
 
-		return this.getDatagridConfig().data;
+		return this.getDataGridConfig().data;
 	};
 
 	/**
@@ -1695,11 +1695,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param data{Array}
 	 *            数据
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setData = function(data) {
 
-		this.getDatagridConfig().data = data;
+		this.getDataGridConfig().data = data;
 
 		return this;
 	};
@@ -1711,7 +1711,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getLoadMsg = function() {
 
-		return this.getDatagridConfig().loadMsg;
+		return this.getDataGridConfig().loadMsg;
 	};
 
 	/**
@@ -1719,11 +1719,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param loadMsg{String}
 	 *            数据加载等待提示
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setLoadMsg = function(loadMsg) {
 
-		this.getDatagridConfig().loadMsg = loadMsg;
+		this.getDataGridConfig().loadMsg = loadMsg;
 
 		return this;
 	};
@@ -1735,7 +1735,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getPagination = function() {
 
-		return this.getDatagridConfig().pagination;
+		return this.getDataGridConfig().pagination;
 	};
 
 	/**
@@ -1743,11 +1743,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param pagination{Boolean}
 	 *            是否显示页脚工具栏
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setPagination = function(pagination) {
 
-		this.getDatagridConfig().pagination = pagination;
+		this.getDataGridConfig().pagination = pagination;
 
 		return this;
 	};
@@ -1759,7 +1759,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getRownumbers = function() {
 
-		return this.getDatagridConfig().rownumbers;
+		return this.getDataGridConfig().rownumbers;
 	};
 
 	/**
@@ -1767,11 +1767,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param rownumbers{Boolean}
 	 *            是否显示行号
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setRownumbers = function(rownumbers) {
 
-		this.getDatagridConfig().rownumbers = rownumbers;
+		this.getDataGridConfig().rownumbers = rownumbers;
 
 		return this;
 	};
@@ -1783,7 +1783,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getSingleSelect = function() {
 
-		return this.getDatagridConfig().singleSelect;
+		return this.getDataGridConfig().singleSelect;
 	};
 
 	/**
@@ -1791,11 +1791,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param singleSelect{Boolean}
 	 *            是否仅能选中单行
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setSingleSelect = function(singleSelect) {
 
-		this.getDatagridConfig().singleSelect = singleSelect;
+		this.getDataGridConfig().singleSelect = singleSelect;
 
 		return this;
 	};
@@ -1807,7 +1807,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getCtrlSelect = function() {
 
-		return this.getDatagridConfig().ctrlSelect;
+		return this.getDataGridConfig().ctrlSelect;
 	};
 
 	/**
@@ -1815,11 +1815,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param ctrlSelect{Boolean}
 	 *            是否ctrl键选中
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setCtrlSelect = function(ctrlSelect) {
 
-		this.getDatagridConfig().ctrlSelect = ctrlSelect;
+		this.getDataGridConfig().ctrlSelect = ctrlSelect;
 
 		return this;
 	};
@@ -1831,7 +1831,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getCheckOnSelect = function() {
 
-		return this.getDatagridConfig().checkOnSelect;
+		return this.getDataGridConfig().checkOnSelect;
 	};
 
 	/**
@@ -1839,11 +1839,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param checkOnSelect{Boolean}
 	 *            是否check时选中
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setCheckOnSelect = function(checkOnSelect) {
 
-		this.getDatagridConfig().checkOnSelect = checkOnSelect;
+		this.getDataGridConfig().checkOnSelect = checkOnSelect;
 
 		return this;
 	};
@@ -1855,7 +1855,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getSelectOnCheck = function() {
 
-		return this.getDatagridConfig().selectOnCheck;
+		return this.getDataGridConfig().selectOnCheck;
 	};
 
 	/**
@@ -1863,11 +1863,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param selectOnCheck{Boolean}
 	 *            是否选中时check
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setSelectOnCheck = function(selectOnCheck) {
 
-		this.getDatagridConfig().selectOnCheck = selectOnCheck;
+		this.getDataGridConfig().selectOnCheck = selectOnCheck;
 
 		return this;
 	};
@@ -1879,7 +1879,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getPagePosition = function() {
 
-		return this.getDatagridConfig().pagePosition;
+		return this.getDataGridConfig().pagePosition;
 	};
 
 	/**
@@ -1887,11 +1887,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param pagePosition{String}
 	 *            分页工具条位置
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setPagePosition = function(pagePosition) {
 
-		this.getDatagridConfig().pagePosition = pagePosition;
+		this.getDataGridConfig().pagePosition = pagePosition;
 
 		return this;
 	};
@@ -1903,7 +1903,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getPageNumber = function() {
 
-		return this.getDatagridConfig().pageNumber;
+		return this.getDataGridConfig().pageNumber;
 	};
 
 	/**
@@ -1911,11 +1911,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param pageNumber{Number}
 	 *            默认页码
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setPageNumber = function(pageNumber) {
 
-		this.getDatagridConfig().pageNumber = pageNumber;
+		this.getDataGridConfig().pageNumber = pageNumber;
 
 		return this;
 	};
@@ -1927,7 +1927,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getPageSize = function() {
 
-		return this.getDatagridConfig().pageSize;
+		return this.getDataGridConfig().pageSize;
 	};
 
 	/**
@@ -1935,11 +1935,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param pageSize{Number}
 	 *            分页数
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setPageSize = function(pageSize) {
 
-		this.getDatagridConfig().pageSize = pageSize;
+		this.getDataGridConfig().pageSize = pageSize;
 
 		return this;
 	};
@@ -1951,7 +1951,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getPageList = function() {
 
-		return this.getDatagridConfig().pageList;
+		return this.getDataGridConfig().pageList;
 	};
 
 	/**
@@ -1959,11 +1959,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param pageList{Array}
 	 *            分页数可选列表
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setPageList = function(pageList) {
 
-		this.getDatagridConfig().pageList = pageList;
+		this.getDataGridConfig().pageList = pageList;
 
 		return this;
 	};
@@ -1975,7 +1975,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getQueryParams = function() {
 
-		return this.getDatagridConfig().queryParams;
+		return this.getDataGridConfig().queryParams;
 	};
 
 	/**
@@ -1983,11 +1983,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param queryParams{Object}
 	 *            传入后台的参数
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setQueryParams = function(queryParams) {
 
-		this.getDatagridConfig().queryParams = queryParams;
+		this.getDataGridConfig().queryParams = queryParams;
 
 		return this;
 	};
@@ -1999,7 +1999,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getSortName = function() {
 
-		return this.getDatagridConfig().sortName;
+		return this.getDataGridConfig().sortName;
 	};
 
 	/**
@@ -2007,11 +2007,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param sortName{String}
 	 *            排序字段
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setSortName = function(sortName) {
 
-		this.getDatagridConfig().sortName = sortName;
+		this.getDataGridConfig().sortName = sortName;
 
 		return this;
 	};
@@ -2023,7 +2023,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getSortOrder = function() {
 
-		return this.getDatagridConfig().sortOrder;
+		return this.getDataGridConfig().sortOrder;
 	};
 
 	/**
@@ -2031,11 +2031,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param sortOrder{String}
 	 *            排序方式
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setSortOrder = function(sortOrder) {
 
-		this.getDatagridConfig().sortOrder = sortOrder;
+		this.getDataGridConfig().sortOrder = sortOrder;
 
 		return this;
 	};
@@ -2047,18 +2047,18 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getMultiSort = function() {
 
-		return this.getDatagridConfig().multiSort;
+		return this.getDataGridConfig().multiSort;
 	};
 
 	/**
 	 * 设置multiSort
 	 * 
 	 * @param multiSort{Boolean}
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setMultiSort = function(multiSort) {
 
-		this.getDatagridConfig().multiSort = multiSort;
+		this.getDataGridConfig().multiSort = multiSort;
 
 		return this;
 	};
@@ -2070,7 +2070,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getRemoteSort = function() {
 
-		return this.getDatagridConfig().remoteSort;
+		return this.getDataGridConfig().remoteSort;
 	};
 
 	/**
@@ -2078,11 +2078,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param remoteSort{Boolean}
 	 *            向后台发送排序条件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setRemoteSort = function(remoteSort) {
 
-		this.getDatagridConfig().remoteSort = remoteSort;
+		this.getDataGridConfig().remoteSort = remoteSort;
 
 		return this;
 	};
@@ -2094,7 +2094,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getShowHeader = function() {
 
-		return this.getDatagridConfig().showHeader;
+		return this.getDataGridConfig().showHeader;
 	};
 
 	/**
@@ -2102,11 +2102,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param showHeader{Boolean}
 	 *            显示标头
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setShowHeader = function(showHeader) {
 
-		this.getDatagridConfig().showHeader = showHeader;
+		this.getDataGridConfig().showHeader = showHeader;
 
 		return this;
 	};
@@ -2118,7 +2118,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getShowFooter = function() {
 
-		return this.getDatagridConfig().showFooter;
+		return this.getDataGridConfig().showFooter;
 	};
 
 	/**
@@ -2126,11 +2126,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param showFooter{Boolean}
 	 *            显示脚
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setShowFooter = function(showFooter) {
 
-		this.getDatagridConfig().showFooter = showFooter;
+		this.getDataGridConfig().showFooter = showFooter;
 
 		return this;
 	};
@@ -2142,18 +2142,18 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getScrollbarSize = function() {
 
-		return this.getDatagridConfig().scrollbarSize;
+		return this.getDataGridConfig().scrollbarSize;
 	};
 
 	/**
 	 * 设置scrollbarSize
 	 * 
 	 * @param scrollbarSize{Number}
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setScrollbarSize = function(scrollbarSize) {
 
-		this.getDatagridConfig().scrollbarSize = scrollbarSize;
+		this.getDataGridConfig().scrollbarSize = scrollbarSize;
 
 		return this;
 	};
@@ -2165,7 +2165,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getRowStyler = function() {
 
-		return this.getDatagridConfig().rowStyler;
+		return this.getDataGridConfig().rowStyler;
 	};
 
 	/**
@@ -2173,23 +2173,23 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param rowStyler{function}
 	 *            行样式
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setRowStyler = function(rowStyler) {
 
-		this.getDatagridConfig().rowStyler = rowStyler;
+		this.getDataGridConfig().rowStyler = rowStyler;
 
 		return this;
 	};
 
 	// Constructor.prototype.getLoader = function() {
 	//
-	// return this.getDatagridConfig().loader;
+	// return this.getDataGridConfig().loader;
 	// };
 
 	// Constructor.prototype.setLoader = function(loader) {
 	//
-	// this.getDatagridConfig().loader = loader;
+	// this.getDataGridConfig().loader = loader;
 	// return this;
 	// };
 
@@ -2200,7 +2200,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getLoadFilter = function() {
 
-		return this.getDatagridConfig().loadFilter;
+		return this.getDataGridConfig().loadFilter;
 	};
 
 	/**
@@ -2208,11 +2208,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param loader{function}
 	 *            数据加载过滤
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setLoadFilter = function(loadFilter) {
 
-		this.getDatagridConfig().loadFilter = loadFilter;
+		this.getDataGridConfig().loadFilter = loadFilter;
 
 		return this;
 	};
@@ -2224,7 +2224,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getEditors = function() {
 
-		return this.getDatagridConfig().editors;
+		return this.getDataGridConfig().editors;
 	};
 
 	/**
@@ -2232,23 +2232,23 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param editors{Object}
 	 *            编辑器
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setEditors = function(editors) {
 
-		this.getDatagridConfig().editors = editors;
+		this.getDataGridConfig().editors = editors;
 
 		return this;
 	};
 
 	// Constructor.prototype.getView = function() {
 	//
-	// return this.getDatagridConfig().view;
+	// return this.getDataGridConfig().view;
 	// };
 
 	// Constructor.prototype.setView = function(view) {
 	//
-	// this.getDatagridConfig().view = view;
+	// this.getDataGridConfig().view = view;
 	// return this;
 	// };
 
@@ -2259,7 +2259,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnLoadSuccess = function() {
 
-		return this.getDatagridConfig().onLoadSuccess;
+		return this.getDataGridConfig().onLoadSuccess;
 	};
 
 	/**
@@ -2267,11 +2267,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onLoadSuccess{function}
 	 *            数据加载成功事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnLoadSuccess = function(onLoadSuccess) {
 
-		this.getDatagridConfig().onLoadSuccess = onLoadSuccess;
+		this.getDataGridConfig().onLoadSuccess = onLoadSuccess;
 
 		return this;
 	};
@@ -2283,7 +2283,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnLoadError = function() {
 
-		return this.getDatagridConfig().onLoadError;
+		return this.getDataGridConfig().onLoadError;
 	};
 
 	/**
@@ -2291,11 +2291,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onLoadError{function}
 	 *            数据加载失败事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnLoadError = function(onLoadError) {
 
-		this.getDatagridConfig().onLoadError = onLoadError;
+		this.getDataGridConfig().onLoadError = onLoadError;
 
 		return this;
 	};
@@ -2307,7 +2307,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeLoad = function() {
 
-		return this.getDatagridConfig().onBeforeLoad;
+		return this.getDataGridConfig().onBeforeLoad;
 	};
 
 	/**
@@ -2315,11 +2315,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeLoad{function}
 	 *            数据加载前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeLoad = function(onBeforeLoad) {
 
-		this.getDatagridConfig().onBeforeLoad = onBeforeLoad;
+		this.getDataGridConfig().onBeforeLoad = onBeforeLoad;
 
 		return this;
 	};
@@ -2331,7 +2331,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnClickRow = function() {
 
-		return this.getDatagridConfig().onClickRow;
+		return this.getDataGridConfig().onClickRow;
 	};
 
 	/**
@@ -2339,11 +2339,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onClickRow{function}
 	 *            行单击事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnClickRow = function(onClickRow) {
 
-		this.getDatagridConfig().onClickRow = onClickRow;
+		this.getDataGridConfig().onClickRow = onClickRow;
 
 		return this;
 	};
@@ -2355,7 +2355,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnDblClickRow = function() {
 
-		return this.getDatagridConfig().onDblClickRow;
+		return this.getDataGridConfig().onDblClickRow;
 	};
 
 	/**
@@ -2363,11 +2363,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onDblClickRow{function}
 	 *            行双击事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnDblClickRow = function(onDblClickRow) {
 
-		this.getDatagridConfig().onDblClickRow = onDblClickRow;
+		this.getDataGridConfig().onDblClickRow = onDblClickRow;
 
 		return this;
 	};
@@ -2379,7 +2379,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnClickCell = function() {
 
-		return this.getDatagridConfig().onClickCell;
+		return this.getDataGridConfig().onClickCell;
 	};
 
 	/**
@@ -2387,11 +2387,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onClickCell{function}
 	 *            单元格单击事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnClickCell = function(onClickCell) {
 
-		this.getDatagridConfig().onClickCell = onClickCell;
+		this.getDataGridConfig().onClickCell = onClickCell;
 
 		return this;
 	};
@@ -2403,7 +2403,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnDblClickCell = function() {
 
-		return this.getDatagridConfig().onDblClickCell;
+		return this.getDataGridConfig().onDblClickCell;
 	};
 
 	/**
@@ -2411,11 +2411,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onDblClickCell{function}
 	 *            单元格双击事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnDblClickCell = function(onDblClickCell) {
 
-		this.getDatagridConfig().onDblClickCell = onDblClickCell;
+		this.getDataGridConfig().onDblClickCell = onDblClickCell;
 
 		return this;
 	};
@@ -2427,7 +2427,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeSortColumn = function() {
 
-		return this.getDatagridConfig().onBeforeSortColumn;
+		return this.getDataGridConfig().onBeforeSortColumn;
 	};
 
 	/**
@@ -2435,11 +2435,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeSortColumn{function}
 	 *            排序前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeSortColumn = function(onBeforeSortColumn) {
 
-		this.getDatagridConfig().onBeforeSortColumn = onBeforeSortColumn;
+		this.getDataGridConfig().onBeforeSortColumn = onBeforeSortColumn;
 
 		return this;
 	};
@@ -2451,7 +2451,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnSortColumn = function() {
 
-		return this.getDatagridConfig().onSortColumn;
+		return this.getDataGridConfig().onSortColumn;
 	};
 
 	/**
@@ -2459,11 +2459,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onSortColumn{function}
 	 *            排序事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnSortColumn = function(onSortColumn) {
 
-		this.getDatagridConfig().onSortColumn = onSortColumn;
+		this.getDataGridConfig().onSortColumn = onSortColumn;
 
 		return this;
 	};
@@ -2475,7 +2475,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnResizeColumn = function() {
 
-		return this.getDatagridConfig().onResizeColumn;
+		return this.getDataGridConfig().onResizeColumn;
 	};
 
 	/**
@@ -2483,11 +2483,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onResizeColumn{function}
 	 *            改变列宽事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnResizeColumn = function(onResizeColumn) {
 
-		this.getDatagridConfig().onResizeColumn = onResizeColumn;
+		this.getDataGridConfig().onResizeColumn = onResizeColumn;
 
 		return this;
 	};
@@ -2499,7 +2499,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeSelect = function() {
 
-		return this.getDatagridConfig().onBeforeSelect;
+		return this.getDataGridConfig().onBeforeSelect;
 	};
 
 	/**
@@ -2507,11 +2507,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeSelect{function}
 	 *            选中前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeSelect = function(onBeforeSelect) {
 
-		this.getDatagridConfig().onBeforeSelect = onBeforeSelect;
+		this.getDataGridConfig().onBeforeSelect = onBeforeSelect;
 
 		return this;
 	};
@@ -2523,7 +2523,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnSelect = function() {
 
-		return this.getDatagridConfig().onSelect;
+		return this.getDataGridConfig().onSelect;
 	};
 
 	/**
@@ -2531,11 +2531,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onSelect{function}
 	 *            选中事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnSelect = function(onSelect) {
 
-		this.getDatagridConfig().onSelect = onSelect;
+		this.getDataGridConfig().onSelect = onSelect;
 
 		return this;
 	};
@@ -2547,7 +2547,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeUnselect = function() {
 
-		return this.getDatagridConfig().onBeforeUnselect;
+		return this.getDataGridConfig().onBeforeUnselect;
 	};
 
 	/**
@@ -2555,11 +2555,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeUnselect{function}
 	 *            取消选中前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeUnselect = function(onBeforeUnselect) {
 
-		this.getDatagridConfig().onBeforeUnselect = onBeforeUnselect;
+		this.getDataGridConfig().onBeforeUnselect = onBeforeUnselect;
 
 		return this;
 	};
@@ -2571,7 +2571,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnUnselect = function() {
 
-		return this.getDatagridConfig().onUnselect;
+		return this.getDataGridConfig().onUnselect;
 	};
 
 	/**
@@ -2579,11 +2579,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onUnselect{function}
 	 *            取消选中事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnUnselect = function(onUnselect) {
 
-		this.getDatagridConfig().onUnselect = onUnselect;
+		this.getDataGridConfig().onUnselect = onUnselect;
 
 		return this;
 	};
@@ -2595,7 +2595,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnSelectAll = function() {
 
-		return this.getDatagridConfig().onSelectAll;
+		return this.getDataGridConfig().onSelectAll;
 	};
 
 	/**
@@ -2603,11 +2603,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onSelectAll{function}
 	 *            选中所有时事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.getOnSelectAll = function(onSelectAll) {
 
-		this.getDatagridConfig().onSelectAll = onSelectAll;
+		this.getDataGridConfig().onSelectAll = onSelectAll;
 
 		return this;
 	};
@@ -2619,7 +2619,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnUnselectAll = function() {
 
-		return this.getDatagridConfig().onUnselectAll;
+		return this.getDataGridConfig().onUnselectAll;
 	};
 
 	/**
@@ -2627,11 +2627,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onUnselectAll{function}
 	 *            取消选中所有时事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnUnselectAll = function(onUnselectAll) {
 
-		this.getDatagridConfig().onUnselectAll = onUnselectAll;
+		this.getDataGridConfig().onUnselectAll = onUnselectAll;
 
 		return this;
 	};
@@ -2643,7 +2643,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeCheck = function() {
 
-		return this.getDatagridConfig().onBeforeCheck;
+		return this.getDataGridConfig().onBeforeCheck;
 	};
 
 	/**
@@ -2651,11 +2651,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeCheck{function}
 	 *            勾选前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeCheck = function(onBeforeCheck) {
 
-		this.getDatagridConfig().onBeforeCheck = onBeforeCheck;
+		this.getDataGridConfig().onBeforeCheck = onBeforeCheck;
 
 		return this;
 	};
@@ -2667,7 +2667,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnCheck = function() {
 
-		return this.getDatagridConfig().onCheck;
+		return this.getDataGridConfig().onCheck;
 	};
 
 	/**
@@ -2675,11 +2675,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onCheck{function}
 	 *            勾选事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnCheck = function(onCheck) {
 
-		this.getDatagridConfig().onCheck = onCheck;
+		this.getDataGridConfig().onCheck = onCheck;
 
 		return this;
 	};
@@ -2691,7 +2691,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeUncheck = function() {
 
-		return this.getDatagridConfig().onBeforeUncheck;
+		return this.getDataGridConfig().onBeforeUncheck;
 	};
 
 	/**
@@ -2699,11 +2699,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeUncheck{function}
 	 *            取消勾选前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeUncheck = function(onBeforeUncheck) {
 
-		this.getDatagridConfig().onBeforeUncheck = onBeforeUncheck;
+		this.getDataGridConfig().onBeforeUncheck = onBeforeUncheck;
 
 		return this;
 	};
@@ -2715,7 +2715,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnUncheck = function() {
 
-		return this.getDatagridConfig().onUncheck;
+		return this.getDataGridConfig().onUncheck;
 	};
 
 	/**
@@ -2723,11 +2723,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onUncheck{function}
 	 *            取消勾选事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnUncheck = function(onUncheck) {
 
-		this.getDatagridConfig().onUncheck = onUncheck;
+		this.getDataGridConfig().onUncheck = onUncheck;
 
 		return this;
 	};
@@ -2739,7 +2739,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnCheckAll = function() {
 
-		return this.getDatagridConfig().onCheckAll;
+		return this.getDataGridConfig().onCheckAll;
 	};
 
 	/**
@@ -2747,11 +2747,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onCheckAll{function}
 	 *            勾选所有事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnCheckAll = function(onCheckAll) {
 
-		this.getDatagridConfig().onCheckAll = onCheckAll;
+		this.getDataGridConfig().onCheckAll = onCheckAll;
 
 		return this;
 	};
@@ -2763,7 +2763,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnUncheckAll = function() {
 
-		return this.getDatagridConfig().onUncheckAll;
+		return this.getDataGridConfig().onUncheckAll;
 	};
 
 	/**
@@ -2771,11 +2771,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onUncheckAll{function}
 	 *            取消勾选所有事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnUncheckAll = function(onUncheckAll) {
 
-		this.getDatagridConfig().onUncheckAll = onUncheckAll;
+		this.getDataGridConfig().onUncheckAll = onUncheckAll;
 
 		return this;
 	};
@@ -2787,7 +2787,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeforeEdit = function() {
 
-		return this.getDatagridConfig().onBeforeEdit;
+		return this.getDataGridConfig().onBeforeEdit;
 	};
 
 	/**
@@ -2795,11 +2795,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeforeEdit{function}
 	 *            编辑前事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeforeEdit = function(onBeforeEdit) {
 
-		this.getDatagridConfig().onBeforeEdit = onBeforeEdit;
+		this.getDataGridConfig().onBeforeEdit = onBeforeEdit;
 
 		return this;
 	};
@@ -2811,7 +2811,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnBeginEdit = function() {
 
-		return this.getDatagridConfig().onBeginEdit;
+		return this.getDataGridConfig().onBeginEdit;
 	};
 
 	/**
@@ -2819,11 +2819,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onBeginEdit{function}
 	 *            编辑事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnBeginEdit = function(onBeginEdit) {
 
-		this.getDatagridConfig().onBeginEdit = onBeginEdit;
+		this.getDataGridConfig().onBeginEdit = onBeginEdit;
 
 		return this;
 	};
@@ -2835,7 +2835,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnEndEdit = function() {
 
-		return this.getDatagridConfig().onEndEdit;
+		return this.getDataGridConfig().onEndEdit;
 	};
 
 	/**
@@ -2843,11 +2843,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onEndEdit{function}
 	 *            结束编辑事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnEndEdit = function(onEndEdit) {
 
-		this.getDatagridConfig().onEndEdit = onEndEdit;
+		this.getDataGridConfig().onEndEdit = onEndEdit;
 
 		return this;
 	};
@@ -2859,7 +2859,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnAfterEdit = function() {
 
-		return this.getDatagridConfig().onAfterEdit;
+		return this.getDataGridConfig().onAfterEdit;
 	};
 
 	/**
@@ -2867,11 +2867,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onAfterEdit{function}
 	 *            编辑后事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnAfterEdit = function(onAfterEdit) {
 
-		this.getDatagridConfig().onAfterEdit = onAfterEdit;
+		this.getDataGridConfig().onAfterEdit = onAfterEdit;
 
 		return this;
 	};
@@ -2883,7 +2883,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnCancelEdit = function() {
 
-		return this.getDatagridConfig().onCancelEdit;
+		return this.getDataGridConfig().onCancelEdit;
 	};
 
 	/**
@@ -2891,11 +2891,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onCancelEdit{function}
 	 *            取消编辑事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnCancelEdit = function(onCancelEdit) {
 
-		this.getDatagridConfig().onCancelEdit = onCancelEdit;
+		this.getDataGridConfig().onCancelEdit = onCancelEdit;
 
 		return this;
 	};
@@ -2907,7 +2907,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnHeaderContextMenu = function() {
 
-		return this.getDatagridConfig().onHeaderContextMenu;
+		return this.getDataGridConfig().onHeaderContextMenu;
 	};
 
 	/**
@@ -2915,11 +2915,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onHeaderContextMenu{function}
 	 *            标题头右键点击事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnHeaderContextMenu = function(onHeaderContextMenu) {
 
-		this.getDatagridConfig().onHeaderContextMenu = onHeaderContextMenu;
+		this.getDataGridConfig().onHeaderContextMenu = onHeaderContextMenu;
 
 		return this;
 	};
@@ -2931,7 +2931,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 */
 	Constructor.prototype.getOnRowContextMenu = function() {
 
-		return this.getDatagridConfig().onRowContextMenu;
+		return this.getDataGridConfig().onRowContextMenu;
 	};
 
 	/**
@@ -2939,11 +2939,11 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 * 
 	 * @param onRowContextMenu{function}
 	 *            行右键点击事件
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.setOnRowContextMenu = function(onRowContextMenu) {
 
-		this.getDatagridConfig().onRowContextMenu = onRowContextMenu;
+		this.getDataGridConfig().onRowContextMenu = onRowContextMenu;
 
 		return this;
 	};
@@ -2956,20 +2956,20 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.init = function() {
 
 		// 模板的jQuery对象
-		var $datagrid = this.getDatagridJQuery();
+		var $dataGrid = this.getDataGridJQuery();
 		// 模板所在Div 初始化
-		divInit($datagrid);
+		divInit($dataGrid);
 
-		// 生成对应的datagrid
-		$datagrid.datagrid(this.getDatagridConfig());
+		// 生成对应的DataGrid
+		$dataGrid.datagrid(this.getDataGridConfig());
 		// 修改分页数,设置cookie值保存本地
-		$datagrid.datagrid("getPager").pagination({
+		$dataGrid.datagrid("getPager").pagination({
 			onChangePageSize : function(pageSize) {
-				cookie.set("coreHtmlEasyuiDatagridPageSize", pageSize);
+				cookie.set("coreHtmlEasyuiDataGridPageSize", pageSize);
 			}
 		});
 
-		return packageJQuery($datagrid);
+		return packageJQuery($dataGrid);
 	};
 
 	// 返回构造函数

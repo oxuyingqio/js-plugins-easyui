@@ -12,5 +12,11 @@ core.html.easyui = {
 	dialog : {},
 
 	// message模板包
-	message : {}
+	message : {},
+
+	// propertygrid模板包
+	propertygrid : {}
 };
+
+// HTML EasyUI元素包
+core.html.element.easyui = {};
