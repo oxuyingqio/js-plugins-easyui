@@ -11,6 +11,9 @@ core.html.easyui = {
 	// dialog模板包
 	dialog : {},
 
+	// 布局包
+	layout : {},
+
 	// message模板包
 	message : {},
 
