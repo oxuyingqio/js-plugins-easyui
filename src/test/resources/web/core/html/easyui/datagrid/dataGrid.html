@@ -25,9 +25,9 @@
 
 <script type="text/javascript">
 	$(function() {
-		var datagrid = new core.html.easyui.datagrid.Datagrid("datagrid");
+		var dataGrid = new core.html.easyui.datagrid.DataGrid("datagrid");
 
-		datagrid.setColumns([ [ {
+		dataGrid.setColumns([ [ {
 			field : 'itemid',
 			title : 'Item ID',
 			rowspan : 2,
@@ -63,11 +63,11 @@
 			title : 'Status',
 			width : 60
 		} ] ]);
-		datagrid.setUrl("http://localhost:8080/~/core/html/easyui/datagrid/datagrid.json");
-		datagrid.setOnSelect(function(index, row) {
-			alert(index + "===" + $datagrid.getRowIndex(row));
+		dataGrid.setUrl("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json");
+		dataGrid.setOnSelect(function(index, row) {
+			alert(index + "===" + $dataGrid.getRowIndex(row));
 		});
-		var $datagrid = datagrid.init();
+		var $dataGrid = dataGrid.init();
 	});
 </script>
 
