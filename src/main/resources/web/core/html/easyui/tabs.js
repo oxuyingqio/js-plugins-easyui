@@ -1,9 +1,10 @@
 /**
- * tabs
+ * @name	tabs
+ * @package	core.html.easyui
+ * @desc	Tab页扩展
+ * @type	对象扩展
  * 
- * Tab页
- * 
- * 对象扩展
+ * @date	2016年8月25日 12:02:47
  */
 
 $.extend($.fn.tabs.methods, {

@@ -1,9 +1,10 @@
 /**
- * datebox
+ * @name	datebox
+ * @package	core.html.easyui
+ * @desc	日期输入框扩展
+ * @type	对象扩展
  * 
- * 日期输入框
- * 
- * 对象扩展
+ * @date	2016年8月25日 12:01:20
  */
 
 /**
