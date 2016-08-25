@@ -1,83 +1,149 @@
 /**
- * Datagrid
+ * @name Datagrid
+ * @package core.html.easyui.datagrid
+ * @desc datagrid模板
+ * @type 类
  * 
- * EasyUI datagrid模板
- * 
- * 类
+ * @date 2016年8月25日 14:14:50
  */
 
 core.html.easyui.datagrid.Datagrid = (function() {
 
-	// cookie管理者
-	var cookie = core.html.util.Cookie.getCookie();
+	/**
+	 * cookie操作
+	 */
+	var cookie = core.html.util.Cookie.getInstance();
 
-	// 默认配置
+	/**
+	 * 默认配置
+	 */
 	var DEFAULT_CONFIG = {
 
 		/** ==========panel属性========== */
-		// 宽度
+		/**
+		 * 宽度
+		 */
 		width : null,
-		// 高度
+		/**
+		 * 高度
+		 */
 		height : null,
 
 		/** ==========datagrid属性========== */
-		// 列
+		/**
+		 * 列
+		 */
 		columns : null,
-		// 冻结列
+		/**
+		 * 冻结列
+		 */
 		frozenColumns : null,
-		// 列宽自适应
+		/**
+		 * 列宽自适应
+		 */
 		fitColumns : true,
 		resizeHandle : "left",
-		// 行高自适应
+		/**
+		 * 行高自适应
+		 */
 		autoRowHeight : true,
-		// 工具条
+		/**
+		 * 工具条
+		 */
 		toolbar : null,
-		// 隔行变色
+		/**
+		 * 隔行变色
+		 */
 		striped : true,
-		// 加载远程连接数据方式
+		/**
+		 * 加载远程连接数据方式
+		 */
 		method : "post",
-		// 禁止文字自动换行
+		/**
+		 * 禁止文字自动换行
+		 */
 		nowrap : true,
-		// id字段
+		/**
+		 * id字段
+		 */
 		idField : null,
-		// 数据URL
+		/**
+		 * 数据URL
+		 */
 		url : null,
-		// 数据
+		/**
+		 * 数据
+		 */
 		data : null,
-		// 数据加载等待提示
+		/**
+		 * 数据加载等待提示
+		 */
 		loadMsg : "Processing, please wait …",
-		// 添加页脚工具栏
+		/**
+		 * 添加页脚工具栏
+		 */
 		pagination : true,
-		// 显示行号
+		/**
+		 * 显示行号
+		 */
 		rownumbers : true,
-		// 仅能选中单行
+		/**
+		 * 仅能选中单行
+		 */
 		singleSelect : true,
-		// ctrl键选中
+		/**
+		 * ctrl键选中
+		 */
 		ctrlSelect : false,
-		// check时选中
+		/**
+		 * check时选中
+		 */
 		checkOnSelect : true,
-		// 选中时check
+		/**
+		 * 选中时check
+		 */
 		selectOnCheck : true,
-		// 分页工具条位置
+		/**
+		 * 分页工具条位置
+		 */
 		pagePosition : "bottom",
-		// 默认页码
+		/**
+		 * 默认页码
+		 */
 		pageNumber : 1,
-		// 分页数
-		pageSize : cookie.get("coreHtmlEasyuiDatagrid") == null ? 20 : cookie.get("coreHtmlEasyuiDatagrid"),
-		// 分页数可选列表
+		/**
+		 * 分页数
+		 */
+		pageSize : cookie.get("coreHtmlEasyuiDatagridPageSize") == null ? 20 : cookie
+				.get("coreHtmlEasyuiDatagridPageSize"),
+		/**
+		 * 分页数可选列表
+		 */
 		pageList : [ 10, 20, 30, 40, 50 ],
-		// 传入后台的参数
+		/**
+		 * 传入后台的参数
+		 */
 		queryParams : {},
-		// 排序字段
+		/**
+		 * 排序字段
+		 */
 		sortName : null,
-		// 排序方式
+		/**
+		 * 排序方式
+		 */
 		sortOrder : "asc",
 		multiSort : false,
-		// 向后台发送排序条件
+		/**
+		 * 向后台发送排序条件
+		 */
 		remoteSort : true,
-		// 显示标头
+		/**
+		 * 显示标头
+		 */
 		showHeader : true,
-		// 显示脚
+		/**
+		 * 显示脚
+		 */
 		showFooter : false,
 		scrollbarSize : 18,
 		/**
@@ -104,7 +170,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		loadFilter : function(data) {
 			return data;
 		},
-		// 编辑器
+		/**
+		 * 编辑器
+		 */
 		editors : null,
 		// what's this?
 		// view : null,
@@ -440,7 +508,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	 *            模板的jQuery对象
 	 * @returns {Object} 模板的jQuery对象
 	 */
-	function packagejQuery($datagrid) {
+	function packageJQuery($datagrid) {
 
 		/** ==========datagrid方法========== */
 		/**
@@ -481,7 +549,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 */
 		$datagrid.getColumnFields = function(frozen) {
 
-			return $datagrid.datagrid("getPanel", frozen);
+			return $datagrid.datagrid("getColumnFields", frozen);
 		};
 
 		/**
@@ -1250,7 +1318,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		// 模板所在Div的jQuery对象
 		var $datagrid = $("#" + divid);
 		if ($datagrid.length === 0) {
-			throw "core.html.easyui.datagrid.Datagrid:参数异常.DIV(ID:" + divid + ")不存在.";
+			new core.lang.Exception("core.html.easyui.datagrid.Datagrid", "构造参数异常", "div(id:" + divid + ")不存在.");
 		}
 
 		// datagrid 配置
@@ -1269,9 +1337,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		/**
 		 * 获取模板所在Div jQuery对象
 		 * 
-		 * @returns {Object}
+		 * @returns {jQuery}
 		 */
-		this.getDatagridjQuery = function() {
+		this.getDatagridJQuery = function() {
 
 			return $datagrid;
 		};
@@ -2888,7 +2956,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 	Constructor.prototype.init = function() {
 
 		// 模板的jQuery对象
-		var $datagrid = this.getDatagridjQuery();
+		var $datagrid = this.getDatagridJQuery();
 		// 模板所在Div 初始化
 		divInit($datagrid);
 
@@ -2897,12 +2965,13 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		// 修改分页数,设置cookie值保存本地
 		$datagrid.datagrid("getPager").pagination({
 			onChangePageSize : function(pageSize) {
-				cookie.set("coreHtmlEasyuiDatagrid", pageSize);
+				cookie.set("coreHtmlEasyuiDatagridPageSize", pageSize);
 			}
 		});
 
-		return packagejQuery($datagrid);
+		return packageJQuery($datagrid);
 	};
 
+	// 返回构造函数
 	return Constructor;
 })();
