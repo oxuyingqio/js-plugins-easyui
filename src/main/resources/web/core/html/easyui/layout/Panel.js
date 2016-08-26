@@ -1,10 +1,10 @@
 /**
- * @name Panel
- * @package core.html.easyui.layout
- * @desc 面板模板
- * @type 类
+ * @name	Panel
+ * @package	core.html.easyui.layout
+ * @desc	面板模板
+ * @type	类
  * 
- * @date 2016年8月25日 17:57:53
+ * @date	2016年8月25日 17:57:53
  */
 
 core.html.easyui.layout.Panel = (function() {
@@ -1213,7 +1213,7 @@ core.html.easyui.layout.Panel = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "方法异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
 
 		// 参数配置
@@ -1300,86 +1300,154 @@ core.html.easyui.layout.Panel = (function() {
 		return $("#" + this.id()).panel("panel");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.header = function() {
 
 		return $("#" + this.id()).panel("header");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.footer = function() {
 
 		return $("#" + this.id()).panel("footer");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.body = function() {
 
 		return $("#" + this.id()).panel("body");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.setTitle = function(title) {
 
 		return $("#" + this.id()).panel("setTitle", title);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.open = function(forceOpen) {
 
 		return $("#" + this.id()).panel("open", forceOpen);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.close = function(forceClose) {
 
 		return $("#" + this.id()).panel("close", forceClose);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
 
 		return $("#" + this.id()).panel("destroy", forceDestroy);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.clear = function() {
 
 		return $("#" + this.id()).panel("clear");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.refresh = function(href) {
 
 		return $("#" + this.id()).panel("refresh", href);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.resize = function(options) {
 
 		return $("#" + this.id()).panel("resize", options);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.doLayout = function() {
 
 		return $("#" + this.id()).panel("doLayout");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.move = function(options) {
 
 		return $("#" + this.id()).panel("move", options);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.maximize = function() {
 
 		return $("#" + this.id()).panel("maximize");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.minimize = function() {
 
 		return $("#" + this.id()).panel("minimize");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.restore = function() {
 
 		return $("#" + this.id()).panel("restore");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.collapse = function(animate) {
 
 		return $("#" + this.id()).panel("collapse", animate);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.expand = function(animate) {
 
 		return $("#" + this.id()).panel("expand", animate);

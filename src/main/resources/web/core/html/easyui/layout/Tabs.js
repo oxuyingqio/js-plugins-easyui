@@ -1,3 +1,12 @@
+/**
+ * @name	Tabs
+ * @package	core.html.easyui.layout
+ * @desc	Tab页模板
+ * @type	类
+ * 
+ * @date	2016年8月26日 16:34:52
+ */
+
 core.html.easyui.layout.Tabs = (function() {
 
 	/**
@@ -439,7 +448,7 @@ core.html.easyui.layout.Tabs = (function() {
 	/**
 	 * 初始化
 	 * 
-	 * @returns {Constructor}
+	 * @returns {core.html.easyui.layout.Tabs}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -447,7 +456,7 @@ core.html.easyui.layout.Tabs = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "方法异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
 
 		// 参数配置
@@ -530,6 +539,7 @@ core.html.easyui.layout.Tabs = (function() {
 			onUpdate : this.onUpdate(),
 			onContextMenu : this.onContextMenu()
 		});
+		// 扩展事件
 		$jQuery.tabs("onDblClick", this.onDblClick());
 
 		return this;
@@ -553,166 +563,298 @@ core.html.easyui.layout.Tabs = (function() {
 		return $("#" + this.id()).tabs("panel");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.header = function() {
 
 		return $("#" + this.id()).tabs("header");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.footer = function() {
 
 		return $("#" + this.id()).tabs("footer");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.body = function() {
 
 		return $("#" + this.id()).tabs("body");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.setTitle = function(title) {
 
 		return $("#" + this.id()).tabs("setTitle", title);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.open = function(forceOpen) {
 
 		return $("#" + this.id()).tabs("open", forceOpen);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
 
 		return $("#" + this.id()).tabs("destroy", forceDestroy);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.clear = function() {
 
 		return $("#" + this.id()).tabs("clear");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.refresh = function(href) {
 
 		return $("#" + this.id()).tabs("refresh", href);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.doLayout = function() {
 
 		return $("#" + this.id()).tabs("doLayout");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.move = function(options) {
 
 		return $("#" + this.id()).tabs("move", options);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.maximize = function() {
 
 		return $("#" + this.id()).tabs("maximize");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.minimize = function() {
 
 		return $("#" + this.id()).tabs("minimize");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.restore = function() {
 
 		return $("#" + this.id()).tabs("restore");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.collapse = function(animate) {
 
 		return $("#" + this.id()).tabs("collapse", animate);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.expand = function(animate) {
 
 		return $("#" + this.id()).tabs("expand", animate);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.tabs = function() {
 
 		return $("#" + this.id()).tabs("tabs");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.resize = function() {
 
 		return $("#" + this.id()).tabs("resize");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.add = function(options) {
 
 		return $("#" + this.id()).tabs("add", options);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.close = function(which) {
 
 		return $("#" + this.id()).tabs("close", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.getTab = function(which) {
 
 		return $("#" + this.id()).tabs("getTab", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.getTabIndex = function(tab) {
 
 		return $("#" + this.id()).tabs("getTabIndex", tab);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.getSelected = function() {
 
 		return $("#" + this.id()).tabs("getSelected");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.select = function(which) {
 
 		return $("#" + this.id()).tabs("select", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.unselect = function(which) {
 
 		return $("#" + this.id()).tabs("unselect", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.showHeader = function() {
 
 		return $("#" + this.id()).tabs("showHeader");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.hideHeader = function() {
 
 		return $("#" + this.id()).tabs("hideHeader");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.showTool = function() {
 
 		return $("#" + this.id()).tabs("showTool");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.hideTool = function() {
 
 		return $("#" + this.id()).tabs("hideTool");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.exists = function(which) {
 
 		return $("#" + this.id()).tabs("exists", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.update = function(param) {
 
 		return $("#" + this.id()).tabs("update", param);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.enableTab = function(which) {
 
 		return $("#" + this.id()).tabs("enableTab", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.disableTab = function(which) {
 
 		return $("#" + this.id()).tabs("disableTab", which);
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.scrollBy = function(deltaX) {
 
 		return $("#" + this.id()).tabs("scrollBy", deltaX);
