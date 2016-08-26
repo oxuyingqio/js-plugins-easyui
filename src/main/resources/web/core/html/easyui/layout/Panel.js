@@ -140,79 +140,176 @@ core.html.easyui.layout.Panel = (function() {
 		 * 初始化折叠
 		 */
 		var collapsed = false;
+		/**
+		 * 初始化最小
+		 */
 		var minimized = false;
+		/**
+		 * 初始化最大
+		 */
 		var maximized = false;
+		/**
+		 * 初始化关闭
+		 */
 		var closed = false;
+		/**
+		 * 超链接
+		 */
 		var href = null;
+		/**
+		 * 缓存
+		 */
 		var cache = true;
+		/**
+		 * 加载信息
+		 */
 		var loadingMessage = "Loading…";
+		/**
+		 * ajax响应中提取数据
+		 */
 		var extractor = function(data) {
 			return data;
 		};
+		/**
+		 * 请求方式
+		 */
 		var method = "get";
+		/**
+		 * 参数
+		 */
 		var queryParams = {};
+		/**
+		 * 加载器
+		 */
 		var loader = function() {
 
 		};
 
 		/**
-		 * Events
+		 * 事件
+		 */
+		/**
+		 * 加载前
+		 * 
+		 * @param param
 		 */
 		var onBeforeLoad = function(param) {
 
 		};
+		/**
+		 * 加载
+		 */
 		var onLoad = function() {
 
 		};
+		/**
+		 * 加载失败
+		 */
 		var onLoadError = function() {
 
 		};
+		/**
+		 * 打开前
+		 */
 		var onBeforeOpen = function() {
 
 		};
+		/**
+		 * 打开
+		 */
 		var onOpen = function() {
 
 		};
+		/**
+		 * 关闭前
+		 */
 		var onBeforeClose = function() {
 
 		};
+		/**
+		 * 关闭
+		 */
 		var onClose = function() {
 
 		};
+		/**
+		 * 销毁前
+		 */
 		var onBeforeDestroy = function() {
 
 		};
+		/**
+		 * 销毁
+		 */
 		var onDestroy = function() {
 
 		};
+		/**
+		 * 折叠前
+		 */
 		var onBeforeCollapse = function() {
 
 		};
+		/**
+		 * 折叠
+		 */
 		var onCollapse = function() {
 
 		};
+		/**
+		 * 展开前
+		 */
 		var onBeforeExpand = function() {
 
 		};
+		/**
+		 * 展开
+		 */
 		var onExpand = function() {
 
 		};
+		/**
+		 * 改变大小
+		 * 
+		 * @param width
+		 * @param height
+		 */
 		var onResize = function(width, height) {
 
 		};
+		/**
+		 * 移动
+		 * 
+		 * @param left
+		 * @param top
+		 */
 		var onMove = function(left, top) {
 
 		};
+		/**
+		 * 最大化
+		 */
 		var onMaximize = function() {
 
 		};
+		/**
+		 * 恢复
+		 */
 		var onRestore = function() {
 
 		};
+		/**
+		 * 最小化
+		 */
 		var onMinimize = function() {
 
 		};
 
+		/**
+		 * 获取/设置 id
+		 * 
+		 * @param id
+		 */
 		this.id = function() {
 
 			switch (arguments.length) {
@@ -224,6 +321,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置标题
+		 * 
+		 * @param title
+		 */
 		this.title = function() {
 
 			switch (arguments.length) {
@@ -235,6 +337,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置图标样式
+		 * 
+		 * @param iconCls
+		 */
 		this.iconCls = function() {
 
 			switch (arguments.length) {
@@ -246,6 +353,9 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置宽度
+		 */
 		this.width = function() {
 
 			switch (arguments.length) {
