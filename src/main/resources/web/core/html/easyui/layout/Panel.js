@@ -4,7 +4,7 @@
  * @desc	面板模板
  * @type	类
  * 
- * @date	2016年8月25日 17:57:53
+ * @date 2016年8月25日 17:57:53
  */
 
 core.html.easyui.layout.Panel = (function() {
@@ -173,7 +173,7 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 请求方式
 		 */
-		var method = "get";
+		var method = "post";
 		/**
 		 * 参数
 		 */
@@ -1215,6 +1215,8 @@ core.html.easyui.layout.Panel = (function() {
 		if ($jQuery.length === 0) {
 			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
+		// 清空内容
+		$jQuery.empty();
 
 		// 参数配置
 		$jQuery.panel({

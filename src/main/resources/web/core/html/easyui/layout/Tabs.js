@@ -458,6 +458,8 @@ core.html.easyui.layout.Tabs = (function() {
 		if ($jQuery.length === 0) {
 			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
+		// 清空内容
+		$jQuery.empty();
 
 		// 参数配置
 		$jQuery.tabs({
