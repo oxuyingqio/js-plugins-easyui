@@ -189,7 +189,7 @@ core.html.easyui.layout.Panel = (function() {
 		 * 事件
 		 */
 		/**
-		 * 加载前
+		 * 加载前事件
 		 * 
 		 * @param param
 		 */
@@ -197,79 +197,79 @@ core.html.easyui.layout.Panel = (function() {
 
 		};
 		/**
-		 * 加载
+		 * 加载事件
 		 */
 		var onLoad = function() {
 
 		};
 		/**
-		 * 加载失败
+		 * 加载失败事件
 		 */
 		var onLoadError = function() {
 
 		};
 		/**
-		 * 打开前
+		 * 打开前事件
 		 */
 		var onBeforeOpen = function() {
 
 		};
 		/**
-		 * 打开
+		 * 打开事件
 		 */
 		var onOpen = function() {
 
 		};
 		/**
-		 * 关闭前
+		 * 关闭前事件
 		 */
 		var onBeforeClose = function() {
 
 		};
 		/**
-		 * 关闭
+		 * 关闭事件
 		 */
 		var onClose = function() {
 
 		};
 		/**
-		 * 销毁前
+		 * 销毁前事件
 		 */
 		var onBeforeDestroy = function() {
 
 		};
 		/**
-		 * 销毁
+		 * 销毁事件
 		 */
 		var onDestroy = function() {
 
 		};
 		/**
-		 * 折叠前
+		 * 折叠前事件
 		 */
 		var onBeforeCollapse = function() {
 
 		};
 		/**
-		 * 折叠
+		 * 折叠事件
 		 */
 		var onCollapse = function() {
 
 		};
 		/**
-		 * 展开前
+		 * 展开前事件
 		 */
 		var onBeforeExpand = function() {
 
 		};
 		/**
-		 * 展开
+		 * 展开事件
 		 */
 		var onExpand = function() {
 
 		};
 		/**
-		 * 改变大小
+		 * 改变大小事件
 		 * 
 		 * @param width
 		 * @param height
@@ -278,7 +278,7 @@ core.html.easyui.layout.Panel = (function() {
 
 		};
 		/**
-		 * 移动
+		 * 移动事件
 		 * 
 		 * @param left
 		 * @param top
@@ -287,19 +287,19 @@ core.html.easyui.layout.Panel = (function() {
 
 		};
 		/**
-		 * 最大化
+		 * 最大化事件
 		 */
 		var onMaximize = function() {
 
 		};
 		/**
-		 * 恢复
+		 * 恢复事件
 		 */
 		var onRestore = function() {
 
 		};
 		/**
-		 * 最小化
+		 * 最小化事件
 		 */
 		var onMinimize = function() {
 

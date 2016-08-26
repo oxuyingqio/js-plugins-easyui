@@ -18,45 +18,119 @@ core.html.easyui.layout.Tabs = (function() {
 
 		// 调用父类构造
 		core.html.easyui.layout.Tabs.superClass.constructor.call(this, id || "coreHtmlEasyuiLayoutTabs" + count);
+		// 设置工具条为空
+		this.tools(null);
 
 		/**
 		 * 属性
 		 */
+		/**
+		 * 无格式
+		 */
 		var plain = false;
+		/**
+		 * 
+		 */
 		var scrollIncrement = 100;
+		/**
+		 * 滚动持续时间
+		 */
 		var scrollDuration = 400;
+		/**
+		 * 工具条位置
+		 */
 		var toolPosition = "right";
+		/**
+		 * Tab页位置
+		 */
 		var tabPosition = "top";
+		/**
+		 * 头宽度
+		 */
 		var headerWidth = 150;
+		/**
+		 * Tab页宽度
+		 */
 		var tabWidth = undefined;
+		/**
+		 * Tab页高度
+		 */
 		var tabHeight = 27;
+		/**
+		 * 初始化选中Tab页索引
+		 */
 		var selected = 0;
-		var showHeader = true;
+		/**
+		 * 显示头
+		 */
+		var showHeaderAttr = true;
+		/**
+		 * Tab页宽度自适应
+		 */
 		var justified = false;
+		/**
+		 * 去除Tab页之间的空间
+		 */
 		var narrow = false;
+		/**
+		 * Tab页按钮样式
+		 */
 		var pill = false;
 
 		/**
 		 * 事件
 		 */
+		/**
+		 * 选择事件
+		 * 
+		 * @param onSelect
+		 */
 		var onSelect = function(title, index) {
 
 		};
+		/**
+		 * 取消选择事件
+		 * 
+		 * @param onUnselect
+		 */
 		var onUnselect = function(title, index) {
 
 		};
+		/**
+		 * 添加事件
+		 * 
+		 * @param onAdd
+		 */
 		var onAdd = function(title, index) {
 
 		};
+		/**
+		 * 更新事件
+		 * 
+		 * @param onUpdate
+		 */
 		var onUpdate = function(title, index) {
 
 		};
+		/**
+		 * 右键事件
+		 * 
+		 * @param onContextMenu
+		 */
 		var onContextMenu = function(e, title, index) {
+
+		};
+		/**
+		 * 双击事件
+		 * 
+		 * @param onDblClick
+		 */
+		var onDblClick = function(index, title) {
 
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置无格式
 		 * 
 		 * @param plain
 		 */
@@ -88,7 +162,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置滚动时间
 		 * 
 		 * @param scrollDuration
 		 */
@@ -104,7 +178,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置工具条位置
 		 * 
 		 * @param toolPosition
 		 */
@@ -120,7 +194,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置Tab页位置
 		 * 
 		 * @param tabPosition
 		 */
@@ -136,7 +210,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置头宽度
 		 * 
 		 * @param headerWidth
 		 */
@@ -152,7 +226,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置Tab页宽度
 		 * 
 		 * @param tabWidth
 		 */
@@ -168,7 +242,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置Tab页高度
 		 * 
 		 * @param tabHeight
 		 */
@@ -184,7 +258,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置默认选中的Tab页索引
 		 * 
 		 * @param selected
 		 */
@@ -200,23 +274,23 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置显示标头
 		 * 
 		 * @param showHeader
 		 */
-		this.showHeader = function() {
+		this.showHeaderAttr = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return showHeader;
+				return showHeaderAttr;
 			default:
-				showHeader = arguments[0];
+				showHeaderAttr = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置Tab页宽度自适应
 		 * 
 		 * @param justified
 		 */
@@ -232,7 +306,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置Tab页之间的空间
 		 * 
 		 * @param narrow
 		 */
@@ -248,7 +322,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置Tab页样式
 		 * 
 		 * @param pill
 		 */
@@ -264,7 +338,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置选择事件
 		 * 
 		 * @param onSelect
 		 */
@@ -280,7 +354,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置取消选择事件
 		 * 
 		 * @param onUnselect
 		 */
@@ -296,7 +370,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置添加事件
 		 * 
 		 * @param onAdd
 		 */
@@ -312,7 +386,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置更新事件
 		 * 
 		 * @param onUpdate
 		 */
@@ -328,7 +402,7 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置
+		 * 获取/设置右键事件
 		 * 
 		 * @param onContextMenu
 		 */
@@ -342,10 +416,31 @@ core.html.easyui.layout.Tabs = (function() {
 				return this;
 			}
 		};
+
+		/**
+		 * 获取/设置双击事件
+		 * 
+		 * @param onContextMenu
+		 */
+		this.onDblClick = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onDblClick;
+			default:
+				onDblClick = arguments[0];
+				return this;
+			}
+		};
 	};
 	// 继承Panel面板模板
 	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
+	/**
+	 * 初始化
+	 * 
+	 * @returns {Constructor}
+	 */
 	Constructor.prototype.init = function() {
 
 		// 获取jQuery对象
@@ -405,7 +500,7 @@ core.html.easyui.layout.Tabs = (function() {
 			tabWidth : this.tabWidth(),
 			tabHeight : this.tabHeight(),
 			selected : this.selected(),
-			showHeader : this.showHeader(),
+			showHeader : this.showHeaderAttr(),
 			justified : this.justified(),
 			narrow : this.narrow(),
 			pill : this.pill(),
@@ -428,8 +523,14 @@ core.html.easyui.layout.Tabs = (function() {
 			onMove : this.onMove(),
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
-			onMinimize : this.onMinimize()
+			onMinimize : this.onMinimize(),
+			onSelect : this.onSelect(),
+			onUnselect : this.onUnselect(),
+			onAdd : this.onAdd(),
+			onUpdate : this.onUpdate(),
+			onContextMenu : this.onContextMenu()
 		});
+		$jQuery.tabs("onDblClick", this.onDblClick());
 
 		return this;
 	};
@@ -575,6 +676,46 @@ core.html.easyui.layout.Tabs = (function() {
 	Constructor.prototype.showHeader = function() {
 
 		return $("#" + this.id()).tabs("showHeader");
+	};
+
+	Constructor.prototype.hideHeader = function() {
+
+		return $("#" + this.id()).tabs("hideHeader");
+	};
+
+	Constructor.prototype.showTool = function() {
+
+		return $("#" + this.id()).tabs("showTool");
+	};
+
+	Constructor.prototype.hideTool = function() {
+
+		return $("#" + this.id()).tabs("hideTool");
+	};
+
+	Constructor.prototype.exists = function(which) {
+
+		return $("#" + this.id()).tabs("exists", which);
+	};
+
+	Constructor.prototype.update = function(param) {
+
+		return $("#" + this.id()).tabs("update", param);
+	};
+
+	Constructor.prototype.enableTab = function(which) {
+
+		return $("#" + this.id()).tabs("enableTab", which);
+	};
+
+	Constructor.prototype.disableTab = function(which) {
+
+		return $("#" + this.id()).tabs("disableTab", which);
+	};
+
+	Constructor.prototype.scrollBy = function(deltaX) {
+
+		return $("#" + this.id()).tabs("scrollBy", deltaX);
 	};
 
 	// 返回构造函数

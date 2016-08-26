@@ -17,6 +17,8 @@
 <script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
 
+<script type="text/javascript" src="/~/core/html/easyui/tabs.js"></script>
+
 <script type="text/javascript" src="/~/core/release/core.min.js"></script>
 
 <script type="text/javascript" src="/~/core/package.js"></script>
@@ -29,8 +31,19 @@
 		var tabs = new core.html.easyui.layout.Tabs("tabs");
 		tabs.title("test");
 		tabs.height("500px");
-		tabs.attr.demo();
+		tabs.onDblClick(function(){
+			alert(123)
+		});
 		tabs.init();
+		
+		tabs.add({
+			title : "test1",
+			index : 0
+		});
+		tabs.add({
+			title : "test2",
+			index : 1
+		});
 	});
 </script>
 
