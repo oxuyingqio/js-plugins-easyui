@@ -355,6 +355,8 @@ core.html.easyui.layout.Panel = (function() {
 
 		/**
 		 * 获取/设置宽度
+		 * 
+		 * @param width
 		 */
 		this.width = function() {
 
@@ -367,6 +369,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置高度
+		 * 
+		 * @param height
+		 */
 		this.height = function() {
 
 			switch (arguments.length) {
@@ -378,6 +385,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置左偏移
+		 * 
+		 * @param left
+		 */
 		this.left = function() {
 
 			switch (arguments.length) {
@@ -389,6 +401,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置上偏移
+		 * 
+		 * @param top
+		 */
 		this.top = function() {
 
 			switch (arguments.length) {
@@ -400,6 +417,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置样式
+		 * 
+		 * @param cls
+		 */
 		this.cls = function() {
 
 			switch (arguments.length) {
@@ -411,6 +433,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置标头样式
+		 * 
+		 * @param headerCls
+		 */
 		this.headerCls = function() {
 
 			switch (arguments.length) {
@@ -422,6 +449,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置内容样式
+		 * 
+		 * @param bodyCls
+		 */
 		this.bodyCls = function() {
 
 			switch (arguments.length) {
@@ -433,6 +465,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置样式
+		 * 
+		 * @param style
+		 */
 		this.style = function() {
 
 			switch (arguments.length) {
@@ -444,6 +481,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置自适应
+		 * 
+		 * @param fit
+		 */
 		this.fit = function() {
 
 			switch (arguments.length) {
@@ -455,6 +497,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置边框
+		 * 
+		 * @param border
+		 */
 		this.border = function() {
 
 			switch (arguments.length) {
@@ -466,6 +513,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置调整布局
+		 * 
+		 * @param doSize
+		 */
 		this.doSize = function() {
 
 			switch (arguments.length) {
@@ -477,6 +529,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置不创建标头
+		 * 
+		 * @param noheader
+		 */
 		this.noheader = function() {
 
 			switch (arguments.length) {
@@ -488,6 +545,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置内容
+		 * 
+		 * @param content
+		 */
 		this.content = function() {
 
 			switch (arguments.length) {
@@ -499,6 +561,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置显示折叠按钮
+		 * 
+		 * @param collapsible
+		 */
 		this.collapsible = function() {
 
 			switch (arguments.length) {
@@ -510,6 +577,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置显示最小化按钮
+		 * 
+		 * @param minimizable
+		 */
 		this.minimizable = function() {
 
 			switch (arguments.length) {
@@ -521,6 +593,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置显示最大化按钮
+		 * 
+		 * @param maximizable
+		 */
 		this.maximizable = function() {
 
 			switch (arguments.length) {
@@ -532,6 +609,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置显示关闭按钮
+		 * 
+		 * @param closable
+		 */
 		this.closable = function() {
 
 			switch (arguments.length) {
@@ -543,6 +625,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置工具条
+		 * 
+		 * @param tools
+		 */
 		this.tools = function() {
 
 			switch (arguments.length) {
@@ -554,6 +641,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置头
+		 * 
+		 * @param header
+		 */
 		this.header = function() {
 
 			switch (arguments.length) {
@@ -565,6 +657,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置脚
+		 * 
+		 * @param footer
+		 */
 		this.footer = function() {
 
 			switch (arguments.length) {
@@ -576,6 +673,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置打开动画
+		 * 
+		 * @param openAnimation
+		 */
 		this.openAnimation = function() {
 
 			switch (arguments.length) {
@@ -587,6 +689,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置打开时间
+		 * 
+		 * @param openDuration
+		 */
 		this.openDuration = function() {
 
 			switch (arguments.length) {
@@ -598,6 +705,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置关闭动画
+		 * 
+		 * @param closeAnimation
+		 */
 		this.closeAnimation = function() {
 
 			switch (arguments.length) {
@@ -609,6 +721,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置关闭时间
+		 * 
+		 * @param closeDuration
+		 */
 		this.closeDuration = function() {
 
 			switch (arguments.length) {
@@ -620,6 +737,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置初始化折叠
+		 * 
+		 * @param collapsed
+		 */
 		this.collapsed = function() {
 
 			switch (arguments.length) {
@@ -631,6 +753,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置初始化最小
+		 * 
+		 * @param minimized
+		 */
 		this.minimized = function() {
 
 			switch (arguments.length) {
@@ -642,6 +769,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置初始化最大
+		 * 
+		 * @param maximized
+		 */
 		this.maximized = function() {
 
 			switch (arguments.length) {
@@ -653,6 +785,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置初始化关闭
+		 * 
+		 * @param closed
+		 */
 		this.closed = function() {
 
 			switch (arguments.length) {
@@ -664,6 +801,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置超链接
+		 * 
+		 * @param href
+		 */
 		this.href = function() {
 
 			switch (arguments.length) {
@@ -675,6 +817,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置缓存
+		 * 
+		 * @param cache
+		 */
 		this.cache = function() {
 
 			switch (arguments.length) {
@@ -686,6 +833,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置加载信息
+		 * 
+		 * @param loadingMessage
+		 */
 		this.loadingMessage = function() {
 
 			switch (arguments.length) {
@@ -697,6 +849,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置ajax响应中提取数据
+		 * 
+		 * @param extractor
+		 */
 		this.extractor = function() {
 
 			switch (arguments.length) {
@@ -708,6 +865,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置请求方式
+		 * 
+		 * @param method
+		 */
 		this.method = function() {
 
 			switch (arguments.length) {
@@ -719,6 +881,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置参数
+		 * 
+		 * @param queryParams
+		 */
 		this.queryParams = function() {
 
 			switch (arguments.length) {
@@ -730,6 +897,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置加载器
+		 * 
+		 * @param loader
+		 */
 		this.loader = function() {
 
 			switch (arguments.length) {
@@ -741,6 +913,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置加载前事件
+		 * 
+		 * @param onBeforeLoad
+		 */
 		this.onBeforeLoad = function() {
 
 			switch (arguments.length) {
@@ -752,6 +929,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置加载事件
+		 * 
+		 * @param onLoad
+		 */
 		this.onLoad = function() {
 
 			switch (arguments.length) {
@@ -763,6 +945,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置加载失败事件
+		 * 
+		 * @param onLoadError
+		 */
 		this.onLoadError = function() {
 
 			switch (arguments.length) {
@@ -774,6 +961,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置打开前事件
+		 * 
+		 * @param onBeforeOpen
+		 */
 		this.onBeforeOpen = function() {
 
 			switch (arguments.length) {
@@ -785,6 +977,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置打开事件
+		 * 
+		 * @param onOpen
+		 */
 		this.onOpen = function() {
 
 			switch (arguments.length) {
@@ -796,6 +993,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置关闭前事件
+		 * 
+		 * @param onBeforeClose
+		 */
 		this.onBeforeClose = function() {
 
 			switch (arguments.length) {
@@ -807,6 +1009,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置关闭事件
+		 * 
+		 * @param onClose
+		 */
 		this.onClose = function() {
 
 			switch (arguments.length) {
@@ -818,6 +1025,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置销毁事件
+		 * 
+		 * @param onBeforeDestroy
+		 */
 		this.onBeforeDestroy = function() {
 
 			switch (arguments.length) {
@@ -829,6 +1041,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置销毁事件
+		 * 
+		 * @param onDestroy
+		 */
 		this.onDestroy = function() {
 
 			switch (arguments.length) {
@@ -840,6 +1057,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置折叠前事件
+		 * 
+		 * @param onBeforeCollapse
+		 */
 		this.onBeforeCollapse = function() {
 
 			switch (arguments.length) {
@@ -851,6 +1073,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置折叠事件
+		 * 
+		 * @param onCollapse
+		 */
 		this.onCollapse = function() {
 
 			switch (arguments.length) {
@@ -862,6 +1089,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置展开事件
+		 * 
+		 * @param onBeforeExpand
+		 */
 		this.onBeforeExpand = function() {
 
 			switch (arguments.length) {
@@ -873,6 +1105,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置展开事件
+		 * 
+		 * @param onExpand
+		 */
 		this.onExpand = function() {
 
 			switch (arguments.length) {
@@ -884,6 +1121,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置窗口大小改变事件
+		 * 
+		 * @param onResize
+		 */
 		this.onResize = function() {
 
 			switch (arguments.length) {
@@ -895,6 +1137,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置移动事件
+		 * 
+		 * @param onMove
+		 */
 		this.onMove = function() {
 
 			switch (arguments.length) {
@@ -906,6 +1153,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置最大化事件
+		 * 
+		 * @param onMaximize
+		 */
 		this.onMaximize = function() {
 
 			switch (arguments.length) {
@@ -917,6 +1169,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置恢复事件
+		 * 
+		 * @param onRestore
+		 */
 		this.onRestore = function() {
 
 			switch (arguments.length) {
@@ -928,6 +1185,11 @@ core.html.easyui.layout.Panel = (function() {
 			}
 		};
 
+		/**
+		 * 获取/设置最小化事件
+		 * 
+		 * @param onMinimize
+		 */
 		this.onMinimize = function() {
 
 			switch (arguments.length) {
@@ -940,6 +1202,11 @@ core.html.easyui.layout.Panel = (function() {
 		};
 	};
 
+	/**
+	 * 初始化组件模板
+	 * 
+	 * @returns {core.html.easyui.layout.Panel}
+	 */
 	Constructor.prototype.init = function() {
 
 		// 获取jQuery对象
@@ -949,7 +1216,9 @@ core.html.easyui.layout.Panel = (function() {
 			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "方法异常", "div(id:" + this.id() + ")不存在.");
 		}
 
+		// 参数配置
 		$jQuery.panel({
+			// 属性
 			id : this.id(),
 			title : this.title(),
 			iconCls : this.iconCls(),
@@ -988,6 +1257,8 @@ core.html.easyui.layout.Panel = (function() {
 			method : this.method(),
 			queryParams : this.queryParams(),
 			loader : this.loader(),
+
+			// 事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
 			onLoadError : this.onLoadError(),
@@ -1007,82 +1278,111 @@ core.html.easyui.layout.Panel = (function() {
 			onRestore : this.onRestore(),
 			onMinimize : this.onMinimize()
 		});
+
+		return this;
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.options = function() {
 
+		return $("#" + this.id()).panel("options");
 	};
 
+	/**
+	 * 
+	 * @returns
+	 */
 	Constructor.prototype.panel = function() {
 
+		return $("#" + this.id()).panel("panel");
 	};
 
 	Constructor.prototype.header = function() {
 
+		return $("#" + this.id()).panel("header");
 	};
 
 	Constructor.prototype.footer = function() {
 
+		return $("#" + this.id()).panel("footer");
 	};
 
 	Constructor.prototype.body = function() {
 
+		return $("#" + this.id()).panel("body");
 	};
 
 	Constructor.prototype.setTitle = function(title) {
 
+		return $("#" + this.id()).panel("setTitle", title);
 	};
 
 	Constructor.prototype.open = function(forceOpen) {
 
+		return $("#" + this.id()).panel("open", forceOpen);
 	};
 
 	Constructor.prototype.close = function(forceClose) {
 
+		return $("#" + this.id()).panel("close", forceClose);
 	};
 
 	Constructor.prototype.destroy = function(forceDestroy) {
 
+		return $("#" + this.id()).panel("destroy", forceDestroy);
 	};
 
 	Constructor.prototype.clear = function() {
 
+		return $("#" + this.id()).panel("clear");
 	};
 
 	Constructor.prototype.refresh = function(href) {
 
+		return $("#" + this.id()).panel("refresh", href);
 	};
 
 	Constructor.prototype.resize = function(options) {
 
+		return $("#" + this.id()).panel("resize", options);
 	};
 
 	Constructor.prototype.doLayout = function() {
 
+		return $("#" + this.id()).panel("doLayout");
 	};
 
 	Constructor.prototype.move = function(options) {
 
+		return $("#" + this.id()).panel("move", options);
 	};
 
 	Constructor.prototype.maximize = function() {
 
+		return $("#" + this.id()).panel("maximize");
 	};
 
 	Constructor.prototype.minimize = function() {
 
+		return $("#" + this.id()).panel("minimize");
 	};
 
 	Constructor.prototype.restore = function() {
 
+		return $("#" + this.id()).panel("restore");
 	};
 
 	Constructor.prototype.collapse = function(animate) {
 
+		return $("#" + this.id()).panel("collapse", animate);
 	};
 
 	Constructor.prototype.expand = function(animate) {
 
+		return $("#" + this.id()).panel("expand", animate);
 	};
 
 	// 返回构造函数
