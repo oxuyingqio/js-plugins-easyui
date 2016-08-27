@@ -176,7 +176,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns {String} css样式
 		 */
 		var rowStyler = function(index, row) {
-			
+
 		};
 		/**
 		 * 数据加载过滤
@@ -212,7 +212,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onClickRow = function(index, row) {
-			
+
 		};
 		/**
 		 * 行双击事件
@@ -224,7 +224,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onDblClickRow = function(index, row) {
-			
+
 		};
 		/**
 		 * 单元格单击事件
@@ -238,7 +238,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onClickCell = function(index, field, value) {
-			
+
 		};
 		/**
 		 * 单元格双击事件
@@ -252,7 +252,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onDblClickCell = function(index, field, value) {
-			
+
 		};
 		/**
 		 * 排序前
@@ -264,7 +264,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeforeSortColumn = function(sort, order) {
-			
+
 		};
 		/**
 		 * 排序
@@ -276,7 +276,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onSortColumn = function(sort, order) {
-			
+
 		};
 		/**
 		 * 改变列宽
@@ -288,7 +288,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onResizeColumn = function(field, width) {
-			
+
 		};
 		/**
 		 * 选中前
@@ -300,7 +300,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeforeSelect = function(index, row) {
-			
+
 		};
 		/**
 		 * 选中
@@ -312,7 +312,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onSelect = function(index, row) {
-			
+
 		};
 		/**
 		 * 取消选中前
@@ -324,7 +324,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeforeUnselect = function(index, row) {
-			
+
 		};
 		/**
 		 * 取消选中
@@ -336,7 +336,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onUnselect = function(index, row) {
-			
+
 		};
 		/**
 		 * 选中所有时
@@ -346,7 +346,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onSelectAll = function(rows) {
-			
+
 		};
 		/**
 		 * 取消选中所有时
@@ -356,7 +356,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onUnselectAll = function(rows) {
-			
+
 		};
 		/**
 		 * 勾选前
@@ -368,7 +368,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeforeCheck = function(index, row) {
-			
+
 		};
 		/**
 		 * 勾选
@@ -380,7 +380,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onCheck = function(index, row) {
-			
+
 		};
 		/**
 		 * 取消勾选前
@@ -392,7 +392,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeforeUncheck = function(index, row) {
-			
+
 		};
 		/**
 		 * 取消勾选
@@ -404,7 +404,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onUncheck = function(index, row) {
-			
+
 		};
 		/**
 		 * 勾选所有
@@ -414,7 +414,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onCheckAll = function(rows) {
-			
+
 		};
 		/**
 		 * 取消勾选所有
@@ -424,7 +424,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onUncheckAll = function(rows) {
-			
+
 		};
 		/**
 		 * 编辑前
@@ -436,7 +436,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeforeEdit = function(index, row) {
-			
+
 		};
 		/**
 		 * 编辑
@@ -448,7 +448,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onBeginEdit = function(index, row) {
-			
+
 		};
 		/**
 		 * 结束编辑
@@ -462,7 +462,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onEndEdit = function(index, row, changes) {
-			
+
 		};
 		/**
 		 * 编辑后
@@ -476,7 +476,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onAfterEdit = function(index, row, changes) {
-			
+
 		};
 		/**
 		 * 取消编辑
@@ -488,7 +488,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onCancelEdit = function(index, row) {
-			
+
 		};
 		/**
 		 * 标题头右键点击
@@ -499,7 +499,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onHeaderContextMenu = function(e, field) {
-			
+
 		};
 		/**
 		 * 行右键点击事件
@@ -512,9 +512,9 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		 * @returns
 		 */
 		var onRowContextMenu = function(e, index, row) {
-			
+
 		};
-		
+
 		/**
 		 * 获取/设置列
 		 * 
@@ -546,938 +546,979 @@ core.html.easyui.datagrid.Datagrid = (function() {
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置列宽自适应
 		 * 
-		 * @param onContextMenu
+		 * @param fitColumns
 		 */
-		this.onDblClick = function() {
+		this.fitColumns = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return fitColumns;
 			default:
-				onDblClick = arguments[0];
+				fitColumns = arguments[0];
 				return this;
 			}
 		};
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onContextMenu
+		 * @param resizeHandle
 		 */
-		this.onDblClick = function() {
+		this.resizeHandle = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return resizeHandle;
 			default:
-				onDblClick = arguments[0];
+				resizeHandle = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置行高自适应
+		 * 
+		 * @param autoRowHeight
+		 */
+		this.autoRowHeight = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return autoRowHeight;
+			default:
+				autoRowHeight = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置工具条
+		 * 
+		 * @param toolbar
+		 */
+		this.toolbar = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return toolbar;
+			default:
+				toolbar = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置隔行变色
+		 * 
+		 * @param striped
+		 */
+		this.striped = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return striped;
+			default:
+				striped = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置禁止文字自动换行
+		 * 
+		 * @param nowrap
+		 */
+		this.nowrap = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return nowrap;
+			default:
+				nowrap = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置id字段
+		 * 
+		 * @param idField
+		 */
+		this.idField = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return idField;
+			default:
+				idField = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置数据URL
+		 * 
+		 * @param url
+		 */
+		this.url = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return url;
+			default:
+				url = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置数据
+		 * 
+		 * @param data
+		 */
+		this.data = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return data;
+			default:
+				data = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置数据加载等待提示
+		 * 
+		 * @param loadMsg
+		 */
+		this.loadMsg = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return loadMsg;
+			default:
+				loadMsg = arguments[0];
 				return this;
 			}
 		};
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onContextMenu
+		 * @param emptyMsg
 		 */
-		this.onDblClick = function() {
+		this.emptyMsg = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return emptyMsg;
 			default:
-				onDblClick = arguments[0];
+				emptyMsg = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置添加页脚工具栏
+		 * 
+		 * @param pagination
+		 */
+		this.pagination = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return pagination;
+			default:
+				pagination = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置显示行号
+		 * 
+		 * @param rownumbers
+		 */
+		this.rownumbers = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return rownumbers;
+			default:
+				rownumbers = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置仅能选中单行
+		 * 
+		 * @param singleSelect
+		 */
+		this.singleSelect = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return singleSelect;
+			default:
+				singleSelect = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置ctrl键选中
+		 * 
+		 * @param ctrlSelect
+		 */
+		this.ctrlSelect = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return ctrlSelect;
+			default:
+				ctrlSelect = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置check时选中
+		 * 
+		 * @param checkOnSelect
+		 */
+		this.checkOnSelect = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return checkOnSelect;
+			default:
+				checkOnSelect = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置选中时check
+		 * 
+		 * @param selectOnCheck
+		 */
+		this.selectOnCheck = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return selectOnCheck;
+			default:
+				selectOnCheck = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置分页工具条位置
+		 * 
+		 * @param pagePosition
+		 */
+		this.pagePosition = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return pagePosition;
+			default:
+				pagePosition = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置默认页码
+		 * 
+		 * @param pageNumber
+		 */
+		this.pageNumber = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return pageNumber;
+			default:
+				pageNumber = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置分页数
+		 * 
+		 * @param pageSize
+		 */
+		this.pageSize = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return pageSize;
+			default:
+				pageSize = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置分页数可选列表
+		 * 
+		 * @param pageList
+		 */
+		this.pageList = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return pageList;
+			default:
+				pageList = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置排序字段
+		 * 
+		 * @param sortName
+		 */
+		this.sortName = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return sortName;
+			default:
+				sortName = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置排序方式
+		 * 
+		 * @param sortOrder
+		 */
+		this.sortOrder = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return sortOrder;
+			default:
+				sortOrder = arguments[0];
 				return this;
 			}
 		};
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onContextMenu
+		 * @param multiSort
 		 */
-		this.onDblClick = function() {
+		this.multiSort = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return multiSort;
 			default:
-				onDblClick = arguments[0];
+				multiSort = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置向后台发送排序条件
+		 * 
+		 * @param remoteSort
+		 */
+		this.remoteSort = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return remoteSort;
+			default:
+				remoteSort = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置显示标头
+		 * 
+		 * @param showHeader
+		 */
+		this.showHeader = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return showHeader;
+			default:
+				showHeader = arguments[0];
+				return this;
+			}
+		};
+		/**
+		 * 获取/设置显示脚
+		 * 
+		 * @param showFooter
+		 */
+		this.showFooter = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return showFooter;
+			default:
+				showFooter = arguments[0];
 				return this;
 			}
 		};
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onContextMenu
+		 * @param scrollbarSize
 		 */
-		this.onDblClick = function() {
+		this.scrollbarSize = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return scrollbarSize;
 			default:
-				onDblClick = arguments[0];
+				scrollbarSize = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置行号宽度
 		 * 
-		 * @param onContextMenu
+		 * @param rownumberWidth
 		 */
-		this.onDblClick = function() {
+		this.rownumberWidth = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return rownumberWidth;
 			default:
-				onDblClick = arguments[0];
+				rownumberWidth = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置编辑框高度
 		 * 
-		 * @param onContextMenu
+		 * @param editorHeight
 		 */
-		this.onDblClick = function() {
+		this.editorHeight = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return editorHeight;
 			default:
-				onDblClick = arguments[0];
+				editorHeight = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置行样式
 		 * 
-		 * @param onContextMenu
+		 * @param rowStyler
 		 */
-		this.onDblClick = function() {
+		this.rowStyler = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return rowStyler;
 			default:
-				onDblClick = arguments[0];
+				rowStyler = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置数据加载过滤
 		 * 
-		 * @param onContextMenu
+		 * @param loadFilter
 		 */
-		this.onDblClick = function() {
+		this.loadFilter = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return loadFilter;
 			default:
-				onDblClick = arguments[0];
+				loadFilter = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置数据加载成功事件
 		 * 
-		 * @param onContextMenu
+		 * @param onLoadSuccess
 		 */
-		this.onDblClick = function() {
+		this.onLoadSuccess = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onLoadSuccess;
 			default:
-				onDblClick = arguments[0];
+				onLoadSuccess = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置行单击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onClickRow
 		 */
-		this.onDblClick = function() {
+		this.onClickRow = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onClickRow;
 			default:
-				onDblClick = arguments[0];
+				onClickRow = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置行双击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onDblClickRow
 		 */
-		this.onDblClick = function() {
+		this.onDblClickRow = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onDblClickRow;
 			default:
-				onDblClick = arguments[0];
+				onDblClickRow = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置单元格单击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onClickCell
 		 */
-		this.onDblClick = function() {
+		this.onClickCell = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onClickCell;
 			default:
-				onDblClick = arguments[0];
+				onClickCell = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置单元格双击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onDblClickCell
 		 */
-		this.onDblClick = function() {
+		this.onDblClickCell = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onDblClickCell;
 			default:
-				onDblClick = arguments[0];
+				onDblClickCell = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置排序前
 		 * 
-		 * @param onContextMenu
+		 * @param onBeforeSortColumn
 		 */
-		this.onDblClick = function() {
+		this.onBeforeSortColumn = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeforeSortColumn;
 			default:
-				onDblClick = arguments[0];
+				onBeforeSortColumn = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置排序
 		 * 
-		 * @param onContextMenu
+		 * @param onSortColumn
 		 */
-		this.onDblClick = function() {
+		this.onSortColumn = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onSortColumn;
 			default:
-				onDblClick = arguments[0];
+				onSortColumn = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置改变列宽
 		 * 
-		 * @param onContextMenu
+		 * @param onResizeColumn
 		 */
-		this.onDblClick = function() {
+		this.onResizeColumn = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onResizeColumn;
 			default:
-				onDblClick = arguments[0];
+				onResizeColumn = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置选中前
 		 * 
-		 * @param onContextMenu
+		 * @param onBeforeSelect
 		 */
-		this.onDblClick = function() {
+		this.onBeforeSelect = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeforeSelect;
 			default:
-				onDblClick = arguments[0];
+				onBeforeSelect = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置选中
 		 * 
-		 * @param onContextMenu
+		 * @param onSelect
 		 */
-		this.onDblClick = function() {
+		this.onSelect = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onSelect;
 			default:
-				onDblClick = arguments[0];
+				onSelect = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消选中前
 		 * 
-		 * @param onContextMenu
+		 * @param onBeforeUnselect
 		 */
-		this.onDblClick = function() {
+		this.onBeforeUnselect = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeforeUnselect;
 			default:
-				onDblClick = arguments[0];
+				onBeforeUnselect = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消选中
 		 * 
-		 * @param onContextMenu
+		 * @param onUnselect
 		 */
-		this.onDblClick = function() {
+		this.onUnselect = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onUnselect;
 			default:
-				onDblClick = arguments[0];
+				onUnselect = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置选中所有时
 		 * 
-		 * @param onContextMenu
+		 * @param onSelectAll
 		 */
-		this.onDblClick = function() {
+		this.onSelectAll = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onSelectAll;
 			default:
-				onDblClick = arguments[0];
+				onSelectAll = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消选中所有时
 		 * 
-		 * @param onContextMenu
+		 * @param onUnselectAll
 		 */
-		this.onDblClick = function() {
+		this.onUnselectAll = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onUnselectAll;
 			default:
-				onDblClick = arguments[0];
+				onUnselectAll = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置勾选前
 		 * 
-		 * @param onContextMenu
+		 * @param onBeforeCheck
 		 */
-		this.onDblClick = function() {
+		this.onBeforeCheck = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeforeCheck;
 			default:
-				onDblClick = arguments[0];
+				onBeforeCheck = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置勾选
 		 * 
-		 * @param onContextMenu
+		 * @param onCheck
 		 */
-		this.onDblClick = function() {
+		this.onCheck = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onCheck;
 			default:
-				onDblClick = arguments[0];
+				onCheck = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消勾选前
 		 * 
-		 * @param onContextMenu
+		 * @param onBeforeUncheck
 		 */
-		this.onDblClick = function() {
+		this.onBeforeUncheck = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeforeUncheck;
 			default:
-				onDblClick = arguments[0];
+				onBeforeUncheck = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消勾选
 		 * 
-		 * @param onContextMenu
+		 * @param onUncheck
 		 */
-		this.onDblClick = function() {
+		this.onUncheck = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onUncheck;
 			default:
-				onDblClick = arguments[0];
+				onUncheck = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置勾选所有
 		 * 
-		 * @param onContextMenu
+		 * @param onCheckAll
 		 */
-		this.onDblClick = function() {
+		this.onCheckAll = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onCheckAll;
 			default:
-				onDblClick = arguments[0];
+				onCheckAll = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消勾选所有
 		 * 
-		 * @param onContextMenu
+		 * @param onUncheckAll
 		 */
-		this.onDblClick = function() {
+		this.onUncheckAll = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onUncheckAll;
 			default:
-				onDblClick = arguments[0];
+				onUncheckAll = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置编辑前
 		 * 
-		 * @param onContextMenu
+		 * @param onBeforeEdit
 		 */
-		this.onDblClick = function() {
+		this.onBeforeEdit = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeforeEdit;
 			default:
-				onDblClick = arguments[0];
+				onBeforeEdit = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置编辑
 		 * 
-		 * @param onContextMenu
+		 * @param onBeginEdit
 		 */
-		this.onDblClick = function() {
+		this.onBeginEdit = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onBeginEdit;
 			default:
-				onDblClick = arguments[0];
+				onBeginEdit = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置结束编辑
 		 * 
-		 * @param onContextMenu
+		 * @param onEndEdit
 		 */
-		this.onDblClick = function() {
+		this.onEndEdit = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onEndEdit;
 			default:
-				onDblClick = arguments[0];
+				onEndEdit = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置编辑后
 		 * 
-		 * @param onContextMenu
+		 * @param onAfterEdit
 		 */
-		this.onDblClick = function() {
+		this.onAfterEdit = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onAfterEdit;
 			default:
-				onDblClick = arguments[0];
+				onAfterEdit = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置取消编辑
 		 * 
-		 * @param onContextMenu
+		 * @param onCancelEdit
 		 */
-		this.onDblClick = function() {
+		this.onCancelEdit = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onCancelEdit;
 			default:
-				onDblClick = arguments[0];
+				onCancelEdit = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置标题头右键点击
 		 * 
-		 * @param onContextMenu
+		 * @param onHeaderContextMenu
 		 */
-		this.onDblClick = function() {
+		this.onHeaderContextMenu = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onHeaderContextMenu;
 			default:
-				onDblClick = arguments[0];
+				onHeaderContextMenu = arguments[0];
 				return this;
 			}
 		};
 		/**
-		 * 获取/设置
+		 * 获取/设置行右键点击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onRowContextMenu
 		 */
-		this.onDblClick = function() {
+		this.onRowContextMenu = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDblClick;
+				return onRowContextMenu;
 			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
-				return this;
-			}
-		};
-		/**
-		 * 获取/设置
-		 * 
-		 * @param onContextMenu
-		 */
-		this.onDblClick = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onDblClick;
-			default:
-				onDblClick = arguments[0];
+				onRowContextMenu = arguments[0];
 				return this;
 			}
 		};
 	};
 	// 继承Panel面板模板
 	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
+
+	/**
+	 * 初始化组件模板
+	 * 
+	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 */
+	Constructor.prototype.init = function() {
+
+		// 获取jQuery对象
+		var $jQuery = $("#" + this.id());
+		// 判断ID是否存在
+		if ($jQuery.length === 0) {
+			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
+		}
+		// 清空内容
+		$jQuery.empty();
+
+		// 参数配置
+		$jQuery.datagrid({
+			// 属性
+			id : this.id(),
+			title : this.title(),
+			iconCls : this.iconCls(),
+			width : this.width(),
+			height : this.height(),
+			left : this.left(),
+			top : this.top(),
+			cls : this.cls(),
+			headerCls : this.headerCls(),
+			bodyCls : this.bodyCls(),
+			style : this.style(),
+			fit : this.fit(),
+			border : this.border(),
+			doSize : this.doSize(),
+			noheader : this.noheader(),
+			content : this.content(),
+			collapsible : this.collapsible(),
+			minimizable : this.minimizable(),
+			maximizable : this.maximizable(),
+			closable : this.closable(),
+			tools : this.tools(),
+			header : this.header(),
+			footer : this.footer(),
+			openAnimation : this.openAnimation(),
+			openDuration : this.openDuration(),
+			closeAnimation : this.closeAnimation(),
+			closeDuration : this.closeDuration(),
+			collapsed : this.collapsed(),
+			minimized : this.minimized(),
+			maximized : this.maximized(),
+			closed : this.closed(),
+			href : this.href(),
+			cache : this.cache(),
+			loadingMessage : this.loadingMessage(),
+			extractor : this.extractor(),
+			method : this.method(),
+			queryParams : this.queryParams(),
+			loader : this.loader(),
+			columns : this.columns(),
+			frozenColumns : this.frozenColumns(),
+			fitColumns : this.fitColumns(),
+			resizeHandle : this.resizeHandle(),
+			autoRowHeight : this.autoRowHeight(),
+			toolbar : this.toolbar(),
+
+			// 事件
+			onBeforeLoad : this.onBeforeLoad(),
+			onLoad : this.onLoad(),
+			onLoadError : this.onLoadError(),
+			onBeforeOpen : this.onBeforeOpen(),
+			onOpen : this.onOpen(),
+			onBeforeClose : this.onBeforeClose(),
+			onClose : this.onClose(),
+			onBeforeDestroy : this.onBeforeDestroy(),
+			onDestroy : this.onDestroy(),
+			onBeforeCollapse : this.onBeforeCollapse(),
+			onCollapse : this.onCollapse(),
+			onBeforeExpand : this.onBeforeExpand(),
+			onExpand : this.onExpand(),
+			onResize : this.onResize(),
+			onMove : this.onMove(),
+			onMaximize : this.onMaximize(),
+			onRestore : this.onRestore(),
+			onMinimize : this.onMinimize()
+		});
+	};
 
 	// 返回构造函数
 	return Constructor;
