@@ -1,10 +1,10 @@
 /**
- * @name Tooltip
- * @package core.html.easyui.base
- * @desc 工具提示模板
- * @type 类
+ * @name	Tooltip
+ * @package	core.html.easyui.base
+ * @desc	工具提示模板
+ * @type	类
  * 
- * @date 2016年8月29日 15:03:57
+ * @date	2016年8月29日 15:03:57
  */
 
 core.html.easyui.base.Tooltip = (function() {

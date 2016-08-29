@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.button.SwitchButton</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/icon.css">
+
+</head>
+<body>
+	<input id="switchbutton" />
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.0/jquery-3.1.0.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.min.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/button/SwitchButton.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var switchbutton = new core.html.easyui.button.SwitchButton("switchbutton");
+		switchbutton.onChange(function() {
+			alert($("#switchbutton").val());
+		});
+
+		switchbutton.init();
+		alert($("#switchbutton").val());
+	});
+</script>
+
+</html>
