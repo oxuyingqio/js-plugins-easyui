@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.form.TextBox</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/icon.css">
+
+</head>
+<body>
+	<input id="textbox" type="text" />
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.0/jquery-3.1.0.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.min.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/form/ValidateBox.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/TextBox.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var textbox = new core.html.easyui.form.TextBox("textbox");
+		textbox.label("text:");
+		textbox.prompt("this is textbox");
+		textbox.init();
+	});
+</script>
+
+</html>

@@ -1,10 +1,10 @@
 /**
- * @name ValidateBox
- * @package core.html.easyui.form
- * @desc 校验文本框模板
- * @type 类
+ * @name	ValidateBox
+ * @package	core.html.easyui.form
+ * @desc	校验文本框模板
+ * @type	类
  * 
- * @date 2016年8月29日 16:39:29
+ * @date	2016年8月29日 16:39:29
  */
 
 core.html.easyui.form.ValidateBox = (function() {
@@ -29,15 +29,77 @@ core.html.easyui.form.ValidateBox = (function() {
 		 * ID
 		 */
 		var id = _id;
+		/**
+		 * 是否校验
+		 */
 		var required = false;
+		/**
+		 * 校验方式
+		 */
 		var validType = null;
+		/**
+		 * 校验延迟时间
+		 */
 		var delay = 200;
+		/**
+		 * 字段为空提示信息
+		 */
 		var missingMessage = "该字段为必填字段";
+		/**
+		 * 校验提示信息
+		 */
 		var invalidMessage = null;
+		/**
+		 * 工具提示条位置
+		 */
 		var tipPosition = "right";
+		/**
+		 * 水平位置偏移值
+		 */
+		var deltaX = 0;
+		/**
+		 * 是否关闭校验
+		 */
+		var novalidate = false;
+		/**
+		 * 是否可输
+		 */
+		var editable = true;
+		/**
+		 * 是否可用
+		 */
+		var disabled = false;
+		/**
+		 * 是否只读
+		 */
+		var readonly = false;
+		/**
+		 * 是否创建时验证
+		 */
+		var validateOnCreate = true;
+		/**
+		 * 是否失去焦点时验证
+		 */
+		var validateOnBlur = false;
 
 		/**
-		 * 获取/设置
+		 * 事件
+		 */
+		/**
+		 * 验证前事件
+		 */
+		var onBeforeValidate = function() {
+
+		};
+		/**
+		 * 验证事件
+		 */
+		var onValidate = function(valid) {
+
+		};
+
+		/**
+		 * 获取/设置ID
 		 * 
 		 * @param id
 		 */
@@ -51,12 +113,252 @@ core.html.easyui.form.ValidateBox = (function() {
 				return this;
 			}
 		};
+
+		/**
+		 * 获取/设置是否校验
+		 * 
+		 * @param required
+		 */
+		this.required = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return required;
+			default:
+				required = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置校验方式
+		 * 
+		 * @param validType
+		 */
+		this.validType = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return validType;
+			default:
+				validType = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置校验延迟时间
+		 * 
+		 * @param delay
+		 */
+		this.delay = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return delay;
+			default:
+				delay = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置字段为空提示信息
+		 * 
+		 * @param missingMessage
+		 */
+		this.missingMessage = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return missingMessage;
+			default:
+				missingMessage = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置校验提示信息
+		 * 
+		 * @param invalidMessage
+		 */
+		this.invalidMessage = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return invalidMessage;
+			default:
+				invalidMessage = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置工具提示条位置
+		 * 
+		 * @param tipPosition
+		 */
+		this.tipPosition = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return tipPosition;
+			default:
+				tipPosition = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置水平位置偏移值
+		 * 
+		 * @param deltaX
+		 */
+		this.deltaX = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return deltaX;
+			default:
+				deltaX = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否关闭校验
+		 * 
+		 * @param novalidate
+		 */
+		this.novalidate = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return novalidate;
+			default:
+				novalidate = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否可输
+		 * 
+		 * @param editable
+		 */
+		this.editable = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return editable;
+			default:
+				editable = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否可用
+		 * 
+		 * @param disabled
+		 */
+		this.disabled = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return disabled;
+			default:
+				disabled = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否只读
+		 * 
+		 * @param readonly
+		 */
+		this.readonly = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return readonly;
+			default:
+				readonly = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否创建时验证
+		 * 
+		 * @param validateOnCreate
+		 */
+		this.validateOnCreate = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return validateOnCreate;
+			default:
+				validateOnCreate = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否失去焦点时验证
+		 * 
+		 * @param validateOnBlur
+		 */
+		this.validateOnBlur = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return validateOnBlur;
+			default:
+				validateOnBlur = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置验证前事件
+		 * 
+		 * @param onBeforeValidate
+		 */
+		this.onBeforeValidate = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onBeforeValidate;
+			default:
+				onBeforeValidate = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置验证事件
+		 * 
+		 * @param onValidate
+		 */
+		this.onValidate = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onValidate;
+			default:
+				onValidate = arguments[0];
+				return this;
+			}
+		};
 	};
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.button.SwitchButton}
+	 * @returns {core.html.easyui.form.ValidateBox}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -71,6 +373,23 @@ core.html.easyui.form.ValidateBox = (function() {
 		$jQuery.validatebox({
 			// 属性
 			id : this.id(),
+			required : this.required(),
+			validType : this.validType(),
+			delay : this.delay(),
+			missingMessage : this.missingMessage(),
+			invalidMessage : this.invalidMessage(),
+			tipPosition : this.tipPosition(),
+			deltaX : this.deltaX(),
+			novalidate : this.novalidate(),
+			editable : this.editable(),
+			disabled : this.disabled(),
+			readonly : this.readonly(),
+			validateOnCreate : this.validateOnCreate(),
+			validateOnBlur : this.validateOnBlur(),
+
+			// 事件
+			onBeforeValidate : this.onBeforeValidate(),
+			onValidate : this.onValidate()
 		});
 
 		return this;
@@ -82,7 +401,88 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).switchbutton("options");
+		return $("#" + this.id()).validatebox("options");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.destroy = function() {
+
+		return $("#" + this.id()).validatebox("destroy");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.validate = function() {
+
+		return $("#" + this.id()).validatebox("validate");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.isValid = function() {
+
+		return $("#" + this.id()).validatebox("isValid");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.enableValidation = function() {
+
+		return $("#" + this.id()).validatebox("enableValidation");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.disableValidation = function() {
+
+		return $("#" + this.id()).validatebox("disableValidation");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.resetValidation = function() {
+
+		return $("#" + this.id()).validatebox("resetValidation");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.enable = function() {
+
+		return $("#" + this.id()).validatebox("enable");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.disable = function() {
+
+		return $("#" + this.id()).validatebox("disable");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.readonly = function(mode) {
+
+		return $("#" + this.id()).validatebox("readonly", mode);
 	};
 
 	// 返回构造函数
