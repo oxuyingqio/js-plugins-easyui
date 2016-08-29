@@ -138,15 +138,41 @@ core.html.easyui.window.Messager = (function() {
 		$.messager.prompt(title, msg, fn);
 	};
 
+	/**
+	 * 进度条
+	 * 
+	 * @param obj
+	 */
 	Constructor.prototype.progress = function(obj) {
 
 		$.messager.progress(obj);
+	};
+
+	/**
+	 * 进度条
+	 * 
+	 * @param title
+	 *            标题
+	 * @param msg
+	 *            信息
+	 */
+	Constructor.prototype.progressMessage = function(title, msg) {
+
+		title = title === null ? "温馨提示" : title;
+		title = title === "" ? "&nbsp;" : title;
+
+		this.progress({
+			title : title,
+			msg : msg
+		});
 	};
 
 	return {
 
 		/**
 		 * 获取消息实例
+		 * 
+		 * @returns {core.html.easyui.window.Messager}
 		 */
 		getInstance : function() {
 
