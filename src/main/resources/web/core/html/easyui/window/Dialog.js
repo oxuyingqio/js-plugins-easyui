@@ -10,11 +10,6 @@
 core.html.easyui.window.Dialog = (function() {
 
 	/**
-	 * 对象个数
-	 */
-	var count = 0;
-
-	/**
 	 * 构造函数
 	 * 
 	 * @param id{String}
@@ -22,11 +17,8 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	var Constructor = function(id) {
 
-		// 对象个数+1
-		count++;
-
 		// 调用父类构造
-		core.html.easyui.window.Dialog.superClass.constructor.call(this, id || "coreHtmlEasyuiWindowDialog" + count);
+		core.html.easyui.window.Dialog.superClass.constructor.call(this, id);
 		this.title("新弹出框");
 		this.collapsible(false);
 		this.minimizable(false);

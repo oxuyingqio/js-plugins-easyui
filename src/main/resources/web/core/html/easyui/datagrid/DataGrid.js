@@ -10,11 +10,6 @@
 core.html.easyui.datagrid.DataGrid = (function() {
 
 	/**
-	 * 对象个数
-	 */
-	var count = 0;
-
-	/**
 	 * cookie操作
 	 */
 	var cookie = core.html.util.Cookie.getInstance();
@@ -27,12 +22,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	var Constructor = function(id) {
 
-		// 对象个数+1
-		count++;
-
 		// 调用父类构造
-		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id || "coreHtmlEasyuiDatagridDataGrid"
-				+ count);
+		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id);
 
 		/**
 		 * 属性

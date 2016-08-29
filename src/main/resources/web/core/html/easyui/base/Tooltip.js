@@ -1,18 +1,13 @@
 /**
- * @name Tooltip
- * @package core.html.easyui.base
- * @desc 工具提示模板
- * @type 类
+ * @name	Tooltip
+ * @package	core.html.easyui.base
+ * @desc	工具提示模板
+ * @type	类
  * 
- * @date 2016年8月29日 15:03:57
+ * @date	2016年8月29日 15:03:57
  */
 
 core.html.easyui.base.Tooltip = (function() {
-
-	/**
-	 * 对象个数
-	 */
-	var count = 0;
 
 	/**
 	 * 构造函数
@@ -22,8 +17,10 @@ core.html.easyui.base.Tooltip = (function() {
 	 */
 	var Constructor = function(_id) {
 
-		// 对象个数+1
-		count++;
+		// 校验ID
+		if (_id === null || _id === undefined) {
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空");
+		}
 
 		/**
 		 * 属性
@@ -31,7 +28,7 @@ core.html.easyui.base.Tooltip = (function() {
 		/**
 		 * ID
 		 */
-		var id = _id || "coreHtmlEasyuiLayoutPanel" + count;
+		var id = _id;
 
 		/**
 		 * 获取/设置 id

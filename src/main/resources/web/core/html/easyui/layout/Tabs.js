@@ -10,11 +10,6 @@
 core.html.easyui.layout.Tabs = (function() {
 
 	/**
-	 * 对象个数
-	 */
-	var count = 0;
-
-	/**
 	 * 构造函数
 	 * 
 	 * @param id{String}
@@ -22,11 +17,8 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	var Constructor = function(id) {
 
-		// 对象个数+1
-		count++;
-
 		// 调用父类构造
-		core.html.easyui.layout.Tabs.superClass.constructor.call(this, id || "coreHtmlEasyuiLayoutTabs" + count);
+		core.html.easyui.layout.Tabs.superClass.constructor.call(this, id);
 		// 设置工具条为空
 		this.tools(null);
 

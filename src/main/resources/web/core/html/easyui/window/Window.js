@@ -10,11 +10,6 @@
 core.html.easyui.window.Window = (function() {
 
 	/**
-	 * 对象个数
-	 */
-	var count = 0;
-
-	/**
 	 * 构造函数
 	 * 
 	 * @param id{String}
@@ -22,11 +17,8 @@ core.html.easyui.window.Window = (function() {
 	 */
 	var Constructor = function(id) {
 
-		// 对象个数+1
-		count++;
-
 		// 调用父类构造
-		core.html.easyui.window.Window.superClass.constructor.call(this, id || "coreHtmlEasyuiWindowWindow" + count);
+		core.html.easyui.window.Window.superClass.constructor.call(this, id);
 		this.title("新窗口");
 		this.collapsible(true);
 		this.minimizable(true);

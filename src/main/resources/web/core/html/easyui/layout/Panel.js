@@ -4,15 +4,10 @@
  * @desc	面板模板
  * @type	类
  * 
- * @date 2016年8月25日 17:57:53
+ * @date	2016年8月25日 17:57:53
  */
 
 core.html.easyui.layout.Panel = (function() {
-
-	/**
-	 * 对象个数
-	 */
-	var count = 0;
 
 	/**
 	 * 构造函数
@@ -22,8 +17,10 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	var Constructor = function(_id) {
 
-		// 对象个数+1
-		count++;
+		// 校验ID
+		if (_id === null || _id === undefined) {
+			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "构造参数异常", "ID属性不能为空");
+		}
 
 		/**
 		 * 属性
@@ -31,7 +28,7 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * ID
 		 */
-		var id = _id || "coreHtmlEasyuiLayoutPanel" + count;
+		var id = _id;
 		/**
 		 * 标题
 		 */
