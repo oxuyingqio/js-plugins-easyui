@@ -442,7 +442,7 @@ core.html.easyui.layout.Tabs = (function() {
 			}
 		};
 	};
-	// 继承Panel面板模板
+	// 继承面板模板
 	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**

@@ -5,20 +5,14 @@
 // HTML EasyUI扩展包
 core.html.easyui = {
 
-	// datagrid模板包
+	// 列表包
 	datagrid : {},
-
-	// dialog模板包
-	dialog : {},
 
 	// 布局包
 	layout : {},
 
-	// message模板包
-	message : {},
-
-	// propertygrid模板包
-	propertygrid : {}
+	// 窗口包
+	window : {}
 };
 
 // HTML EasyUI元素包

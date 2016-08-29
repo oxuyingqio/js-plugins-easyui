@@ -1,8 +1,8 @@
 /**
- * @name Datagrid
- * @package core.html.easyui.datagrid
- * @desc 数据列表模板
- * @type 类型
+ * @name	Datagrid
+ * @package	core.html.easyui.datagrid
+ * @desc	数据列表模板
+ * @type	类型
  * 
  * @date 2016年8月26日 16:51:16
  */
@@ -1491,7 +1491,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			}
 		};
 	};
-	// 继承Panel面板模板
+	// 继承面板模板
 	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**

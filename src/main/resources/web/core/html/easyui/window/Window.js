@@ -1,13 +1,13 @@
 /**
- * @name	Dialog
+ * @name	Window
  * @package	core.html.easyui.window
- * @desc	弹出框模板
+ * @desc	窗口模板
  * @type	类
  * 
- * @date	2016年8月29日 11:36:31
+ * @date	2016年8月29日 11:24:13
  */
 
-core.html.easyui.window.Dialog = (function() {
+core.html.easyui.window.Window = (function() {
 
 	/**
 	 * 对象个数
@@ -26,64 +26,164 @@ core.html.easyui.window.Dialog = (function() {
 		count++;
 
 		// 调用父类构造
-		core.html.easyui.window.Dialog.superClass.constructor.call(this, id || "coreHtmlEasyuiWindowDialog" + count);
-		this.title("新弹出框");
-		this.collapsible(false);
-		this.minimizable(false);
-		this.maximizable(false);
-		this.resizable(false);
-		
+		core.html.easyui.window.Window.superClass.constructor.call(this, id || "coreHtmlEasyuiWindowWindow" + count);
+		this.title("新窗口");
+		this.collapsible(true);
+		this.minimizable(true);
+		this.maximizable(true);
+		this.closable(true);
+
 		/**
 		 * 属性
 		 */
 		/**
-		 * 工具条
+		 * z-index
 		 */
-		var toolbar = null;
+		var zIndex = 9000;
 		/**
-		 * 按钮组
+		 * 是否可拖
 		 */
-		var buttons = null;
+		var draggable = true;
+		/**
+		 * 是否可改变大小
+		 */
+		var resizable = true;
+		/**
+		 * 是否显示影子
+		 */
+		var shadow = true;
+		/**
+		 * 
+		 */
+		var inline = false;
+		/**
+		 * 模态窗口
+		 */
+		var modal = true;
+		/**
+		 * 是否限制窗口位置
+		 */
+		var constrain = false;
 
 		/**
-		 * 获取/设置工具条
+		 * 获取/设置zIndex
 		 * 
-		 * @param toolbar
+		 * @param zIndex
 		 */
-		this.toolbar = function() {
+		this.zIndex = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return toolbar;
+				return zIndex;
 			default:
-				toolbar = arguments[0];
+				zIndex = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置按钮组
+		 * 获取/设置是否可拖
 		 * 
-		 * @param buttons
+		 * @param draggable
 		 */
-		this.buttons = function() {
+		this.draggable = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return buttons;
+				return draggable;
 			default:
-				buttons = arguments[0];
+				draggable = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否可改变大小
+		 * 
+		 * @param resizable
+		 */
+		this.resizable = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return resizable;
+			default:
+				resizable = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否显示影子
+		 * 
+		 * @param shadow
+		 */
+		this.shadow = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return shadow;
+			default:
+				shadow = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置
+		 * 
+		 * @param inline
+		 */
+		this.inline = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return inline;
+			default:
+				inline = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置模态窗口
+		 * 
+		 * @param modal
+		 */
+		this.modal = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return modal;
+			default:
+				modal = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置是否限制窗口位置
+		 * 
+		 * @param constrain
+		 */
+		this.constrain = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return constrain;
+			default:
+				constrain = arguments[0];
 				return this;
 			}
 		};
 	};
-	// 继承窗口模板
-	core.lang.Class.extend(Constructor, core.html.easyui.window.Window);
+	// 继承面板模板
+	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**
 	 * 初始化
 	 * 
-	 * @returns {core.html.easyui.window.Dialog}
+	 * @returns {core.html.easyui.window.Window}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -91,13 +191,13 @@ core.html.easyui.window.Dialog = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.window.Window", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
 		// 清空内容
 		$jQuery.empty();
 
 		// 参数配置
-		$jQuery.dialog({
+		$jQuery.window({
 			// 属性
 			id : this.id(),
 			title : this.title(),
@@ -144,8 +244,6 @@ core.html.easyui.window.Dialog = (function() {
 			inline : this.inline(),
 			modal : this.modal(),
 			constrain : this.constrain(),
-			toolbar : this.toolbar(),
-			buttons : this.buttons(),
 
 			// 事件
 			onBeforeLoad : this.onBeforeLoad(),
@@ -177,7 +275,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).dialog("options");
+		return $("#" + this.id()).window("options");
 	};
 
 	/**
@@ -186,7 +284,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.panel = function() {
 
-		return $("#" + this.id()).dialog("panel");
+		return $("#" + this.id()).window("panel");
 	};
 
 	/**
@@ -195,7 +293,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.header = function() {
 
-		return $("#" + this.id()).dialog("header");
+		return $("#" + this.id()).window("header");
 	};
 
 	/**
@@ -204,7 +302,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.footer = function() {
 
-		return $("#" + this.id()).dialog("footer");
+		return $("#" + this.id()).window("footer");
 	};
 
 	/**
@@ -213,7 +311,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.body = function() {
 
-		return $("#" + this.id()).dialog("body");
+		return $("#" + this.id()).window("body");
 	};
 
 	/**
@@ -222,7 +320,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.setTitle = function(title) {
 
-		return $("#" + this.id()).dialog("setTitle", title);
+		return $("#" + this.id()).window("setTitle", title);
 	};
 
 	/**
@@ -231,7 +329,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.open = function(forceOpen) {
 
-		return $("#" + this.id()).dialog("open", forceOpen);
+		return $("#" + this.id()).window("open", forceOpen);
 	};
 
 	/**
@@ -240,7 +338,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.close = function(forceClose) {
 
-		return $("#" + this.id()).dialog("close", forceClose);
+		return $("#" + this.id()).window("close", forceClose);
 	};
 
 	/**
@@ -249,7 +347,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
 
-		return $("#" + this.id()).dialog("destroy", forceDestroy);
+		return $("#" + this.id()).window("destroy", forceDestroy);
 	};
 
 	/**
@@ -258,7 +356,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).dialog("clear");
+		return $("#" + this.id()).window("clear");
 	};
 
 	/**
@@ -267,7 +365,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.refresh = function(href) {
 
-		return $("#" + this.id()).dialog("refresh", href);
+		return $("#" + this.id()).window("refresh", href);
 	};
 
 	/**
@@ -276,7 +374,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.resize = function(options) {
 
-		return $("#" + this.id()).dialog("resize", options);
+		return $("#" + this.id()).window("resize", options);
 	};
 
 	/**
@@ -285,7 +383,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.doLayout = function() {
 
-		return $("#" + this.id()).dialog("doLayout");
+		return $("#" + this.id()).window("doLayout");
 	};
 
 	/**
@@ -294,7 +392,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.move = function(options) {
 
-		return $("#" + this.id()).dialog("move", options);
+		return $("#" + this.id()).window("move", options);
 	};
 
 	/**
@@ -303,7 +401,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.maximize = function() {
 
-		return $("#" + this.id()).dialog("maximize");
+		return $("#" + this.id()).window("maximize");
 	};
 
 	/**
@@ -312,7 +410,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.minimize = function() {
 
-		return $("#" + this.id()).dialog("minimize");
+		return $("#" + this.id()).window("minimize");
 	};
 
 	/**
@@ -321,7 +419,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.restore = function() {
 
-		return $("#" + this.id()).dialog("restore");
+		return $("#" + this.id()).window("restore");
 	};
 
 	/**
@@ -330,7 +428,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.collapse = function(animate) {
 
-		return $("#" + this.id()).dialog("collapse", animate);
+		return $("#" + this.id()).window("collapse", animate);
 	};
 
 	/**
@@ -339,7 +437,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.expand = function(animate) {
 
-		return $("#" + this.id()).dialog("expand", animate);
+		return $("#" + this.id()).window("expand", animate);
 	};
 
 	/**
@@ -348,7 +446,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.window = function() {
 
-		return $("#" + this.id()).dialog("window");
+		return $("#" + this.id()).window("window");
 	};
 
 	/**
@@ -357,7 +455,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.hcenter = function() {
 
-		return $("#" + this.id()).dialog("hcenter");
+		return $("#" + this.id()).window("hcenter");
 	};
 
 	/**
@@ -366,7 +464,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.vcenter = function() {
 
-		return $("#" + this.id()).dialog("vcenter");
+		return $("#" + this.id()).window("vcenter");
 	};
 
 	/**
@@ -375,16 +473,7 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	Constructor.prototype.center = function() {
 
-		return $("#" + this.id()).dialog("center");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.dialog = function() {
-
-		return $("#" + this.id()).dialog("dialog");
+		return $("#" + this.id()).window("center");
 	};
 
 	// 返回构造函数
