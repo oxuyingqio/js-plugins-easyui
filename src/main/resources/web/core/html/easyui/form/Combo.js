@@ -383,7 +383,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).passwordbox("options");
+		return $("#" + this.id()).combo("options");
 	};
 
 	/**
@@ -392,7 +392,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).passwordbox("destroy");
+		return $("#" + this.id()).combo("destroy");
 	};
 
 	/**
@@ -401,7 +401,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).passwordbox("validate");
+		return $("#" + this.id()).combo("validate");
 	};
 
 	/**
@@ -410,7 +410,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.isValid = function() {
 
-		return $("#" + this.id()).passwordbox("isValid");
+		return $("#" + this.id()).combo("isValid");
 	};
 
 	/**
@@ -419,7 +419,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).passwordbox("enableValidation");
+		return $("#" + this.id()).combo("enableValidation");
 	};
 
 	/**
@@ -428,7 +428,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).passwordbox("disableValidation");
+		return $("#" + this.id()).combo("disableValidation");
 	};
 
 	/**
@@ -437,7 +437,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).passwordbox("resetValidation");
+		return $("#" + this.id()).combo("resetValidation");
 	};
 
 	/**
@@ -446,7 +446,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).passwordbox("enable");
+		return $("#" + this.id()).combo("enable");
 	};
 
 	/**
@@ -455,7 +455,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).passwordbox("disable");
+		return $("#" + this.id()).combo("disable");
 	};
 
 	/**
@@ -464,7 +464,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).passwordbox("readonly", mode);
+		return $("#" + this.id()).combo("readonly", mode);
 	};
 
 	/**
@@ -473,7 +473,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.textbox = function() {
 
-		return $("#" + this.id()).passwordbox("textbox");
+		return $("#" + this.id()).combo("textbox");
 	};
 
 	/**
@@ -482,7 +482,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.button = function() {
 
-		return $("#" + this.id()).passwordbox("button");
+		return $("#" + this.id()).combo("button");
 	};
 
 	/**
@@ -491,7 +491,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).passwordbox("resize", width);
+		return $("#" + this.id()).combo("resize", width);
 	};
 
 	/**
@@ -500,7 +500,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).passwordbox("clear");
+		return $("#" + this.id()).combo("clear");
 	};
 
 	/**
@@ -509,7 +509,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).passwordbox("reset");
+		return $("#" + this.id()).combo("reset");
 	};
 
 	/**
