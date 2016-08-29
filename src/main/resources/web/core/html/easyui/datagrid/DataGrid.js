@@ -7,7 +7,7 @@
  * @date 2016年8月26日 16:51:16
  */
 
-core.html.easyui.datagrid.Datagrid = (function() {
+core.html.easyui.datagrid.DataGrid = (function() {
 
 	/**
 	 * 对象个数
@@ -31,7 +31,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 		count++;
 
 		// 调用父类构造
-		core.html.easyui.datagrid.Datagrid.superClass.constructor.call(this, id || "coreHtmlEasyuiDatagridDataGrid"
+		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id || "coreHtmlEasyuiDatagridDataGrid"
 				+ count);
 
 		/**
@@ -530,6 +530,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置冻结列
 		 * 
@@ -545,6 +546,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置列宽自适应
 		 * 
@@ -560,6 +562,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置
 		 * 
@@ -575,6 +578,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置行高自适应
 		 * 
@@ -590,6 +594,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置工具条
 		 * 
@@ -605,6 +610,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置隔行变色
 		 * 
@@ -620,6 +626,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置禁止文字自动换行
 		 * 
@@ -635,6 +642,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置id字段
 		 * 
@@ -650,6 +658,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置数据URL
 		 * 
@@ -665,6 +674,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置数据
 		 * 
@@ -680,6 +690,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置数据加载等待提示
 		 * 
@@ -695,6 +706,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置
 		 * 
@@ -710,6 +722,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置添加页脚工具栏
 		 * 
@@ -725,6 +738,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置显示行号
 		 * 
@@ -740,6 +754,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置仅能选中单行
 		 * 
@@ -755,6 +770,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置ctrl键选中
 		 * 
@@ -770,6 +786,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置check时选中
 		 * 
@@ -785,6 +802,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置选中时check
 		 * 
@@ -800,6 +818,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置分页工具条位置
 		 * 
@@ -815,6 +834,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置默认页码
 		 * 
@@ -830,6 +850,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置分页数
 		 * 
@@ -845,6 +866,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置分页数可选列表
 		 * 
@@ -860,6 +882,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置排序字段
 		 * 
@@ -875,6 +898,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置排序方式
 		 * 
@@ -890,6 +914,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置
 		 * 
@@ -905,6 +930,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置向后台发送排序条件
 		 * 
@@ -920,6 +946,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置显示标头
 		 * 
@@ -935,6 +962,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置显示脚
 		 * 
@@ -950,6 +978,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置
 		 * 
@@ -965,6 +994,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置行号宽度
 		 * 
@@ -980,6 +1010,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置编辑框高度
 		 * 
@@ -995,6 +1026,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置行样式
 		 * 
@@ -1010,6 +1042,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置数据加载过滤
 		 * 
@@ -1025,6 +1058,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置数据加载成功事件
 		 * 
@@ -1040,6 +1074,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置行单击事件
 		 * 
@@ -1055,6 +1090,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置行双击事件
 		 * 
@@ -1070,6 +1106,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置单元格单击事件
 		 * 
@@ -1085,6 +1122,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置单元格双击事件
 		 * 
@@ -1100,6 +1138,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置排序前
 		 * 
@@ -1115,6 +1154,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置排序
 		 * 
@@ -1130,6 +1170,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置改变列宽
 		 * 
@@ -1145,6 +1186,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置选中前
 		 * 
@@ -1160,6 +1202,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置选中
 		 * 
@@ -1175,6 +1218,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消选中前
 		 * 
@@ -1190,6 +1234,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消选中
 		 * 
@@ -1205,6 +1250,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置选中所有时
 		 * 
@@ -1220,6 +1266,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消选中所有时
 		 * 
@@ -1235,6 +1282,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置勾选前
 		 * 
@@ -1250,6 +1298,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置勾选
 		 * 
@@ -1265,6 +1314,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消勾选前
 		 * 
@@ -1280,6 +1330,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消勾选
 		 * 
@@ -1295,6 +1346,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置勾选所有
 		 * 
@@ -1310,6 +1362,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消勾选所有
 		 * 
@@ -1325,6 +1378,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置编辑前
 		 * 
@@ -1340,6 +1394,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置编辑
 		 * 
@@ -1355,6 +1410,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置结束编辑
 		 * 
@@ -1370,6 +1426,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置编辑后
 		 * 
@@ -1385,6 +1442,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置取消编辑
 		 * 
@@ -1400,6 +1458,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置标题头右键点击
 		 * 
@@ -1415,6 +1474,7 @@ core.html.easyui.datagrid.Datagrid = (function() {
 				return this;
 			}
 		};
+
 		/**
 		 * 获取/设置行右键点击事件
 		 * 
@@ -1490,13 +1550,40 @@ core.html.easyui.datagrid.Datagrid = (function() {
 			extractor : this.extractor(),
 			method : this.method(),
 			queryParams : this.queryParams(),
-			loader : this.loader(),
 			columns : this.columns(),
 			frozenColumns : this.frozenColumns(),
 			fitColumns : this.fitColumns(),
 			resizeHandle : this.resizeHandle(),
 			autoRowHeight : this.autoRowHeight(),
 			toolbar : this.toolbar(),
+			striped : this.striped(),
+			nowrap : this.nowrap(),
+			idField : this.idField(),
+			url : this.url(),
+			data : this.data(),
+			loadMsg : this.loadMsg(),
+			emptyMsg : this.emptyMsg(),
+			pagination : this.pagination(),
+			rownumbers : this.rownumbers(),
+			singleSelect : this.singleSelect(),
+			ctrlSelect : this.ctrlSelect(),
+			checkOnSelect : this.checkOnSelect(),
+			selectOnCheck : this.selectOnCheck(),
+			pagePosition : this.pagePosition(),
+			pageNumber : this.pageNumber(),
+			pageSize : this.pageSize(),
+			pageList : this.pageList(),
+			sortName : this.sortName(),
+			sortOrder : this.sortOrder(),
+			multiSort : this.multiSort(),
+			remoteSort : this.remoteSort(),
+			showHeader : this.showHeader(),
+			showFooter : this.showFooter(),
+			scrollbarSize : this.scrollbarSize(),
+			rownumberWidth : this.rownumberWidth(),
+			editorHeight : this.editorHeight(),
+			rowStyler : this.rowStyler(),
+			loadFilter : this.loadFilter(),
 
 			// 事件
 			onBeforeLoad : this.onBeforeLoad(),
@@ -1516,8 +1603,988 @@ core.html.easyui.datagrid.Datagrid = (function() {
 			onMove : this.onMove(),
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
-			onMinimize : this.onMinimize()
+			onMinimize : this.onMinimize(),
+			onLoadSuccess : this.onLoadSuccess(),
+			onClickRow : this.onClickRow(),
+			onDblClickRow : this.onDblClickRow(),
+			onClickCell : this.onClickCell(),
+			onDblClickCell : this.onDblClickCell(),
+			onBeforeSortColumn : this.onBeforeSortColumn(),
+			onSortColumn : this.onSortColumn(),
+			onResizeColumn : this.onResizeColumn(),
+			onBeforeSelect : this.onBeforeSelect(),
+			onSelect : this.onSelect(),
+			onBeforeUnselect : this.onBeforeUnselect(),
+			onUnselect : this.onUnselect(),
+			onSelectAll : this.onSelectAll(),
+			onUnselectAll : this.onUnselectAll(),
+			onBeforeCheck : this.onBeforeCheck(),
+			onCheck : this.onCheck(),
+			onBeforeUncheck : this.onBeforeUncheck(),
+			onUncheck : this.onUncheck(),
+			onCheckAll : this.onCheckAll(),
+			onUncheckAll : this.onUncheckAll(),
+			onBeforeEdit : this.onBeforeEdit(),
+			onBeginEdit : this.onBeginEdit(),
+			onEndEdit : this.onEndEdit(),
+			onAfterEdit : this.onAfterEdit(),
+			onCancelEdit : this.onCancelEdit(),
+			onHeaderContextMenu : this.onHeaderContextMenu(),
+			onRowContextMenu : this.onRowContextMenu()
 		});
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.options = function() {
+
+		return $("#" + this.id()).datagrid("options");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.panel = function() {
+
+		return $("#" + this.id()).datagrid("panel");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.header = function() {
+
+		return $("#" + this.id()).datagrid("header");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.footer = function() {
+
+		return $("#" + this.id()).datagrid("footer");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.body = function() {
+
+		return $("#" + this.id()).datagrid("body");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.setTitle = function(title) {
+
+		return $("#" + this.id()).datagrid("setTitle", title);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.open = function(forceOpen) {
+
+		return $("#" + this.id()).datagrid("open", forceOpen);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.close = function(forceClose) {
+
+		return $("#" + this.id()).datagrid("close", forceClose);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.destroy = function(forceDestroy) {
+
+		return $("#" + this.id()).datagrid("destroy", forceDestroy);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.clear = function() {
+
+		return $("#" + this.id()).datagrid("clear");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.refresh = function(href) {
+
+		return $("#" + this.id()).datagrid("refresh", href);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.resize = function(options) {
+
+		return $("#" + this.id()).datagrid("resize", options);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.doLayout = function() {
+
+		return $("#" + this.id()).datagrid("doLayout");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.move = function(options) {
+
+		return $("#" + this.id()).datagrid("move", options);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.maximize = function() {
+
+		return $("#" + this.id()).datagrid("maximize");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.minimize = function() {
+
+		return $("#" + this.id()).datagrid("minimize");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.restore = function() {
+
+		return $("#" + this.id()).datagrid("restore");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.collapse = function(animate) {
+
+		return $("#" + this.id()).datagrid("collapse", animate);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.expand = function(animate) {
+
+		return $("#" + this.id()).datagrid("expand", animate);
+	};
+
+	/**
+	 * 获取页面对象
+	 * 
+	 * @returns {Object}
+	 */
+	Constructor.prototype.getPager = function() {
+
+		return $("#" + this.id()).datagrid("getPager");
+	};
+
+	/**
+	 * 获取面板对象
+	 * 
+	 * @returns {Object}
+	 */
+	Constructor.prototype.getPanel = function() {
+
+		return $("#" + this.id()).datagrid("getPanel");
+	};
+
+	/**
+	 * 获取列字段
+	 * 
+	 * @param frozen{Object}
+	 * @returns {Object}
+	 */
+	Constructor.prototype.getColumnFields = function(frozen) {
+
+		return $("#" + this.id()).datagrid("getColumnFields", frozen);
+	};
+
+	/**
+	 * 获取列属性
+	 * 
+	 * @param field{Object}
+	 * @returns {Object}
+	 */
+	Constructor.prototype.getColumnOption = function(field) {
+
+		return $("#" + this.id()).datagrid("getColumnOption", field);
+	};
+
+	/**
+	 * 调整大小
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.resize = function(param) {
+
+		return $("#" + this.id()).datagrid("resize", param);
+	};
+
+	/**
+	 * 重新加载数据
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.load = function(param) {
+
+		return $("#" + this.id()).datagrid("load", param);
+	};
+
+	/**
+	 * 重新加载数据,且停留在当前页面
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.reload = function(param) {
+
+		return $("#" + this.id()).datagrid("reload", param);
+	};
+
+	/**
+	 * 重载页脚
+	 * 
+	 * @param footer{Object}
+	 * @returns
+	 */
+	Constructor.prototype.reloadFooter = function(footer) {
+
+		return $("#" + this.id()).datagrid("reloadFooter", footer);
+	};
+
+	/**
+	 * 显示载入中
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.loading = function() {
+
+		return $("#" + this.id()).datagrid("loading");
+	};
+
+	/**
+	 * 隐藏载入中
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.loaded = function() {
+
+		return $("#" + this.id()).datagrid("loaded");
+	};
+
+	/**
+	 * 列宽自适应
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.fitColumns = function() {
+
+		return $("#" + this.id()).datagrid("fitColumns");
+	};
+
+	/**
+	 * 固定列宽
+	 * 
+	 * @param field{Object}
+	 *            字段
+	 * @returns
+	 */
+	Constructor.prototype.fixColumnSize = function(field) {
+
+		return $("#" + this.id()).datagrid("fixColumnSize", field);
+	};
+
+	/**
+	 * 固定指定列高度
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.fixRowHeight = function(index) {
+
+		return $("#" + this.id()).datagrid("fixRowHeight", index);
+	};
+
+	/**
+	 * 冻结指定行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.freezeRow = function(index) {
+
+		return $("#" + this.id()).datagrid("freezeRow", index);
+	};
+
+	/**
+	 * 列宽自适应
+	 * 
+	 * @param field{Object}
+	 *            列字段
+	 * @returns
+	 */
+	Constructor.prototype.autoSizeColumn = function(field) {
+
+		return $("#" + this.id()).datagrid("autoSizeColumn", field);
+	};
+
+	/**
+	 * 加载数据
+	 * 
+	 * @param data{Object}
+	 *            需要加载的数据
+	 * @returns
+	 */
+	Constructor.prototype.loadData = function(data) {
+
+		return $("#" + this.id()).datagrid("loadData", data);
+	};
+
+	/**
+	 * 获取当前数据
+	 * 
+	 * @returns {Array}
+	 */
+	Constructor.prototype.getData = function() {
+
+		return $("#" + this.id()).datagrid("getData");
+	};
+
+	/**
+	 * 获取所有行
+	 * 
+	 * @returns {Array}
+	 */
+	Constructor.prototype.getRows = function() {
+
+		return $("#" + this.id()).datagrid("getRows");
+	};
+
+	/**
+	 * 获取所有行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.getFooterRows = function() {
+
+		return $("#" + this.id()).datagrid("getFooterRows");
+	};
+
+	/**
+	 * 获取指定行号
+	 * 
+	 * @param row{Object}
+	 *            行对象
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getRowIndex = function(row) {
+
+		return $("#" + this.id()).datagrid("getRowIndex", row);
+	};
+
+	/**
+	 * 获取勾选行
+	 * 
+	 * @returns {Object}
+	 */
+	Constructor.prototype.getChecked = function() {
+
+		return $("#" + this.id()).datagrid("getChecked");
+	};
+
+	/**
+	 * 获取选中节点
+	 * 
+	 * @returns {Object}
+	 */
+	Constructor.prototype.getSelected = function() {
+
+		return $("#" + this.id()).datagrid("getSelected");
+	};
+
+	/**
+	 * 获取所有选中行
+	 * 
+	 * @returns {Array}
+	 */
+	Constructor.prototype.getSelections = function() {
+
+		return $("#" + this.id()).datagrid("getSelections");
+	};
+
+	/**
+	 * 清除所有选中行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.clearSelections = function() {
+
+		return $("#" + this.id()).datagrid("clearSelections");
+	};
+
+	/**
+	 * 清除所有勾选的行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.clearChecked = function() {
+
+		return $("#" + this.id()).datagrid("clearChecked");
+	};
+
+	/**
+	 * 滚动至指定行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.scrollTo = function(index) {
+
+		return $("#" + this.id()).datagrid("scrollTo", index);
+	};
+
+	/**
+	 * 跳至某页
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.gotoPage = function(param) {
+
+		return $("#" + this.id()).datagrid("gotoPage", param);
+	};
+
+	/**
+	 * 高亮行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.highlightRow = function(index) {
+
+		return $("#" + this.id()).datagrid("highlightRow", index);
+	};
+
+	/**
+	 * 选中所有行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.selectAll = function() {
+
+		return $("#" + this.id()).datagrid("selectAll");
+	};
+
+	/**
+	 * 取消选中所有行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.unselectAll = function() {
+
+		return $("#" + this.id()).datagrid("unselectAll");
+	};
+
+	/**
+	 * 选中行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.selectRow = function(index) {
+
+		return $("#" + this.id()).datagrid("selectRow", index);
+	};
+
+	/**
+	 * 通过ID选中行
+	 * 
+	 * @param idValue{String}
+	 *            id值
+	 * @returns
+	 */
+	Constructor.prototype.selectRecord = function(idValue) {
+
+		return $("#" + this.id()).datagrid("selectRecord", idValue);
+	};
+
+	/**
+	 * 取消选中行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.unselectRow = function(index) {
+
+		return $("#" + this.id()).datagrid("unselectRow", index);
+	};
+
+	/**
+	 * 勾选所有行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.checkAll = function() {
+
+		return $("#" + this.id()).datagrid("checkAll");
+	};
+
+	/**
+	 * 取消勾选所有行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.uncheckAll = function() {
+
+		return $("#" + this.id()).datagrid("uncheckAll");
+	};
+
+	/**
+	 * 勾选行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.checkRow = function(index) {
+
+		return $("#" + this.id()).datagrid("checkRow", index);
+	};
+
+	/**
+	 * 取消勾选行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.uncheckRow = function(index) {
+
+		return $("#" + this.id()).datagrid("uncheckRow", index);
+	};
+
+	/**
+	 * 编辑行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.beginEdit = function(index) {
+
+		return $("#" + this.id()).datagrid("beginEdit", index);
+	};
+
+	/**
+	 * 结束编辑行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.endEdit = function(index) {
+
+		return $("#" + this.id()).datagrid("endEdit", index);
+	};
+
+	/**
+	 * 取消编辑行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.cancelEdit = function(index) {
+
+		return $("#" + this.id()).datagrid("cancelEdit", index);
+	};
+
+	/**
+	 * 获取行所有编辑器
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.getEditors = function(index) {
+
+		return $("#" + this.id()).datagrid("getEditors", index);
+	};
+
+	/**
+	 * 获取行中某列编辑器
+	 * 
+	 * @param options{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.getEditor = function(options) {
+
+		return $("#" + this.id()).datagrid("getEditor", options);
+	};
+
+	/**
+	 * 刷新行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.refreshRow = function(index) {
+
+		return $("#" + this.id()).datagrid("refreshRow", index);
+	};
+
+	/**
+	 * 验证行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.validateRow = function(index) {
+
+		return $("#" + this.id()).datagrid("validateRow", index);
+	};
+
+	/**
+	 * 更新行
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.updateRow = function(param) {
+
+		return $("#" + this.id()).datagrid("updateRow", param);
+	};
+
+	/**
+	 * 添加行
+	 * 
+	 * @param row{Object}
+	 *            行对象
+	 * @returns
+	 */
+	Constructor.prototype.appendRow = function(row) {
+
+		return $("#" + this.id()).datagrid("appendRow", row);
+	};
+
+	/**
+	 * 插入行
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.insertRow = function(param) {
+
+		return $("#" + this.id()).datagrid("insertRow", param);
+	};
+
+	/**
+	 * 删除行
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.deleteRow = function(index) {
+
+		return $("#" + this.id()).datagrid("deleteRow", index);
+	};
+
+	/**
+	 * 获取修改行
+	 * 
+	 * @param type{Object}
+	 *            类型
+	 * @returns
+	 */
+	Constructor.prototype.getChanges = function(type) {
+
+		return $("#" + this.id()).datagrid("getChanges", type);
+	};
+
+	/**
+	 * 提交所有修改行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.acceptChanges = function() {
+
+		return $("#" + this.id()).datagrid("acceptChanges");
+	};
+
+	/**
+	 * 回滚修改行
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.rejectChanges = function() {
+
+		return $("#" + this.id()).datagrid("rejectChanges");
+	};
+
+	/**
+	 * 合并单元格
+	 * 
+	 * @param options{Object}
+	 * @returns
+	 */
+	Constructor.prototype.mergeCells = function(options) {
+
+		return $("#" + this.id()).datagrid("mergeCells", options);
+	};
+
+	/**
+	 * 显示列
+	 * 
+	 * @param field{Object}
+	 *            列字段
+	 * @returns
+	 */
+	Constructor.prototype.showColumn = function(field) {
+
+		return $("#" + this.id()).datagrid("showColumn", field);
+	};
+
+	/**
+	 * 隐藏列
+	 * 
+	 * @param field{Object}
+	 *            列字段
+	 * @returns
+	 */
+	Constructor.prototype.hideColumn = function(field) {
+
+		return $("#" + this.id()).datagrid("hideColumn", field);
+	};
+
+	/**
+	 * 排序
+	 * 
+	 * @param param{Object}
+	 *            参数
+	 * @returns
+	 */
+	Constructor.prototype.sort = function(param) {
+
+		return $("#" + this.id()).datagrid("sort", param);
+	};
+
+	/** ==========扩展方法========== */
+	/**
+	 * 设置宽度
+	 * 
+	 * @param width{Number}
+	 *            宽度
+	 * @returns
+	 */
+	Constructor.prototype.setWidth = function(width) {
+
+		return this.resize({
+			width : width
+		});
+	};
+
+	/**
+	 * 设置高度
+	 * 
+	 * @param height{Number}
+	 *            高度
+	 * @returns
+	 */
+	Constructor.prototype.setHeight = function(height) {
+
+		return this.resize({
+			height : height
+		});
+	};
+
+	/**
+	 * 获取当前页数据条数
+	 * 
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getCurrentDataNum = function() {
+
+		var data = this.getData();
+		return data.rows.length;
+	}
+
+	/**
+	 * 获取记录总条数
+	 * 
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getTotalDataNum = function() {
+
+		var data = this.getData();
+		return data.total;
+	}
+
+	/**
+	 * 获取分页数
+	 * 
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getPageSize = function() {
+
+		var options = this.getPager().data("pagination").options;
+		return options.pageSize;
+	}
+
+	/**
+	 * 获取总页数
+	 * 
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getPageNum = function() {
+
+		var options = this.getPager().data("pagination").options;
+		var total = options.total;
+		var max = Math.ceil(total / options.pageSize);
+		return max;
+	}
+
+	/**
+	 * 获取当前页码
+	 * 
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getCurrentPageNum = function() {
+
+		var options = this.getPager().data("pagination").options;
+		return options.pageNumber;
+	}
+
+	/**
+	 * 翻至前一页
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.selectBeforePage = function() {
+
+		var pager = this.getPager();
+		var options = pager.data("pagination").options;
+		this.gotoPage(options.pageNumber - 1);
+	}
+
+	/**
+	 * 翻至后一页
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.selectNextPage = function() {
+
+		var Pager = this.getPager();
+		var options = Pager.data("pagination").options;
+		this.gotoPage(options.pageNumber + 1);
+	}
+
+	/**
+	 * 获取指定行数据
+	 * 
+	 * @param index{Number}
+	 *            行号
+	 * @returns
+	 */
+	Constructor.prototype.getRow = function(index) {
+
+		return this.getRows()[index];
+	};
+
+	/**
+	 * 互换两行位置
+	 * 
+	 * @param index1{Number}
+	 *            行号1
+	 * @param index2{Number}
+	 *            行号2
+	 * @returns
+	 */
+	Constructor.prototype.changeRowOrder = function(index1, index2) {
+
+		var min = index1 > index2 ? index2 : index1;
+		var max = index1 > index2 ? index1 : index2;
+
+		var rowMin = this.getRows()[min];
+		var rowMax = this.getRows()[max];
+
+		// 删除
+		this.deleteRow(max);
+		this.deleteRow(min);
+
+		// 添加
+		this.insertRow({
+			index : min,
+			row : rowMax
+		});
+		this.insertRow({
+			index : max,
+			row : rowMin
+		});
+	}
+
+	/**
+	 * 获取选中行索引
+	 * 
+	 * @returns {Number}
+	 */
+	Constructor.prototype.getSelectedRowIndex = function() {
+
+		return this.getRowIndex(this.getSelected());
 	};
 
 	// 返回构造函数

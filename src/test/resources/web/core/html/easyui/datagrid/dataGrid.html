@@ -21,13 +21,14 @@
 
 <script type="text/javascript" src="/~/core/package.js"></script>
 
+<script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script>
 <script type="text/javascript" src="/~/core/html/easyui/datagrid/Datagrid.js"></script>
 
 <script type="text/javascript">
 	$(function() {
 		var dataGrid = new core.html.easyui.datagrid.DataGrid("datagrid");
 
-		dataGrid.setColumns([ [ {
+		dataGrid.columns([ [ {
 			field : 'itemid',
 			title : 'Item ID',
 			rowspan : 2,
@@ -63,11 +64,12 @@
 			title : 'Status',
 			width : 60
 		} ] ]);
-		dataGrid.setUrl("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json");
-		dataGrid.setOnSelect(function(index, row) {
-			alert(index + "===" + $dataGrid.getRowIndex(row));
+		dataGrid.url("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json");
+		dataGrid.onSelect(function(index, row) {
+			alert(index + "===" + dataGrid.getRowIndex(row));
 		});
-		var $dataGrid = dataGrid.init();
+		dataGrid.height("500px");
+		dataGrid.init();
 	});
 </script>
 
