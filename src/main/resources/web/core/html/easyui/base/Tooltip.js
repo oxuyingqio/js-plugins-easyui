@@ -1,10 +1,10 @@
 /**
- * @name	Tooltip
- * @package	core.html.easyui.base
- * @desc	工具提示模板
- * @type	类
+ * @name Tooltip
+ * @package core.html.easyui.base
+ * @desc 工具提示模板
+ * @type 类
  * 
- * @date	2016年8月29日 15:03:57
+ * @date 2016年8月29日 15:03:57
  */
 
 core.html.easyui.base.Tooltip = (function() {
@@ -29,9 +29,79 @@ core.html.easyui.base.Tooltip = (function() {
 		 * ID
 		 */
 		var id = _id;
+		/**
+		 * 工具提示的位置
+		 */
+		var position = "bottom";
+		/**
+		 * 提示内容
+		 */
+		var content = null;
+		/**
+		 * 提示工具随着鼠标移动
+		 */
+		var trackMouse = false;
+		/**
+		 * 水平偏移值
+		 */
+		var deltaX = 0;
+		/**
+		 * 垂直偏移值
+		 */
+		var deltaY = 0;
+		/**
+		 * 显示事件
+		 */
+		var showEvent = "mouseenter";
+		/**
+		 * 隐藏事件
+		 */
+		var hideEvent = "mouseleave";
+		/**
+		 * 显示工具延迟时间
+		 */
+		var showDelay = 200;
+		/**
+		 * 隐藏工具延迟时间
+		 */
+		var hideDelay = 100;
 
 		/**
-		 * 获取/设置 id
+		 * 事件
+		 */
+		/**
+		 * 显示事件
+		 */
+		var onShow = function(e) {
+
+		};
+		/**
+		 * 隐藏事件
+		 */
+		var onHide = function(e) {
+
+		};
+		/**
+		 * 更新事件
+		 */
+		var onUpdate = function(content) {
+
+		};
+		/**
+		 * 位置改变事件
+		 */
+		var onPosition = function(left, top) {
+
+		};
+		/**
+		 * 销毁事件
+		 */
+		var onDestroy = function() {
+
+		};
+
+		/**
+		 * 获取/设置id
 		 * 
 		 * @param id
 		 */
@@ -45,12 +115,236 @@ core.html.easyui.base.Tooltip = (function() {
 				return this;
 			}
 		};
+
+		/**
+		 * 获取/设置工具提示的位置
+		 * 
+		 * @param position
+		 */
+		this.position = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return position;
+			default:
+				position = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置提示内容
+		 * 
+		 * @param content
+		 */
+		this.content = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return content;
+			default:
+				content = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置提示工具随着鼠标移动
+		 * 
+		 * @param trackMouse
+		 */
+		this.trackMouse = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return trackMouse;
+			default:
+				trackMouse = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置水平偏移值
+		 * 
+		 * @param deltaX
+		 */
+		this.deltaX = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return deltaX;
+			default:
+				deltaX = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置垂直偏移值
+		 * 
+		 * @param deltaY
+		 */
+		this.deltaY = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return deltaY;
+			default:
+				deltaY = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置显示事件
+		 * 
+		 * @param showEvent
+		 */
+		this.showEvent = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return showEvent;
+			default:
+				showEvent = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置隐藏事件
+		 * 
+		 * @param hideEvent
+		 */
+		this.hideEvent = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return hideEvent;
+			default:
+				hideEvent = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置显示工具延迟时间
+		 * 
+		 * @param showDelay
+		 */
+		this.showDelay = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return showDelay;
+			default:
+				showDelay = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置隐藏工具延迟时间
+		 * 
+		 * @param hideDelay
+		 */
+		this.hideDelay = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return hideDelay;
+			default:
+				hideDelay = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置显示事件
+		 * 
+		 * @param onShow
+		 */
+		this.onShow = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onShow;
+			default:
+				onShow = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置隐藏事件
+		 * 
+		 * @param onHide
+		 */
+		this.onHide = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onHide;
+			default:
+				onHide = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置更新事件
+		 * 
+		 * @param onUpdate
+		 */
+		this.onUpdate = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onUpdate;
+			default:
+				onUpdate = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置位置改变事件
+		 * 
+		 * @param onPosition
+		 */
+		this.onPosition = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onPosition;
+			default:
+				onPosition = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置销毁事件
+		 * 
+		 * @param onDestroy
+		 */
+		this.onDestroy = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onDestroy;
+			default:
+				onDestroy = arguments[0];
+				return this;
+			}
+		};
 	};
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.layout.Panel}
+	 * @returns {core.html.easyui.base.Tooltip}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -58,72 +352,29 @@ core.html.easyui.base.Tooltip = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
-		// 清空内容
-		$jQuery.empty();
 
 		// 参数配置
-		$jQuery.panel({
+		$jQuery.tooltip({
 			// 属性
 			id : this.id(),
-			title : this.title(),
-			iconCls : this.iconCls(),
-			width : this.width(),
-			height : this.height(),
-			left : this.left(),
-			top : this.top(),
-			cls : this.cls(),
-			headerCls : this.headerCls(),
-			bodyCls : this.bodyCls(),
-			style : this.style(),
-			fit : this.fit(),
-			border : this.border(),
-			doSize : this.doSize(),
-			noheader : this.noheader(),
+			position : this.position(),
 			content : this.content(),
-			collapsible : this.collapsible(),
-			minimizable : this.minimizable(),
-			maximizable : this.maximizable(),
-			closable : this.closable(),
-			tools : this.tools(),
-			header : this.header(),
-			footer : this.footer(),
-			openAnimation : this.openAnimation(),
-			openDuration : this.openDuration(),
-			closeAnimation : this.closeAnimation(),
-			closeDuration : this.closeDuration(),
-			collapsed : this.collapsed(),
-			minimized : this.minimized(),
-			maximized : this.maximized(),
-			closed : this.closed(),
-			href : this.href(),
-			cache : this.cache(),
-			loadingMessage : this.loadingMessage(),
-			extractor : this.extractor(),
-			method : this.method(),
-			queryParams : this.queryParams(),
-			loader : this.loader(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 
 			// 事件
-			onBeforeLoad : this.onBeforeLoad(),
-			onLoad : this.onLoad(),
-			onLoadError : this.onLoadError(),
-			onBeforeOpen : this.onBeforeOpen(),
-			onOpen : this.onOpen(),
-			onBeforeClose : this.onBeforeClose(),
-			onClose : this.onClose(),
-			onBeforeDestroy : this.onBeforeDestroy(),
-			onDestroy : this.onDestroy(),
-			onBeforeCollapse : this.onBeforeCollapse(),
-			onCollapse : this.onCollapse(),
-			onBeforeExpand : this.onBeforeExpand(),
-			onExpand : this.onExpand(),
-			onResize : this.onResize(),
-			onMove : this.onMove(),
-			onMaximize : this.onMaximize(),
-			onRestore : this.onRestore(),
-			onMinimize : this.onMinimize()
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy()
 		});
 
 		return this;
@@ -135,7 +386,70 @@ core.html.easyui.base.Tooltip = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).panel("options");
+		return $("#" + this.id()).tooltip("options");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.tip = function() {
+
+		return $("#" + this.id()).tooltip("tip");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.arrow = function() {
+
+		return $("#" + this.id()).tooltip("arrow");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.show = function(e) {
+
+		return $("#" + this.id()).tooltip("show", e);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.hide = function(e) {
+
+		return $("#" + this.id()).tooltip("hide", e);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.update = function(content) {
+
+		return $("#" + this.id()).tooltip("update", content);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.reposition = function() {
+
+		return $("#" + this.id()).tooltip("reposition");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.destroy = function() {
+
+		return $("#" + this.id()).tooltip("destroy");
 	};
 
 	// 返回构造函数
