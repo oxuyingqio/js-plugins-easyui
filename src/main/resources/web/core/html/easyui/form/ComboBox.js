@@ -1,10 +1,10 @@
 /**
- * @name ComboBox
- * @package core.html.easyui.form
- * @desc 下拉框模板
- * @type 类
+ * @name	ComboBox
+ * @package	core.html.easyui.form
+ * @desc	下拉框模板
+ * @type	类
  * 
- * @date 2016年8月30日 08:39:57
+ * @date	2016年8月30日 08:39:57
  */
 
 core.html.easyui.form.ComboBox = (function() {
@@ -83,19 +83,19 @@ core.html.easyui.form.ComboBox = (function() {
 		 * 格式化
 		 */
 		var formatter = function(row) {
-
+			return row[textField];
 		};
 		/**
 		 * 加载
 		 */
-		var loader = function() {
+		var loader = function(param, success, error) {
 
 		};
 		/**
 		 * 加载过滤
 		 */
 		var loadFilter = function(data) {
-
+			return data;
 		};
 
 		/**
@@ -545,7 +545,7 @@ core.html.easyui.form.ComboBox = (function() {
 			groupPosition : this.groupPosition(),
 			filter : this.filter(),
 			formatter : this.formatter(),
-			loader : this.loader(),
+			// loader : this.loader(),
 			loadFilter : this.loadFilter(),
 
 			// 事件

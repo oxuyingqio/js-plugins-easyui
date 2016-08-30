@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.form.ComboBox</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/icon.css">
+
+</head>
+<body>
+	<input id="combobox" type="text" />
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.0/jquery-3.1.0.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.min.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/form/ValidateBox.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/TextBox.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/Combo.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/ComboBox.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var combobox = new core.html.easyui.form.ComboBox("combobox");
+		combobox.label("combobox:");
+		combobox.prompt("this is combobox");
+		combobox.width("300px");
+		combobox.url("http://localhost:8080/~/core/html/easyui/form/combobox.json");
+		combobox.method("post");
+		combobox.valueField("id");
+		combobox.textField("text");
+		combobox.init();
+	});
+</script>
+
+</html>
