@@ -1,6 +1,6 @@
 /**
  * @name	Window
- * @package	core.html.easyui.window
+ * @package core.html.easyui.window
  * @desc	窗口模板
  * @type	类
  * 
@@ -19,7 +19,7 @@ core.html.easyui.window.Window = (function() {
 
 		// 调用父类构造
 		core.html.easyui.window.Window.superClass.constructor.call(this, id);
-		this.title("新窗口");
+		this.title($.fn.window.defaults.title);
 		this.collapsible(true);
 		this.minimizable(true);
 		this.maximizable(true);
@@ -191,6 +191,7 @@ core.html.easyui.window.Window = (function() {
 		// 参数配置
 		$jQuery.window({
 			// 属性
+			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
 			iconCls : this.iconCls(),
@@ -229,6 +230,7 @@ core.html.easyui.window.Window = (function() {
 			method : this.method(),
 			queryParams : this.queryParams(),
 			loader : this.loader(),
+			// 属性
 			zIndex : this.zIndex(),
 			draggable : this.draggable(),
 			resizable : this.resizable(),
@@ -238,6 +240,7 @@ core.html.easyui.window.Window = (function() {
 			constrain : this.constrain(),
 
 			// 事件
+			// Panel继承事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
 			onLoadError : this.onLoadError(),
@@ -261,6 +264,9 @@ core.html.easyui.window.Window = (function() {
 		return this;
 	};
 
+	/**
+	 * Panel继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -307,7 +313,9 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 设置标题
 	 * 
+	 * @param title
 	 * @returns
 	 */
 	Constructor.prototype.setTitle = function(title) {
@@ -316,7 +324,10 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 打开面板
 	 * 
+	 * @param forceOpen
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.open = function(forceOpen) {
@@ -325,7 +336,10 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 关闭面板
 	 * 
+	 * @param forceClose
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.close = function(forceClose) {
@@ -334,7 +348,10 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 销毁面板
 	 * 
+	 * @param forceDestroy
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
@@ -343,6 +360,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 清空面板内容
 	 * 
 	 * @returns
 	 */
@@ -352,7 +370,10 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 刷新面板
 	 * 
+	 * @param href
+	 *            链接
 	 * @returns
 	 */
 	Constructor.prototype.refresh = function(href) {
@@ -361,7 +382,9 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 改变面板窗口大小
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(options) {
@@ -370,6 +393,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 调整布局
 	 * 
 	 * @returns
 	 */
@@ -379,7 +403,9 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 移动面板
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.move = function(options) {
@@ -388,6 +414,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 最大化
 	 * 
 	 * @returns
 	 */
@@ -397,6 +424,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 最小化
 	 * 
 	 * @returns
 	 */
@@ -406,6 +434,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 恢复面板
 	 * 
 	 * @returns
 	 */
@@ -415,6 +444,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 折叠面板
 	 * 
 	 * @returns
 	 */
@@ -424,6 +454,7 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
+	 * 展开面板
 	 * 
 	 * @returns
 	 */
@@ -432,6 +463,9 @@ core.html.easyui.window.Window = (function() {
 		return $("#" + this.id()).window("expand", animate);
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 
 	 * @returns

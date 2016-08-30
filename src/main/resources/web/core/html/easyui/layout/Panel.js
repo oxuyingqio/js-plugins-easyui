@@ -40,11 +40,11 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 宽
 		 */
-		var width = undefined;
+		var width = "auto";
 		/**
 		 * 高
 		 */
-		var height = undefined;
+		var height = "auto";
 		/**
 		 * 左偏移
 		 */
@@ -160,13 +160,11 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 加载信息
 		 */
-		var loadingMessage = "Loading…";
+		var loadingMessage = $.fn.panel.defaults.loadingMessage;
 		/**
 		 * ajax响应中提取数据
 		 */
-		var extractor = function(data) {
-			return data;
-		};
+		var extractor = $.fn.panel.defaults.extractor;
 		/**
 		 * 请求方式
 		 */
@@ -178,9 +176,7 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 加载器
 		 */
-		var loader = function() {
-
-		};
+		var loader = $.fn.panel.defaults.loader;
 
 		/**
 		 * 事件
@@ -1327,7 +1323,9 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 设置标题
 	 * 
+	 * @param title
 	 * @returns
 	 */
 	Constructor.prototype.setTitle = function(title) {
@@ -1336,7 +1334,10 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 打开面板
 	 * 
+	 * @param forceOpen
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.open = function(forceOpen) {
@@ -1345,7 +1346,10 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 关闭面板
 	 * 
+	 * @param forceClose
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.close = function(forceClose) {
@@ -1354,7 +1358,10 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 销毁面板
 	 * 
+	 * @param forceDestroy
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
@@ -1363,6 +1370,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 清空面板内容
 	 * 
 	 * @returns
 	 */
@@ -1372,7 +1380,10 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 刷新面板
 	 * 
+	 * @param href
+	 *            链接
 	 * @returns
 	 */
 	Constructor.prototype.refresh = function(href) {
@@ -1381,7 +1392,9 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 改变面板窗口大小
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(options) {
@@ -1390,6 +1403,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 调整布局
 	 * 
 	 * @returns
 	 */
@@ -1399,7 +1413,9 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 移动面板
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.move = function(options) {
@@ -1408,6 +1424,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 最大化
 	 * 
 	 * @returns
 	 */
@@ -1417,6 +1434,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 最小化
 	 * 
 	 * @returns
 	 */
@@ -1426,6 +1444,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 恢复面板
 	 * 
 	 * @returns
 	 */
@@ -1435,6 +1454,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 折叠面板
 	 * 
 	 * @returns
 	 */
@@ -1444,6 +1464,7 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 展开面板
 	 * 
 	 * @returns
 	 */

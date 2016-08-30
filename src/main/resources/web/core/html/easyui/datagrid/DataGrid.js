@@ -1,10 +1,10 @@
 /**
  * @name	Datagrid
- * @package	core.html.easyui.datagrid
+ * @package core.html.easyui.datagrid
  * @desc	数据列表模板
  * @type	类型
  * 
- * @date 2016年8月26日 16:51:16
+ * @date	2016年8月26日 16:51:16
  */
 
 core.html.easyui.datagrid.DataGrid = (function() {
@@ -24,6 +24,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 
 		// 调用父类构造
 		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id);
+		this.loader($.fn.datagrid.defaults.loader);
 
 		/**
 		 * 属性
@@ -75,7 +76,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 数据加载等待提示
 		 */
-		var loadMsg = "Processing, please wait …";
+		var loadMsg = $.fn.datagrid.defaults.loadMsg;
 		/**
 		 * 
 		 */
@@ -166,9 +167,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		 *            行对象
 		 * @returns {String} css样式
 		 */
-		var rowStyler = function(index, row) {
-
-		};
+		var rowStyler = $.fn.datagrid.defaults.rowStyler;
 		/**
 		 * 数据加载过滤
 		 * 
@@ -176,9 +175,15 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		 *            原始数据
 		 * @returns {Object} 过滤后数据
 		 */
-		var loadFilter = function(data) {
-			return data;
-		};
+		var loadFilter = $.fn.datagrid.defaults.loadFilter;
+		/**
+		 * 编辑
+		 */
+		var editors = $.fn.datagrid.defaults.editors;
+		/**
+		 * 展示
+		 */
+		var view = $.fn.datagrid.defaults.view;
 
 		/**
 		 * 事件
@@ -1051,6 +1056,38 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		};
 
 		/**
+		 * 获取/设置编辑
+		 * 
+		 * @param editors
+		 */
+		this.editors = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return editors;
+			default:
+				editors = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置展示
+		 * 
+		 * @param view
+		 */
+		this.view = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return view;
+			default:
+				view = arguments[0];
+				return this;
+			}
+		};
+
+		/**
 		 * 获取/设置数据加载成功事件
 		 * 
 		 * @param onLoadSuccess
@@ -1504,6 +1541,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		// 参数配置
 		$jQuery.datagrid({
 			// 属性
+			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
 			iconCls : this.iconCls(),
@@ -1541,6 +1579,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			extractor : this.extractor(),
 			method : this.method(),
 			queryParams : this.queryParams(),
+			loader : this.loader(),
+			// 属性
 			columns : this.columns(),
 			frozenColumns : this.frozenColumns(),
 			fitColumns : this.fitColumns(),
@@ -1575,8 +1615,11 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			editorHeight : this.editorHeight(),
 			rowStyler : this.rowStyler(),
 			loadFilter : this.loadFilter(),
+			editors : this.editors(),
+			view : this.view(),
 
 			// 事件
+			// Panel继承事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
 			onLoadError : this.onLoadError(),
@@ -1595,6 +1638,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
 			onMinimize : this.onMinimize(),
+			// 事件
 			onLoadSuccess : this.onLoadSuccess(),
 			onClickRow : this.onClickRow(),
 			onDblClickRow : this.onDblClickRow(),
@@ -1625,6 +1669,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		});
 	};
 
+	/**
+	 * Panel继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -1671,7 +1718,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 设置标题
 	 * 
+	 * @param title
 	 * @returns
 	 */
 	Constructor.prototype.setTitle = function(title) {
@@ -1680,7 +1729,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 打开面板
 	 * 
+	 * @param forceOpen
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.open = function(forceOpen) {
@@ -1689,7 +1741,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 关闭面板
 	 * 
+	 * @param forceClose
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.close = function(forceClose) {
@@ -1698,7 +1753,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 销毁面板
 	 * 
+	 * @param forceDestroy
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
@@ -1707,6 +1765,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 清空面板内容
 	 * 
 	 * @returns
 	 */
@@ -1716,7 +1775,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 刷新面板
 	 * 
+	 * @param href
+	 *            链接
 	 * @returns
 	 */
 	Constructor.prototype.refresh = function(href) {
@@ -1725,7 +1787,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 改变面板窗口大小
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(options) {
@@ -1734,6 +1798,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 调整布局
 	 * 
 	 * @returns
 	 */
@@ -1743,7 +1808,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 移动面板
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.move = function(options) {
@@ -1752,6 +1819,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 最大化
 	 * 
 	 * @returns
 	 */
@@ -1761,6 +1829,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 最小化
 	 * 
 	 * @returns
 	 */
@@ -1770,6 +1839,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 恢复面板
 	 * 
 	 * @returns
 	 */
@@ -1779,6 +1849,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 折叠面板
 	 * 
 	 * @returns
 	 */
@@ -1788,6 +1859,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
+	 * 展开面板
 	 * 
 	 * @returns
 	 */
@@ -1796,6 +1868,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		return $("#" + this.id()).datagrid("expand", animate);
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 获取页面对象
 	 * 

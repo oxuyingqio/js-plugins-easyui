@@ -1,6 +1,6 @@
 /**
  * @name	Tabs
- * @package	core.html.easyui.layout
+ * @package core.html.easyui.layout
  * @desc	Tab页模板
  * @type	类
  * 
@@ -52,7 +52,7 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * Tab页宽度
 		 */
-		var tabWidth = undefined;
+		var tabWidth = "auto";
 		/**
 		 * Tab页高度
 		 */
@@ -456,6 +456,7 @@ core.html.easyui.layout.Tabs = (function() {
 		// 参数配置
 		$jQuery.tabs({
 			// 属性
+			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
 			iconCls : this.iconCls(),
@@ -494,6 +495,7 @@ core.html.easyui.layout.Tabs = (function() {
 			method : this.method(),
 			queryParams : this.queryParams(),
 			loader : this.loader(),
+			// 属性
 			plain : this.plain(),
 			scrollIncrement : this.scrollIncrement(),
 			scrollDuration : this.scrollDuration(),
@@ -509,6 +511,7 @@ core.html.easyui.layout.Tabs = (function() {
 			pill : this.pill(),
 
 			// 事件
+			// Panel继承事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
 			onLoadError : this.onLoadError(),
@@ -527,6 +530,7 @@ core.html.easyui.layout.Tabs = (function() {
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
 			onMinimize : this.onMinimize(),
+			// 事件
 			onSelect : this.onSelect(),
 			onUnselect : this.onUnselect(),
 			onAdd : this.onAdd(),
@@ -539,6 +543,9 @@ core.html.easyui.layout.Tabs = (function() {
 		return this;
 	};
 
+	/**
+	 * Panel继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -585,7 +592,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 设置标题
 	 * 
+	 * @param title
 	 * @returns
 	 */
 	Constructor.prototype.setTitle = function(title) {
@@ -594,7 +603,10 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 打开面板
 	 * 
+	 * @param forceOpen
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.open = function(forceOpen) {
@@ -602,8 +614,23 @@ core.html.easyui.layout.Tabs = (function() {
 		return $("#" + this.id()).tabs("open", forceOpen);
 	};
 
+	// /**
+	// * 关闭面板
+	// *
+	// * @param forceClose
+	// * 是否调用回调
+	// * @returns
+	// */
+	// Constructor.prototype.close = function(forceClose) {
+	//
+	// return $("#" + this.id()).tabs("close", forceClose);
+	// };
+
 	/**
+	 * 销毁面板
 	 * 
+	 * @param forceDestroy
+	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
@@ -612,6 +639,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 清空面板内容
 	 * 
 	 * @returns
 	 */
@@ -621,7 +649,10 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 刷新面板
 	 * 
+	 * @param href
+	 *            链接
 	 * @returns
 	 */
 	Constructor.prototype.refresh = function(href) {
@@ -629,7 +660,19 @@ core.html.easyui.layout.Tabs = (function() {
 		return $("#" + this.id()).tabs("refresh", href);
 	};
 
+	// /**
+	// * 改变面板窗口大小
+	// *
+	// * @param options
+	// * @returns
+	// */
+	// Constructor.prototype.resize = function(options) {
+	//
+	// return $("#" + this.id()).tabs("resize", options);
+	// };
+
 	/**
+	 * 调整布局
 	 * 
 	 * @returns
 	 */
@@ -639,7 +682,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 移动面板
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.move = function(options) {
@@ -648,6 +693,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 最大化
 	 * 
 	 * @returns
 	 */
@@ -657,6 +703,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 最小化
 	 * 
 	 * @returns
 	 */
@@ -666,6 +713,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 恢复面板
 	 * 
 	 * @returns
 	 */
@@ -675,6 +723,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 折叠面板
 	 * 
 	 * @returns
 	 */
@@ -684,6 +733,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 展开面板
 	 * 
 	 * @returns
 	 */
@@ -692,6 +742,9 @@ core.html.easyui.layout.Tabs = (function() {
 		return $("#" + this.id()).tabs("expand", animate);
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -702,6 +755,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 改变窗口大小
 	 * 
 	 * @returns
 	 */
@@ -711,7 +765,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 添加Tab页
 	 * 
+	 * @param options
 	 * @returns
 	 */
 	Constructor.prototype.add = function(options) {
@@ -720,7 +776,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 关闭指定Tab
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.close = function(which) {
@@ -729,7 +787,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 获取指定Tab
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.getTab = function(which) {
@@ -738,7 +798,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 获取指定Tab页索引
 	 * 
+	 * @param tab
 	 * @returns
 	 */
 	Constructor.prototype.getTabIndex = function(tab) {
@@ -747,6 +809,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 获取选中Tab页
 	 * 
 	 * @returns
 	 */
@@ -756,7 +819,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 选中指定Tab
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.select = function(which) {
@@ -765,7 +830,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 取消选中指定Tab
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.unselect = function(which) {
@@ -774,6 +841,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 显示头
 	 * 
 	 * @returns
 	 */
@@ -783,6 +851,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 隐藏头
 	 * 
 	 * @returns
 	 */
@@ -792,6 +861,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 显示工具
 	 * 
 	 * @returns
 	 */
@@ -801,6 +871,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 隐藏工具
 	 * 
 	 * @returns
 	 */
@@ -810,7 +881,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 判断指定Tab是否存在
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.exists = function(which) {
@@ -819,7 +892,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 更新
 	 * 
+	 * @param param
 	 * @returns
 	 */
 	Constructor.prototype.update = function(param) {
@@ -828,7 +903,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 启用Tab
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.enableTab = function(which) {
@@ -837,7 +914,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 禁用Tab
 	 * 
+	 * @param which
 	 * @returns
 	 */
 	Constructor.prototype.disableTab = function(which) {
@@ -846,7 +925,9 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
+	 * 滚动至
 	 * 
+	 * @param deltaX
 	 * @returns
 	 */
 	Constructor.prototype.scrollBy = function(deltaX) {

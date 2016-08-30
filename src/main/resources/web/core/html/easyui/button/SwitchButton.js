@@ -1,6 +1,6 @@
 /**
  * @name	SwitchButton
- * @package	core.html.easyui.button
+ * @package core.html.easyui.button
  * @desc	开关按钮模板
  * @type	类
  * 
@@ -60,11 +60,11 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 开文字描述
 		 */
-		var onText = "开";
+		var onText = $.fn.switchbutton.defaults.onText;
 		/**
 		 * 关文字描述
 		 */
-		var offText = "关";
+		var offText = $.fn.switchbutton.defaults.offText;
 		/**
 		 * 中心文字
 		 */
@@ -350,6 +350,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 改变大小
 	 * 
 	 * @returns
 	 */
@@ -359,6 +360,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -368,6 +370,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -377,7 +380,9 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
+	 * @param mode
 	 * @returns
 	 */
 	Constructor.prototype.readonly = function(mode) {
@@ -386,6 +391,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 选中
 	 * 
 	 * @returns
 	 */
@@ -395,6 +401,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 取消选中
 	 * 
 	 * @returns
 	 */
@@ -404,6 +411,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 清除选中值
 	 * 
 	 * @returns
 	 */
@@ -413,6 +421,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 重置选中值
 	 * 
 	 * @returns
 	 */
@@ -422,6 +431,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 设置值
 	 * 
 	 * @returns
 	 */

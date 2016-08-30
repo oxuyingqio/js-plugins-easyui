@@ -1,6 +1,6 @@
 /**
  * @name	Messager
- * @package	core.html.easyui.window
+ * @package core.html.easyui.window
  * @desc	消息
  * @type	类
  * 

@@ -1,6 +1,6 @@
 /**
  * @name	Tooltip
- * @package	core.html.easyui.base
+ * @package core.html.easyui.base
  * @desc	工具提示模板
  * @type	类
  * 
@@ -408,6 +408,7 @@ core.html.easyui.base.Tooltip = (function() {
 	};
 
 	/**
+	 * 显示
 	 * 
 	 * @returns
 	 */
@@ -417,6 +418,7 @@ core.html.easyui.base.Tooltip = (function() {
 	};
 
 	/**
+	 * 隐藏
 	 * 
 	 * @returns
 	 */
@@ -426,6 +428,7 @@ core.html.easyui.base.Tooltip = (function() {
 	};
 
 	/**
+	 * 更新内容
 	 * 
 	 * @returns
 	 */
@@ -435,6 +438,7 @@ core.html.easyui.base.Tooltip = (function() {
 	};
 
 	/**
+	 * 重置显示位置
 	 * 
 	 * @returns
 	 */
@@ -444,6 +448,7 @@ core.html.easyui.base.Tooltip = (function() {
 	};
 
 	/**
+	 * 销毁对象
 	 * 
 	 * @returns
 	 */
