@@ -1,10 +1,10 @@
 /**
- * @name Combo
- * @package core.html.easyui.form
- * @desc 下拉框模板
- * @type 类
+ * @name	Combo
+ * @package	core.html.easyui.form
+ * @desc	下拉框模板
+ * @type	类
  * 
- * @date 2016年8月29日 19:06:36
+ * @date	2016年8月29日 19:06:36
  */
 
 core.html.easyui.form.Combo = (function() {
@@ -364,6 +364,18 @@ core.html.easyui.form.Combo = (function() {
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			panelWidth : this.panelWidth(),
+			panelHeight : this.panelHeight(),
+			panelMinWidth : this.panelMinWidth(),
+			panelMaxWidth : this.panelMaxWidth(),
+			panelMinHeight : this.panelMinHeight(),
+			panelMaxHeight : this.panelMaxHeight(),
+			panelAlign : this.panelAlign(),
+			multiple : this.multiple(),
+			selectOnNavigation : this.selectOnNavigation(),
+			separator : this.separator(),
+			hasDownArrow : this.hasDownArrow(),
+			keyHandler : this.keyHandler(),
 
 			// 事件
 			onBeforeValidate : this.onBeforeValidate(),
@@ -371,7 +383,9 @@ core.html.easyui.form.Combo = (function() {
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
-			onClickIcon : this.onClickIcon()
+			onClickIcon : this.onClickIcon(),
+			onShowPanel : this.onShowPanel(),
+			onHidePanel : this.onHidePanel()
 		});
 
 		return this;
@@ -518,7 +532,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.initValue = function(value) {
 
-		return $("#" + this.id()).passwordbox("initValue", value);
+		return $("#" + this.id()).combo("initValue", value);
 	};
 
 	/**
@@ -527,7 +541,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.setText = function(text) {
 
-		return $("#" + this.id()).passwordbox("setText", text);
+		return $("#" + this.id()).combo("setText", text);
 	};
 
 	/**
@@ -536,7 +550,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).passwordbox("getText");
+		return $("#" + this.id()).combo("getText");
 	};
 
 	/**
@@ -545,7 +559,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).passwordbox("setValue", value);
+		return $("#" + this.id()).combo("setValue", value);
 	};
 
 	/**
@@ -554,7 +568,7 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).passwordbox("getValue");
+		return $("#" + this.id()).combo("getValue");
 	};
 
 	/**
@@ -563,25 +577,52 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.getIcon = function(index) {
 
-		return $("#" + this.id()).passwordbox("getIcon", index);
+		return $("#" + this.id()).combo("getIcon", index);
 	};
 
 	/**
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.showPassword = function() {
+	Constructor.prototype.panel = function() {
 
-		return $("#" + this.id()).passwordbox("showPassword");
+		return $("#" + this.id()).combo("panel");
 	};
 
 	/**
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.hidePassword = function() {
+	Constructor.prototype.showPanel = function() {
 
-		return $("#" + this.id()).passwordbox("hidePassword");
+		return $("#" + this.id()).combo("showPanel");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.hidePanel = function() {
+
+		return $("#" + this.id()).combo("hidePanel");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.getValues = function() {
+
+		return $("#" + this.id()).combo("getValues");
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.setValues = function(values) {
+
+		return $("#" + this.id()).combo("setValues", values);
 	};
 
 	// 返回构造函数
