@@ -1,6 +1,6 @@
 /**
  * @name	ComboBox
- * @package	core.html.easyui.form
+ * @package core.html.easyui.form
  * @desc	下拉框模板
  * @type	类
  * 
@@ -38,9 +38,7 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 分组格式化
 		 */
-		var groupFormatter = function(group) {
-			return group;
-		};
+		var groupFormatter = $.fn.combobox.defaults.groupFormatter;
 		/**
 		 * 数据获取模式
 		 */
@@ -76,27 +74,19 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 过滤
 		 */
-		var filter = function(q, row) {
-
-		};
+		var filter = $.fn.combobox.defaults.filter;
 		/**
 		 * 格式化
 		 */
-		var formatter = function(row) {
-			return row[textField];
-		};
+		var formatter = $.fn.combobox.defaults.formatter;
 		/**
 		 * 加载
 		 */
-		var loader = function(param, success, error) {
-
-		};
+		var loader = $.fn.combobox.defaults.loader;
 		/**
 		 * 加载过滤
 		 */
-		var loadFilter = function(data) {
-			return data;
-		};
+		var loadFilter = $.fn.combobox.defaults.loadFilter;
 
 		/**
 		 * 事件
@@ -488,6 +478,7 @@ core.html.easyui.form.ComboBox = (function() {
 		// 参数配置
 		$jQuery.combobox({
 			// 属性
+			// Validate继承属性
 			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
@@ -502,6 +493,7 @@ core.html.easyui.form.ComboBox = (function() {
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
+			// TextBox继承属性
 			width : this.width(),
 			height : this.height(),
 			prompt : this.prompt(),
@@ -519,6 +511,7 @@ core.html.easyui.form.ComboBox = (function() {
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			// Combo继承属性
 			panelWidth : this.panelWidth(),
 			panelHeight : this.panelHeight(),
 			panelMinWidth : this.panelMinWidth(),
@@ -531,6 +524,7 @@ core.html.easyui.form.ComboBox = (function() {
 			separator : this.separator(),
 			hasDownArrow : this.hasDownArrow(),
 			keyHandler : this.keyHandler(),
+			// 属性
 			valueField : this.valueField(),
 			textField : this.textField(),
 			groupField : this.groupField(),
@@ -545,18 +539,22 @@ core.html.easyui.form.ComboBox = (function() {
 			groupPosition : this.groupPosition(),
 			filter : this.filter(),
 			formatter : this.formatter(),
-			// loader : this.loader(),
+			loader : this.loader(),
 			loadFilter : this.loadFilter(),
 
 			// 事件
+			// Validate继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
 			onClickIcon : this.onClickIcon(),
+			// Combo继承事件
 			onShowPanel : this.onShowPanel(),
 			onHidePanel : this.onHidePanel(),
+			// 事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoadSuccess : this.onLoadSuccess(),
 			onLoadError : this.onLoadError(),
@@ -568,6 +566,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * Validate继承方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */
@@ -577,6 +578,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 销毁组件
 	 * 
 	 * @returns
 	 */
@@ -586,6 +588,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 校验
 	 * 
 	 * @returns
 	 */
@@ -595,6 +598,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 判断是否校验通过
 	 * 
 	 * @returns
 	 */
@@ -604,6 +608,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 启用校验
 	 * 
 	 * @returns
 	 */
@@ -613,6 +618,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 禁用校验
 	 * 
 	 * @returns
 	 */
@@ -622,6 +628,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 重置校验
 	 * 
 	 * @returns
 	 */
@@ -631,6 +638,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -640,6 +648,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -649,6 +658,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
 	 * @returns
 	 */
@@ -657,6 +667,9 @@ core.html.easyui.form.ComboBox = (function() {
 		return $("#" + this.id()).combobox("readonly", mode);
 	};
 
+	/**
+	 * TextBox继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -676,7 +689,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 改变宽度
 	 * 
+	 * @param width
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(width) {
@@ -685,6 +700,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 清除
 	 * 
 	 * @returns
 	 */
@@ -694,6 +710,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 重置
 	 * 
 	 * @returns
 	 */
@@ -704,6 +721,7 @@ core.html.easyui.form.ComboBox = (function() {
 
 	/**
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.initValue = function(value) {
@@ -712,7 +730,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 设置显示文本
 	 * 
+	 * @param text
 	 * @returns
 	 */
 	Constructor.prototype.setText = function(text) {
@@ -721,6 +741,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 获取显示文本
 	 * 
 	 * @returns
 	 */
@@ -730,7 +751,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 设置值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
@@ -739,6 +762,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 获取值
 	 * 
 	 * @returns
 	 */
@@ -748,7 +772,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 获取图标对象
 	 * 
+	 * @param index
 	 * @returns
 	 */
 	Constructor.prototype.getIcon = function(index) {
@@ -756,6 +782,9 @@ core.html.easyui.form.ComboBox = (function() {
 		return $("#" + this.id()).combobox("getIcon", index);
 	};
 
+	/**
+	 * Combo继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -766,6 +795,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 显示面板
 	 * 
 	 * @returns
 	 */
@@ -775,6 +805,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 隐藏面板
 	 * 
 	 * @returns
 	 */
@@ -784,6 +815,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 获取值集合
 	 * 
 	 * @returns
 	 */
@@ -793,6 +825,7 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 设置值集合
 	 * 
 	 * @returns
 	 */
@@ -802,6 +835,10 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 方法
+	 */
+	/**
+	 * 获取数据
 	 * 
 	 * @returns
 	 */
@@ -811,7 +848,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 加载数据
 	 * 
+	 * @param data
 	 * @returns
 	 */
 	Constructor.prototype.loadData = function(data) {
@@ -820,7 +859,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 远程加载数据
 	 * 
+	 * @param url
 	 * @returns
 	 */
 	Constructor.prototype.reload = function(url) {
@@ -829,7 +870,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 选择某值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.select = function(value) {
@@ -838,7 +881,9 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
+	 * 取消选择某值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.unselect = function(value) {

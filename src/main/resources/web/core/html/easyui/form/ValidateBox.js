@@ -1,6 +1,6 @@
 /**
  * @name	ValidateBox
- * @package	core.html.easyui.form
+ * @package core.html.easyui.form
  * @desc	校验文本框模板
  * @type	类
  * 
@@ -44,7 +44,7 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 字段为空提示信息
 		 */
-		var missingMessage = "该字段为必填字段";
+		var missingMessage = $.fn.validatebox.defaults.missingMessage;
 		/**
 		 * 校验提示信息
 		 */
@@ -405,6 +405,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 销毁组件
 	 * 
 	 * @returns
 	 */
@@ -414,6 +415,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 校验
 	 * 
 	 * @returns
 	 */
@@ -423,6 +425,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 判断是否校验通过
 	 * 
 	 * @returns
 	 */
@@ -432,6 +435,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 启用校验
 	 * 
 	 * @returns
 	 */
@@ -441,6 +445,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 禁用校验
 	 * 
 	 * @returns
 	 */
@@ -450,6 +455,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 重置校验
 	 * 
 	 * @returns
 	 */
@@ -459,6 +465,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -468,6 +475,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -477,6 +485,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
 	 * @returns
 	 */

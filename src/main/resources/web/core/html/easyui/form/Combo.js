@@ -1,6 +1,6 @@
 /**
  * @name	Combo
- * @package	core.html.easyui.form
+ * @package core.html.easyui.form
  * @desc	下拉框模板
  * @type	类
  * 
@@ -71,7 +71,7 @@ core.html.easyui.form.Combo = (function() {
 		/**
 		 * 按键事件
 		 */
-		var keyHandler = {};
+		var keyHandler = $.fn.combo.defaults.keyHandler;
 
 		/**
 		 * 事件
@@ -333,6 +333,7 @@ core.html.easyui.form.Combo = (function() {
 		// 参数配置
 		$jQuery.combo({
 			// 属性
+			// Validate继承属性
 			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
@@ -347,6 +348,7 @@ core.html.easyui.form.Combo = (function() {
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
+			// TextBox继承属性
 			width : this.width(),
 			height : this.height(),
 			prompt : this.prompt(),
@@ -364,6 +366,7 @@ core.html.easyui.form.Combo = (function() {
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			// 属性
 			panelWidth : this.panelWidth(),
 			panelHeight : this.panelHeight(),
 			panelMinWidth : this.panelMinWidth(),
@@ -378,12 +381,15 @@ core.html.easyui.form.Combo = (function() {
 			keyHandler : this.keyHandler(),
 
 			// 事件
+			// Validate继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
 			onClickIcon : this.onClickIcon(),
+			// 事件
 			onShowPanel : this.onShowPanel(),
 			onHidePanel : this.onHidePanel()
 		});
@@ -391,6 +397,9 @@ core.html.easyui.form.Combo = (function() {
 		return this;
 	};
 
+	/**
+	 * Validate继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -401,6 +410,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 销毁组件
 	 * 
 	 * @returns
 	 */
@@ -410,6 +420,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 校验
 	 * 
 	 * @returns
 	 */
@@ -419,6 +430,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 判断是否校验通过
 	 * 
 	 * @returns
 	 */
@@ -428,6 +440,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 启用校验
 	 * 
 	 * @returns
 	 */
@@ -437,6 +450,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 禁用校验
 	 * 
 	 * @returns
 	 */
@@ -446,6 +460,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 重置校验
 	 * 
 	 * @returns
 	 */
@@ -455,6 +470,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -464,6 +480,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -473,6 +490,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
 	 * @returns
 	 */
@@ -481,6 +499,9 @@ core.html.easyui.form.Combo = (function() {
 		return $("#" + this.id()).combo("readonly", mode);
 	};
 
+	/**
+	 * TextBox继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -500,7 +521,9 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 改变宽度
 	 * 
+	 * @param width
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(width) {
@@ -509,6 +532,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 清除
 	 * 
 	 * @returns
 	 */
@@ -518,6 +542,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 重置
 	 * 
 	 * @returns
 	 */
@@ -528,6 +553,7 @@ core.html.easyui.form.Combo = (function() {
 
 	/**
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.initValue = function(value) {
@@ -536,7 +562,9 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 设置显示文本
 	 * 
+	 * @param text
 	 * @returns
 	 */
 	Constructor.prototype.setText = function(text) {
@@ -545,6 +573,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 获取显示文本
 	 * 
 	 * @returns
 	 */
@@ -554,7 +583,9 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 设置值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
@@ -563,6 +594,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 获取值
 	 * 
 	 * @returns
 	 */
@@ -572,7 +604,9 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 获取图标对象
 	 * 
+	 * @param index
 	 * @returns
 	 */
 	Constructor.prototype.getIcon = function(index) {
@@ -580,6 +614,9 @@ core.html.easyui.form.Combo = (function() {
 		return $("#" + this.id()).combo("getIcon", index);
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -590,6 +627,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 显示面板
 	 * 
 	 * @returns
 	 */
@@ -599,6 +637,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 隐藏面板
 	 * 
 	 * @returns
 	 */
@@ -608,6 +647,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 获取值集合
 	 * 
 	 * @returns
 	 */
@@ -617,6 +657,7 @@ core.html.easyui.form.Combo = (function() {
 	};
 
 	/**
+	 * 设置值集合
 	 * 
 	 * @returns
 	 */

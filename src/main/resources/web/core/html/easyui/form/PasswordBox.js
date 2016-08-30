@@ -144,6 +144,7 @@ core.html.easyui.form.PasswordBox = (function() {
 		// 参数配置
 		$jQuery.passwordbox({
 			// 属性
+			// Validate继承属性
 			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
@@ -158,6 +159,7 @@ core.html.easyui.form.PasswordBox = (function() {
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
+			// TextBox继承属性
 			width : this.width(),
 			height : this.height(),
 			prompt : this.prompt(),
@@ -175,6 +177,7 @@ core.html.easyui.form.PasswordBox = (function() {
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			// 属性
 			passwordChar : this.passwordChar(),
 			checkInterval : this.checkInterval(),
 			lastDelay : this.lastDelay(),
@@ -182,8 +185,10 @@ core.html.easyui.form.PasswordBox = (function() {
 			showEye : this.showEye(),
 
 			// 事件
+			// Validate继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
@@ -194,6 +199,9 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * Validate继承方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */
@@ -203,6 +211,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 销毁组件
 	 * 
 	 * @returns
 	 */
@@ -212,6 +221,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 校验
 	 * 
 	 * @returns
 	 */
@@ -221,6 +231,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 判断是否校验通过
 	 * 
 	 * @returns
 	 */
@@ -230,6 +241,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 启用校验
 	 * 
 	 * @returns
 	 */
@@ -239,6 +251,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 禁用校验
 	 * 
 	 * @returns
 	 */
@@ -248,6 +261,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 重置校验
 	 * 
 	 * @returns
 	 */
@@ -257,6 +271,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -266,6 +281,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -275,6 +291,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
 	 * @returns
 	 */
@@ -283,6 +300,9 @@ core.html.easyui.form.PasswordBox = (function() {
 		return $("#" + this.id()).passwordbox("readonly", mode);
 	};
 
+	/**
+	 * TextBox继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -302,7 +322,9 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 改变宽度
 	 * 
+	 * @param width
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(width) {
@@ -311,6 +333,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 清除
 	 * 
 	 * @returns
 	 */
@@ -320,6 +343,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 重置
 	 * 
 	 * @returns
 	 */
@@ -330,6 +354,7 @@ core.html.easyui.form.PasswordBox = (function() {
 
 	/**
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.initValue = function(value) {
@@ -338,7 +363,9 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 设置显示文本
 	 * 
+	 * @param text
 	 * @returns
 	 */
 	Constructor.prototype.setText = function(text) {
@@ -347,24 +374,28 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 获取显示文本
 	 * 
 	 * @returns
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).passwordbox("getText");
+		return $("#" + this.id()).textbox("getText");
 	};
 
 	/**
+	 * 设置值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).passwordbox("setValue", value);
+		return $("#" + this.id()).textbox("setValue", value);
 	};
 
 	/**
+	 * 获取值
 	 * 
 	 * @returns
 	 */
@@ -374,7 +405,9 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 获取图标对象
 	 * 
+	 * @param index
 	 * @returns
 	 */
 	Constructor.prototype.getIcon = function(index) {
@@ -383,6 +416,10 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 方法
+	 */
+	/**
+	 * 显示密码
 	 * 
 	 * @returns
 	 */
@@ -392,6 +429,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
+	 * 隐藏密码
 	 * 
 	 * @returns
 	 */

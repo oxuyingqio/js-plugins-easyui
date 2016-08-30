@@ -1,10 +1,10 @@
 /**
  * @name	TextBox
- * @package	core.html.easyui.form
+ * @package core.html.easyui.form
  * @desc	文本框模板
  * @type	类
  * 
- * @date 2016年8月29日 17:37:49
+ * @date	2016年8月29日 17:37:49
  */
 
 core.html.easyui.form.TextBox = (function() {
@@ -26,11 +26,11 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 宽度
 		 */
-		var width = undefined;
+		var width = "auto";
 		/**
 		 * 高度
 		 */
-		var height = undefined;
+		var height = "auto";
 		/**
 		 * 输入框提示信息
 		 */
@@ -50,7 +50,7 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 标签宽度
 		 */
-		var labelWidth = undefined;
+		var labelWidth = "auto";
 		/**
 		 * 标签位置
 		 */
@@ -125,6 +125,8 @@ core.html.easyui.form.TextBox = (function() {
 		};
 		/**
 		 * 点击图标事件
+		 * 
+		 * @param index
 		 */
 		var onClickIcon = function(index) {
 
@@ -486,6 +488,7 @@ core.html.easyui.form.TextBox = (function() {
 		// 参数配置
 		$jQuery.textbox({
 			// 属性
+			// Validate继承属性
 			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
@@ -500,6 +503,7 @@ core.html.easyui.form.TextBox = (function() {
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
+			// 属性
 			width : this.width(),
 			height : this.height(),
 			prompt : this.prompt(),
@@ -519,8 +523,10 @@ core.html.easyui.form.TextBox = (function() {
 			buttonAlign : this.buttonAlign(),
 
 			// 事件
+			// Validate继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// 事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
@@ -531,6 +537,9 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * Validate继承方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */
@@ -540,6 +549,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 销毁组件
 	 * 
 	 * @returns
 	 */
@@ -549,6 +559,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 校验
 	 * 
 	 * @returns
 	 */
@@ -558,6 +569,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 判断是否校验通过
 	 * 
 	 * @returns
 	 */
@@ -567,6 +579,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 启用校验
 	 * 
 	 * @returns
 	 */
@@ -576,6 +589,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 禁用校验
 	 * 
 	 * @returns
 	 */
@@ -585,6 +599,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 重置校验
 	 * 
 	 * @returns
 	 */
@@ -594,6 +609,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -603,6 +619,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -612,6 +629,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
 	 * @returns
 	 */
@@ -620,6 +638,9 @@ core.html.easyui.form.TextBox = (function() {
 		return $("#" + this.id()).textbox("readonly", mode);
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -639,7 +660,9 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 改变宽度
 	 * 
+	 * @param width
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(width) {
@@ -648,6 +671,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 清除
 	 * 
 	 * @returns
 	 */
@@ -657,6 +681,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 重置
 	 * 
 	 * @returns
 	 */
@@ -667,6 +692,7 @@ core.html.easyui.form.TextBox = (function() {
 
 	/**
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.initValue = function(value) {
@@ -675,7 +701,9 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 设置显示文本
 	 * 
+	 * @param text
 	 * @returns
 	 */
 	Constructor.prototype.setText = function(text) {
@@ -684,6 +712,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 获取显示文本
 	 * 
 	 * @returns
 	 */
@@ -693,7 +722,9 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 设置值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
@@ -702,6 +733,7 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 获取值
 	 * 
 	 * @returns
 	 */
@@ -711,7 +743,9 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
+	 * 获取图标对象
 	 * 
+	 * @param index
 	 * @returns
 	 */
 	Constructor.prototype.getIcon = function(index) {

@@ -1,6 +1,6 @@
 /**
  * @name	NumberBox
- * @package	core.html.easyui.form
+ * @package core.html.easyui.form
  * @desc	数字框模板
  * @type	类
  * 
@@ -54,22 +54,15 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 过滤
 		 */
-		var filter = function(e) {
-
-		};
+		var filter = $.fn.numberbox.defaults.filter;
 		/**
 		 * 格式化
 		 */
-		var formatter = function(value) {
-
-			return value;
-		};
+		var formatter = $.fn.numberbox.defaults.formatter;
 		/**
 		 * 解析
 		 */
-		var parser = function(s) {
-
-		};
+		var parser = $.fn.numberbox.defaults.parser;
 
 		/**
 		 * 获取/设置最小值
@@ -251,6 +244,7 @@ core.html.easyui.form.NumberBox = (function() {
 		// 参数配置
 		$jQuery.numberbox({
 			// 属性
+			// Validate继承属性
 			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
@@ -265,6 +259,7 @@ core.html.easyui.form.NumberBox = (function() {
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
+			// TextBox继承属性
 			width : this.width(),
 			height : this.height(),
 			prompt : this.prompt(),
@@ -282,6 +277,7 @@ core.html.easyui.form.NumberBox = (function() {
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			// 属性
 			min : this.min(),
 			max : this.max(),
 			precision : this.precision(),
@@ -291,11 +287,13 @@ core.html.easyui.form.NumberBox = (function() {
 			suffix : this.suffix(),
 			filter : this.filter(),
 			formatter : this.formatter(),
-			// parser : this.parser(),
+			parser : this.parser(),
 
 			// 事件
+			// Validate继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// 事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
@@ -306,6 +304,9 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * Validate继承方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */
@@ -315,6 +316,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 销毁组件
 	 * 
 	 * @returns
 	 */
@@ -324,6 +326,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 校验
 	 * 
 	 * @returns
 	 */
@@ -333,6 +336,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 判断是否校验通过
 	 * 
 	 * @returns
 	 */
@@ -342,6 +346,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 启用校验
 	 * 
 	 * @returns
 	 */
@@ -351,6 +356,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 禁用校验
 	 * 
 	 * @returns
 	 */
@@ -360,6 +366,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 重置校验
 	 * 
 	 * @returns
 	 */
@@ -369,6 +376,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 启用
 	 * 
 	 * @returns
 	 */
@@ -378,6 +386,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 禁用
 	 * 
 	 * @returns
 	 */
@@ -387,6 +396,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 只读
 	 * 
 	 * @returns
 	 */
@@ -395,6 +405,9 @@ core.html.easyui.form.NumberBox = (function() {
 		return $("#" + this.id()).numberbox("readonly", mode);
 	};
 
+	/**
+	 * TextBox继承方法
+	 */
 	/**
 	 * 
 	 * @returns
@@ -414,7 +427,9 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 改变宽度
 	 * 
+	 * @param width
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(width) {
@@ -423,6 +438,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 清除
 	 * 
 	 * @returns
 	 */
@@ -432,6 +448,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 重置
 	 * 
 	 * @returns
 	 */
@@ -442,6 +459,7 @@ core.html.easyui.form.NumberBox = (function() {
 
 	/**
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.initValue = function(value) {
@@ -450,7 +468,9 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 设置显示文本
 	 * 
+	 * @param text
 	 * @returns
 	 */
 	Constructor.prototype.setText = function(text) {
@@ -459,6 +479,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 获取显示文本
 	 * 
 	 * @returns
 	 */
@@ -468,7 +489,9 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 设置值
 	 * 
+	 * @param value
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
@@ -477,6 +500,7 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 获取值
 	 * 
 	 * @returns
 	 */
@@ -486,7 +510,9 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
+	 * 获取图标对象
 	 * 
+	 * @param index
 	 * @returns
 	 */
 	Constructor.prototype.getIcon = function(index) {
@@ -494,6 +520,9 @@ core.html.easyui.form.NumberBox = (function() {
 		return $("#" + this.id()).numberbox("getIcon", index);
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 
 	 * @returns
