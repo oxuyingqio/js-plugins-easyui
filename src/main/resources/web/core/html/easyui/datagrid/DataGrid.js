@@ -1,6 +1,6 @@
 /**
  * @name	Datagrid
- * @package core.html.easyui.datagrid
+ * @package	core.html.easyui.datagrid
  * @desc	数据列表模板
  * @type	类型
  * 
@@ -22,8 +22,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	var Constructor = function(id) {
 
-		// 调用父类构造
-		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id);
+		// 多继承
+		// 继承面板模板
+		core.html.easyui.layout.Panel.call(this, id);
 		this.loader($.fn.datagrid.defaults.loader);
 
 		/**
@@ -1519,8 +1520,6 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			}
 		};
 	};
-	// 继承面板模板
-	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**
 	 * 初始化组件模板
