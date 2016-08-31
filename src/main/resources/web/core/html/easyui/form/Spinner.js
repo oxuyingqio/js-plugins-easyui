@@ -1,13 +1,13 @@
 /**
- * @name NumberBox
+ * @name Spinner
  * @package core.html.easyui.form
- * @desc 数字框模板
+ * @desc 微调框模板
  * @type 类
  * 
- * @date 2016年8月30日 11:26:43
+ * @date 2016年8月31日 11:23:11
  */
 
-core.html.easyui.form.NumberBox = (function() {
+core.html.easyui.form.Spinner = (function() {
 
 	/**
 	 * 构造函数
@@ -18,7 +18,8 @@ core.html.easyui.form.NumberBox = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		core.html.easyui.form.NumberBox.superClass.constructor.call(this, id);
+		core.html.easyui.form.Spinner.superClass.constructor.call(this, id);
+		this.height("22px");
 
 		/**
 		 * 属性
@@ -32,37 +33,33 @@ core.html.easyui.form.NumberBox = (function() {
 		 */
 		var max = null;
 		/**
-		 * 精度
+		 * 步幅
 		 */
-		var precision = 0;
+		var increment = 1;
 		/**
-		 * 分隔符
+		 * 位置
 		 */
-		var decimalSeparator = ".";
+		var spinAlign = "right";
 		/**
-		 * 分组分隔符
+		 * 用户点击旋转调用函数
 		 */
-		var groupSeparator = "";
+		var spin = $.fn.spinner.defaults.spin;
+
 		/**
-		 * 前缀字符串
+		 * 事件
 		 */
-		var prefix = "";
 		/**
-		 * 后缀字符串
+		 * 抬起事件
 		 */
-		var suffix = "";
+		var onSpinUp = function() {
+			
+		};
 		/**
-		 * 过滤
+		 * 按下事件
 		 */
-		var filter = $.fn.numberbox.defaults.filter;
-		/**
-		 * 格式化
-		 */
-		var formatter = $.fn.numberbox.defaults.formatter;
-		/**
-		 * 解析
-		 */
-		var parser = $.fn.numberbox.defaults.parser;
+		var onSpinDown = function() {
+
+		};
 
 		/**
 		 * 获取/设置最小值
@@ -97,129 +94,81 @@ core.html.easyui.form.NumberBox = (function() {
 		};
 
 		/**
-		 * 获取/设置精度
+		 * 获取/设置步幅
 		 * 
-		 * @param precision
+		 * @param increment
 		 */
-		this.precision = function() {
+		this.increment = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return precision;
+				return increment;
 			default:
-				precision = arguments[0];
+				increment = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置分隔符
+		 * 获取/设置位置
 		 * 
-		 * @param decimalSeparator
+		 * @param spinAlign
 		 */
-		this.decimalSeparator = function() {
+		this.spinAlign = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return decimalSeparator;
+				return spinAlign;
 			default:
-				decimalSeparator = arguments[0];
+				spinAlign = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置分组分隔符
+		 * 获取/设置用户点击旋转调用函数
 		 * 
-		 * @param groupSeparator
+		 * @param spin
 		 */
-		this.groupSeparator = function() {
+		this.spin = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return groupSeparator;
+				return spin;
 			default:
-				groupSeparator = arguments[0];
+				spin = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置前缀字符串
+		 * 获取/设置抬起事件
 		 * 
-		 * @param prefix
+		 * @param onSpinUp
 		 */
-		this.prefix = function() {
+		this.onSpinUp = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return prefix;
+				return onSpinUp;
 			default:
-				prefix = arguments[0];
+				onSpinUp = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置后缀字符串
+		 * 获取/设置按下事件
 		 * 
-		 * @param suffix
+		 * @param onSpinDown
 		 */
-		this.suffix = function() {
+		this.onSpinDown = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return suffix;
+				return onSpinDown;
 			default:
-				suffix = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置过滤
-		 * 
-		 * @param filter
-		 */
-		this.filter = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return filter;
-			default:
-				filter = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置格式化
-		 * 
-		 * @param formatter
-		 */
-		this.formatter = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return formatter;
-			default:
-				formatter = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置解析
-		 * 
-		 * @param parser
-		 */
-		this.parser = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return parser;
-			default:
-				parser = arguments[0];
+				onSpinDown = arguments[0];
 				return this;
 			}
 		};
@@ -230,7 +179,7 @@ core.html.easyui.form.NumberBox = (function() {
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.form.NumberBox}
+	 * @returns {core.html.easyui.form.Spinner}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -238,11 +187,11 @@ core.html.easyui.form.NumberBox = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
 
 		// 参数配置
-		$jQuery.numberbox({
+		$jQuery.spinner({
 			// 属性
 			// Validate继承属性
 			id : this.id(),
@@ -280,14 +229,9 @@ core.html.easyui.form.NumberBox = (function() {
 			// 属性
 			min : this.min(),
 			max : this.max(),
-			precision : this.precision(),
-			decimalSeparator : this.decimalSeparator(),
-			groupSeparator : this.groupSeparator(),
-			prefix : this.prefix(),
-			suffix : this.suffix(),
-			filter : this.filter(),
-			formatter : this.formatter(),
-			parser : this.parser(),
+			increment : this.increment(),
+			spinAlign : this.spinAlign(),
+			spin : this.spin(),
 
 			// 事件
 			// Validate继承事件
@@ -297,7 +241,10 @@ core.html.easyui.form.NumberBox = (function() {
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
-			onClickIcon : this.onClickIcon()
+			onClickIcon : this.onClickIcon(),
+			// 事件
+			onSpinUp : this.onSpinUp(),
+			onSpinDown : this.onSpinDown()
 		});
 
 		return this;
@@ -312,7 +259,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).numberbox("options");
+		return $("#" + this.id()).spinner("options");
 	};
 
 	/**
@@ -322,7 +269,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).numberbox("destroy");
+		return $("#" + this.id()).spinner("destroy");
 	};
 
 	/**
@@ -332,7 +279,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).numberbox("validate");
+		return $("#" + this.id()).spinner("validate");
 	};
 
 	/**
@@ -342,7 +289,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.isValid = function() {
 
-		return $("#" + this.id()).numberbox("isValid");
+		return $("#" + this.id()).spinner("isValid");
 	};
 
 	/**
@@ -352,7 +299,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).numberbox("enableValidation");
+		return $("#" + this.id()).spinner("enableValidation");
 	};
 
 	/**
@@ -362,7 +309,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).numberbox("disableValidation");
+		return $("#" + this.id()).spinner("disableValidation");
 	};
 
 	/**
@@ -372,7 +319,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).numberbox("resetValidation");
+		return $("#" + this.id()).spinner("resetValidation");
 	};
 
 	/**
@@ -382,7 +329,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).numberbox("enable");
+		return $("#" + this.id()).spinner("enable");
 	};
 
 	/**
@@ -392,7 +339,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).numberbox("disable");
+		return $("#" + this.id()).spinner("disable");
 	};
 
 	/**
@@ -402,7 +349,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).numberbox("readonly", mode);
+		return $("#" + this.id()).spinner("readonly", mode);
 	};
 
 	/**
@@ -414,7 +361,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.textbox = function() {
 
-		return $("#" + this.id()).numberbox("textbox");
+		return $("#" + this.id()).spinner("textbox");
 	};
 
 	/**
@@ -423,7 +370,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.button = function() {
 
-		return $("#" + this.id()).numberbox("button");
+		return $("#" + this.id()).spinner("button");
 	};
 
 	/**
@@ -434,7 +381,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).numberbox("resize", width);
+		return $("#" + this.id()).spinner("resize", width);
 	};
 
 	/**
@@ -444,7 +391,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).numberbox("clear");
+		return $("#" + this.id()).spinner("clear");
 	};
 
 	/**
@@ -454,7 +401,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).numberbox("reset");
+		return $("#" + this.id()).spinner("reset");
 	};
 
 	/**
@@ -464,7 +411,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.initValue = function(value) {
 
-		return $("#" + this.id()).numberbox("initValue", value);
+		return $("#" + this.id()).spinner("initValue", value);
 	};
 
 	/**
@@ -475,7 +422,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.setText = function(text) {
 
-		return $("#" + this.id()).numberbox("setText", text);
+		return $("#" + this.id()).spinner("setText", text);
 	};
 
 	/**
@@ -485,7 +432,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).numberbox("getText");
+		return $("#" + this.id()).spinner("getText");
 	};
 
 	/**
@@ -496,7 +443,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).numberbox("setValue", value);
+		return $("#" + this.id()).spinner("setValue", value);
 	};
 
 	/**
@@ -506,7 +453,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).numberbox("getValue");
+		return $("#" + this.id()).spinner("getValue");
 	};
 
 	/**
@@ -517,19 +464,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.getIcon = function(index) {
 
-		return $("#" + this.id()).numberbox("getIcon", index);
-	};
-
-	/**
-	 * 方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.fix = function() {
-
-		return $("#" + this.id()).numberbox("fix");
+		return $("#" + this.id()).spinner("getIcon", index);
 	};
 
 	// 返回构造函数
