@@ -1,10 +1,10 @@
 /**
- * @name Spinner
+ * @name	Spinner
  * @package core.html.easyui.form
- * @desc 微调框模板
- * @type 类
+ * @desc	微调框模板
+ * @type	类
  * 
- * @date 2016年8月31日 11:23:11
+ * @date	2016年8月31日 11:23:11
  */
 
 core.html.easyui.form.Spinner = (function() {

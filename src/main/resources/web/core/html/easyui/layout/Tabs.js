@@ -18,6 +18,7 @@ core.html.easyui.layout.Tabs = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
+		// linkbutton
 		core.html.easyui.layout.Tabs.superClass.constructor.call(this, id);
 		// 设置工具条为空
 		this.tools(null);

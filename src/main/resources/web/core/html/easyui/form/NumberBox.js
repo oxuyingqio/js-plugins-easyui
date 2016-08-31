@@ -1,8 +1,8 @@
 /**
- * @name NumberBox
+ * @name	NumberBox
  * @package core.html.easyui.form
- * @desc 数字框模板
- * @type 类
+ * @desc	数字框模板
+ * @type	类
  * 
  * @date 2016年8月30日 11:26:43
  */

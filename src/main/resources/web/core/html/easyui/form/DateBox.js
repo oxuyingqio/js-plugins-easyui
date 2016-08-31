@@ -18,6 +18,7 @@ core.html.easyui.form.DateBox = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
+		// calendar
 		core.html.easyui.form.DateBox.superClass.constructor.call(this, id);
 		this.panelWidth(180);
 		this.panelHeight("auto");

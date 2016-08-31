@@ -1,6 +1,6 @@
 /**
  * @name	Datagrid
- * @package	core.html.easyui.datagrid
+ * @package core.html.easyui.datagrid
  * @desc	数据列表模板
  * @type	类型
  * 
@@ -25,6 +25,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		// 多继承
 		// 继承面板模板
 		core.html.easyui.layout.Panel.call(this, id);
+		// resizable
+		// linkbutton
+		// pagination
 		this.loader($.fn.datagrid.defaults.loader);
 
 		/**

@@ -1,10 +1,10 @@
 /**
- * @name NumberSpinner
+ * @name	NumberSpinner
  * @package core.html.easyui.form
- * @desc 数字微调框模板
- * @type 类
+ * @desc	数字微调框模板
+ * @type	类
  * 
- * @date 2016年8月31日 14:02:08
+ * @date	2016年8月31日 14:02:08
  */
 
 core.html.easyui.form.NumberSpinner = (function() {

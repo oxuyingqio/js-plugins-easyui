@@ -18,6 +18,8 @@ core.html.easyui.window.Window = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
+		// draggable
+		// resizable
 		core.html.easyui.window.Window.superClass.constructor.call(this, id);
 		this.title($.fn.window.defaults.title);
 		this.collapsible(true);
