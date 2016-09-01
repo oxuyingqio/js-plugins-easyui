@@ -341,6 +341,9 @@ core.html.easyui.button.SwitchButton = (function() {
 	};
 
 	/**
+	 * 方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */

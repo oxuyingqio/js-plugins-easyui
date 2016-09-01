@@ -1,10 +1,10 @@
 /**
- * @name	Datagrid
+ * @name Datagrid
  * @package core.html.easyui.datagrid
- * @desc	数据列表模板
- * @type	类型
+ * @desc 数据列表模板
+ * @type 类型
  * 
- * @date	2016年8月26日 16:51:16
+ * @date 2016年8月26日 16:51:16
  */
 
 core.html.easyui.datagrid.DataGrid = (function() {
@@ -22,12 +22,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	var Constructor = function(id) {
 
-		// 多继承
-		// 继承面板模板
-		core.html.easyui.layout.Panel.call(this, id);
-		// resizable
-		// linkbutton
-		// pagination
+		// 调用父类构造
+		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id);
 		this.loader($.fn.datagrid.defaults.loader);
 
 		/**
@@ -1523,6 +1519,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			}
 		};
 	};
+	// 继承面板模板
+	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**
 	 * 初始化组件模板
@@ -1669,10 +1667,16 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			onHeaderContextMenu : this.onHeaderContextMenu(),
 			onRowContextMenu : this.onRowContextMenu()
 		});
+
+		$(this.getPager()).pagination({
+			onChangePageSize : function(pageSize) {
+				cookie.set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
+			}
+		});
 	};
 
 	/**
-	 * Panel继承方法
+	 * 方法
 	 */
 	/**
 	 * 
@@ -1683,196 +1687,6 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		return $("#" + this.id()).datagrid("options");
 	};
 
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).datagrid("panel");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.header = function() {
-
-		return $("#" + this.id()).datagrid("header");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.footer = function() {
-
-		return $("#" + this.id()).datagrid("footer");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.body = function() {
-
-		return $("#" + this.id()).datagrid("body");
-	};
-
-	/**
-	 * 设置标题
-	 * 
-	 * @param title
-	 * @returns
-	 */
-	Constructor.prototype.setTitle = function(title) {
-
-		return $("#" + this.id()).datagrid("setTitle", title);
-	};
-
-	/**
-	 * 打开面板
-	 * 
-	 * @param forceOpen
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.open = function(forceOpen) {
-
-		return $("#" + this.id()).datagrid("open", forceOpen);
-	};
-
-	/**
-	 * 关闭面板
-	 * 
-	 * @param forceClose
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.close = function(forceClose) {
-
-		return $("#" + this.id()).datagrid("close", forceClose);
-	};
-
-	/**
-	 * 销毁面板
-	 * 
-	 * @param forceDestroy
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function(forceDestroy) {
-
-		return $("#" + this.id()).datagrid("destroy", forceDestroy);
-	};
-
-	/**
-	 * 清空面板内容
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).datagrid("clear");
-	};
-
-	/**
-	 * 刷新面板
-	 * 
-	 * @param href
-	 *            链接
-	 * @returns
-	 */
-	Constructor.prototype.refresh = function(href) {
-
-		return $("#" + this.id()).datagrid("refresh", href);
-	};
-
-	/**
-	 * 改变面板窗口大小
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(options) {
-
-		return $("#" + this.id()).datagrid("resize", options);
-	};
-
-	/**
-	 * 调整布局
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.doLayout = function() {
-
-		return $("#" + this.id()).datagrid("doLayout");
-	};
-
-	/**
-	 * 移动面板
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.move = function(options) {
-
-		return $("#" + this.id()).datagrid("move", options);
-	};
-
-	/**
-	 * 最大化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.maximize = function() {
-
-		return $("#" + this.id()).datagrid("maximize");
-	};
-
-	/**
-	 * 最小化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.minimize = function() {
-
-		return $("#" + this.id()).datagrid("minimize");
-	};
-
-	/**
-	 * 恢复面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.restore = function() {
-
-		return $("#" + this.id()).datagrid("restore");
-	};
-
-	/**
-	 * 折叠面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.collapse = function(animate) {
-
-		return $("#" + this.id()).datagrid("collapse", animate);
-	};
-
-	/**
-	 * 展开面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.expand = function(animate) {
-
-		return $("#" + this.id()).datagrid("expand", animate);
-	};
-
-	/**
-	 * 方法
-	 */
 	/**
 	 * 获取页面对象
 	 * 
@@ -2549,7 +2363,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.getPageSize = function() {
 
-		var options = this.getPager().data("pagination").options;
+		var options = $(this.getPager()).pagination("options");
 		return options.pageSize;
 	}
 
@@ -2560,7 +2374,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.getPageNum = function() {
 
-		var options = this.getPager().data("pagination").options;
+		var options = $(this.getPager()).pagination("options");
 		var total = options.total;
 		var max = Math.ceil(total / options.pageSize);
 		return max;
@@ -2573,7 +2387,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.getCurrentPageNum = function() {
 
-		var options = this.getPager().data("pagination").options;
+		var options = $(this.getPager()).pagination("options");
 		return options.pageNumber;
 	}
 
@@ -2584,9 +2398,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.selectBeforePage = function() {
 
-		var pager = this.getPager();
-		var options = pager.data("pagination").options;
-		this.gotoPage(options.pageNumber - 1);
+		this.gotoPage(this.getCurrentPageNum() - 1);
 	}
 
 	/**
@@ -2596,9 +2408,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.selectNextPage = function() {
 
-		var Pager = this.getPager();
-		var options = Pager.data("pagination").options;
-		this.gotoPage(options.pageNumber + 1);
+		this.gotoPage(this.getCurrentPageNum() + 1);
 	}
 
 	/**

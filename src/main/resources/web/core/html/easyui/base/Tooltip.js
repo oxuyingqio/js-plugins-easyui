@@ -381,6 +381,9 @@ core.html.easyui.base.Tooltip = (function() {
 	};
 
 	/**
+	 * 方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */
