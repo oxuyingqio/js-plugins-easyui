@@ -56,7 +56,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 隔行变色
 		 */
-		var striped = $.fn.datagrid.defaults.striped;
+		var striped = true;
 		/**
 		 * 禁止文字自动换行
 		 */
@@ -84,7 +84,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 添加页脚工具栏
 		 */
-		var pagination = $.fn.datagrid.defaults.pagination;
+		var pagination = true;
 		/**
 		 * 显示行号
 		 */
@@ -92,7 +92,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 仅能选中单行
 		 */
-		var singleSelect = $.fn.datagrid.defaults.singleSelect;
+		var singleSelect = true;
 		/**
 		 * ctrl键选中
 		 */
