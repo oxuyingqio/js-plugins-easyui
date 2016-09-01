@@ -1,13 +1,13 @@
 /**
- * @name	DateBox
+ * @name	TimeSpinner
  * @package core.html.easyui.form
- * @desc	日期框模板
+ * @desc	时间微调框模板
  * @type	类
  * 
- * @date	2016年8月30日 13:53:06
+ * @date	2016年9月1日 10:28:12
  */
 
-core.html.easyui.form.DateBox = (function() {
+core.html.easyui.form.TimeSpinner = (function() {
 
 	/**
 	 * 构造函数
@@ -18,128 +18,81 @@ core.html.easyui.form.DateBox = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		core.html.easyui.form.DateBox.superClass.constructor.call(this, id);
-		this.panelWidth(180);
-		this.panelHeight("auto");
+		core.html.easyui.form.TimeSpinner.superClass.constructor.call(this, id);
+		this.spin($.fn.timespinner.defaults.spin);
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * 今天按钮
+		 * 分隔符
 		 */
-		var currentText = $.fn.datebox.defaults.currentText;
+		var separator = $.fn.timespinner.defaults.separator;
 		/**
-		 * 关闭按钮
+		 * 显示秒
 		 */
-		var closeText = $.fn.datebox.defaults.closeText;
+		var showSeconds = $.fn.timespinner.defaults.showSeconds;
 		/**
-		 * 确认按钮
+		 * 高亮
 		 */
-		var okText = $.fn.datebox.defaults.okText;
-		/**
-		 * 按钮组
-		 */
-		var buttons = [];
-		/**
-		 * 日期框索引
-		 */
-		var sharedCalendar = null;
+		var highlight = $.fn.timespinner.defaults.highlight;
 		/**
 		 * 格式化
 		 */
-		var formatter = $.fn.datebox.defaults.formatter;
+		var formatter = $.fn.timespinner.defaults.formatter;
 		/**
-		 * 解析
+		 * 解析时间
 		 */
-		var parser = $.fn.datebox.defaults.parser;
+		var parser = $.fn.timespinner.defaults.parser;
+		/**
+		 * 突出的部分
+		 */
+		var selections = $.fn.timespinner.defaults.selections;
 
 		/**
-		 * 事件
-		 */
-		/**
-		 * 选择事件
-		 */
-		var onSelect = function(date) {
-
-		};
-
-		/**
-		 * 获取/设置今天按钮
+		 * 获取/设置分隔符
 		 * 
-		 * @param currentText
+		 * @param separator
 		 */
-		this.currentText = function() {
+		this.separator = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return currentText;
+				return separator;
 			default:
-				currentText = arguments[0];
+				separator = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置关闭按钮
+		 * 获取/设置显示秒
 		 * 
-		 * @param closeText
+		 * @param showSeconds
 		 */
-		this.closeText = function() {
+		this.showSeconds = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return closeText;
+				return showSeconds;
 			default:
-				closeText = arguments[0];
+				showSeconds = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置确认按钮
+		 * 获取/设置高亮
 		 * 
-		 * @param okText
+		 * @param highlight
 		 */
-		this.okText = function() {
+		this.highlight = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return okText;
+				return highlight;
 			default:
-				okText = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置按钮组
-		 * 
-		 * @param buttons
-		 */
-		this.buttons = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return buttons;
-			default:
-				buttons = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置日期框索引
-		 * 
-		 * @param sharedCalendar
-		 */
-		this.sharedCalendar = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return sharedCalendar;
-			default:
-				sharedCalendar = arguments[0];
+				highlight = arguments[0];
 				return this;
 			}
 		};
@@ -161,7 +114,7 @@ core.html.easyui.form.DateBox = (function() {
 		};
 
 		/**
-		 * 获取/设置解析
+		 * 获取/设置解析时间
 		 * 
 		 * @param parser
 		 */
@@ -177,28 +130,28 @@ core.html.easyui.form.DateBox = (function() {
 		};
 
 		/**
-		 * 获取/设置选择事件
+		 * 获取/设置突出的部分
 		 * 
-		 * @param onSelect
+		 * @param selections
 		 */
-		this.onSelect = function() {
+		this.selections = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onSelect;
+				return selections;
 			default:
-				onSelect = arguments[0];
+				selections = arguments[0];
 				return this;
 			}
 		};
 	};
-	// 继承文本框模板
-	core.lang.Class.extend(Constructor, core.html.easyui.form.Combo);
+	// 继承微调框模板
+	core.lang.Class.extend(Constructor, core.html.easyui.form.Spinner);
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.form.DateBox}
+	 * @returns {core.html.easyui.form.TimeSpinner}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -206,11 +159,11 @@ core.html.easyui.form.DateBox = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
 
 		// 参数配置
-		$jQuery.datebox({
+		$jQuery.timespinner({
 			// 属性
 			// Validate继承属性
 			id : this.id(),
@@ -245,27 +198,19 @@ core.html.easyui.form.DateBox = (function() {
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
-			// Combo继承属性
-			panelWidth : this.panelWidth(),
-			panelHeight : this.panelHeight(),
-			panelMinWidth : this.panelMinWidth(),
-			panelMaxWidth : this.panelMaxWidth(),
-			panelMinHeight : this.panelMinHeight(),
-			panelMaxHeight : this.panelMaxHeight(),
-			panelAlign : this.panelAlign(),
-			multiple : this.multiple(),
-			selectOnNavigation : this.selectOnNavigation(),
-			separator : this.separator(),
-			hasDownArrow : this.hasDownArrow(),
-			keyHandler : this.keyHandler(),
+			// Spinner继承属性
+			min : this.min(),
+			max : this.max(),
+			increment : this.increment(),
+			spinAlign : this.spinAlign(),
+			spin : this.spin(),
 			// 属性
-			currentText : this.currentText(),
-			closeText : this.closeText(),
-			okText : this.okText(),
-			buttons : this.buttons(),
-			sharedCalendar : this.sharedCalendar(),
+			separator : this.separator(),
+			showSeconds : this.showSeconds(),
+			highlight : this.highlight(),
 			formatter : this.formatter(),
 			parser : this.parser(),
+			selections : this.selections(),
 
 			// 事件
 			// Validate继承事件
@@ -276,11 +221,9 @@ core.html.easyui.form.DateBox = (function() {
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
 			onClickIcon : this.onClickIcon(),
-			// Combo继承事件
-			onShowPanel : this.onShowPanel(),
-			onHidePanel : this.onHidePanel(),
-			// 事件
-			onSelect : this.onSelect()
+			// Spinner继承事件
+			onSpinUp : this.onSpinUp(),
+			onSpinDown : this.onSpinDown()
 		});
 
 		return this;
@@ -295,7 +238,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).datebox("options");
+		return $("#" + this.id()).timespinner("options");
 	};
 
 	/**
@@ -305,7 +248,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).datebox("destroy");
+		return $("#" + this.id()).timespinner("destroy");
 	};
 
 	/**
@@ -315,7 +258,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).datebox("validate");
+		return $("#" + this.id()).timespinner("validate");
 	};
 
 	/**
@@ -325,7 +268,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.isValid = function() {
 
-		return $("#" + this.id()).datebox("isValid");
+		return $("#" + this.id()).timespinner("isValid");
 	};
 
 	/**
@@ -335,7 +278,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).datebox("enableValidation");
+		return $("#" + this.id()).timespinner("enableValidation");
 	};
 
 	/**
@@ -345,7 +288,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).datebox("disableValidation");
+		return $("#" + this.id()).timespinner("disableValidation");
 	};
 
 	/**
@@ -355,7 +298,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).datebox("resetValidation");
+		return $("#" + this.id()).timespinner("resetValidation");
 	};
 
 	/**
@@ -365,7 +308,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).datebox("enable");
+		return $("#" + this.id()).timespinner("enable");
 	};
 
 	/**
@@ -375,7 +318,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).datebox("disable");
+		return $("#" + this.id()).timespinner("disable");
 	};
 
 	/**
@@ -385,7 +328,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).datebox("readonly", mode);
+		return $("#" + this.id()).timespinner("readonly", mode);
 	};
 
 	/**
@@ -397,7 +340,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.textbox = function() {
 
-		return $("#" + this.id()).datebox("textbox");
+		return $("#" + this.id()).timespinner("textbox");
 	};
 
 	/**
@@ -406,7 +349,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.button = function() {
 
-		return $("#" + this.id()).datebox("button");
+		return $("#" + this.id()).timespinner("button");
 	};
 
 	/**
@@ -417,7 +360,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).datebox("resize", width);
+		return $("#" + this.id()).timespinner("resize", width);
 	};
 
 	/**
@@ -427,7 +370,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).datebox("clear");
+		return $("#" + this.id()).timespinner("clear");
 	};
 
 	/**
@@ -437,7 +380,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).datebox("reset");
+		return $("#" + this.id()).timespinner("reset");
 	};
 
 	/**
@@ -447,7 +390,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.initValue = function(value) {
 
-		return $("#" + this.id()).datebox("initValue", value);
+		return $("#" + this.id()).timespinner("initValue", value);
 	};
 
 	/**
@@ -458,7 +401,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.setText = function(text) {
 
-		return $("#" + this.id()).datebox("setText", text);
+		return $("#" + this.id()).timespinner("setText", text);
 	};
 
 	/**
@@ -468,7 +411,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).datebox("getText");
+		return $("#" + this.id()).timespinner("getText");
 	};
 
 	/**
@@ -479,7 +422,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).datebox("setValue", value);
+		return $("#" + this.id()).timespinner("setValue", value);
 	};
 
 	/**
@@ -489,7 +432,7 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).datebox("getValue");
+		return $("#" + this.id()).timespinner("getValue");
 	};
 
 	/**
@@ -500,80 +443,40 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.getIcon = function(index) {
 
-		return $("#" + this.id()).datebox("getIcon", index);
-	};
-
-	/**
-	 * Combo继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).datebox("panel");
-	};
-
-	/**
-	 * 显示面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.showPanel = function() {
-
-		return $("#" + this.id()).datebox("showPanel");
-	};
-
-	/**
-	 * 隐藏面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.hidePanel = function() {
-
-		return $("#" + this.id()).datebox("hidePanel");
-	};
-
-	/**
-	 * 获取值集合
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValues = function() {
-
-		return $("#" + this.id()).datebox("getValues");
-	};
-
-	/**
-	 * 设置值集合
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.setValues = function(values) {
-
-		return $("#" + this.id()).datebox("setValues", values);
+		return $("#" + this.id()).timespinner("getIcon", index);
 	};
 
 	/**
 	 * 方法
 	 */
 	/**
-	 * 获取日期面板对象
+	 * 获取小时值
+	 * 
+	 * @returns
 	 */
-	Constructor.prototype.calendar = function() {
+	Constructor.prototype.getHours = function() {
 
-		return $("#" + this.id()).datebox("calendar");
+		return $("#" + this.id()).timespinner("getHours");
 	};
 
 	/**
-	 * 从xx复制
+	 * 获取分钟值
 	 * 
-	 * @param from
+	 * @returns
 	 */
-	Constructor.prototype.cloneFrom = function(from) {
+	Constructor.prototype.getMinutes = function() {
 
-		return $("#" + this.id()).datebox("cloneFrom");
+		return $("#" + this.id()).timespinner("getMinutes");
+	};
+
+	/**
+	 * 获取秒值
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.getSeconds = function() {
+
+		return $("#" + this.id()).timespinner("getSeconds");
 	};
 
 	// 返回构造函数

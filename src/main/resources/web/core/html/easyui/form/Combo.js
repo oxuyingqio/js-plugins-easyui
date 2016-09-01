@@ -18,7 +18,6 @@ core.html.easyui.form.Combo = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		// panel
 		core.html.easyui.form.Combo.superClass.constructor.call(this, id);
 		this.height(22);
 

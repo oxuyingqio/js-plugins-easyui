@@ -1278,6 +1278,9 @@ core.html.easyui.layout.Panel = (function() {
 	};
 
 	/**
+	 * 方法
+	 */
+	/**
 	 * 
 	 * @returns
 	 */

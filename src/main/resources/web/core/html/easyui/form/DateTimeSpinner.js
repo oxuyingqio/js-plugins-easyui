@@ -1,13 +1,13 @@
 /**
- * @name	NumberSpinner
+ * @name	DateTimeSpinner
  * @package core.html.easyui.form
- * @desc	数字微调框模板
+ * @desc	日期时间微调框模板
  * @type	类
  * 
- * @date	2016年8月31日 14:02:08
+ * @date	2016年9月1日 10:41:10
  */
 
-core.html.easyui.form.NumberSpinner = (function() {
+core.html.easyui.form.DateTimeSpinner = (function() {
 
 	/**
 	 * 构造函数
@@ -16,19 +16,23 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 *            ID
 	 */
 	var Constructor = function(id) {
-		
-		// 多继承
-		// 调用微调框模板构造
-		core.html.easyui.form.Spinner.call(this, id);
-		// 调用数字框模板构造
-		core.html.easyui.form.NumberBox.call(this, id);
-		this.spin($.fn.numberspinner.defaults.spin);
+
+		// 调用父类构造
+		core.html.easyui.form.DateTimeSpinner.superClass.constructor.call(this, id);
+		this.spin($.fn.datetimespinner.defaults.spin);
+		this.separator($.fn.datetimespinner.defaults.separator);
+		this.showSeconds($.fn.datetimespinner.defaults.showSeconds);
+		this.formatter($.fn.datetimespinner.defaults.formatter);
+		this.parser($.fn.datetimespinner.defaults.parser);
+		this.selections($.fn.datetimespinner.defaults.selections);
 	};
+	// 继承时间微调框模板
+	core.lang.Class.extend(Constructor, core.html.easyui.form.TimeSpinner);
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.form.Spinner}
+	 * @returns {core.html.easyui.form.DateTimeSpinner}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -36,12 +40,12 @@ core.html.easyui.form.NumberSpinner = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberSpinner", "参数异常", "div(id:" + this.id()
+			new core.lang.Exception(this, "core.html.easyui.form.DateTimeSpinner", "参数异常", "div(id:" + this.id()
 					+ ")不存在.");
 		}
 
 		// 参数配置
-		$jQuery.numberspinner({
+		$jQuery.datetimespinner({
 			// 属性
 			// Validate继承属性
 			id : this.id(),
@@ -82,15 +86,13 @@ core.html.easyui.form.NumberSpinner = (function() {
 			increment : this.increment(),
 			spinAlign : this.spinAlign(),
 			spin : this.spin(),
-			// NumberBox属性
-			precision : this.precision(),
-			decimalSeparator : this.decimalSeparator(),
-			groupSeparator : this.groupSeparator(),
-			prefix : this.prefix(),
-			suffix : this.suffix(),
-			filter : this.filter(),
+			// TimeSpinner继承属性
+			separator : this.separator(),
+			showSeconds : this.showSeconds(),
+			highlight : this.highlight(),
 			formatter : this.formatter(),
 			parser : this.parser(),
+			selections : this.selections(),
 
 			// 事件
 			// Validate继承事件
@@ -118,7 +120,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).numberspinner("options");
+		return $("#" + this.id()).datetimespinner("options");
 	};
 
 	/**
@@ -128,7 +130,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).numberspinner("destroy");
+		return $("#" + this.id()).datetimespinner("destroy");
 	};
 
 	/**
@@ -138,7 +140,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).numberspinner("validate");
+		return $("#" + this.id()).datetimespinner("validate");
 	};
 
 	/**
@@ -148,7 +150,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.isValid = function() {
 
-		return $("#" + this.id()).numberspinner("isValid");
+		return $("#" + this.id()).datetimespinner("isValid");
 	};
 
 	/**
@@ -158,7 +160,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).numberspinner("enableValidation");
+		return $("#" + this.id()).datetimespinner("enableValidation");
 	};
 
 	/**
@@ -168,7 +170,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).numberspinner("disableValidation");
+		return $("#" + this.id()).datetimespinner("disableValidation");
 	};
 
 	/**
@@ -178,7 +180,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).numberspinner("resetValidation");
+		return $("#" + this.id()).datetimespinner("resetValidation");
 	};
 
 	/**
@@ -188,7 +190,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).numberspinner("enable");
+		return $("#" + this.id()).datetimespinner("enable");
 	};
 
 	/**
@@ -198,7 +200,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).numberspinner("disable");
+		return $("#" + this.id()).datetimespinner("disable");
 	};
 
 	/**
@@ -208,7 +210,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).numberspinner("readonly", mode);
+		return $("#" + this.id()).datetimespinner("readonly", mode);
 	};
 
 	/**
@@ -220,7 +222,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.textbox = function() {
 
-		return $("#" + this.id()).numberspinner("textbox");
+		return $("#" + this.id()).datetimespinner("textbox");
 	};
 
 	/**
@@ -229,7 +231,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.button = function() {
 
-		return $("#" + this.id()).numberspinner("button");
+		return $("#" + this.id()).datetimespinner("button");
 	};
 
 	/**
@@ -240,7 +242,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).numberspinner("resize", width);
+		return $("#" + this.id()).datetimespinner("resize", width);
 	};
 
 	/**
@@ -250,7 +252,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).numberspinner("clear");
+		return $("#" + this.id()).datetimespinner("clear");
 	};
 
 	/**
@@ -260,7 +262,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).numberspinner("reset");
+		return $("#" + this.id()).datetimespinner("reset");
 	};
 
 	/**
@@ -270,7 +272,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.initValue = function(value) {
 
-		return $("#" + this.id()).numberspinner("initValue", value);
+		return $("#" + this.id()).datetimespinner("initValue", value);
 	};
 
 	/**
@@ -281,7 +283,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.setText = function(text) {
 
-		return $("#" + this.id()).numberspinner("setText", text);
+		return $("#" + this.id()).datetimespinner("setText", text);
 	};
 
 	/**
@@ -291,7 +293,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).numberspinner("getText");
+		return $("#" + this.id()).datetimespinner("getText");
 	};
 
 	/**
@@ -302,7 +304,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).numberspinner("setValue", value);
+		return $("#" + this.id()).datetimespinner("setValue", value);
 	};
 
 	/**
@@ -312,7 +314,7 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).numberspinner("getValue");
+		return $("#" + this.id()).datetimespinner("getValue");
 	};
 
 	/**
@@ -323,7 +325,40 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.getIcon = function(index) {
 
-		return $("#" + this.id()).numberspinner("getIcon", index);
+		return $("#" + this.id()).datetimespinner("getIcon", index);
+	};
+
+	/**
+	 * TimeSpinner继承方法
+	 */
+	/**
+	 * 获取小时值
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.getHours = function() {
+
+		return $("#" + this.id()).datetimespinner("getHours");
+	};
+
+	/**
+	 * 获取分钟值
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.getMinutes = function() {
+
+		return $("#" + this.id()).datetimespinner("getMinutes");
+	};
+
+	/**
+	 * 获取秒值
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.getSeconds = function() {
+
+		return $("#" + this.id()).datetimespinner("getSeconds");
 	};
 
 	// 返回构造函数

@@ -18,7 +18,6 @@ core.html.easyui.window.Dialog = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		// linkbutton
 		core.html.easyui.window.Dialog.superClass.constructor.call(this, id);
 		this.title($.fn.dialog.defaults.title);
 		this.collapsible(false);

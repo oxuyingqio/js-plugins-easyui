@@ -15,21 +15,40 @@ core.html.easyui.layout.Tabs = (function() {
 	 * @param id{String}
 	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function(_id) {
 
-		// 调用父类构造
-		// linkbutton
-		core.html.easyui.layout.Tabs.superClass.constructor.call(this, id);
-		// 设置工具条为空
-		this.tools(null);
+		// 校验ID
+		if (_id === null || _id === undefined) {
+			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "构造参数异常", "ID属性不能为空");
+		}
 
 		/**
 		 * 属性
 		 */
 		/**
+		 * ID
+		 */
+		var id = _id;
+		/**
+		 * 宽度
+		 */
+		var width = "auto";
+		/**
+		 * 高度
+		 */
+		var height = "auto";
+		/**
 		 * 无格式
 		 */
 		var plain = false;
+		/**
+		 * 自适应
+		 */
+		var fit = false;
+		/**
+		 * 边框
+		 */
+		var border = true;
 		/**
 		 * 
 		 */
@@ -38,6 +57,10 @@ core.html.easyui.layout.Tabs = (function() {
 		 * 滚动持续时间
 		 */
 		var scrollDuration = 400;
+		/**
+		 * 工具条
+		 */
+		var tools = null;
 		/**
 		 * 工具条位置
 		 */
@@ -83,6 +106,12 @@ core.html.easyui.layout.Tabs = (function() {
 		 * 事件
 		 */
 		/**
+		 * 加载事件
+		 */
+		var onLoad = function(panel) {
+
+		};
+		/**
 		 * 选择事件
 		 * 
 		 * @param onSelect
@@ -96,6 +125,18 @@ core.html.easyui.layout.Tabs = (function() {
 		 * @param onUnselect
 		 */
 		var onUnselect = function(title, index) {
+
+		};
+		/**
+		 * 关闭前事件
+		 */
+		var onBeforeClose = function(title, index) {
+
+		};
+		/**
+		 * 关闭事件
+		 */
+		var onClose = function(title, index) {
 
 		};
 		/**
@@ -132,6 +173,54 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
+		 * 获取/设置ID
+		 * 
+		 * @param id
+		 */
+		this.id = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return id;
+			default:
+				id = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置宽度
+		 * 
+		 * @param width
+		 */
+		this.width = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return width;
+			default:
+				width = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置高度
+		 * 
+		 * @param height
+		 */
+		this.height = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return height;
+			default:
+				height = arguments[0];
+				return this;
+			}
+		};
+
+		/**
 		 * 获取/设置无格式
 		 * 
 		 * @param plain
@@ -143,6 +232,38 @@ core.html.easyui.layout.Tabs = (function() {
 				return plain;
 			default:
 				plain = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置自适应
+		 * 
+		 * @param fit
+		 */
+		this.fit = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return fit;
+			default:
+				fit = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置边框
+		 * 
+		 * @param border
+		 */
+		this.border = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return border;
+			default:
+				border = arguments[0];
 				return this;
 			}
 		};
@@ -175,6 +296,22 @@ core.html.easyui.layout.Tabs = (function() {
 				return scrollDuration;
 			default:
 				scrollDuration = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置工具条
+		 * 
+		 * @param tools
+		 */
+		this.tools = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return tools;
+			default:
+				tools = arguments[0];
 				return this;
 			}
 		};
@@ -340,6 +477,22 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
+		 * 获取/设置加载事件
+		 * 
+		 * @param onLoad
+		 */
+		this.onLoad = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onLoad;
+			default:
+				onLoad = arguments[0];
+				return this;
+			}
+		};
+
+		/**
 		 * 获取/设置选择事件
 		 * 
 		 * @param onSelect
@@ -367,6 +520,38 @@ core.html.easyui.layout.Tabs = (function() {
 				return onUnselect;
 			default:
 				onUnselect = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置关闭前事件
+		 * 
+		 * @param onBeforeClose
+		 */
+		this.onBeforeClose = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onBeforeClose;
+			default:
+				onBeforeClose = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置关闭事件
+		 * 
+		 * @param onClose
+		 */
+		this.onClose = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return onClose;
+			default:
+				onClose = arguments[0];
 				return this;
 			}
 		};
@@ -435,8 +620,6 @@ core.html.easyui.layout.Tabs = (function() {
 			}
 		};
 	};
-	// 继承面板模板
-	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**
 	 * 初始化
@@ -457,49 +640,15 @@ core.html.easyui.layout.Tabs = (function() {
 		// 参数配置
 		$jQuery.tabs({
 			// 属性
-			// Panel继承属性
 			id : this.id(),
-			title : this.title(),
-			iconCls : this.iconCls(),
 			width : this.width(),
 			height : this.height(),
-			left : this.left(),
-			top : this.top(),
-			cls : this.cls(),
-			headerCls : this.headerCls(),
-			bodyCls : this.bodyCls(),
-			style : this.style(),
+			plain : this.plain(),
 			fit : this.fit(),
 			border : this.border(),
-			doSize : this.doSize(),
-			noheader : this.noheader(),
-			content : this.content(),
-			collapsible : this.collapsible(),
-			minimizable : this.minimizable(),
-			maximizable : this.maximizable(),
-			closable : this.closable(),
-			tools : this.tools(),
-			header : this.header(),
-			footer : this.footer(),
-			openAnimation : this.openAnimation(),
-			openDuration : this.openDuration(),
-			closeAnimation : this.closeAnimation(),
-			closeDuration : this.closeDuration(),
-			collapsed : this.collapsed(),
-			minimized : this.minimized(),
-			maximized : this.maximized(),
-			closed : this.closed(),
-			href : this.href(),
-			cache : this.cache(),
-			loadingMessage : this.loadingMessage(),
-			extractor : this.extractor(),
-			method : this.method(),
-			queryParams : this.queryParams(),
-			loader : this.loader(),
-			// 属性
-			plain : this.plain(),
 			scrollIncrement : this.scrollIncrement(),
 			scrollDuration : this.scrollDuration(),
+			tools : this.tools(),
 			toolPosition : this.toolPosition(),
 			tabPosition : this.tabPosition(),
 			headerWidth : this.headerWidth(),
@@ -512,28 +661,11 @@ core.html.easyui.layout.Tabs = (function() {
 			pill : this.pill(),
 
 			// 事件
-			// Panel继承事件
-			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
-			onLoadError : this.onLoadError(),
-			onBeforeOpen : this.onBeforeOpen(),
-			onOpen : this.onOpen(),
-			onBeforeClose : this.onBeforeClose(),
-			onClose : this.onClose(),
-			onBeforeDestroy : this.onBeforeDestroy(),
-			onDestroy : this.onDestroy(),
-			onBeforeCollapse : this.onBeforeCollapse(),
-			onCollapse : this.onCollapse(),
-			onBeforeExpand : this.onBeforeExpand(),
-			onExpand : this.onExpand(),
-			onResize : this.onResize(),
-			onMove : this.onMove(),
-			onMaximize : this.onMaximize(),
-			onRestore : this.onRestore(),
-			onMinimize : this.onMinimize(),
-			// 事件
 			onSelect : this.onSelect(),
 			onUnselect : this.onUnselect(),
+			onBeforeClose : this.onBeforeClose(),
+			onClose : this.onClose(),
 			onAdd : this.onAdd(),
 			onUpdate : this.onUpdate(),
 			onContextMenu : this.onContextMenu()
@@ -545,7 +677,7 @@ core.html.easyui.layout.Tabs = (function() {
 	};
 
 	/**
-	 * Panel继承方法
+	 * 方法
 	 */
 	/**
 	 * 
@@ -556,196 +688,6 @@ core.html.easyui.layout.Tabs = (function() {
 		return $("#" + this.id()).tabs("options");
 	};
 
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).tabs("panel");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.header = function() {
-
-		return $("#" + this.id()).tabs("header");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.footer = function() {
-
-		return $("#" + this.id()).tabs("footer");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.body = function() {
-
-		return $("#" + this.id()).tabs("body");
-	};
-
-	/**
-	 * 设置标题
-	 * 
-	 * @param title
-	 * @returns
-	 */
-	Constructor.prototype.setTitle = function(title) {
-
-		return $("#" + this.id()).tabs("setTitle", title);
-	};
-
-	/**
-	 * 打开面板
-	 * 
-	 * @param forceOpen
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.open = function(forceOpen) {
-
-		return $("#" + this.id()).tabs("open", forceOpen);
-	};
-
-	// /**
-	// * 关闭面板
-	// *
-	// * @param forceClose
-	// * 是否调用回调
-	// * @returns
-	// */
-	// Constructor.prototype.close = function(forceClose) {
-	//
-	// return $("#" + this.id()).tabs("close", forceClose);
-	// };
-
-	/**
-	 * 销毁面板
-	 * 
-	 * @param forceDestroy
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function(forceDestroy) {
-
-		return $("#" + this.id()).tabs("destroy", forceDestroy);
-	};
-
-	/**
-	 * 清空面板内容
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).tabs("clear");
-	};
-
-	/**
-	 * 刷新面板
-	 * 
-	 * @param href
-	 *            链接
-	 * @returns
-	 */
-	Constructor.prototype.refresh = function(href) {
-
-		return $("#" + this.id()).tabs("refresh", href);
-	};
-
-	// /**
-	// * 改变面板窗口大小
-	// *
-	// * @param options
-	// * @returns
-	// */
-	// Constructor.prototype.resize = function(options) {
-	//
-	// return $("#" + this.id()).tabs("resize", options);
-	// };
-
-	/**
-	 * 调整布局
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.doLayout = function() {
-
-		return $("#" + this.id()).tabs("doLayout");
-	};
-
-	/**
-	 * 移动面板
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.move = function(options) {
-
-		return $("#" + this.id()).tabs("move", options);
-	};
-
-	/**
-	 * 最大化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.maximize = function() {
-
-		return $("#" + this.id()).tabs("maximize");
-	};
-
-	/**
-	 * 最小化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.minimize = function() {
-
-		return $("#" + this.id()).tabs("minimize");
-	};
-
-	/**
-	 * 恢复面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.restore = function() {
-
-		return $("#" + this.id()).tabs("restore");
-	};
-
-	/**
-	 * 折叠面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.collapse = function(animate) {
-
-		return $("#" + this.id()).tabs("collapse", animate);
-	};
-
-	/**
-	 * 展开面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.expand = function(animate) {
-
-		return $("#" + this.id()).tabs("expand", animate);
-	};
-
-	/**
-	 * 方法
-	 */
 	/**
 	 * 
 	 * @returns

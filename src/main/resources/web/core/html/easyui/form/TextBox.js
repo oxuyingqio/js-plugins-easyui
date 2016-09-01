@@ -18,7 +18,6 @@ core.html.easyui.form.TextBox = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		// linkbutton
 		core.html.easyui.form.TextBox.superClass.constructor.call(this, id);
 
 		/**

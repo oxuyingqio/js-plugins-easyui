@@ -18,7 +18,6 @@ core.html.easyui.form.DateTimeBox = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		//timespinner
 		core.html.easyui.form.DateTimeBox.superClass.constructor.call(this, id);
 
 		/**

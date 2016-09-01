@@ -21,8 +21,6 @@ core.html.easyui.form.ValidateBox = (function() {
 		if (_id === null || _id === undefined) {
 			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "构造参数异常", "ID属性不能为空");
 		}
-		
-		// tooltip
 
 		/**
 		 * 属性
@@ -397,6 +395,9 @@ core.html.easyui.form.ValidateBox = (function() {
 		return this;
 	};
 
+	/**
+	 * 方法
+	 */
 	/**
 	 * 
 	 * @returns
