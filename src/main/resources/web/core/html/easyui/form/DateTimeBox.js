@@ -26,15 +26,15 @@ core.html.easyui.form.DateTimeBox = (function() {
 		/**
 		 * spinner宽度
 		 */
-		var spinnerWidth = "100%";
+		var spinnerWidth = $.fn.datetimebox.defaults.spinnerWidth;
 		/**
 		 * 是否显示秒信息
 		 */
-		var showSeconds = true;
+		var showSeconds = $.fn.datetimebox.defaults.showSeconds;
 		/**
 		 * 时间分割符
 		 */
-		var timeSeparator = ":";
+		var timeSeparator = $.fn.datetimebox.defaults.timeSeparator;
 
 		/**
 		 * 获取/设置spinner宽度

@@ -32,31 +32,31 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 宽度
 		 */
-		var width = 60;
+		var width = $.fn.switchbutton.defaults.width;
 		/**
 		 * 高度
 		 */
-		var height = 26;
+		var height = $.fn.switchbutton.defaults.height;
 		/**
 		 * 中心宽度
 		 */
-		var handleWidth = undefined;
+		var handleWidth = $.fn.switchbutton.defaults.handleWidth;
 		/**
 		 * 选中
 		 */
-		var checked = true;
+		var checked = $.fn.switchbutton.defaults.checked;
 		/**
 		 * 不可用
 		 */
-		var disabled = false;
+		var disabled = $.fn.switchbutton.defaults.disabled;
 		/**
 		 * 只读
 		 */
-		var readonly = false;
+		var readonly = $.fn.switchbutton.defaults.readonly;
 		/**
 		 * 开关位置反转
 		 */
-		var reversed = false;
+		var reversed = $.fn.switchbutton.defaults.reversed;
 		/**
 		 * 开文字描述
 		 */
@@ -68,11 +68,11 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 中心文字
 		 */
-		var handleText = "";
+		var handleText = $.fn.switchbutton.defaults.handleText;
 		/**
 		 * 值
 		 */
-		var value = "on";
+		var value = $.fn.switchbutton.defaults.value;
 
 		/**
 		 * 事件
@@ -80,9 +80,7 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 改变事件
 		 */
-		var onChange = function(checked) {
-
-		};
+		var onChange = $.fn.switchbutton.defaults.onChange;
 
 		/**
 		 * 获取/设置id

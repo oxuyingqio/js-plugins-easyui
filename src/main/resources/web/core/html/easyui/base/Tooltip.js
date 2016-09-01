@@ -32,39 +32,39 @@ core.html.easyui.base.Tooltip = (function() {
 		/**
 		 * 工具提示的位置
 		 */
-		var position = "bottom";
+		var position = $.fn.tooltip.defaults.position;
 		/**
 		 * 提示内容
 		 */
-		var content = null;
+		var content = $.fn.tooltip.defaults.content;
 		/**
 		 * 提示工具随着鼠标移动
 		 */
-		var trackMouse = false;
+		var trackMouse = $.fn.tooltip.defaults.trackMouse;
 		/**
 		 * 水平偏移值
 		 */
-		var deltaX = 0;
+		var deltaX = $.fn.tooltip.defaults.deltaX;
 		/**
 		 * 垂直偏移值
 		 */
-		var deltaY = 0;
+		var deltaY = $.fn.tooltip.defaults.deltaY;
 		/**
 		 * 显示事件
 		 */
-		var showEvent = "mouseenter";
+		var showEvent = $.fn.tooltip.defaults.showEvent;
 		/**
 		 * 隐藏事件
 		 */
-		var hideEvent = "mouseleave";
+		var hideEvent = $.fn.tooltip.defaults.hideEvent;
 		/**
 		 * 显示工具延迟时间
 		 */
-		var showDelay = 200;
+		var showDelay = $.fn.tooltip.defaults.showDelay;
 		/**
 		 * 隐藏工具延迟时间
 		 */
-		var hideDelay = 100;
+		var hideDelay = $.fn.tooltip.defaults.hideDelay;
 
 		/**
 		 * 事件
@@ -72,33 +72,23 @@ core.html.easyui.base.Tooltip = (function() {
 		/**
 		 * 显示事件
 		 */
-		var onShow = function(e) {
-
-		};
+		var onShow = $.fn.tooltip.defaults.onShow;
 		/**
 		 * 隐藏事件
 		 */
-		var onHide = function(e) {
-
-		};
+		var onHide = $.fn.tooltip.defaults.onHide;
 		/**
 		 * 更新事件
 		 */
-		var onUpdate = function(content) {
-
-		};
+		var onUpdate = $.fn.tooltip.defaults.onUpdate;
 		/**
 		 * 位置改变事件
 		 */
-		var onPosition = function(left, top) {
-
-		};
+		var onPosition = $.fn.tooltip.defaults.onPosition;
 		/**
 		 * 销毁事件
 		 */
-		var onDestroy = function() {
-
-		};
+		var onDestroy = $.fn.tooltip.defaults.onDestroy;
 
 		/**
 		 * 获取/设置id

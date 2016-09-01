@@ -19,8 +19,8 @@ core.html.easyui.form.DateBox = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.DateBox.superClass.constructor.call(this, id);
-		this.panelWidth(180);
-		this.panelHeight("auto");
+		this.panelWidth($.fn.datebox.defaults.panelWidth);
+		this.panelHeight($.fn.datebox.defaults.panelHeight);
 
 		/**
 		 * 属性
@@ -40,11 +40,11 @@ core.html.easyui.form.DateBox = (function() {
 		/**
 		 * 按钮组
 		 */
-		var buttons = [];
+		var buttons = $.fn.datebox.defaults.buttons;
 		/**
 		 * 日期框索引
 		 */
-		var sharedCalendar = null;
+		var sharedCalendar = $.fn.datebox.defaults.sharedCalendar;
 		/**
 		 * 格式化
 		 */
@@ -60,9 +60,7 @@ core.html.easyui.form.DateBox = (function() {
 		/**
 		 * 选择事件
 		 */
-		var onSelect = function(date) {
-
-		};
+		var onSelect = $.fn.datebox.defaults.onSelect;
 
 		/**
 		 * 获取/设置今天按钮

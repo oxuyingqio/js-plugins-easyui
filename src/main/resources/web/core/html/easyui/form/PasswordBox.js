@@ -26,23 +26,23 @@ core.html.easyui.form.PasswordBox = (function() {
 		/**
 		 * 密码显示字符
 		 */
-		var passwordChar = "%u25CF";
+		var passwordChar = $.fn.passwordbox.defaults.passwordChar;
 		/**
 		 * 检查间隔时间
 		 */
-		var checkInterval = 200;
+		var checkInterval = $.fn.passwordbox.defaults.checkInterval;
 		/**
 		 * 延迟转换
 		 */
-		var lastDelay = 500;
+		var lastDelay = $.fn.passwordbox.defaults.lastDelay;
 		/**
 		 * 是否显示密码明文
 		 */
-		var revealed = false;
+		var revealed = $.fn.passwordbox.defaults.revealed;
 		/**
 		 * 是否显示显示密码按钮
 		 */
-		var showEye = true;
+		var showEye = $.fn.passwordbox.defaults.showEye;
 
 		/**
 		 * 获取/设置密码显示字符

@@ -26,71 +26,71 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 宽度
 		 */
-		var width = "auto";
+		var width = $.fn.textbox.defaults.width;
 		/**
 		 * 高度
 		 */
-		var height = "auto";
+		var height = $.fn.textbox.defaults.height;
 		/**
 		 * 输入框提示信息
 		 */
-		var prompt = "";
+		var prompt = $.fn.textbox.defaults.prompt;
 		/**
 		 * 值
 		 */
-		var value = "";
+		var value = $.fn.textbox.defaults.value;
 		/**
 		 * 输入框类型
 		 */
-		var type = "text";
+		var type = $.fn.textbox.defaults.type;
 		/**
 		 * 标签
 		 */
-		var label = null;
+		var label = $.fn.textbox.defaults.label;
 		/**
 		 * 标签宽度
 		 */
-		var labelWidth = "auto";
+		var labelWidth = $.fn.textbox.defaults.labelWidth;
 		/**
 		 * 标签位置
 		 */
-		var labelPosition = "before";
+		var labelPosition = $.fn.textbox.defaults.labelPosition;
 		/**
 		 * 标签排列
 		 */
-		var labelAlign = "right";
+		var labelAlign = $.fn.textbox.defaults.labelAlign;
 		/**
 		 * 多行文本框
 		 */
-		var multiline = false;
+		var multiline = $.fn.textbox.defaults.multiline;
 		/**
 		 * 图标
 		 */
-		var icons = [];
+		var icons = $.fn.textbox.defaults.icons;
 		/**
 		 * 图标样式
 		 */
-		var iconCls = null;
+		var iconCls = $.fn.textbox.defaults.iconCls;
 		/**
 		 * 图标排列
 		 */
-		var iconAlign = "right";
+		var iconAlign = $.fn.textbox.defaults.iconAlign;
 		/**
 		 * 图标宽度
 		 */
-		var iconWidth = 18;
+		var iconWidth = $.fn.textbox.defaults.iconWidth;
 		/**
 		 * 按钮文本
 		 */
-		var buttonText = "";
+		var buttonText = $.fn.textbox.defaults.buttonText;
 		/**
 		 * 按钮图标
 		 */
-		var buttonIcon = null;
+		var buttonIcon = $.fn.textbox.defaults.buttonIcon;
 		/**
 		 * 按钮排列
 		 */
-		var buttonAlign = "right";
+		var buttonAlign = $.fn.textbox.defaults.buttonAlign;
 
 		/**
 		 * 事件
@@ -103,9 +103,7 @@ core.html.easyui.form.TextBox = (function() {
 		 * @param oldValue
 		 *            旧值
 		 */
-		var onChange = function(newValue, oldValue) {
-
-		};
+		var onChange = $.fn.textbox.defaults.onChange;
 		/**
 		 * 改变大小事件
 		 * 
@@ -114,23 +112,17 @@ core.html.easyui.form.TextBox = (function() {
 		 * @param height
 		 *            高度
 		 */
-		var onResize = function(width, height) {
-
-		};
+		var onResize = $.fn.textbox.defaults.onResize;
 		/**
 		 * 点击按钮事件
 		 */
-		var onClickButton = function() {
-
-		};
+		var onClickButton = $.fn.textbox.defaults.onClickButton;
 		/**
 		 * 点击图标事件
 		 * 
 		 * @param index
 		 */
-		var onClickIcon = function(index) {
-
-		};
+		var onClickIcon = $.fn.textbox.defaults.onClickIcon;
 
 		/**
 		 * 获取/设置宽度

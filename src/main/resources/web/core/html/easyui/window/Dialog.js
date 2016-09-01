@@ -20,10 +20,10 @@ core.html.easyui.window.Dialog = (function() {
 		// 调用父类构造
 		core.html.easyui.window.Dialog.superClass.constructor.call(this, id);
 		this.title($.fn.dialog.defaults.title);
-		this.collapsible(false);
-		this.minimizable(false);
-		this.maximizable(false);
-		this.resizable(false);
+		this.collapsible($.fn.dialog.defaults.collapsible);
+		this.minimizable($.fn.dialog.defaults.minimizable);
+		this.maximizable($.fn.dialog.defaults.maximizable);
+		this.resizable($.fn.dialog.defaults.resizable);
 
 		/**
 		 * 属性
@@ -31,11 +31,11 @@ core.html.easyui.window.Dialog = (function() {
 		/**
 		 * 工具条
 		 */
-		var toolbar = null;
+		var toolbar = $.fn.dialog.defaults.toolbar;
 		/**
 		 * 按钮组
 		 */
-		var buttons = null;
+		var buttons = $.fn.dialog.defaults.buttons;
 
 		/**
 		 * 获取/设置工具条

@@ -26,31 +26,31 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 最小值
 		 */
-		var min = null;
+		var min = $.fn.numberbox.defaults.min;
 		/**
 		 * 最大值
 		 */
-		var max = null;
+		var max = $.fn.numberbox.defaults.max;
 		/**
 		 * 精度
 		 */
-		var precision = 0;
+		var precision = $.fn.numberbox.defaults.precision;
 		/**
 		 * 分隔符
 		 */
-		var decimalSeparator = ".";
+		var decimalSeparator = $.fn.numberbox.defaults.decimalSeparator;
 		/**
 		 * 分组分隔符
 		 */
-		var groupSeparator = "";
+		var groupSeparator = $.fn.numberbox.defaults.groupSeparator;
 		/**
 		 * 前缀字符串
 		 */
-		var prefix = "";
+		var prefix = $.fn.numberbox.defaults.prefix;
 		/**
 		 * 后缀字符串
 		 */
-		var suffix = "";
+		var suffix = $.fn.numberbox.defaults.suffix;
 		/**
 		 * 过滤
 		 */

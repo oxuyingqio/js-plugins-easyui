@@ -1,13 +1,13 @@
 /**
- * @name	Spinner
+ * @name	FileBox
  * @package core.html.easyui.form
- * @desc	微调框模板
+ * @desc	文件框模板
  * @type	类
  * 
- * @date	2016年8月31日 11:23:11
+ * @date	2016年9月1日 14:28:07
  */
 
-core.html.easyui.form.Spinner = (function() {
+core.html.easyui.form.FileBox = (function() {
 
 	/**
 	 * 构造函数
@@ -18,164 +18,80 @@ core.html.easyui.form.Spinner = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		core.html.easyui.form.Spinner.superClass.constructor.call(this, id);
-		this.height($.fn.spinner.defaults.height);
+		core.html.easyui.form.FileBox.superClass.constructor.call(this, id);
+		this.buttonText($.fn.filebox.defaults.buttonText);
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * 最小值
+		 * 指定文件类型
 		 */
-		var min = $.fn.spinner.defaults.min;
+		var accept = $.fn.filebox.defaults.accept;
 		/**
-		 * 最大值
+		 * 是否可接收多个文件
 		 */
-		var max = $.fn.spinner.defaults.max;
+		var multiple = $.fn.filebox.defaults.multiple;
 		/**
-		 * 步幅
+		 * 多文件名之间的分隔符
 		 */
-		var increment = $.fn.spinner.defaults.increment;
-		/**
-		 * 位置
-		 */
-		var spinAlign = $.fn.spinner.defaults.spinAlign;
-		/**
-		 * 用户点击旋转调用函数
-		 */
-		var spin = $.fn.spinner.defaults.spin;
+		var separator = $.fn.filebox.defaults.separator;
 
 		/**
-		 * 事件
-		 */
-		/**
-		 * 抬起事件
-		 */
-		var onSpinUp = $.fn.spinner.defaults.onSpinUp;
-		/**
-		 * 按下事件
-		 */
-		var onSpinDown = $.fn.spinner.defaults.onSpinDown;
-
-		/**
-		 * 获取/设置最小值
+		 * 获取/设置指定文件类型
 		 * 
-		 * @param min
+		 * @param accept
 		 */
-		this.min = function() {
+		this.accept = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return min;
+				return accept;
 			default:
-				min = arguments[0];
+				accept = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置最大值
+		 * 获取/设置是否可接收多个文件
 		 * 
-		 * @param max
+		 * @param multiple
 		 */
-		this.max = function() {
+		this.multiple = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return max;
+				return multiple;
 			default:
-				max = arguments[0];
+				multiple = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置步幅
+		 * 获取/设置多文件名之间的分隔符
 		 * 
-		 * @param increment
+		 * @param separator
 		 */
-		this.increment = function() {
+		this.separator = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return increment;
+				return separator;
 			default:
-				increment = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置位置
-		 * 
-		 * @param spinAlign
-		 */
-		this.spinAlign = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return spinAlign;
-			default:
-				spinAlign = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置用户点击旋转调用函数
-		 * 
-		 * @param spin
-		 */
-		this.spin = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return spin;
-			default:
-				spin = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置抬起事件
-		 * 
-		 * @param onSpinUp
-		 */
-		this.onSpinUp = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onSpinUp;
-			default:
-				onSpinUp = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置按下事件
-		 * 
-		 * @param onSpinDown
-		 */
-		this.onSpinDown = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onSpinDown;
-			default:
-				onSpinDown = arguments[0];
+				separator = arguments[0];
 				return this;
 			}
 		};
 	};
-	// 继承文本框模板
+	// 继承验证文本框模板
 	core.lang.Class.extend(Constructor, core.html.easyui.form.TextBox);
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.form.Spinner}
+	 * @returns {core.html.easyui.form.FileBox}
 	 */
 	Constructor.prototype.init = function() {
 
@@ -183,11 +99,11 @@ core.html.easyui.form.Spinner = (function() {
 		var $jQuery = $("#" + this.id());
 		// 判断ID是否存在
 		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.FileBox", "参数异常", "div(id:" + this.id() + ")不存在.");
 		}
 
 		// 参数配置
-		$jQuery.spinner({
+		$jQuery.filebox({
 			// 属性
 			// Validate继承属性
 			id : this.id(),
@@ -223,11 +139,9 @@ core.html.easyui.form.Spinner = (function() {
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
 			// 属性
-			min : this.min(),
-			max : this.max(),
-			increment : this.increment(),
-			spinAlign : this.spinAlign(),
-			spin : this.spin(),
+			accept : this.accept(),
+			multiple : this.multiple(),
+			separator : this.separator(),
 
 			// 事件
 			// Validate继承事件
@@ -237,10 +151,7 @@ core.html.easyui.form.Spinner = (function() {
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
-			onClickIcon : this.onClickIcon(),
-			// 事件
-			onSpinUp : this.onSpinUp(),
-			onSpinDown : this.onSpinDown()
+			onClickIcon : this.onClickIcon()
 		});
 
 		return this;
@@ -255,7 +166,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).spinner("options");
+		return $("#" + this.id()).filebox("options");
 	};
 
 	/**
@@ -265,7 +176,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).spinner("destroy");
+		return $("#" + this.id()).filebox("destroy");
 	};
 
 	/**
@@ -275,7 +186,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).spinner("validate");
+		return $("#" + this.id()).filebox("validate");
 	};
 
 	/**
@@ -285,7 +196,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.isValid = function() {
 
-		return $("#" + this.id()).spinner("isValid");
+		return $("#" + this.id()).filebox("isValid");
 	};
 
 	/**
@@ -295,7 +206,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).spinner("enableValidation");
+		return $("#" + this.id()).filebox("enableValidation");
 	};
 
 	/**
@@ -305,7 +216,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).spinner("disableValidation");
+		return $("#" + this.id()).filebox("disableValidation");
 	};
 
 	/**
@@ -315,7 +226,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).spinner("resetValidation");
+		return $("#" + this.id()).filebox("resetValidation");
 	};
 
 	/**
@@ -325,7 +236,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).spinner("enable");
+		return $("#" + this.id()).filebox("enable");
 	};
 
 	/**
@@ -335,7 +246,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).spinner("disable");
+		return $("#" + this.id()).filebox("disable");
 	};
 
 	/**
@@ -345,7 +256,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).spinner("readonly", mode);
+		return $("#" + this.id()).filebox("readonly", mode);
 	};
 
 	/**
@@ -357,7 +268,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.textbox = function() {
 
-		return $("#" + this.id()).spinner("textbox");
+		return $("#" + this.id()).filebox("textbox");
 	};
 
 	/**
@@ -366,7 +277,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.button = function() {
 
-		return $("#" + this.id()).spinner("button");
+		return $("#" + this.id()).filebox("button");
 	};
 
 	/**
@@ -377,7 +288,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).spinner("resize", width);
+		return $("#" + this.id()).filebox("resize", width);
 	};
 
 	/**
@@ -387,7 +298,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).spinner("clear");
+		return $("#" + this.id()).filebox("clear");
 	};
 
 	/**
@@ -397,7 +308,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).spinner("reset");
+		return $("#" + this.id()).filebox("reset");
 	};
 
 	/**
@@ -407,7 +318,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.initValue = function(value) {
 
-		return $("#" + this.id()).spinner("initValue", value);
+		return $("#" + this.id()).filebox("initValue", value);
 	};
 
 	/**
@@ -418,7 +329,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.setText = function(text) {
 
-		return $("#" + this.id()).spinner("setText", text);
+		return $("#" + this.id()).filebox("setText", text);
 	};
 
 	/**
@@ -428,7 +339,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).spinner("getText");
+		return $("#" + this.id()).filebox("getText");
 	};
 
 	/**
@@ -439,7 +350,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).spinner("setValue", value);
+		return $("#" + this.id()).filebox("setValue", value);
 	};
 
 	/**
@@ -449,7 +360,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).spinner("getValue");
+		return $("#" + this.id()).filebox("getValue");
 	};
 
 	/**
@@ -460,7 +371,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.getIcon = function(index) {
 
-		return $("#" + this.id()).spinner("getIcon", index);
+		return $("#" + this.id()).filebox("getIcon", index);
 	};
 
 	// 返回构造函数

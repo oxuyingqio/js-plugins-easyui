@@ -20,10 +20,10 @@ core.html.easyui.window.Window = (function() {
 		// 调用父类构造
 		core.html.easyui.window.Window.superClass.constructor.call(this, id);
 		this.title($.fn.window.defaults.title);
-		this.collapsible(true);
-		this.minimizable(true);
-		this.maximizable(true);
-		this.closable(true);
+		this.collapsible($.fn.window.defaults.collapsible);
+		this.minimizable($.fn.window.defaults.minimizable);
+		this.maximizable($.fn.window.defaults.maximizable);
+		this.closable($.fn.window.defaults.closable);
 
 		/**
 		 * 属性
@@ -31,31 +31,31 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * z-index
 		 */
-		var zIndex = 9000;
+		var zIndex = $.fn.window.defaults.zIndex;
 		/**
 		 * 是否可拖
 		 */
-		var draggable = true;
+		var draggable = $.fn.window.defaults.draggable;
 		/**
 		 * 是否可改变大小
 		 */
-		var resizable = true;
+		var resizable = $.fn.window.defaults.resizable;
 		/**
 		 * 是否显示影子
 		 */
-		var shadow = true;
+		var shadow = $.fn.window.defaults.shadow;
 		/**
 		 * 
 		 */
-		var inline = false;
+		var inline = $.fn.window.defaults.inline;
 		/**
 		 * 模态窗口
 		 */
-		var modal = true;
+		var modal = $.fn.window.defaults.modal;
 		/**
 		 * 是否限制窗口位置
 		 */
-		var constrain = false;
+		var constrain = $.fn.window.defaults.constrain;
 
 		/**
 		 * 获取/设置zIndex

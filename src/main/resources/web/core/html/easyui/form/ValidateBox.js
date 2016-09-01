@@ -32,15 +32,15 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 是否校验
 		 */
-		var required = false;
+		var required = $.fn.validatebox.defaults.required;
 		/**
 		 * 校验方式
 		 */
-		var validType = null;
+		var validType = $.fn.validatebox.defaults.validType;
 		/**
 		 * 校验延迟时间
 		 */
-		var delay = 200;
+		var delay = $.fn.validatebox.defaults.delay;
 		/**
 		 * 字段为空提示信息
 		 */
@@ -48,39 +48,39 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 校验提示信息
 		 */
-		var invalidMessage = null;
+		var invalidMessage = $.fn.validatebox.defaults.invalidMessage;
 		/**
 		 * 工具提示条位置
 		 */
-		var tipPosition = "right";
+		var tipPosition = $.fn.validatebox.defaults.tipPosition;
 		/**
 		 * 水平位置偏移值
 		 */
-		var deltaX = 0;
+		var deltaX = $.fn.validatebox.defaults.deltaX;
 		/**
 		 * 是否关闭校验
 		 */
-		var novalidate = false;
+		var novalidate = $.fn.validatebox.defaults.novalidate;
 		/**
 		 * 是否可输
 		 */
-		var editable = true;
+		var editable = $.fn.validatebox.defaults.editable;
 		/**
 		 * 是否可用
 		 */
-		var disabled = false;
+		var disabled = $.fn.validatebox.defaults.disabled;
 		/**
 		 * 是否只读
 		 */
-		var readonly = false;
+		var readonly = $.fn.validatebox.defaults.readonly;
 		/**
 		 * 是否创建时验证
 		 */
-		var validateOnCreate = true;
+		var validateOnCreate = $.fn.validatebox.defaults.validateOnCreate;
 		/**
 		 * 是否失去焦点时验证
 		 */
-		var validateOnBlur = false;
+		var validateOnBlur = $.fn.validatebox.defaults.validateOnBlur;
 
 		/**
 		 * 事件
@@ -88,15 +88,11 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 验证前事件
 		 */
-		var onBeforeValidate = function() {
-
-		};
+		var onBeforeValidate = $.fn.validatebox.defaults.onBeforeValidate;
 		/**
 		 * 验证事件
 		 */
-		var onValidate = function(valid) {
-
-		};
+		var onValidate = $.fn.validatebox.defaults.onValidate;
 
 		/**
 		 * 获取/设置ID

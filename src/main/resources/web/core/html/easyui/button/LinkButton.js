@@ -32,47 +32,47 @@ core.html.easyui.button.LinkButton = (function() {
 		/**
 		 * 宽度
 		 */
-		var width = null;
+		var width = $.fn.linkbutton.defaults.width;
 		/**
 		 * 高度
 		 */
-		var height = null;
+		var height = $.fn.linkbutton.defaults.height;
 		/**
 		 * 禁用
 		 */
-		var disabled = false;
+		var disabled = $.fn.linkbutton.defaults.disabled;
 		/**
 		 * 
 		 */
-		var toggle = false;
+		var toggle = $.fn.linkbutton.defaults.toggle;
 		/**
 		 * 是否已选
 		 */
-		var selected = false;
+		var selected = $.fn.linkbutton.defaults.selected;
 		/**
 		 * 分组
 		 */
-		var group = null;
+		var group = $.fn.linkbutton.defaults.group;
 		/**
 		 * 平的
 		 */
-		var plain = false;
+		var plain = $.fn.linkbutton.defaults.plain;
 		/**
 		 * 按钮文本
 		 */
-		var text = "";
+		var text = $.fn.linkbutton.defaults.text;
 		/**
 		 * 按钮图标
 		 */
-		var iconCls = null;
+		var iconCls = $.fn.linkbutton.defaults.iconCls;
 		/**
 		 * 图标位置
 		 */
-		var iconAlign = "left";
+		var iconAlign = $.fn.linkbutton.defaults.iconAlign;
 		/**
 		 * 尺寸
 		 */
-		var size = "small";
+		var size = $.fn.linkbutton.defaults.size;
 
 		/**
 		 * 事件
@@ -80,9 +80,7 @@ core.html.easyui.button.LinkButton = (function() {
 		/**
 		 * 点击事件
 		 */
-		var onClick = function() {
-
-		};
+		var onClick = $.fn.linkbutton.defaults.onClick;
 
 		/**
 		 * 获取/设置id

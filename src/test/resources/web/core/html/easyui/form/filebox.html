@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.form.FileBox</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/icon.css">
+
+</head>
+<body>
+	<input id="filebox" />
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.0/jquery-3.1.0.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.min.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/form/ValidateBox.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/TextBox.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/FileBox.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var filebox = new core.html.easyui.form.FileBox("filebox").label("filebox:").width("500px").prompt(
+				"this is filebox").multiple(true).init();
+	});
+</script>
+
+</html>

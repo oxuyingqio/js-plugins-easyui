@@ -32,75 +32,75 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 宽度
 		 */
-		var width = "auto";
+		var width = $.fn.tabs.defaults.width;
 		/**
 		 * 高度
 		 */
-		var height = "auto";
+		var height = $.fn.tabs.defaults.height;
 		/**
 		 * 无格式
 		 */
-		var plain = false;
+		var plain = $.fn.tabs.defaults.plain;
 		/**
 		 * 自适应
 		 */
-		var fit = false;
+		var fit = $.fn.tabs.defaults.fit;
 		/**
 		 * 边框
 		 */
-		var border = true;
+		var border = $.fn.tabs.defaults.border;
 		/**
 		 * 
 		 */
-		var scrollIncrement = 100;
+		var scrollIncrement = $.fn.tabs.defaults.scrollIncrement;
 		/**
 		 * 滚动持续时间
 		 */
-		var scrollDuration = 400;
+		var scrollDuration = $.fn.tabs.defaults.scrollDuration;
 		/**
 		 * 工具条
 		 */
-		var tools = null;
+		var tools = $.fn.tabs.defaults.tools;
 		/**
 		 * 工具条位置
 		 */
-		var toolPosition = "right";
+		var toolPosition = $.fn.tabs.defaults.toolPosition;
 		/**
 		 * Tab页位置
 		 */
-		var tabPosition = "top";
+		var tabPosition = $.fn.tabs.defaults.tabPosition;
 		/**
 		 * 头宽度
 		 */
-		var headerWidth = 150;
+		var headerWidth = $.fn.tabs.defaults.headerWidth;
 		/**
 		 * Tab页宽度
 		 */
-		var tabWidth = "auto";
+		var tabWidth = $.fn.tabs.defaults.tabWidth;
 		/**
 		 * Tab页高度
 		 */
-		var tabHeight = 27;
+		var tabHeight = $.fn.tabs.defaults.tabHeight;
 		/**
 		 * 初始化选中Tab页索引
 		 */
-		var selected = 0;
+		var selected = $.fn.tabs.defaults.selected;
 		/**
 		 * 显示头
 		 */
-		var showHeaderAttr = true;
+		var showHeaderAttr = $.fn.tabs.defaults.showHeader;
 		/**
 		 * Tab页宽度自适应
 		 */
-		var justified = false;
+		var justified = $.fn.tabs.defaults.justified;
 		/**
 		 * 去除Tab页之间的空间
 		 */
-		var narrow = false;
+		var narrow = $.fn.tabs.defaults.narrow;
 		/**
 		 * Tab页按钮样式
 		 */
-		var pill = false;
+		var pill = $.fn.tabs.defaults.pill;
 
 		/**
 		 * 事件
@@ -108,65 +108,39 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 加载事件
 		 */
-		var onLoad = function(panel) {
-
-		};
+		var onLoad = $.fn.tabs.defaults.onLoad;
 		/**
 		 * 选择事件
-		 * 
-		 * @param onSelect
 		 */
-		var onSelect = function(title, index) {
-
-		};
+		var onSelect = $.fn.tabs.defaults.onSelect;
 		/**
 		 * 取消选择事件
-		 * 
-		 * @param onUnselect
 		 */
-		var onUnselect = function(title, index) {
-
-		};
+		var onUnselect = $.fn.tabs.defaults.onUnselect;
 		/**
 		 * 关闭前事件
 		 */
-		var onBeforeClose = function(title, index) {
-
-		};
+		var onBeforeClose = $.fn.tabs.defaults.onBeforeClose;
 		/**
 		 * 关闭事件
 		 */
-		var onClose = function(title, index) {
-
-		};
+		var onClose = $.fn.tabs.defaults.onClose;
 		/**
 		 * 添加事件
 		 * 
 		 * @param onAdd
 		 */
-		var onAdd = function(title, index) {
-
-		};
+		var onAdd = $.fn.tabs.defaults.onAdd;
 		/**
 		 * 更新事件
-		 * 
-		 * @param onUpdate
 		 */
-		var onUpdate = function(title, index) {
-
-		};
+		var onUpdate = $.fn.tabs.defaults.onUpdate;
 		/**
 		 * 右键事件
-		 * 
-		 * @param onContextMenu
 		 */
-		var onContextMenu = function(e, title, index) {
-
-		};
+		var onContextMenu = $.fn.tabs.defaults.onContextMenu;
 		/**
 		 * 双击事件
-		 * 
-		 * @param onDblClick
 		 */
 		var onDblClick = function(index, title) {
 

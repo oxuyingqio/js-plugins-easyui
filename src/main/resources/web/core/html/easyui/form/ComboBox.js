@@ -26,15 +26,15 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 值域字段名
 		 */
-		var valueField = "value";
+		var valueField = $.fn.combobox.defaults.valueField;
 		/**
 		 * 显示域字段名
 		 */
-		var textField = "text";
+		var textField = $.fn.combobox.defaults.textField;
 		/**
 		 * 分组字段
 		 */
-		var groupField = null;
+		var groupField = $.fn.combobox.defaults.groupField;
 		/**
 		 * 分组格式化
 		 */
@@ -42,35 +42,35 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 数据获取模式
 		 */
-		var mode = "local";
+		var mode = $.fn.combobox.defaults.mode;
 		/**
 		 * 链接
 		 */
-		var url = null;
+		var url = $.fn.combobox.defaults.url;
 		/**
 		 * 请求方式
 		 */
-		var method = "post";
+		var method = $.fn.combobox.defaults.method;
 		/**
 		 * 数据
 		 */
-		var data = null;
+		var data = $.fn.combobox.defaults.data;
 		/**
 		 * 过滤参数
 		 */
-		var queryParams = {};
+		var queryParams = $.fn.combobox.defaults.queryParams;
 		/**
 		 * 
 		 */
-		var limitToList = false;
+		var limitToList = $.fn.combobox.defaults.limitToList;
 		/**
 		 * 项目图标
 		 */
-		var showItemIcon = false;
+		var showItemIcon = $.fn.combobox.defaults.showItemIcon;
 		/**
 		 * 分组位置
 		 */
-		var groupPosition = "static";
+		var groupPosition = $.fn.combobox.defaults.groupPosition;
 		/**
 		 * 过滤
 		 */
@@ -94,33 +94,23 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 加载前事件
 		 */
-		var onBeforeLoad = function(param) {
-
-		};
+		var onBeforeLoad = $.fn.combobox.defaults.onBeforeLoad;
 		/**
 		 * 加载成功事件
 		 */
-		var onLoadSuccess = function() {
-
-		};
+		var onLoadSuccess = $.fn.combobox.defaults.onLoadSuccess;
 		/**
 		 * 加载失败事件
 		 */
-		var onLoadError = function() {
-
-		};
+		var onLoadError = $.fn.combobox.defaults.onLoadError;
 		/**
 		 * 选择事件
 		 */
-		var onSelect = function(record) {
-
-		};
+		var onSelect = $.fn.combobox.defaults.onSelect;
 		/**
 		 * 取消选择事件
 		 */
-		var onUnselect = function(record) {
-
-		};
+		var onUnselect = $.fn.combobox.defaults.onUnselect;
 
 		/**
 		 * 获取/设置值域字段名

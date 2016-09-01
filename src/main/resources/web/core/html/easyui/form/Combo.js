@@ -19,7 +19,7 @@ core.html.easyui.form.Combo = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.Combo.superClass.constructor.call(this, id);
-		this.height(22);
+		this.height($.fn.combo.defaults.height);
 
 		/**
 		 * 属性
@@ -27,47 +27,47 @@ core.html.easyui.form.Combo = (function() {
 		/**
 		 * 面板宽度
 		 */
-		var panelWidth = null;
+		var panelWidth = $.fn.combo.defaults.panelWidth;
 		/**
 		 * 面板高度
 		 */
-		var panelHeight = 200;
+		var panelHeight = $.fn.combo.defaults.panelHeight;
 		/**
 		 * 面板最小宽度
 		 */
-		var panelMinWidth = null;
+		var panelMinWidth = $.fn.combo.defaults.panelMinWidth;
 		/**
 		 * 面板最大宽度
 		 */
-		var panelMaxWidth = null;
+		var panelMaxWidth = $.fn.combo.defaults.panelMaxWidth;
 		/**
 		 * 面板最小高度
 		 */
-		var panelMinHeight = null;
+		var panelMinHeight = $.fn.combo.defaults.panelMinHeight;
 		/**
 		 * 面板最大高度
 		 */
-		var panelMaxHeight = null;
+		var panelMaxHeight = $.fn.combo.defaults.panelMaxHeight;
 		/**
 		 * 面板位置
 		 */
-		var panelAlign = "left";
+		var panelAlign = $.fn.combo.defaults.panelAlign;
 		/**
 		 * 是否多选
 		 */
-		var multiple = false;
+		var multiple = $.fn.combo.defaults.multiple;
 		/**
 		 * 
 		 */
-		var selectOnNavigation = true;
+		var selectOnNavigation = $.fn.combo.defaults.selectOnNavigation;
 		/**
 		 * 多选分割符号
 		 */
-		var separator = ",";
+		var separator = $.fn.combo.defaults.separator;
 		/**
 		 * 是否显示向下按钮
 		 */
-		var hasDownArrow = true;
+		var hasDownArrow = $.fn.combo.defaults.hasDownArrow;
 		/**
 		 * 按键事件
 		 */
@@ -79,15 +79,11 @@ core.html.easyui.form.Combo = (function() {
 		/**
 		 * 显示面板事件
 		 */
-		var onShowPanel = function() {
-
-		};
+		var onShowPanel = $.fn.combo.defaults.onShowPanel;
 		/**
 		 * 隐藏面板事件
 		 */
-		var onHidePanel = function() {
-
-		};
+		var onHidePanel = $.fn.combo.defaults.onHidePanel;
 
 		/**
 		 * 获取/设置面板宽度

@@ -32,131 +32,131 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 标题
 		 */
-		var title = null;
+		var title = $.fn.panel.defaults.title;
 		/**
 		 * 按钮样式
 		 */
-		var iconCls = null;
+		var iconCls = $.fn.panel.defaults.iconCls;
 		/**
 		 * 宽
 		 */
-		var width = "auto";
+		var width = $.fn.panel.defaults.width;
 		/**
 		 * 高
 		 */
-		var height = "auto";
+		var height = $.fn.panel.defaults.height;
 		/**
 		 * 左偏移
 		 */
-		var left = null;
+		var left = $.fn.panel.defaults.left;
 		/**
 		 * 上偏移
 		 */
-		var top = null;
+		var top = $.fn.panel.defaults.top;
 		/**
 		 * 样式
 		 */
-		var cls = null;
+		var cls = $.fn.panel.defaults.cls;
 		/**
 		 * 标头样式
 		 */
-		var headerCls = null;
+		var headerCls = $.fn.panel.defaults.headerCls;
 		/**
 		 * 内容样式
 		 */
-		var bodyCls = null;
+		var bodyCls = $.fn.panel.defaults.bodyCls;
 		/**
 		 * 样式
 		 */
-		var style = {};
+		var style = $.fn.panel.defaults.style;
 		/**
 		 * 自适应
 		 */
-		var fit = false;
+		var fit = $.fn.panel.defaults.fit;
 		/**
 		 * 边框
 		 */
-		var border = true;
+		var border = $.fn.panel.defaults.border;
 		/**
 		 * 调整布局
 		 */
-		var doSize = true;
+		var doSize = $.fn.panel.defaults.doSize;
 		/**
 		 * 不创建标头
 		 */
-		var noheader = false;
+		var noheader = $.fn.panel.defaults.noheader;
 		/**
 		 * 内容
 		 */
-		var content = null;
+		var content = $.fn.panel.defaults.content;
 		/**
 		 * 显示折叠按钮
 		 */
-		var collapsible = false;
+		var collapsible = $.fn.panel.defaults.collapsible;
 		/**
 		 * 显示最小化按钮
 		 */
-		var minimizable = false;
+		var minimizable = $.fn.panel.defaults.minimizable;
 		/**
 		 * 显示最大化按钮
 		 */
-		var maximizable = false;
+		var maximizable = $.fn.panel.defaults.maximizable;
 		/**
 		 * 显示关闭按钮
 		 */
-		var closable = false;
+		var closable = $.fn.panel.defaults.closable;
 		/**
 		 * 工具条
 		 */
-		var tools = [];
+		var tools = $.fn.panel.defaults.tools;
 		/**
 		 * 头
 		 */
-		var header = null;
+		var header = $.fn.panel.defaults.header;
 		/**
 		 * 脚
 		 */
-		var footer = null;
+		var footer = $.fn.panel.defaults.footer;
 		/**
 		 * 打开动画
 		 */
-		var openAnimation = "";
+		var openAnimation = $.fn.panel.defaults.openAnimation;
 		/**
 		 * 打开时间
 		 */
-		var openDuration = 400;
+		var openDuration = $.fn.panel.defaults.openDuration;
 		/**
 		 * 关闭动画
 		 */
-		var closeAnimation = "";
+		var closeAnimation = $.fn.panel.defaults.closeAnimation;
 		/**
 		 * 关闭时间
 		 */
-		var closeDuration = 400;
+		var closeDuration = $.fn.panel.defaults.closeDuration;
 		/**
 		 * 初始化折叠
 		 */
-		var collapsed = false;
+		var collapsed = $.fn.panel.defaults.collapsed;
 		/**
 		 * 初始化最小
 		 */
-		var minimized = false;
+		var minimized = $.fn.panel.defaults.minimized;
 		/**
 		 * 初始化最大
 		 */
-		var maximized = false;
+		var maximized = $.fn.panel.defaults.maximized;
 		/**
 		 * 初始化关闭
 		 */
-		var closed = false;
+		var closed = $.fn.panel.defaults.closed;
 		/**
 		 * 超链接
 		 */
-		var href = null;
+		var href = $.fn.panel.defaults.href;
 		/**
 		 * 缓存
 		 */
-		var cache = true;
+		var cache = $.fn.panel.defaults.cache;
 		/**
 		 * 加载信息
 		 */
@@ -168,11 +168,11 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 请求方式
 		 */
-		var method = "post";
+		var method = $.fn.panel.defaults.method;
 		/**
 		 * 参数
 		 */
-		var queryParams = {};
+		var queryParams = $.fn.panel.defaults.queryParams;
 		/**
 		 * 加载器
 		 */
@@ -186,117 +186,81 @@ core.html.easyui.layout.Panel = (function() {
 		 * 
 		 * @param param
 		 */
-		var onBeforeLoad = function(param) {
-
-		};
+		var onBeforeLoad = $.fn.panel.defaults.onBeforeLoad;
 		/**
 		 * 加载事件
 		 */
-		var onLoad = function() {
-
-		};
+		var onLoad = $.fn.panel.defaults.onLoad;
 		/**
 		 * 加载失败事件
 		 */
-		var onLoadError = function() {
-
-		};
+		var onLoadError = $.fn.panel.defaults.onLoadError;
 		/**
 		 * 打开前事件
 		 */
-		var onBeforeOpen = function() {
-
-		};
+		var onBeforeOpen = $.fn.panel.defaults.onBeforeOpen;
 		/**
 		 * 打开事件
 		 */
-		var onOpen = function() {
-
-		};
+		var onOpen = $.fn.panel.defaults.onOpen;
 		/**
 		 * 关闭前事件
 		 */
-		var onBeforeClose = function() {
-
-		};
+		var onBeforeClose = $.fn.panel.defaults.onBeforeClose;
 		/**
 		 * 关闭事件
 		 */
-		var onClose = function() {
-
-		};
+		var onClose = $.fn.panel.defaults.onClose;
 		/**
 		 * 销毁前事件
 		 */
-		var onBeforeDestroy = function() {
-
-		};
+		var onBeforeDestroy = $.fn.panel.defaults.onBeforeDestroy;
 		/**
 		 * 销毁事件
 		 */
-		var onDestroy = function() {
-
-		};
+		var onDestroy = $.fn.panel.defaults.onDestroy;
 		/**
 		 * 折叠前事件
 		 */
-		var onBeforeCollapse = function() {
-
-		};
+		var onBeforeCollapse = $.fn.panel.defaults.onBeforeCollapse;
 		/**
 		 * 折叠事件
 		 */
-		var onCollapse = function() {
-
-		};
+		var onCollapse = $.fn.panel.defaults.onCollapse;
 		/**
 		 * 展开前事件
 		 */
-		var onBeforeExpand = function() {
-
-		};
+		var onBeforeExpand = $.fn.panel.defaults.onBeforeExpand;
 		/**
 		 * 展开事件
 		 */
-		var onExpand = function() {
-
-		};
+		var onExpand = $.fn.panel.defaults.onExpand;
 		/**
 		 * 改变大小事件
 		 * 
 		 * @param width
 		 * @param height
 		 */
-		var onResize = function(width, height) {
-
-		};
+		var onResize = $.fn.panel.defaults.onResize;
 		/**
 		 * 移动事件
 		 * 
 		 * @param left
 		 * @param top
 		 */
-		var onMove = function(left, top) {
-
-		};
+		var onMove = $.fn.panel.defaults.onMove;
 		/**
 		 * 最大化事件
 		 */
-		var onMaximize = function() {
-
-		};
+		var onMaximize = $.fn.panel.defaults.onMaximize;
 		/**
 		 * 恢复事件
 		 */
-		var onRestore = function() {
-
-		};
+		var onRestore = $.fn.panel.defaults.onRestore;
 		/**
 		 * 最小化事件
 		 */
-		var onMinimize = function() {
-
-		};
+		var onMinimize = $.fn.panel.defaults.onMinimize;
 
 		/**
 		 * 获取/设置 id
