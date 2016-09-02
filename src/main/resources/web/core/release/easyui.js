@@ -11618,6 +11618,9 @@ core.html.easyui.form.DateTimeBox = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.DateTimeBox.superClass.constructor.call(this, id);
+		this.buttons($.fn.datetimebox.defaults.buttons);
+		this.formatter($.fn.datetimebox.defaults.formatter);
+		this.parser($.fn.datetimebox.defaults.parser);
 
 		/**
 		 * 属性
