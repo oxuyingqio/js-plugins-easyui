@@ -10,11 +10,6 @@
 core.html.easyui.datagrid.DataGrid = (function() {
 
 	/**
-	 * cookie操作
-	 */
-	var cookie = core.html.util.Cookie.getInstance();
-
-	/**
 	 * 构造函数
 	 * 
 	 * @param id{String}
@@ -116,8 +111,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 分页数
 		 */
-		var pageSize = cookie.get("coreHtmlEasyuiDatagridDataGridPageSize") == null ? $.fn.datagrid.defaults.pageSize
-				: cookie.get("coreHtmlEasyuiDatagridDataGridPageSize");
+		var pageSize = core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize") == null ? $.fn.datagrid.defaults.pageSize
+				: core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize");
 		/**
 		 * 分页数可选列表
 		 */
@@ -1616,7 +1611,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 
 		$(this.getPager()).pagination({
 			onChangePageSize : function(pageSize) {
-				cookie.set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
+				core.html.util.Cookie.getInstance().set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
 			}
 		});
 	};
