@@ -4,6 +4,24 @@
  * @desc	窗口模板
  * @type	类
  * 
+ * @constructor core.html.easyui.window.Window(String id)
+ * 
+ * @method	继承core.html.easyui.layout.Panel所有方法
+ * 			Number/core.html.easyui.window.Window	zIndex()		获取/设置zIndex
+ * 			Boolean/core.html.easyui.window.Window	draggable()		获取/设置是否可拖
+ * 			Boolean/core.html.easyui.window.Window	resizable()		获取/设置是否可改变大小
+ * 			Boolean/core.html.easyui.window.Window	shadow()		获取/设置是否显示影子
+ * 			Boolean/core.html.easyui.window.Window	inline()		获取/设置
+ * 			Boolean/core.html.easyui.window.Window	modal()			获取/设置模态窗口
+ * 			Boolean/core.html.easyui.window.Window	constrain()		获取/设置是否限制窗口位置
+ * 			core.html.easyui.window.Window			init()			初始化
+ * 			Object									options()		
+ * 			Object									panel()			
+ * 			Object									header()		
+ * 			Object									footer()		
+ * 			Object									body()
+ * 			
+ * 
  * @date	2016年8月29日 11:24:13
  */
 
