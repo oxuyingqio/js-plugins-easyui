@@ -4,7 +4,24 @@
  * @desc	数字框模板
  * @type	类
  * 
- * @date 2016年8月30日 11:26:43
+ * @constructor	core.html.easyui.form.NumberBox(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.NumberBox			min()						获取/设置最小值
+ * 			Object/core.html.easyui.form.NumberBox			max()						获取/设置最大值
+ * 			Object/core.html.easyui.form.NumberBox			precision()					获取/设置精度
+ * 			Object/core.html.easyui.form.NumberBox			decimalSeparator()			获取/设置分隔符
+ * 			Object/core.html.easyui.form.NumberBox			groupSeparator()			获取/设置分组分隔符
+ * 			Object/core.html.easyui.form.NumberBox			prefix()					获取/设置前缀字符串
+ * 			Object/core.html.easyui.form.NumberBox			suffix()					获取/设置后缀字符串
+ * 			Object/core.html.easyui.form.NumberBox			filter()					获取/设置过滤
+ * 			Object/core.html.easyui.form.NumberBox			formatter()					获取/设置格式化
+ * 			Object/core.html.easyui.form.NumberBox			parser()					获取/设置解析
+ * 			core.html.easyui.form.NumberBox					init()						初始化组件模板
+ * 			Object											fix()						
+ * 
+ * @date	2016年8月30日 11:26:43
  */
 
 core.html.easyui.form.NumberBox = (function() {
@@ -234,13 +251,16 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.NumberBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.numberbox({
 			// 属性

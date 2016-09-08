@@ -4,6 +4,15 @@
  * @desc	日期时间框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.DateTimeBox(String id)
+ * 
+ * @method	继承core.html.easyui.form.DateBox所有方法
+ * 			Object/core.html.easyui.form.DateTimeBox		spinnerWidth()			获取/设置spinner宽度
+ * 			Object/core.html.easyui.form.DateTimeBox		showSeconds()			获取/设置是否显示秒信息
+ * 			Object/core.html.easyui.form.DateTimeBox		timeSeparator()			获取/设置时间分割符
+ * 			core.html.easyui.form.DateTimeBox				init()					初始化组件模板
+ * 			Object											spinner()				获取spinner对象
+ * 
  * @date	2016年8月31日 10:44:02
  */
 
@@ -96,14 +105,17 @@ core.html.easyui.form.DateTimeBox = (function() {
 	 * @returns {core.html.easyui.form.DateTimeBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.datetimebox({
 			// 属性

@@ -4,6 +4,29 @@
  * @desc	按钮模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.button.LinkButton(String id)
+ * 
+ * @method	String/core.html.easyui.button.LinkButton		id()					获取/设置id
+ * 			Number/core.html.easyui.button.LinkButton		width()					获取/设置宽度
+ * 			Number/core.html.easyui.button.LinkButton		height()				获取/设置高度
+ * 			Boolean/core.html.easyui.button.LinkButton		disabled()				获取/设置禁用
+ * 			Object/core.html.easyui.button.LinkButton		toggle()				获取/设置
+ * 			Boolean/core.html.easyui.button.LinkButton		selected()				获取/设置是否已选
+ * 			Object/core.html.easyui.button.LinkButton		group()					获取/设置分组
+ * 			Boolean/core.html.easyui.button.LinkButton		plain()					获取/设置平的
+ * 			String/core.html.easyui.button.LinkButton		text()					获取/设置按钮文本
+ * 			String/core.html.easyui.button.LinkButton		iconCls()				获取/设置按钮图标
+ * 			String/core.html.easyui.button.LinkButton		iconAlign()				获取/设置图标位置
+ * 			Number/core.html.easyui.button.LinkButton		size()					获取/设置尺寸
+ * 			function/core.html.easyui.button.LinkButton		onClick()				获取/设置点击事件
+ * 			core.html.easyui.button.LinkButton				init()					初始化组件模板
+ * 			Object											options()		
+ * 			Object											resize(Object param)	改变大小
+ * 			Object											disable()				禁用
+ * 			Object											enable()				启用
+ * 			Object											select()				选中
+ * 			Object											unselect()				取消选中
+ * 
  * @date	2016年9月1日 08:43:11
  */
 
@@ -297,14 +320,17 @@ core.html.easyui.button.LinkButton = (function() {
 	 * @returns {core.html.easyui.button.LinkButton}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.button.LinkButton", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.button.LinkButton", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.button.LinkButton", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.linkbutton({
 			// 属性

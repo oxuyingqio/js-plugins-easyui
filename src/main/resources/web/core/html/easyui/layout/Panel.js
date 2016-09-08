@@ -4,6 +4,85 @@
  * @desc	面板模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.layout.Panel(String id)
+ * 
+ * @method	String/core.html.easyui.layout.Panel		id()								获取/设置 id
+ * 			String/core.html.easyui.layout.Panel		title()								获取/设置标题
+ * 			String/core.html.easyui.layout.Panel		iconCls()							获取/设置图标样式
+ * 			Number/core.html.easyui.layout.Panel		width()								获取/设置宽度
+ * 			Number/core.html.easyui.layout.Panel		height()							获取/设置高度
+ * 			Number/core.html.easyui.layout.Panel		left()								获取/设置左偏移
+ * 			Number/core.html.easyui.layout.Panel		top()								获取/设置上偏移
+ * 			String/core.html.easyui.layout.Panel		cls()								获取/设置样式
+ * 			String/core.html.easyui.layout.Panel		headerCls()							获取/设置标头样式
+ * 			String/core.html.easyui.layout.Panel		bodyCls()							获取/设置内容样式
+ * 			String/core.html.easyui.layout.Panel		style()								获取/设置样式
+ * 			Boolean/core.html.easyui.layout.Panel		fit()								获取/设置自适应
+ * 			Boolean/core.html.easyui.layout.Panel		border()							获取/设置边框
+ * 			Boolean/core.html.easyui.layout.Panel		doSize()							获取/设置调整布局
+ * 			Boolean/core.html.easyui.layout.Panel		noheader()							获取/设置不创建标头
+ * 			String/core.html.easyui.layout.Panel		content()							获取/设置内容
+ * 			Boolean/core.html.easyui.layout.Panel		collapsible()						获取/设置显示折叠按钮
+ * 			Boolean/core.html.easyui.layout.Panel		minimizable()						获取/设置显示最小化按钮
+ * 			Boolean/core.html.easyui.layout.Panel		maximizable()						获取/设置显示最大化按钮
+ * 			Boolean/core.html.easyui.layout.Panel		closable()							获取/设置显示关闭按钮
+ * 			Array/core.html.easyui.layout.Panel			tools()								获取/设置工具条
+ * 			Object/core.html.easyui.layout.Panel		header()							获取/设置头
+ * 			Object/core.html.easyui.layout.Panel		footer()							获取/设置脚
+ * 			Object/core.html.easyui.layout.Panel		openAnimation()						获取/设置打开动画
+ * 			Object/core.html.easyui.layout.Panel		openDuration()						获取/设置打开时间
+ * 			Object/core.html.easyui.layout.Panel		closeAnimation()					获取/设置关闭动画
+ * 			Object/core.html.easyui.layout.Panel		closeDuration()						获取/设置关闭时间
+ * 			Object/core.html.easyui.layout.Panel		collapsed()							获取/设置初始化折叠
+ * 			Object/core.html.easyui.layout.Panel		minimized()							获取/设置初始化最小
+ * 			Object/core.html.easyui.layout.Panel		maximized()							获取/设置初始化最大
+ * 			Object/core.html.easyui.layout.Panel		closed()							获取/设置初始化关闭
+ * 			Object/core.html.easyui.layout.Panel		href()								获取/设置超链接
+ * 			Object/core.html.easyui.layout.Panel		cache()								获取/设置缓存
+ * 			Object/core.html.easyui.layout.Panel		loadingMessage()					获取/设置加载信息
+ * 			Object/core.html.easyui.layout.Panel		extractor()							获取/设置ajax响应中提取数据
+ * 			Object/core.html.easyui.layout.Panel		method()							获取/设置请求方式
+ * 			Object/core.html.easyui.layout.Panel		queryParams()						获取/设置参数
+ * 			function/core.html.easyui.layout.Panel		loader()							获取/设置加载器
+ * 			function/core.html.easyui.layout.Panel		onBeforeLoad()						获取/设置加载前事件
+ * 			function/core.html.easyui.layout.Panel		onLoad()							获取/设置加载事件
+ * 			function/core.html.easyui.layout.Panel		onLoadError()						获取/设置加载失败事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeOpen()						获取/设置打开前事件
+ * 			function/core.html.easyui.layout.Panel		onOpen()							获取/设置打开事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeClose()						获取/设置关闭前事件
+ * 			function/core.html.easyui.layout.Panel		onClose()							获取/设置关闭事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeDestroy()					获取/设置销毁事件
+ * 			function/core.html.easyui.layout.Panel		onDestroy()							获取/设置销毁事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeCollapse()					获取/设置折叠前事件
+ * 			function/core.html.easyui.layout.Panel		onCollapse()						获取/设置折叠事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeExpand()					获取/设置展开事件
+ * 			function/core.html.easyui.layout.Panel		onExpand()							获取/设置展开事件
+ * 			function/core.html.easyui.layout.Panel		onResize()							获取/设置窗口大小改变事件
+ * 			function/core.html.easyui.layout.Panel		onMove()							获取/设置移动事件
+ * 			function/core.html.easyui.layout.Panel		onMaximize()						获取/设置最大化事件
+ * 			function/core.html.easyui.layout.Panel		onRestore()							获取/设置恢复事件
+ * 			function/core.html.easyui.layout.Panel		onMinimize()						获取/设置最小化事件
+ * 			core.html.easyui.layout.Panel				init()								初始化组件模板
+ * 			Object										options()			
+ * 			Object										panel()				
+ * 			Object										header()
+ * 			Object										footer()
+ * 			Object										body()
+ * 			Object										setTitle(String titile)				设置标题
+ * 			Object										open(Boolean forceOpen)				打开面板
+ * 			Object										close(Boolean forceClose)			关闭面板
+ * 			Object										destroy(Boolean forceDestroy)		销毁面板
+ * 			Object										clear()								清空面板内容
+ * 			Object										refresh()							刷新面板
+ * 			Object										resize()							改变面板窗口大小
+ * 			Object										doLayout()							调整布局
+ * 			Object										move(Object options)				移动面板
+ * 			Object										maximize()							最大化
+ * 			Object										minimize()							最小化
+ * 			Object										restore()							恢复面板
+ * 			Object										collapse()							折叠面板
+ * 			Object										expand()							展开面板
+ * 
  * @date	2016年8月25日 17:57:53
  */
 
@@ -1165,13 +1244,17 @@ core.html.easyui.layout.Panel = (function() {
 	 * @returns {core.html.easyui.layout.Panel}
 	 */
 	Constructor.prototype.init = function() {
-
+		
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.layout.Panel", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 

@@ -4,6 +4,14 @@
  * @desc	弹出框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.window.Dialog(String id)
+ * 
+ * @method	继承core.html.easyui.window.Window所有方法
+ * 			Object/core.html.easyui.window.Dialog	toolbar()							获取/设置工具条
+ * 			Array/core.html.easyui.window.Dialog	buttons()							获取/设置按钮组
+ * 			core.html.easyui.window.Dialog			init()								初始化
+ * 			Object									dialog()
+ * 
  * @date	2016年8月29日 11:36:31
  */
 
@@ -78,13 +86,17 @@ core.html.easyui.window.Dialog = (function() {
 	 * @returns {core.html.easyui.window.Dialog}
 	 */
 	Constructor.prototype.init = function() {
-
+		
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.window.Dialog", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 

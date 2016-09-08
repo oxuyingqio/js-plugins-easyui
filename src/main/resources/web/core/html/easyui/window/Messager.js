@@ -4,6 +4,18 @@
  * @desc	消息
  * @type	类
  * 
+ * @method	static core.html.easyui.window.Messager	getInstance()													获取消息实例
+ * 			void									show(Object options)											提示框
+ * 			void									showMessage(String title, String msg, Number time)				提示框
+ * 			void									showSuccess()													提示成功
+ * 			void									showFail()														提示失败
+ * 			void									alert(String title, String msg, String icon, function callback)	弹出框
+ * 			void									alertException(Object e, String attribute)						弹出异常
+ * 			void									confirm(String title, String msg, function callback)			确认框
+ * 			void									prompt(String title, String msg, function callback)				
+ * 			void									progress(Object obj)											进度条
+ * 			void									progressMessage(String title, String msg)						进度条
+ * 
  * @date	2016年8月29日 14:10:46
  */
 
@@ -86,17 +98,17 @@ core.html.easyui.window.Messager = (function() {
 	 *            信息
 	 * @param icon{String}
 	 *            图标
-	 * @param fn{function}
+	 * @param callback{function}
 	 *            回调
 	 */
-	Constructor.prototype.alert = function(title, msg, icon, fn) {
+	Constructor.prototype.alert = function(title, msg, icon, callback) {
 
 		title = title === null ? "警告" : title;
 		title = title === "" ? "&nbsp;" : title;
 
 		icon = icon === null ? "error" : icon;
 
-		$.messager.alert(title, msg, icon, fn);
+		$.messager.alert(title, msg, icon, callback);
 	};
 
 	/**
@@ -119,23 +131,23 @@ core.html.easyui.window.Messager = (function() {
 	 *            标题头
 	 * @param msg{String}
 	 *            信息
-	 * @param fn{function}
+	 * @param callback{function}
 	 *            回调
 	 */
-	Constructor.prototype.confirm = function(title, msg, fn) {
+	Constructor.prototype.confirm = function(title, msg, callback) {
 
 		title = title === null ? "温馨提示" : title;
 		title = title === "" ? "&nbsp;" : title;
 
-		$.messager.confirm(title, msg, fn);
+		$.messager.confirm(title, msg, callback);
 	};
 
-	Constructor.prototype.prompt = function(title, msg, fn) {
+	Constructor.prototype.prompt = function(title, msg, callback) {
 
 		title = title === null ? "温馨提示" : title;
 		title = title === "" ? "&nbsp;" : title;
 
-		$.messager.prompt(title, msg, fn);
+		$.messager.prompt(title, msg, callback);
 	};
 
 	/**

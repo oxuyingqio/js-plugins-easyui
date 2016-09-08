@@ -4,6 +4,22 @@
  * @desc	日期框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.DateBox(String id)
+ * 
+ * @extend	core.html.easyui.form.Combo
+ * 
+ * @method	Object/core.html.easyui.form.DateBox			currentText()				获取/设置今天按钮
+ * 			Object/core.html.easyui.form.DateBox			closeText()					获取/设置关闭按钮
+ * 			Object/core.html.easyui.form.DateBox			okText()					获取/设置确认按钮
+ * 			Object/core.html.easyui.form.DateBox			buttons()					获取/设置按钮组
+ * 			Object/core.html.easyui.form.DateBox			sharedCalendar()			获取/设置日期框索引
+ * 			Object/core.html.easyui.form.DateBox			formatter()					获取/设置格式化
+ * 			Object/core.html.easyui.form.DateBox			parser()					获取/设置解析
+ * 			Object/core.html.easyui.form.DateBox			onSelect()					获取/设置选择事件
+ * 			core.html.easyui.form.DateBox					init()						初始化组件模板			
+ * 			Object											calendar()					获取日期面板对象
+ * 			Object											cloneFrom(String from)		从xx复制
+ * 
  * @date	2016年8月30日 13:53:06
  */
 
@@ -199,14 +215,17 @@ core.html.easyui.form.DateBox = (function() {
 	 * @returns {core.html.easyui.form.DateBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.DateBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.datebox({
 			// 属性

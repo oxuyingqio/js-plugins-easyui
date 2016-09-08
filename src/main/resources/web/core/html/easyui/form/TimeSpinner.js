@@ -4,6 +4,21 @@
  * @desc	时间微调框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.TimeSpinner(String id)
+ * 
+ * @extend	core.html.easyui.form.Spinner
+ * 
+ * @method	String/core.html.easyui.form.TimeSpinner		separator()			获取/设置分隔符
+ * 			Boolean/core.html.easyui.form.TimeSpinner		showSeconds()		获取/设置显示秒
+ * 			Object/core.html.easyui.form.TimeSpinner		highlight()			获取/设置高亮
+ * 			Object/core.html.easyui.form.TimeSpinner		formatter()			获取/设置格式化
+ * 			Object/core.html.easyui.form.TimeSpinner		parser()			获取/设置解析时间
+ * 			Object/core.html.easyui.form.TimeSpinner		selections()		获取/设置突出的部分
+ * 			core.html.easyui.form.TimeSpinner				init()				初始化组件模板
+ * 			Object											getHours()			获取小时值
+ * 			Object											getMinutes()		获取分钟值
+ * 			Object											getSeconds()		获取秒值
+ * 
  * @date	2016年9月1日 10:28:12
  */
 
@@ -155,13 +170,16 @@ core.html.easyui.form.TimeSpinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.TimeSpinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.timespinner({
 			// 属性

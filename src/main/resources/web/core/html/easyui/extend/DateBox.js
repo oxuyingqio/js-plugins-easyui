@@ -1,5 +1,5 @@
 /**
- * @name	datebox
+ * @name	DateBox
  * @package	core.html.easyui
  * @desc	日期输入框扩展
  * @type	对象扩展

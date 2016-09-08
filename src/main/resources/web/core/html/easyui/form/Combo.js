@@ -4,6 +4,31 @@
  * @desc	下拉框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.Combo(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.Combo			panelWidth()				获取/设置面板宽度
+ * 			Object/core.html.easyui.form.Combo			panelHeight()				获取/设置面板高度
+ * 			Object/core.html.easyui.form.Combo			panelMinWidth()				获取/设置面板最小宽度
+ * 			Object/core.html.easyui.form.Combo			panelMaxWidth()				获取/设置面板最大宽度
+ * 			Object/core.html.easyui.form.Combo			panelMinHeight()			获取/设置面板最小高度
+ * 			Object/core.html.easyui.form.Combo			panelMaxHeight()			获取/设置面板最大高度
+ * 			Object/core.html.easyui.form.Combo			panelAlign()				获取/设置面板位置
+ * 			Object/core.html.easyui.form.Combo			multiple()					获取/设置是否多选
+ * 			Object/core.html.easyui.form.Combo			selectOnNavigation()		获取/设置
+ * 			Object/core.html.easyui.form.Combo			separator()					获取/设置多选分割符号
+ * 			Object/core.html.easyui.form.Combo			hasDownArrow()				获取/设置是否显示向下按钮
+ * 			Object/core.html.easyui.form.Combo			keyHandler()				获取/设置按键事件
+ * 			Object/core.html.easyui.form.Combo			onShowPanel()				获取/设置显示面板事件
+ * 			Object/core.html.easyui.form.Combo			onHidePanel()				获取/设置隐藏面板事件
+ * 			core.html.easyui.form.Combo					init()						初始化组件模板
+ * 			Object										panel()						
+ * 			Object										showPanel()					显示面板
+ * 			Object										hidePanel()					隐藏面板
+ * 			Object										getValues()					获取值集合
+ * 			Object										setValues(Object values)	设置值集合
+ * 
  * @date	2016年8月29日 19:06:36
  */
 
@@ -319,13 +344,16 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.Combo", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.Combo", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Combo", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.combo({
 			// 属性

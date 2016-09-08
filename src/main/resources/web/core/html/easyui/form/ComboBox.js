@@ -4,6 +4,38 @@
  * @desc	下拉框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.ComboBox(String id)
+ * 
+ * @extend	core.html.easyui.form.Combo
+ * 
+ * @method	Object/core.html.easyui.form.ComboBox			valueField()				获取/设置值域字段名
+ * 			Object/core.html.easyui.form.ComboBox			textField()					获取/设置显示域字段名
+ * 			Object/core.html.easyui.form.ComboBox			groupField()				获取/设置分组字段
+ * 			Object/core.html.easyui.form.ComboBox			groupFormatter()			获取/设置分组格式化
+ * 			Object/core.html.easyui.form.ComboBox			mode()						获取/设置数据获取模式
+ * 			Object/core.html.easyui.form.ComboBox			url()						获取/设置链接
+ * 			Object/core.html.easyui.form.ComboBox			method()					获取/设置请求方式
+ * 			Object/core.html.easyui.form.ComboBox			data()						获取/设置数据
+ * 			Object/core.html.easyui.form.ComboBox			queryParams()				获取/设置过滤参数
+ * 			Object/core.html.easyui.form.ComboBox			limitToList()				获取/设置
+ * 			Object/core.html.easyui.form.ComboBox			showItemIcon()				获取/设置项目图标
+ * 			Object/core.html.easyui.form.ComboBox			groupPosition()				获取/设置分组位置
+ * 			Object/core.html.easyui.form.ComboBox			filter()					获取/设置过滤
+ * 			Object/core.html.easyui.form.ComboBox			formatter()					获取/设置格式化
+ * 			Object/core.html.easyui.form.ComboBox			loader()					获取/设置加载
+ * 			Object/core.html.easyui.form.ComboBox			loadFilter()				获取/设置加载过滤
+ * 			Object/core.html.easyui.form.ComboBox			onBeforeLoad()				获取/设置加载前事件
+ * 			Object/core.html.easyui.form.ComboBox			onLoadSuccess()				获取/设置加载成功事件
+ * 			Object/core.html.easyui.form.ComboBox			onLoadError()				获取/设置加载失败事件
+ * 			Object/core.html.easyui.form.ComboBox			onSelect()					获取/设置选择事件
+ * 			Object/core.html.easyui.form.ComboBox			onUnselect()				获取/设置取消选择事件
+ * 			core.html.easyui.form.ComboBox					init()						初始化组件模板
+ * 			Object											getData()					获取数据
+ * 			Object											loadData(Object data)		加载数据
+ * 			Object											reload(String url)			远程加载数据
+ * 			Object											select(Object value)		选择某值
+ * 			Object											unselect(Object value)		取消选择某值
+ * 
  * @date	2016年8月30日 08:39:57
  */
 
@@ -457,14 +489,17 @@ core.html.easyui.form.ComboBox = (function() {
 	 * @returns {core.html.easyui.form.ComboBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.ComboBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.combobox({
 			// 属性

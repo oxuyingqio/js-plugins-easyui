@@ -4,6 +4,33 @@
  * @desc	开关按钮模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.button.SwitchButton(String id)
+ * 
+ * @method	String/core.html.easyui.button.SwitchButton		id()					获取/设置id
+ * 			Number/core.html.easyui.button.SwitchButton		width()					获取/设置宽度
+ * 			Number/core.html.easyui.button.SwitchButton		height()				获取/设置高度
+ * 			Number/core.html.easyui.button.SwitchButton		handleWidth()			获取/设置中心宽度
+ * 			Boolean/core.html.easyui.button.SwitchButton	checked()				获取/设置选中
+ * 			Boolean/core.html.easyui.button.SwitchButton	disabled()				获取/设置不可用
+ * 			Boolean/core.html.easyui.button.SwitchButton	readonly()				获取/设置只读
+ * 			Boolean/core.html.easyui.button.SwitchButton	reversed()				获取/设置开关位置反转
+ * 			String/core.html.easyui.button.SwitchButton		onText()				获取/设置开文字描述
+ * 			String/core.html.easyui.button.SwitchButton		offText()				获取/设置关文字描述
+ * 			String/core.html.easyui.button.SwitchButton		handleText()			获取/设置中心文字
+ * 			String/core.html.easyui.button.SwitchButton		value()					获取/设置值
+ * 			function/core.html.easyui.button.SwitchButton	onChange()				获取/设置改变事件
+ * 			core.html.easyui.button.SwitchButton			init()					初始化组件模板
+ * 			Object											options()				
+ * 			Object											resize(Object param)	改变大小
+ * 			Object											disable()				禁用
+ * 			Object											enable()				启用
+ * 			Object											readonly(Object mode)	只读
+ * 			Object											check()					选中
+ * 			Object											uncheck()				取消选中
+ * 			Object											clear()					清除选中值
+ * 			Object											reset()					重置选中值
+ * 			Object											setValue()				设置值
+ * 
  * @date	2016年8月29日 15:52:53
  */
 
@@ -297,18 +324,22 @@ core.html.easyui.button.SwitchButton = (function() {
 	 * @returns {core.html.easyui.button.SwitchButton}
 	 */
 	Constructor.prototype.init = function() {
-
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
 			new core.lang.Exception(this, "core.html.easyui.button.SwitchButton", "参数异常", "div(id:" + this.id()
 					+ ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.button.SwitchButton", "参数警告", "div(id:" + this.id()
+					+ ")存在多个.");
 		}
-
+		
 		// 备份this对象
 		var _this = this;
 
+		// 获取jQuery对象
+		var $jQuery = $("#" + this.id());
 		// 参数配置
 		$jQuery.switchbutton({
 			// 属性
@@ -328,8 +359,8 @@ core.html.easyui.button.SwitchButton = (function() {
 			// 事件
 			onChange : function(checked) {
 
-				// 修改input值
-				checked ? $("#" + _this.id()).val(_this.value()) : $("#" + _this.id()).val("");
+				// 修改值
+				checked ? _this.setValue(_this.value()) : _this.setValue("");
 				// 调用自定义改变事件
 				_this.onChange()(checked);
 			}

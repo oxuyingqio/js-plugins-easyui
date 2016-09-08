@@ -4,6 +4,19 @@
  * @desc	密码框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.PasswordBox(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.PasswordBox		passwordChar()			获取/设置密码显示字符
+ * 			Object/core.html.easyui.form.PasswordBox		checkInterval()			获取/设置检查间隔时间
+ * 			Object/core.html.easyui.form.PasswordBox		lastDelay()				获取/设置延迟转换
+ * 			Object/core.html.easyui.form.PasswordBox		revealed()				获取/设置是否隐藏密码
+ * 			Object/core.html.easyui.form.PasswordBox		showEye()				获取/设置是否显示显示密码按钮
+ * 			core.html.easyui.form.PasswordBox				init()					初始化组件模板		
+ * 			Object											showPassword()			显示密码
+ * 			Object											hidePassword()			隐藏密码
+ * 
  * @date	2016年8月29日 17:37:49
  */
 
@@ -134,13 +147,16 @@ core.html.easyui.form.PasswordBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.PasswordBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.passwordbox({
 			// 属性

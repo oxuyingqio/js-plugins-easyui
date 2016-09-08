@@ -4,6 +4,40 @@
  * @desc	拖动条模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.Slider(String id)
+ * 
+ * @method	Object/core.html.easyui.form.Slider			id()						获取/设置ID
+ * 			Object/core.html.easyui.form.Slider			width()						获取/设置宽度
+ * 			Object/core.html.easyui.form.Slider			height()					获取/设置高度
+ * 			Object/core.html.easyui.form.Slider			mode()						获取/设置拖动条方向
+ * 			Object/core.html.easyui.form.Slider			reversed()					获取/设置方向反转
+ * 			Object/core.html.easyui.form.Slider			showTip()					获取/设置显示值信息
+ * 			Object/core.html.easyui.form.Slider			disabled()					获取/设置禁用
+ * 			Object/core.html.easyui.form.Slider			range()						获取/设置拖动条范围
+ * 			Object/core.html.easyui.form.Slider			value()						获取/设置值
+ * 			Object/core.html.easyui.form.Slider			min()						获取/设置最小值
+ * 			Object/core.html.easyui.form.Slider			max()						获取/设置最大值
+ * 			Object/core.html.easyui.form.Slider			step()						获取/设置步幅
+ * 			Object/core.html.easyui.form.Slider			rule()						获取/设置
+ * 			Object/core.html.easyui.form.Slider			tipFormatter()				获取/设置格式化显示信息
+ * 			Object/core.html.easyui.form.Slider			converter()					获取/设置转换某些值
+ * 			Object/core.html.easyui.form.Slider			onChange()					获取/设置改变事件
+ * 			Object/core.html.easyui.form.Slider			onSlideStart()				获取/设置开始拖动事件
+ * 			Object/core.html.easyui.form.Slider			onSlideEnd()				获取/设置结束拖动事件
+ * 			Object/core.html.easyui.form.Slider			onComplete()				获取/设置完整
+ * 			core.html.easyui.form.Slider				init()						初始化组件模板
+ * 			Object										options()				
+ * 			Object										destroy()					销毁对象
+ * 			Object										resize(Object param)		改变大小
+ * 			Object										getValue()					获取值
+ * 			Object										getValues()					获取值
+ * 			Object										setValue(Object value)		设置值
+ * 			Object										setValues(Object value)		设置值
+ * 			Object										clear()						清除
+ * 			Object										reset()						重置
+ * 			Object										enable()					启用
+ * 			Object										disable()					禁用
+ * 
  * @date	2016年9月1日 11:19:58
  */
 
@@ -418,13 +452,16 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.Slider", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.Slider", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Slider", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.slider({
 			// 属性

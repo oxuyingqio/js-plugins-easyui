@@ -4,6 +4,12 @@
  * @desc	日期时间微调框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.DateTimeSpinner(String id)
+ * 
+ * @extend	core.html.easyui.form.TimeSpinner
+ * 
+ * @method	core.html.easyui.form.DateTimeSpinner		init()		初始化组件模板
+ * 
  * @date	2016年9月1日 10:41:10
  */
 
@@ -36,14 +42,18 @@ core.html.easyui.form.DateTimeSpinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
 			new core.lang.Exception(this, "core.html.easyui.form.DateTimeSpinner", "参数异常", "div(id:" + this.id()
 					+ ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeSpinner", "参数警告", "div(id:" + this.id()
+					+ ")存在多个.");
 		}
-
+		
+		// 获取jQuery对象
+		var $jQuery = $("#" + this.id());
 		// 参数配置
 		$jQuery.datetimespinner({
 			// 属性

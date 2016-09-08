@@ -4,6 +4,36 @@
  * @desc	校验文本框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.ValidateBox(String id)
+ * 
+ * @method	Object/core.html.easyui.form.ValidateBox			id()					获取/设置ID
+ * 			Object/core.html.easyui.form.ValidateBox			required()				获取/设置是否校验
+ * 			Object/core.html.easyui.form.ValidateBox			validType()				获取/设置校验方式
+ * 			Object/core.html.easyui.form.ValidateBox			delay()					获取/设置校验延迟时间
+ * 			Object/core.html.easyui.form.ValidateBox			missingMessage()		获取/设置字段为空提示信息
+ * 			Object/core.html.easyui.form.ValidateBox			invalidMessage()		获取/设置校验提示信息
+ * 			Object/core.html.easyui.form.ValidateBox			tipPosition()			获取/设置工具提示条位置
+ * 			Object/core.html.easyui.form.ValidateBox			deltaX()				获取/设置水平位置偏移值
+ * 			Object/core.html.easyui.form.ValidateBox			novalidate()			获取/设置是否关闭校验
+ * 			Object/core.html.easyui.form.ValidateBox			editable()				获取/设置是否可输
+ * 			Object/core.html.easyui.form.ValidateBox			disabled()				获取/设置是否可用
+ * 			Object/core.html.easyui.form.ValidateBox			readonly()				获取/设置是否只读
+ * 			Object/core.html.easyui.form.ValidateBox			validateOnCreate()		获取/设置是否创建时验证
+ * 			Object/core.html.easyui.form.ValidateBox			validateOnBlur()		获取/设置是否失去焦点时验证
+ * 			Object/core.html.easyui.form.ValidateBox			onBeforeValidate()		获取/设置验证前事件
+ * 			Object/core.html.easyui.form.ValidateBox			onValidate()			获取/设置验证事件
+ * 			core.html.easyui.form.ValidateBox					init()					初始化组件模板
+ * 			Object												options()				
+ * 			Object												destroy()				销毁组件
+ * 			Object												validate()				校验
+ * 			Object												isValid()				判断是否校验通过
+ * 			Object												enableValidation()		启用校验
+ * 			Object												disableValidation()		禁用校验
+ * 			Object												resetValidation()		重置校验
+ * 			Object												enable()				启用
+ * 			Object												disable()				禁用
+ * 			Object												readonly()				只读
+ * 
  * @date	2016年8月29日 16:39:29
  */
 
@@ -357,14 +387,17 @@ core.html.easyui.form.ValidateBox = (function() {
 	 * @returns {core.html.easyui.form.ValidateBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.ValidateBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.validatebox({
 			// 属性

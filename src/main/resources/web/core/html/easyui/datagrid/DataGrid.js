@@ -4,6 +4,142 @@
  * @desc	数据列表模板
  * @type	类型
  * 
+ * @constructor	core.html.easyui.datagrid.DataGrid(String id)
+ * 
+ * @method	继承core.html.easyui.layout.Panel所有方法
+ * 			Object/core.html.easyui.datagrid.DataGrid	columns()										获取/设置列
+ * 			Object/core.html.easyui.datagrid.DataGrid	frozenColumns()									获取/设置冻结列
+ * 			Object/core.html.easyui.datagrid.DataGrid	fitColumns()									获取/设置列宽自适应
+ * 			Object/core.html.easyui.datagrid.DataGrid	resizeHandle()									获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	autoRowHeight()									获取/设置行高自适应
+ * 			Object/core.html.easyui.datagrid.DataGrid	toolbar()										获取/设置工具条
+ * 			Object/core.html.easyui.datagrid.DataGrid	striped()										获取/设置隔行变色
+ * 			Object/core.html.easyui.datagrid.DataGrid	nowrap()										获取/设置禁止文字自动换行
+ * 			Object/core.html.easyui.datagrid.DataGrid	idField()										获取/设置id字段
+ * 			Object/core.html.easyui.datagrid.DataGrid	url()											获取/设置数据URL
+ * 			Object/core.html.easyui.datagrid.DataGrid	data()											获取/设置数据
+ * 			Object/core.html.easyui.datagrid.DataGrid	loadMsg()										获取/设置数据加载等待提示
+ * 			Object/core.html.easyui.datagrid.DataGrid	emptyMsg()										获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	pagination()									获取/设置添加页脚工具栏
+ * 			Object/core.html.easyui.datagrid.DataGrid	rownumbers()									获取/设置显示行号
+ * 			Object/core.html.easyui.datagrid.DataGrid	singleSelect()									获取/设置仅能选中单行
+ * 			Object/core.html.easyui.datagrid.DataGrid	ctrlSelect()									获取/设置ctrl键选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	checkOnSelect()									获取/设置check时选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	selectOnCheck()									获取/设置选中时check
+ * 			Object/core.html.easyui.datagrid.DataGrid	pagePosition()									获取/设置分页工具条位置
+ * 			Object/core.html.easyui.datagrid.DataGrid	pageNumber()									获取/设置默认页码
+ * 			Object/core.html.easyui.datagrid.DataGrid	pageSize()										获取/设置分页数
+ * 			Object/core.html.easyui.datagrid.DataGrid	pageList()										获取/设置分页数可选列表
+ * 			Object/core.html.easyui.datagrid.DataGrid	sortName()										获取/设置排序字段
+ * 			Object/core.html.easyui.datagrid.DataGrid	sortOrder()										获取/设置排序方式
+ * 			Object/core.html.easyui.datagrid.DataGrid	multiSort()										获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	remoteSort()									获取/设置向后台发送排序条件
+ * 			Object/core.html.easyui.datagrid.DataGrid	showHeader()									获取/设置显示标头
+ * 			Object/core.html.easyui.datagrid.DataGrid	showFooter()									获取/设置显示脚
+ * 			Object/core.html.easyui.datagrid.DataGrid	scrollbarSize()									获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	rownumberWidth()								获取/设置行号宽度
+ * 			Object/core.html.easyui.datagrid.DataGrid	editorHeight()									获取/设置编辑框高度
+ * 			Object/core.html.easyui.datagrid.DataGrid	rowStyler()										获取/设置行样式
+ * 			Object/core.html.easyui.datagrid.DataGrid	loadFilter()									获取/设置数据加载过滤
+ * 			Object/core.html.easyui.datagrid.DataGrid	editors()										获取/设置编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	view()											获取/设置展示
+ * 			Object/core.html.easyui.datagrid.DataGrid	onLoadSuccess()									获取/设置数据加载成功事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onClickRow()									获取/设置行单击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onDblClickRow()									获取/设置行双击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onClickCell()									获取/设置单元格单击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onDblClickCell()								获取/设置单元格双击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeSortColumn()							获取/设置排序前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onSortColumn()									获取/设置排序
+ * 			Object/core.html.easyui.datagrid.DataGrid	onResizeColumn()								获取/设置改变列宽
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeSelect()								获取/设置选中前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onSelect()										获取/设置选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeUnselect()								获取/设置取消选中前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUnselect()									获取/设置取消选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	onSelectAll()									获取/设置选中所有时
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUnselectAll()									获取/设置取消选中所有时
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeCheck()									获取/设置勾选前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onCheck()										获取/设置勾选
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeUncheck()								获取/设置取消勾选前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUncheck()										获取/设置取消勾选
+ * 			Object/core.html.easyui.datagrid.DataGrid	onCheckAll()									获取/设置勾选所有
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUncheckAll()									获取/设置取消勾选所有
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeEdit()									获取/设置编辑前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeginEdit()									获取/设置编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	onEndEdit()										获取/设置结束编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	onAfterEdit()									获取/设置编辑后
+ * 			Object/core.html.easyui.datagrid.DataGrid	onCancelEdit()									获取/设置取消编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	onHeaderContextMenu()							获取/设置标题头右键点击
+ * 			Object/core.html.easyui.datagrid.DataGrid	onRowContextMenu()								获取/设置行右键点击事件
+ * 			core.html.easyui.datagrid.Datagrid			init()											初始化组件模板
+ * 			Object										options()		
+ * 			Object										getPager()										获取页面对象
+ * 			Object										getPanel()										获取面板对象
+ * 			Object										getColumnFields(Object frozen)					获取列字段
+ * 			Object										getColumnOption(Object field)					获取列属性
+ * 			Object										resize(Object param)							调整大小
+ * 			Object										load(Object param)								重新加载数据
+ * 			Object										reload(Object param)							重新加载数据,且停留在当前页面
+ * 			Object										reloadFooter(Object footer)						重载页脚
+ * 			Object										loading()										显示载入中
+ * 			Object										loaded()										隐藏载入中
+ * 			Object										fitColumns()									列宽自适应
+ * 			Object										fixColumnSize(Object field)						固定列宽
+ * 			Object										fixRowHeight(Number index)						固定指定列高度
+ * 			Object										freezeRow(Number index)							冻结指定行
+ * 			Object										autoSizeColumn(Object field)					列宽自适应
+ * 			Object										loadData(Object data)							加载数据
+ * 			Object										getData()										获取当前数据
+ * 			Object										getRows()										获取所有行
+ * 			Object										getFooterRows()									获取所有行
+ * 			Object										getRowIndex(Object row)							获取指定行号
+ * 			Object										getChecked()									获取勾选行
+ * 			Object										getSelected()									获取选中节点
+ * 			Object										getSelections()									获取所有选中行
+ * 			Object										clearSelections()								清除所有选中行
+ * 			Object										clearChecked()									清除所有勾选的行
+ * 			Object										scrollTo(Number index)							滚动至指定行
+ * 			Object										gotoPage(Object param)							跳至某页
+ * 			Object										highlightRow(Number index)						高亮行
+ * 			Object										selectAll()										选中所有行
+ * 			Object										unselectAll()									取消选中所有行
+ * 			Object										selectRow(Number index)							选中行
+ * 			Object										selectRecord(Object idValue)					通过ID选中行
+ * 			Object										unselectRow(Number index)						取消选中行
+ * 			Object										checkAll()										勾选所有行
+ * 			Object										uncheckAll()									取消勾选所有行
+ * 			Object										checkRow(Number index)							勾选行
+ * 			Object										uncheckRow(Number index)						取消勾选行
+ * 			Object										beginEdit(Number index)							编辑行
+ * 			Object										endEdit(Number index)							结束编辑行
+ * 			Object										cancelEdit(Number index)						取消编辑行
+ * 			Object										getEditors(Number index)						获取行所有编辑器
+ * 			Object										getEditor(Object options)						获取行中某列编辑器
+ * 			Object										refreshRow(Number index)						刷新行
+ * 			Object										validateRow(Number index)						验证行
+ * 			Object										updateRow(Object param)							更新行
+ * 			Object										appendRow(Object row)							添加行
+ * 			Object										insertRow(Object row)							插入行
+ * 			Object										deleteRow(Number index)							删除行
+ * 			Object										getChanges(Object type)							获取修改行
+ * 			Object										acceptChanges()									提交所有修改行
+ * 			Object										rejectChanges()									回滚修改行
+ * 			Object										mergeCells(Object options)						合并单元格
+ * 			Object										showColumn(Object field)						显示列
+ * 			Object										hideColumn(Object field)						隐藏列
+ * 			Object										sort(Object param)								排序
+ * 			Object										setWidth(Number width)							设置宽度
+ * 			Object										setHeight(Number height)						设置高度
+ * 			Object										getCurrentDataNum()								获取当前页数据条数
+ * 			Object										getTotalDataNum()								获取记录总条数
+ * 			Object										getPageSize()									获取分页数
+ * 			Object										getPageNum()									获取总页数
+ * 			Object										getCurrentPageNum()								获取当前页码
+ * 			Object										selectBeforePage()								翻至前一页
+ * 			Object										selectNextPage()								翻至后一页
+ * 			Object										getRow(Number index)							获取指定行数据
+ * 			Object										changeRowOrder(Number index1, Number index2)	互换两行位置
+ * 			Object										getSelectedRowIndex()							获取选中行索引
+ * 
  * @date	2016年8月26日 16:51:16
  */
 
@@ -1470,12 +1606,16 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 

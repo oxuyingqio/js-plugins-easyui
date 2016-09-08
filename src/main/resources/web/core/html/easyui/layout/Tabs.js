@@ -4,6 +4,57 @@
  * @desc	Tab页模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.layout.Tabs(String id)
+ * 
+ * @method	String/core.html.easyui.layout.Tabs		id()						获取/设置ID
+ * 			Number/core.html.easyui.layout.Tabs		width()						获取/设置宽度
+ * 			Number/core.html.easyui.layout.Tabs		height()					获取/设置高度
+ * 			Boolean/core.html.easyui.layout.Tabs	plain()						获取/设置无格式
+ * 			Boolean/core.html.easyui.layout.Tabs	fit()						获取/设置自适应
+ * 			Boolean/core.html.easyui.layout.Tabs	border()					获取/设置边框
+ * 			Boolean/core.html.easyui.layout.Tabs	scrollIncrement()			
+ * 			Number/core.html.easyui.layout.Tabs		scrollDuration()			获取/设置滚动时间
+ * 			Array/core.html.easyui.layout.Tabs		tools()						获取/设置工具条
+ * 			String/core.html.easyui.layout.Tabs		toolPosition()				获取/设置工具条位置
+ * 			String/core.html.easyui.layout.Tabs		tabPosition()				获取/设置Tab页位置
+ * 			Number/core.html.easyui.layout.Tabs		headerWidth()				获取/设置头宽度
+ * 			Number/core.html.easyui.layout.Tabs		tabWidth()					获取/设置Tab页宽度
+ * 			Number/core.html.easyui.layout.Tabs		tabHeight()					获取/设置Tab页高度
+ * 			Number/core.html.easyui.layout.Tabs		selected()					获取/设置默认选中的Tab页索引
+ * 			Boolean/core.html.easyui.layout.Tabs	showHeaderAttr()			获取/设置显示标头
+ * 			Boolean/core.html.easyui.layout.Tabs	justified()					获取/设置Tab页宽度自适应
+ * 			Boolean/core.html.easyui.layout.Tabs	narrow()					获取/设置Tab页之间的空间
+ * 			Boolean/core.html.easyui.layout.Tabs	pill()						获取/设置Tab页样式
+ * 			function/core.html.easyui.layout.Tabs	onLoad()					获取/设置加载事件
+ * 			function/core.html.easyui.layout.Tabs	onSelect()					获取/设置选择事件
+ * 			function/core.html.easyui.layout.Tabs	onUnselect()				获取/设置取消选择事件
+ * 			function/core.html.easyui.layout.Tabs	onBeforeClose()				获取/设置关闭前事件
+ * 			function/core.html.easyui.layout.Tabs	onClose()					获取/设置关闭事件
+ * 			function/core.html.easyui.layout.Tabs	onAdd()						获取/设置添加事件
+ * 			function/core.html.easyui.layout.Tabs	onUpdate()					获取/设置更新事件
+ * 			function/core.html.easyui.layout.Tabs	onContextMenu()				获取/设置右键事件
+ * 			function/core.html.easyui.layout.Tabs	onDblClick()				获取/设置双击事件
+ * 			core.html.easyui.layout.Tabs			init()						初始化
+ * 			Object									options()					
+ * 			Object									tabs()						
+ * 			Object									resize()					改变窗口大小
+ * 			Object									add(Object options)			添加Tab页
+ * 			Object									close(Object which)			关闭指定Tab
+ * 			Object									getTab(Object which)		获取指定Tab
+ * 			Object									getTabIndex(Object which)	获取指定Tab页索引
+ * 			Object									getSelected()				获取选中Tab页
+ * 			Object									select(Object which)		选中指定Tab
+ * 			Object									unselect(Object which)		取消选中指定Tab
+ * 			Object									showHeader()				显示头
+ * 			Object									hideHeader()				隐藏头
+ * 			Object									showTool()					显示工具
+ * 			Object									hideTool()					隐藏工具
+ * 			Boolean									exists(Object which)		判断指定Tab是否存在
+ * 			Boolean									update(Object param)		更新
+ * 			Object									enableTab(Object which)		启用Tab
+ * 			Object									disableTab(Object which)	禁用Tab
+ * 			Object									scrollBy(Number deltaX)		滚动至
+ * 
  * @date	2016年8月26日 16:34:52
  */
 
@@ -581,7 +632,7 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置双击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onDblClick
 		 */
 		this.onDblClick = function() {
 
@@ -601,13 +652,17 @@ core.html.easyui.layout.Tabs = (function() {
 	 * @returns {core.html.easyui.layout.Tabs}
 	 */
 	Constructor.prototype.init = function() {
-
+		
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.layout.Tabs", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 

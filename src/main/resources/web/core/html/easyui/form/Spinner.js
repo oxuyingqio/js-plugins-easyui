@@ -4,6 +4,19 @@
  * @desc	微调框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.Spinner(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.Spinner		min()				获取/设置最小值
+ * 			Object/core.html.easyui.form.Spinner		max()				获取/设置最大值
+ * 			Object/core.html.easyui.form.Spinner		increment()			获取/设置步幅
+ * 			Object/core.html.easyui.form.Spinner		spinAlign()			获取/设置位置
+ * 			Object/core.html.easyui.form.Spinner		spin()				获取/设置用户点击旋转调用函数
+ * 			function/core.html.easyui.form.Spinner		onSpinUp()			获取/设置抬起事件
+ * 			function/core.html.easyui.form.Spinner		onSpinDown()		获取/设置按下事件
+ * 			core.html.easyui.form.Spinner				init()				初始化组件模板
+ * 
  * @date	2016年8月31日 11:23:11
  */
 
@@ -179,13 +192,16 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.Spinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.spinner({
 			// 属性

@@ -4,6 +4,44 @@
  * @desc	文本框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.TextBox(String id)
+ * 
+ * @extend	core.html.easyui.form.ValidateBox
+ * 
+ * @method	Object/core.html.easyui.form.TextBox			width()						获取/设置宽度
+ * 			Object/core.html.easyui.form.TextBox			height()					获取/设置高度
+ * 			Object/core.html.easyui.form.TextBox			prompt()					获取/设置输入框提示信息
+ * 			Object/core.html.easyui.form.TextBox			value()						获取/设置值
+ * 			Object/core.html.easyui.form.TextBox			type()						获取/设置输入框类型
+ * 			Object/core.html.easyui.form.TextBox			label()						获取/设置标签
+ * 			Object/core.html.easyui.form.TextBox			labelWidth()				获取/设置标签宽度
+ * 			Object/core.html.easyui.form.TextBox			labelPosition()				获取/设置标签位置
+ * 			Object/core.html.easyui.form.TextBox			labelAlign()				获取/设置标签排列
+ * 			Object/core.html.easyui.form.TextBox			multiline()					获取/设置多行文本框
+ * 			Object/core.html.easyui.form.TextBox			icons()						获取/设置图标
+ * 			Object/core.html.easyui.form.TextBox			iconCls()					获取/设置图标样式
+ * 			Object/core.html.easyui.form.TextBox			iconAlign()					获取/设置图标排列
+ * 			Object/core.html.easyui.form.TextBox			iconWidth()					获取/设置图标宽度
+ * 			Object/core.html.easyui.form.TextBox			buttonText()				获取/设置按钮文本
+ * 			Object/core.html.easyui.form.TextBox			buttonIcon()				获取/设置按钮图标
+ * 			Object/core.html.easyui.form.TextBox			buttonAlign()				获取/设置按钮排列
+ * 			Object/core.html.easyui.form.TextBox			onChange()					获取/设置改变事件
+ * 			Object/core.html.easyui.form.TextBox			onResize()					获取/设置改变大小事件
+ * 			Object/core.html.easyui.form.TextBox			onClickButton()				获取/设置点击按钮事件
+ * 			Object/core.html.easyui.form.TextBox			onClickIcon()				获取/设置点击图标事件
+ * 			core.html.easyui.form.TextBox					init()						初始化组件模板
+ * 			Object											textbox()				
+ * 			Object											button()				
+ * 			Object											resize(Object width)		改变宽度
+ * 			Object											clear()						清除
+ * 			Object											reset()						重置
+ * 			Object											initValue(Object value)	
+ * 			Object											setText(String text)		设置显示文本
+ * 			Object											getText()					获取显示文本
+ * 			Object											setValue(Object value)		设置值
+ * 			Object											getValue()					获取值
+ * 			Object											getIcon(Number index)		获取图标对象
+ * 
  * @date	2016年8月29日 17:37:49
  */
 
@@ -191,7 +229,7 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置输入框类型
 		 * 
-		 * @param id
+		 * @param type
 		 */
 		this.type = function() {
 
@@ -469,14 +507,17 @@ core.html.easyui.form.TextBox = (function() {
 	 * @returns {core.html.easyui.form.TextBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.TextBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.textbox({
 			// 属性

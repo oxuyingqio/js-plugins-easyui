@@ -6,21 +6,20 @@
  * 
  * @constructor core.html.easyui.window.Window(String id)
  * 
- * @method	继承core.html.easyui.layout.Panel所有方法
- * 			Number/core.html.easyui.window.Window	zIndex()		获取/设置zIndex
- * 			Boolean/core.html.easyui.window.Window	draggable()		获取/设置是否可拖
- * 			Boolean/core.html.easyui.window.Window	resizable()		获取/设置是否可改变大小
- * 			Boolean/core.html.easyui.window.Window	shadow()		获取/设置是否显示影子
- * 			Boolean/core.html.easyui.window.Window	inline()		获取/设置
- * 			Boolean/core.html.easyui.window.Window	modal()			获取/设置模态窗口
- * 			Boolean/core.html.easyui.window.Window	constrain()		获取/设置是否限制窗口位置
- * 			core.html.easyui.window.Window			init()			初始化
- * 			Object									options()		
- * 			Object									panel()			
- * 			Object									header()		
- * 			Object									footer()		
- * 			Object									body()
- * 			
+ * @extend	core.html.easyui.layout.Panel
+ * 
+ * @method	Number/core.html.easyui.window.Window		zIndex()						获取/设置zIndex
+ * 			Boolean/core.html.easyui.window.Window		draggable()						获取/设置是否可拖
+ * 			Boolean/core.html.easyui.window.Window		resizable()						获取/设置是否可改变大小
+ * 			Boolean/core.html.easyui.window.Window		shadow()						获取/设置是否显示影子
+ * 			Boolean/core.html.easyui.window.Window		inline()						获取/设置
+ * 			Boolean/core.html.easyui.window.Window		modal()							获取/设置模态窗口
+ * 			Boolean/core.html.easyui.window.Window		constrain()						获取/设置是否限制窗口位置
+ * 			core.html.easyui.window.Window				init()							初始化
+ * 			Object										window()	
+ * 			Object										hcenter()
+ * 			Object										vcenter()
+ * 			Object										center()
  * 
  * @date	2016年8月29日 11:24:13
  */
@@ -197,12 +196,16 @@ core.html.easyui.window.Window = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.window.Window", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.window.Window", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Window", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 
