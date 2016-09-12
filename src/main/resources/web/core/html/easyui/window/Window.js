@@ -206,9 +206,6 @@ core.html.easyui.window.Window = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.window({
 			// 属性

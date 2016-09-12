@@ -1845,9 +1845,6 @@ core.html.easyui.layout.Panel = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.panel({
 			// 属性
@@ -2781,9 +2778,6 @@ core.html.easyui.layout.Tabs = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.tabs({
 			// 属性
@@ -4135,9 +4129,6 @@ core.html.easyui.window.Window = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.window({
 			// 属性
@@ -4554,9 +4545,6 @@ core.html.easyui.window.Dialog = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.dialog({
 			// 属性
@@ -6705,9 +6693,6 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.datagrid({
 			// 属性

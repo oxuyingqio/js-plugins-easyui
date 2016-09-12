@@ -97,9 +97,6 @@ core.html.easyui.window.Dialog = (function() {
 		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 清空内容
-		$jQuery.empty();
-
 		// 参数配置
 		$jQuery.dialog({
 			// 属性
