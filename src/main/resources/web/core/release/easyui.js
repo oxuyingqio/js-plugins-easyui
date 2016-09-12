@@ -24,7 +24,7 @@ core.html.easyui = {
 	window : {}
 };
 /**
- * @name	datebox
+ * @name	DateBox
  * @package	core.html.easyui
  * @desc	日期输入框扩展
  * @type	对象扩展
@@ -106,6 +106,33 @@ $.extend($.fn.tabs.methods, {
  * @package core.html.easyui.base
  * @desc	工具提示模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.base.Tooltip(String id)
+ * 
+ * @method	String/core.html.easyui.base.Tooltip	id()					获取/设置id
+ * 			String/core.html.easyui.base.Tooltip	position()				获取/设置工具提示的位置
+ * 			String/core.html.easyui.base.Tooltip	content()				获取/设置提示内容
+ * 			Boolean/core.html.easyui.base.Tooltip	trackMouse()			获取/设置提示工具随着鼠标移动
+ * 			Number/core.html.easyui.base.Tooltip	deltaX()				获取/设置水平偏移值
+ * 			Number/core.html.easyui.base.Tooltip	deltaY()				获取/设置垂直偏移值
+ * 			function/core.html.easyui.base.Tooltip	showEvent()				获取/设置显示事件
+ * 			function/core.html.easyui.base.Tooltip	hideEvent()				获取/设置隐藏事件
+ * 			Number/core.html.easyui.base.Tooltip	showDelay()				获取/设置显示工具延迟时间
+ * 			Number/core.html.easyui.base.Tooltip	hideDelay()				获取/设置隐藏工具延迟时间
+ * 			function/core.html.easyui.base.Tooltip	onShow()				获取/设置显示事件
+ * 			function/core.html.easyui.base.Tooltip	onHide()				获取/设置隐藏事件
+ * 			function/core.html.easyui.base.Tooltip	onUpdate()				获取/设置更新事件
+ * 			function/core.html.easyui.base.Tooltip	onPosition()			获取/设置位置改变事件
+ * 			function/core.html.easyui.base.Tooltip	onDestroy()				获取/设置销毁事件
+ * 			core.html.easyui.base.Tooltip			init()					初始化组件模板
+ * 			Object									options()		
+ * 			Object									tip()			
+ * 			Object									arrow()
+ * 			Object									show()					显示
+ * 			Object									hide()					隐藏
+ * 			Object									update(String content)	更新内容
+ * 			Object									reposition()			重置显示位置
+ * 			Object									destroy()				销毁对象
  * 
  * @date	2016年8月29日 15:03:57
  */
@@ -440,14 +467,17 @@ core.html.easyui.base.Tooltip = (function() {
 	 * @returns {core.html.easyui.base.Tooltip}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.tooltip({
 			// 属性
@@ -563,6 +593,85 @@ core.html.easyui.base.Tooltip = (function() {
  * @package	core.html.easyui.layout
  * @desc	面板模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.layout.Panel(String id)
+ * 
+ * @method	String/core.html.easyui.layout.Panel		id()								获取/设置 id
+ * 			String/core.html.easyui.layout.Panel		title()								获取/设置标题
+ * 			String/core.html.easyui.layout.Panel		iconCls()							获取/设置图标样式
+ * 			Number/core.html.easyui.layout.Panel		width()								获取/设置宽度
+ * 			Number/core.html.easyui.layout.Panel		height()							获取/设置高度
+ * 			Number/core.html.easyui.layout.Panel		left()								获取/设置左偏移
+ * 			Number/core.html.easyui.layout.Panel		top()								获取/设置上偏移
+ * 			String/core.html.easyui.layout.Panel		cls()								获取/设置样式
+ * 			String/core.html.easyui.layout.Panel		headerCls()							获取/设置标头样式
+ * 			String/core.html.easyui.layout.Panel		bodyCls()							获取/设置内容样式
+ * 			String/core.html.easyui.layout.Panel		style()								获取/设置样式
+ * 			Boolean/core.html.easyui.layout.Panel		fit()								获取/设置自适应
+ * 			Boolean/core.html.easyui.layout.Panel		border()							获取/设置边框
+ * 			Boolean/core.html.easyui.layout.Panel		doSize()							获取/设置调整布局
+ * 			Boolean/core.html.easyui.layout.Panel		noheader()							获取/设置不创建标头
+ * 			String/core.html.easyui.layout.Panel		content()							获取/设置内容
+ * 			Boolean/core.html.easyui.layout.Panel		collapsible()						获取/设置显示折叠按钮
+ * 			Boolean/core.html.easyui.layout.Panel		minimizable()						获取/设置显示最小化按钮
+ * 			Boolean/core.html.easyui.layout.Panel		maximizable()						获取/设置显示最大化按钮
+ * 			Boolean/core.html.easyui.layout.Panel		closable()							获取/设置显示关闭按钮
+ * 			Array/core.html.easyui.layout.Panel			tools()								获取/设置工具条
+ * 			Object/core.html.easyui.layout.Panel		header()							获取/设置头
+ * 			Object/core.html.easyui.layout.Panel		footer()							获取/设置脚
+ * 			Object/core.html.easyui.layout.Panel		openAnimation()						获取/设置打开动画
+ * 			Object/core.html.easyui.layout.Panel		openDuration()						获取/设置打开时间
+ * 			Object/core.html.easyui.layout.Panel		closeAnimation()					获取/设置关闭动画
+ * 			Object/core.html.easyui.layout.Panel		closeDuration()						获取/设置关闭时间
+ * 			Object/core.html.easyui.layout.Panel		collapsed()							获取/设置初始化折叠
+ * 			Object/core.html.easyui.layout.Panel		minimized()							获取/设置初始化最小
+ * 			Object/core.html.easyui.layout.Panel		maximized()							获取/设置初始化最大
+ * 			Object/core.html.easyui.layout.Panel		closed()							获取/设置初始化关闭
+ * 			Object/core.html.easyui.layout.Panel		href()								获取/设置超链接
+ * 			Object/core.html.easyui.layout.Panel		cache()								获取/设置缓存
+ * 			Object/core.html.easyui.layout.Panel		loadingMessage()					获取/设置加载信息
+ * 			Object/core.html.easyui.layout.Panel		extractor()							获取/设置ajax响应中提取数据
+ * 			Object/core.html.easyui.layout.Panel		method()							获取/设置请求方式
+ * 			Object/core.html.easyui.layout.Panel		queryParams()						获取/设置参数
+ * 			function/core.html.easyui.layout.Panel		loader()							获取/设置加载器
+ * 			function/core.html.easyui.layout.Panel		onBeforeLoad()						获取/设置加载前事件
+ * 			function/core.html.easyui.layout.Panel		onLoad()							获取/设置加载事件
+ * 			function/core.html.easyui.layout.Panel		onLoadError()						获取/设置加载失败事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeOpen()						获取/设置打开前事件
+ * 			function/core.html.easyui.layout.Panel		onOpen()							获取/设置打开事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeClose()						获取/设置关闭前事件
+ * 			function/core.html.easyui.layout.Panel		onClose()							获取/设置关闭事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeDestroy()					获取/设置销毁事件
+ * 			function/core.html.easyui.layout.Panel		onDestroy()							获取/设置销毁事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeCollapse()					获取/设置折叠前事件
+ * 			function/core.html.easyui.layout.Panel		onCollapse()						获取/设置折叠事件
+ * 			function/core.html.easyui.layout.Panel		onBeforeExpand()					获取/设置展开事件
+ * 			function/core.html.easyui.layout.Panel		onExpand()							获取/设置展开事件
+ * 			function/core.html.easyui.layout.Panel		onResize()							获取/设置窗口大小改变事件
+ * 			function/core.html.easyui.layout.Panel		onMove()							获取/设置移动事件
+ * 			function/core.html.easyui.layout.Panel		onMaximize()						获取/设置最大化事件
+ * 			function/core.html.easyui.layout.Panel		onRestore()							获取/设置恢复事件
+ * 			function/core.html.easyui.layout.Panel		onMinimize()						获取/设置最小化事件
+ * 			core.html.easyui.layout.Panel				init()								初始化组件模板
+ * 			Object										options()			
+ * 			Object										panel()				
+ * 			Object										header()
+ * 			Object										footer()
+ * 			Object										body()
+ * 			Object										setTitle(String titile)				设置标题
+ * 			Object										open(Boolean forceOpen)				打开面板
+ * 			Object										close(Boolean forceClose)			关闭面板
+ * 			Object										destroy(Boolean forceDestroy)		销毁面板
+ * 			Object										clear()								清空面板内容
+ * 			Object										refresh()							刷新面板
+ * 			Object										resize()							改变面板窗口大小
+ * 			Object										doLayout()							调整布局
+ * 			Object										move(Object options)				移动面板
+ * 			Object										maximize()							最大化
+ * 			Object										minimize()							最小化
+ * 			Object										restore()							恢复面板
+ * 			Object										collapse()							折叠面板
+ * 			Object										expand()							展开面板
  * 
  * @date	2016年8月25日 17:57:53
  */
@@ -1725,13 +1834,17 @@ core.html.easyui.layout.Panel = (function() {
 	 * @returns {core.html.easyui.layout.Panel}
 	 */
 	Constructor.prototype.init = function() {
-
+		
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.layout.Panel", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 
@@ -2008,6 +2121,57 @@ core.html.easyui.layout.Panel = (function() {
  * @package core.html.easyui.layout
  * @desc	Tab页模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.layout.Tabs(String id)
+ * 
+ * @method	String/core.html.easyui.layout.Tabs		id()						获取/设置ID
+ * 			Number/core.html.easyui.layout.Tabs		width()						获取/设置宽度
+ * 			Number/core.html.easyui.layout.Tabs		height()					获取/设置高度
+ * 			Boolean/core.html.easyui.layout.Tabs	plain()						获取/设置无格式
+ * 			Boolean/core.html.easyui.layout.Tabs	fit()						获取/设置自适应
+ * 			Boolean/core.html.easyui.layout.Tabs	border()					获取/设置边框
+ * 			Boolean/core.html.easyui.layout.Tabs	scrollIncrement()			
+ * 			Number/core.html.easyui.layout.Tabs		scrollDuration()			获取/设置滚动时间
+ * 			Array/core.html.easyui.layout.Tabs		tools()						获取/设置工具条
+ * 			String/core.html.easyui.layout.Tabs		toolPosition()				获取/设置工具条位置
+ * 			String/core.html.easyui.layout.Tabs		tabPosition()				获取/设置Tab页位置
+ * 			Number/core.html.easyui.layout.Tabs		headerWidth()				获取/设置头宽度
+ * 			Number/core.html.easyui.layout.Tabs		tabWidth()					获取/设置Tab页宽度
+ * 			Number/core.html.easyui.layout.Tabs		tabHeight()					获取/设置Tab页高度
+ * 			Number/core.html.easyui.layout.Tabs		selected()					获取/设置默认选中的Tab页索引
+ * 			Boolean/core.html.easyui.layout.Tabs	showHeaderAttr()			获取/设置显示标头
+ * 			Boolean/core.html.easyui.layout.Tabs	justified()					获取/设置Tab页宽度自适应
+ * 			Boolean/core.html.easyui.layout.Tabs	narrow()					获取/设置Tab页之间的空间
+ * 			Boolean/core.html.easyui.layout.Tabs	pill()						获取/设置Tab页样式
+ * 			function/core.html.easyui.layout.Tabs	onLoad()					获取/设置加载事件
+ * 			function/core.html.easyui.layout.Tabs	onSelect()					获取/设置选择事件
+ * 			function/core.html.easyui.layout.Tabs	onUnselect()				获取/设置取消选择事件
+ * 			function/core.html.easyui.layout.Tabs	onBeforeClose()				获取/设置关闭前事件
+ * 			function/core.html.easyui.layout.Tabs	onClose()					获取/设置关闭事件
+ * 			function/core.html.easyui.layout.Tabs	onAdd()						获取/设置添加事件
+ * 			function/core.html.easyui.layout.Tabs	onUpdate()					获取/设置更新事件
+ * 			function/core.html.easyui.layout.Tabs	onContextMenu()				获取/设置右键事件
+ * 			function/core.html.easyui.layout.Tabs	onDblClick()				获取/设置双击事件
+ * 			core.html.easyui.layout.Tabs			init()						初始化
+ * 			Object									options()					
+ * 			Object									tabs()						
+ * 			Object									resize()					改变窗口大小
+ * 			Object									add(Object options)			添加Tab页
+ * 			Object									close(Object which)			关闭指定Tab
+ * 			Object									getTab(Object which)		获取指定Tab
+ * 			Object									getTabIndex(Object which)	获取指定Tab页索引
+ * 			Object									getSelected()				获取选中Tab页
+ * 			Object									select(Object which)		选中指定Tab
+ * 			Object									unselect(Object which)		取消选中指定Tab
+ * 			Object									showHeader()				显示头
+ * 			Object									hideHeader()				隐藏头
+ * 			Object									showTool()					显示工具
+ * 			Object									hideTool()					隐藏工具
+ * 			Boolean									exists(Object which)		判断指定Tab是否存在
+ * 			Boolean									update(Object param)		更新
+ * 			Object									enableTab(Object which)		启用Tab
+ * 			Object									disableTab(Object which)	禁用Tab
+ * 			Object									scrollBy(Number deltaX)		滚动至
  * 
  * @date	2016年8月26日 16:34:52
  */
@@ -2586,7 +2750,7 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置双击事件
 		 * 
-		 * @param onContextMenu
+		 * @param onDblClick
 		 */
 		this.onDblClick = function() {
 
@@ -2606,13 +2770,17 @@ core.html.easyui.layout.Tabs = (function() {
 	 * @returns {core.html.easyui.layout.Tabs}
 	 */
 	Constructor.prototype.init = function() {
-
+		
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.layout.Tabs", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 
@@ -2866,6 +3034,29 @@ core.html.easyui.layout.Tabs = (function() {
  * @package core.html.easyui.button
  * @desc	按钮模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.button.LinkButton(String id)
+ * 
+ * @method	String/core.html.easyui.button.LinkButton		id()					获取/设置id
+ * 			Number/core.html.easyui.button.LinkButton		width()					获取/设置宽度
+ * 			Number/core.html.easyui.button.LinkButton		height()				获取/设置高度
+ * 			Boolean/core.html.easyui.button.LinkButton		disabled()				获取/设置禁用
+ * 			Object/core.html.easyui.button.LinkButton		toggle()				获取/设置
+ * 			Boolean/core.html.easyui.button.LinkButton		selected()				获取/设置是否已选
+ * 			Object/core.html.easyui.button.LinkButton		group()					获取/设置分组
+ * 			Boolean/core.html.easyui.button.LinkButton		plain()					获取/设置平的
+ * 			String/core.html.easyui.button.LinkButton		text()					获取/设置按钮文本
+ * 			String/core.html.easyui.button.LinkButton		iconCls()				获取/设置按钮图标
+ * 			String/core.html.easyui.button.LinkButton		iconAlign()				获取/设置图标位置
+ * 			Number/core.html.easyui.button.LinkButton		size()					获取/设置尺寸
+ * 			function/core.html.easyui.button.LinkButton		onClick()				获取/设置点击事件
+ * 			core.html.easyui.button.LinkButton				init()					初始化组件模板
+ * 			Object											options()		
+ * 			Object											resize(Object param)	改变大小
+ * 			Object											disable()				禁用
+ * 			Object											enable()				启用
+ * 			Object											select()				选中
+ * 			Object											unselect()				取消选中
  * 
  * @date	2016年9月1日 08:43:11
  */
@@ -3160,14 +3351,17 @@ core.html.easyui.button.LinkButton = (function() {
 	 * @returns {core.html.easyui.button.LinkButton}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.button.LinkButton", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.button.LinkButton", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.button.LinkButton", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.linkbutton({
 			// 属性
@@ -3261,6 +3455,33 @@ core.html.easyui.button.LinkButton = (function() {
  * @package core.html.easyui.button
  * @desc	开关按钮模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.button.SwitchButton(String id)
+ * 
+ * @method	String/core.html.easyui.button.SwitchButton		id()					获取/设置id
+ * 			Number/core.html.easyui.button.SwitchButton		width()					获取/设置宽度
+ * 			Number/core.html.easyui.button.SwitchButton		height()				获取/设置高度
+ * 			Number/core.html.easyui.button.SwitchButton		handleWidth()			获取/设置中心宽度
+ * 			Boolean/core.html.easyui.button.SwitchButton	checked()				获取/设置选中
+ * 			Boolean/core.html.easyui.button.SwitchButton	disabled()				获取/设置不可用
+ * 			Boolean/core.html.easyui.button.SwitchButton	readonly()				获取/设置只读
+ * 			Boolean/core.html.easyui.button.SwitchButton	reversed()				获取/设置开关位置反转
+ * 			String/core.html.easyui.button.SwitchButton		onText()				获取/设置开文字描述
+ * 			String/core.html.easyui.button.SwitchButton		offText()				获取/设置关文字描述
+ * 			String/core.html.easyui.button.SwitchButton		handleText()			获取/设置中心文字
+ * 			String/core.html.easyui.button.SwitchButton		value()					获取/设置值
+ * 			function/core.html.easyui.button.SwitchButton	onChange()				获取/设置改变事件
+ * 			core.html.easyui.button.SwitchButton			init()					初始化组件模板
+ * 			Object											options()				
+ * 			Object											resize(Object param)	改变大小
+ * 			Object											disable()				禁用
+ * 			Object											enable()				启用
+ * 			Object											readonly(Object mode)	只读
+ * 			Object											check()					选中
+ * 			Object											uncheck()				取消选中
+ * 			Object											clear()					清除选中值
+ * 			Object											reset()					重置选中值
+ * 			Object											setValue()				设置值
  * 
  * @date	2016年8月29日 15:52:53
  */
@@ -3555,18 +3776,22 @@ core.html.easyui.button.SwitchButton = (function() {
 	 * @returns {core.html.easyui.button.SwitchButton}
 	 */
 	Constructor.prototype.init = function() {
-
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
 			new core.lang.Exception(this, "core.html.easyui.button.SwitchButton", "参数异常", "div(id:" + this.id()
 					+ ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.button.SwitchButton", "参数警告", "div(id:" + this.id()
+					+ ")存在多个.");
 		}
-
+		
 		// 备份this对象
 		var _this = this;
 
+		// 获取jQuery对象
+		var $jQuery = $("#" + this.id());
 		// 参数配置
 		$jQuery.switchbutton({
 			// 属性
@@ -3586,8 +3811,8 @@ core.html.easyui.button.SwitchButton = (function() {
 			// 事件
 			onChange : function(checked) {
 
-				// 修改input值
-				checked ? $("#" + _this.id()).val(_this.value()) : $("#" + _this.id()).val("");
+				// 修改值
+				checked ? _this.setValue(_this.value()) : _this.setValue("");
 				// 调用自定义改变事件
 				_this.onChange()(checked);
 			}
@@ -3707,6 +3932,23 @@ core.html.easyui.button.SwitchButton = (function() {
  * @package core.html.easyui.window
  * @desc	窗口模板
  * @type	类
+ * 
+ * @constructor core.html.easyui.window.Window(String id)
+ * 
+ * @extend	core.html.easyui.layout.Panel
+ * 
+ * @method	Number/core.html.easyui.window.Window		zIndex()						获取/设置zIndex
+ * 			Boolean/core.html.easyui.window.Window		draggable()						获取/设置是否可拖
+ * 			Boolean/core.html.easyui.window.Window		resizable()						获取/设置是否可改变大小
+ * 			Boolean/core.html.easyui.window.Window		shadow()						获取/设置是否显示影子
+ * 			Boolean/core.html.easyui.window.Window		inline()						获取/设置
+ * 			Boolean/core.html.easyui.window.Window		modal()							获取/设置模态窗口
+ * 			Boolean/core.html.easyui.window.Window		constrain()						获取/设置是否限制窗口位置
+ * 			core.html.easyui.window.Window				init()							初始化
+ * 			Object										window()	
+ * 			Object										hcenter()
+ * 			Object										vcenter()
+ * 			Object										center()
  * 
  * @date	2016年8月29日 11:24:13
  */
@@ -3883,12 +4125,16 @@ core.html.easyui.window.Window = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.window.Window", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.window.Window", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Window", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 
@@ -4215,6 +4461,14 @@ core.html.easyui.window.Window = (function() {
  * @desc	弹出框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.window.Dialog(String id)
+ * 
+ * @method	继承core.html.easyui.window.Window所有方法
+ * 			Object/core.html.easyui.window.Dialog	toolbar()							获取/设置工具条
+ * 			Array/core.html.easyui.window.Dialog	buttons()							获取/设置按钮组
+ * 			core.html.easyui.window.Dialog			init()								初始化
+ * 			Object									dialog()
+ * 
  * @date	2016年8月29日 11:36:31
  */
 
@@ -4289,13 +4543,17 @@ core.html.easyui.window.Dialog = (function() {
 	 * @returns {core.html.easyui.window.Dialog}
 	 */
 	Constructor.prototype.init = function() {
-
+		
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.window.Dialog", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 
@@ -4637,6 +4895,18 @@ core.html.easyui.window.Dialog = (function() {
  * @desc	消息
  * @type	类
  * 
+ * @method	static core.html.easyui.window.Messager	getInstance()													获取消息实例
+ * 			void									show(Object options)											提示框
+ * 			void									showMessage(String title, String msg, Number time)				提示框
+ * 			void									showSuccess()													提示成功
+ * 			void									showFail()														提示失败
+ * 			void									alert(String title, String msg, String icon, function callback)	弹出框
+ * 			void									alertException(Object e, String attribute)						弹出异常
+ * 			void									confirm(String title, String msg, function callback)			确认框
+ * 			void									prompt(String title, String msg, function callback)				
+ * 			void									progress(Object obj)											进度条
+ * 			void									progressMessage(String title, String msg)						进度条
+ * 
  * @date	2016年8月29日 14:10:46
  */
 
@@ -4719,17 +4989,17 @@ core.html.easyui.window.Messager = (function() {
 	 *            信息
 	 * @param icon{String}
 	 *            图标
-	 * @param fn{function}
+	 * @param callback{function}
 	 *            回调
 	 */
-	Constructor.prototype.alert = function(title, msg, icon, fn) {
+	Constructor.prototype.alert = function(title, msg, icon, callback) {
 
 		title = title === null ? "警告" : title;
 		title = title === "" ? "&nbsp;" : title;
 
 		icon = icon === null ? "error" : icon;
 
-		$.messager.alert(title, msg, icon, fn);
+		$.messager.alert(title, msg, icon, callback);
 	};
 
 	/**
@@ -4752,23 +5022,23 @@ core.html.easyui.window.Messager = (function() {
 	 *            标题头
 	 * @param msg{String}
 	 *            信息
-	 * @param fn{function}
+	 * @param callback{function}
 	 *            回调
 	 */
-	Constructor.prototype.confirm = function(title, msg, fn) {
+	Constructor.prototype.confirm = function(title, msg, callback) {
 
 		title = title === null ? "温馨提示" : title;
 		title = title === "" ? "&nbsp;" : title;
 
-		$.messager.confirm(title, msg, fn);
+		$.messager.confirm(title, msg, callback);
 	};
 
-	Constructor.prototype.prompt = function(title, msg, fn) {
+	Constructor.prototype.prompt = function(title, msg, callback) {
 
 		title = title === null ? "温馨提示" : title;
 		title = title === "" ? "&nbsp;" : title;
 
-		$.messager.prompt(title, msg, fn);
+		$.messager.prompt(title, msg, callback);
 	};
 
 	/**
@@ -4822,6 +5092,142 @@ core.html.easyui.window.Messager = (function() {
  * @package core.html.easyui.datagrid
  * @desc	数据列表模板
  * @type	类型
+ * 
+ * @constructor	core.html.easyui.datagrid.DataGrid(String id)
+ * 
+ * @method	继承core.html.easyui.layout.Panel所有方法
+ * 			Object/core.html.easyui.datagrid.DataGrid	columns()										获取/设置列
+ * 			Object/core.html.easyui.datagrid.DataGrid	frozenColumns()									获取/设置冻结列
+ * 			Object/core.html.easyui.datagrid.DataGrid	fitColumns()									获取/设置列宽自适应
+ * 			Object/core.html.easyui.datagrid.DataGrid	resizeHandle()									获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	autoRowHeight()									获取/设置行高自适应
+ * 			Object/core.html.easyui.datagrid.DataGrid	toolbar()										获取/设置工具条
+ * 			Object/core.html.easyui.datagrid.DataGrid	striped()										获取/设置隔行变色
+ * 			Object/core.html.easyui.datagrid.DataGrid	nowrap()										获取/设置禁止文字自动换行
+ * 			Object/core.html.easyui.datagrid.DataGrid	idField()										获取/设置id字段
+ * 			Object/core.html.easyui.datagrid.DataGrid	url()											获取/设置数据URL
+ * 			Object/core.html.easyui.datagrid.DataGrid	data()											获取/设置数据
+ * 			Object/core.html.easyui.datagrid.DataGrid	loadMsg()										获取/设置数据加载等待提示
+ * 			Object/core.html.easyui.datagrid.DataGrid	emptyMsg()										获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	pagination()									获取/设置添加页脚工具栏
+ * 			Object/core.html.easyui.datagrid.DataGrid	rownumbers()									获取/设置显示行号
+ * 			Object/core.html.easyui.datagrid.DataGrid	singleSelect()									获取/设置仅能选中单行
+ * 			Object/core.html.easyui.datagrid.DataGrid	ctrlSelect()									获取/设置ctrl键选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	checkOnSelect()									获取/设置check时选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	selectOnCheck()									获取/设置选中时check
+ * 			Object/core.html.easyui.datagrid.DataGrid	pagePosition()									获取/设置分页工具条位置
+ * 			Object/core.html.easyui.datagrid.DataGrid	pageNumber()									获取/设置默认页码
+ * 			Object/core.html.easyui.datagrid.DataGrid	pageSize()										获取/设置分页数
+ * 			Object/core.html.easyui.datagrid.DataGrid	pageList()										获取/设置分页数可选列表
+ * 			Object/core.html.easyui.datagrid.DataGrid	sortName()										获取/设置排序字段
+ * 			Object/core.html.easyui.datagrid.DataGrid	sortOrder()										获取/设置排序方式
+ * 			Object/core.html.easyui.datagrid.DataGrid	multiSort()										获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	remoteSort()									获取/设置向后台发送排序条件
+ * 			Object/core.html.easyui.datagrid.DataGrid	showHeader()									获取/设置显示标头
+ * 			Object/core.html.easyui.datagrid.DataGrid	showFooter()									获取/设置显示脚
+ * 			Object/core.html.easyui.datagrid.DataGrid	scrollbarSize()									获取/设置
+ * 			Object/core.html.easyui.datagrid.DataGrid	rownumberWidth()								获取/设置行号宽度
+ * 			Object/core.html.easyui.datagrid.DataGrid	editorHeight()									获取/设置编辑框高度
+ * 			Object/core.html.easyui.datagrid.DataGrid	rowStyler()										获取/设置行样式
+ * 			Object/core.html.easyui.datagrid.DataGrid	loadFilter()									获取/设置数据加载过滤
+ * 			Object/core.html.easyui.datagrid.DataGrid	editors()										获取/设置编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	view()											获取/设置展示
+ * 			Object/core.html.easyui.datagrid.DataGrid	onLoadSuccess()									获取/设置数据加载成功事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onClickRow()									获取/设置行单击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onDblClickRow()									获取/设置行双击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onClickCell()									获取/设置单元格单击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onDblClickCell()								获取/设置单元格双击事件
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeSortColumn()							获取/设置排序前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onSortColumn()									获取/设置排序
+ * 			Object/core.html.easyui.datagrid.DataGrid	onResizeColumn()								获取/设置改变列宽
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeSelect()								获取/设置选中前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onSelect()										获取/设置选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeUnselect()								获取/设置取消选中前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUnselect()									获取/设置取消选中
+ * 			Object/core.html.easyui.datagrid.DataGrid	onSelectAll()									获取/设置选中所有时
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUnselectAll()									获取/设置取消选中所有时
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeCheck()									获取/设置勾选前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onCheck()										获取/设置勾选
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeUncheck()								获取/设置取消勾选前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUncheck()										获取/设置取消勾选
+ * 			Object/core.html.easyui.datagrid.DataGrid	onCheckAll()									获取/设置勾选所有
+ * 			Object/core.html.easyui.datagrid.DataGrid	onUncheckAll()									获取/设置取消勾选所有
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeEdit()									获取/设置编辑前
+ * 			Object/core.html.easyui.datagrid.DataGrid	onBeginEdit()									获取/设置编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	onEndEdit()										获取/设置结束编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	onAfterEdit()									获取/设置编辑后
+ * 			Object/core.html.easyui.datagrid.DataGrid	onCancelEdit()									获取/设置取消编辑
+ * 			Object/core.html.easyui.datagrid.DataGrid	onHeaderContextMenu()							获取/设置标题头右键点击
+ * 			Object/core.html.easyui.datagrid.DataGrid	onRowContextMenu()								获取/设置行右键点击事件
+ * 			core.html.easyui.datagrid.Datagrid			init()											初始化组件模板
+ * 			Object										options()		
+ * 			Object										getPager()										获取页面对象
+ * 			Object										getPanel()										获取面板对象
+ * 			Object										getColumnFields(Object frozen)					获取列字段
+ * 			Object										getColumnOption(Object field)					获取列属性
+ * 			Object										resize(Object param)							调整大小
+ * 			Object										load(Object param)								重新加载数据
+ * 			Object										reload(Object param)							重新加载数据,且停留在当前页面
+ * 			Object										reloadFooter(Object footer)						重载页脚
+ * 			Object										loading()										显示载入中
+ * 			Object										loaded()										隐藏载入中
+ * 			Object										fitColumns()									列宽自适应
+ * 			Object										fixColumnSize(Object field)						固定列宽
+ * 			Object										fixRowHeight(Number index)						固定指定列高度
+ * 			Object										freezeRow(Number index)							冻结指定行
+ * 			Object										autoSizeColumn(Object field)					列宽自适应
+ * 			Object										loadData(Object data)							加载数据
+ * 			Object										getData()										获取当前数据
+ * 			Object										getRows()										获取所有行
+ * 			Object										getFooterRows()									获取所有行
+ * 			Object										getRowIndex(Object row)							获取指定行号
+ * 			Object										getChecked()									获取勾选行
+ * 			Object										getSelected()									获取选中节点
+ * 			Object										getSelections()									获取所有选中行
+ * 			Object										clearSelections()								清除所有选中行
+ * 			Object										clearChecked()									清除所有勾选的行
+ * 			Object										scrollTo(Number index)							滚动至指定行
+ * 			Object										gotoPage(Object param)							跳至某页
+ * 			Object										highlightRow(Number index)						高亮行
+ * 			Object										selectAll()										选中所有行
+ * 			Object										unselectAll()									取消选中所有行
+ * 			Object										selectRow(Number index)							选中行
+ * 			Object										selectRecord(Object idValue)					通过ID选中行
+ * 			Object										unselectRow(Number index)						取消选中行
+ * 			Object										checkAll()										勾选所有行
+ * 			Object										uncheckAll()									取消勾选所有行
+ * 			Object										checkRow(Number index)							勾选行
+ * 			Object										uncheckRow(Number index)						取消勾选行
+ * 			Object										beginEdit(Number index)							编辑行
+ * 			Object										endEdit(Number index)							结束编辑行
+ * 			Object										cancelEdit(Number index)						取消编辑行
+ * 			Object										getEditors(Number index)						获取行所有编辑器
+ * 			Object										getEditor(Object options)						获取行中某列编辑器
+ * 			Object										refreshRow(Number index)						刷新行
+ * 			Object										validateRow(Number index)						验证行
+ * 			Object										updateRow(Object param)							更新行
+ * 			Object										appendRow(Object row)							添加行
+ * 			Object										insertRow(Object row)							插入行
+ * 			Object										deleteRow(Number index)							删除行
+ * 			Object										getChanges(Object type)							获取修改行
+ * 			Object										acceptChanges()									提交所有修改行
+ * 			Object										rejectChanges()									回滚修改行
+ * 			Object										mergeCells(Object options)						合并单元格
+ * 			Object										showColumn(Object field)						显示列
+ * 			Object										hideColumn(Object field)						隐藏列
+ * 			Object										sort(Object param)								排序
+ * 			Object										setWidth(Number width)							设置宽度
+ * 			Object										setHeight(Number height)						设置高度
+ * 			Object										getCurrentDataNum()								获取当前页数据条数
+ * 			Object										getTotalDataNum()								获取记录总条数
+ * 			Object										getPageSize()									获取分页数
+ * 			Object										getPageNum()									获取总页数
+ * 			Object										getCurrentPageNum()								获取当前页码
+ * 			Object										selectBeforePage()								翻至前一页
+ * 			Object										selectNextPage()								翻至后一页
+ * 			Object										getRow(Number index)							获取指定行数据
+ * 			Object										changeRowOrder(Number index1, Number index2)	互换两行位置
+ * 			Object										getSelectedRowIndex()							获取选中行索引
  * 
  * @date	2016年8月26日 16:51:16
  */
@@ -6289,12 +6695,16 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
 		// 清空内容
 		$jQuery.empty();
 
@@ -7238,6 +7648,36 @@ core.html.easyui.datagrid.DataGrid = (function() {
  * @desc	校验文本框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.ValidateBox(String id)
+ * 
+ * @method	Object/core.html.easyui.form.ValidateBox			id()					获取/设置ID
+ * 			Object/core.html.easyui.form.ValidateBox			required()				获取/设置是否校验
+ * 			Object/core.html.easyui.form.ValidateBox			validType()				获取/设置校验方式
+ * 			Object/core.html.easyui.form.ValidateBox			delay()					获取/设置校验延迟时间
+ * 			Object/core.html.easyui.form.ValidateBox			missingMessage()		获取/设置字段为空提示信息
+ * 			Object/core.html.easyui.form.ValidateBox			invalidMessage()		获取/设置校验提示信息
+ * 			Object/core.html.easyui.form.ValidateBox			tipPosition()			获取/设置工具提示条位置
+ * 			Object/core.html.easyui.form.ValidateBox			deltaX()				获取/设置水平位置偏移值
+ * 			Object/core.html.easyui.form.ValidateBox			novalidate()			获取/设置是否关闭校验
+ * 			Object/core.html.easyui.form.ValidateBox			editable()				获取/设置是否可输
+ * 			Object/core.html.easyui.form.ValidateBox			disabled()				获取/设置是否可用
+ * 			Object/core.html.easyui.form.ValidateBox			readonly()				获取/设置是否只读
+ * 			Object/core.html.easyui.form.ValidateBox			validateOnCreate()		获取/设置是否创建时验证
+ * 			Object/core.html.easyui.form.ValidateBox			validateOnBlur()		获取/设置是否失去焦点时验证
+ * 			Object/core.html.easyui.form.ValidateBox			onBeforeValidate()		获取/设置验证前事件
+ * 			Object/core.html.easyui.form.ValidateBox			onValidate()			获取/设置验证事件
+ * 			core.html.easyui.form.ValidateBox					init()					初始化组件模板
+ * 			Object												options()				
+ * 			Object												destroy()				销毁组件
+ * 			Object												validate()				校验
+ * 			Object												isValid()				判断是否校验通过
+ * 			Object												enableValidation()		启用校验
+ * 			Object												disableValidation()		禁用校验
+ * 			Object												resetValidation()		重置校验
+ * 			Object												enable()				启用
+ * 			Object												disable()				禁用
+ * 			Object												readonly()				只读
+ * 
  * @date	2016年8月29日 16:39:29
  */
 
@@ -7591,14 +8031,17 @@ core.html.easyui.form.ValidateBox = (function() {
 	 * @returns {core.html.easyui.form.ValidateBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.ValidateBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.validatebox({
 			// 属性
@@ -7735,6 +8178,44 @@ core.html.easyui.form.ValidateBox = (function() {
  * @package core.html.easyui.form
  * @desc	文本框模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.form.TextBox(String id)
+ * 
+ * @extend	core.html.easyui.form.ValidateBox
+ * 
+ * @method	Object/core.html.easyui.form.TextBox			width()						获取/设置宽度
+ * 			Object/core.html.easyui.form.TextBox			height()					获取/设置高度
+ * 			Object/core.html.easyui.form.TextBox			prompt()					获取/设置输入框提示信息
+ * 			Object/core.html.easyui.form.TextBox			value()						获取/设置值
+ * 			Object/core.html.easyui.form.TextBox			type()						获取/设置输入框类型
+ * 			Object/core.html.easyui.form.TextBox			label()						获取/设置标签
+ * 			Object/core.html.easyui.form.TextBox			labelWidth()				获取/设置标签宽度
+ * 			Object/core.html.easyui.form.TextBox			labelPosition()				获取/设置标签位置
+ * 			Object/core.html.easyui.form.TextBox			labelAlign()				获取/设置标签排列
+ * 			Object/core.html.easyui.form.TextBox			multiline()					获取/设置多行文本框
+ * 			Object/core.html.easyui.form.TextBox			icons()						获取/设置图标
+ * 			Object/core.html.easyui.form.TextBox			iconCls()					获取/设置图标样式
+ * 			Object/core.html.easyui.form.TextBox			iconAlign()					获取/设置图标排列
+ * 			Object/core.html.easyui.form.TextBox			iconWidth()					获取/设置图标宽度
+ * 			Object/core.html.easyui.form.TextBox			buttonText()				获取/设置按钮文本
+ * 			Object/core.html.easyui.form.TextBox			buttonIcon()				获取/设置按钮图标
+ * 			Object/core.html.easyui.form.TextBox			buttonAlign()				获取/设置按钮排列
+ * 			Object/core.html.easyui.form.TextBox			onChange()					获取/设置改变事件
+ * 			Object/core.html.easyui.form.TextBox			onResize()					获取/设置改变大小事件
+ * 			Object/core.html.easyui.form.TextBox			onClickButton()				获取/设置点击按钮事件
+ * 			Object/core.html.easyui.form.TextBox			onClickIcon()				获取/设置点击图标事件
+ * 			core.html.easyui.form.TextBox					init()						初始化组件模板
+ * 			Object											textbox()				
+ * 			Object											button()				
+ * 			Object											resize(Object width)		改变宽度
+ * 			Object											clear()						清除
+ * 			Object											reset()						重置
+ * 			Object											initValue(Object value)	
+ * 			Object											setText(String text)		设置显示文本
+ * 			Object											getText()					获取显示文本
+ * 			Object											setValue(Object value)		设置值
+ * 			Object											getValue()					获取值
+ * 			Object											getIcon(Number index)		获取图标对象
  * 
  * @date	2016年8月29日 17:37:49
  */
@@ -7923,7 +8404,7 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置输入框类型
 		 * 
-		 * @param id
+		 * @param type
 		 */
 		this.type = function() {
 
@@ -8201,14 +8682,17 @@ core.html.easyui.form.TextBox = (function() {
 	 * @returns {core.html.easyui.form.TextBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.TextBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.textbox({
 			// 属性
@@ -8486,6 +8970,19 @@ core.html.easyui.form.TextBox = (function() {
  * @desc	密码框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.PasswordBox(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.PasswordBox		passwordChar()			获取/设置密码显示字符
+ * 			Object/core.html.easyui.form.PasswordBox		checkInterval()			获取/设置检查间隔时间
+ * 			Object/core.html.easyui.form.PasswordBox		lastDelay()				获取/设置延迟转换
+ * 			Object/core.html.easyui.form.PasswordBox		revealed()				获取/设置是否隐藏密码
+ * 			Object/core.html.easyui.form.PasswordBox		showEye()				获取/设置是否显示显示密码按钮
+ * 			core.html.easyui.form.PasswordBox				init()					初始化组件模板		
+ * 			Object											showPassword()			显示密码
+ * 			Object											hidePassword()			隐藏密码
+ * 
  * @date	2016年8月29日 17:37:49
  */
 
@@ -8616,13 +9113,16 @@ core.html.easyui.form.PasswordBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.PasswordBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.passwordbox({
 			// 属性
@@ -8928,6 +9428,31 @@ core.html.easyui.form.PasswordBox = (function() {
  * @package core.html.easyui.form
  * @desc	下拉框模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.form.Combo(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.Combo			panelWidth()				获取/设置面板宽度
+ * 			Object/core.html.easyui.form.Combo			panelHeight()				获取/设置面板高度
+ * 			Object/core.html.easyui.form.Combo			panelMinWidth()				获取/设置面板最小宽度
+ * 			Object/core.html.easyui.form.Combo			panelMaxWidth()				获取/设置面板最大宽度
+ * 			Object/core.html.easyui.form.Combo			panelMinHeight()			获取/设置面板最小高度
+ * 			Object/core.html.easyui.form.Combo			panelMaxHeight()			获取/设置面板最大高度
+ * 			Object/core.html.easyui.form.Combo			panelAlign()				获取/设置面板位置
+ * 			Object/core.html.easyui.form.Combo			multiple()					获取/设置是否多选
+ * 			Object/core.html.easyui.form.Combo			selectOnNavigation()		获取/设置
+ * 			Object/core.html.easyui.form.Combo			separator()					获取/设置多选分割符号
+ * 			Object/core.html.easyui.form.Combo			hasDownArrow()				获取/设置是否显示向下按钮
+ * 			Object/core.html.easyui.form.Combo			keyHandler()				获取/设置按键事件
+ * 			Object/core.html.easyui.form.Combo			onShowPanel()				获取/设置显示面板事件
+ * 			Object/core.html.easyui.form.Combo			onHidePanel()				获取/设置隐藏面板事件
+ * 			core.html.easyui.form.Combo					init()						初始化组件模板
+ * 			Object										panel()						
+ * 			Object										showPanel()					显示面板
+ * 			Object										hidePanel()					隐藏面板
+ * 			Object										getValues()					获取值集合
+ * 			Object										setValues(Object values)	设置值集合
  * 
  * @date	2016年8月29日 19:06:36
  */
@@ -9244,13 +9769,16 @@ core.html.easyui.form.Combo = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.Combo", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.Combo", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Combo", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.combo({
 			// 属性
@@ -9595,6 +10123,38 @@ core.html.easyui.form.Combo = (function() {
  * @package core.html.easyui.form
  * @desc	下拉框模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.form.ComboBox(String id)
+ * 
+ * @extend	core.html.easyui.form.Combo
+ * 
+ * @method	Object/core.html.easyui.form.ComboBox			valueField()				获取/设置值域字段名
+ * 			Object/core.html.easyui.form.ComboBox			textField()					获取/设置显示域字段名
+ * 			Object/core.html.easyui.form.ComboBox			groupField()				获取/设置分组字段
+ * 			Object/core.html.easyui.form.ComboBox			groupFormatter()			获取/设置分组格式化
+ * 			Object/core.html.easyui.form.ComboBox			mode()						获取/设置数据获取模式
+ * 			Object/core.html.easyui.form.ComboBox			url()						获取/设置链接
+ * 			Object/core.html.easyui.form.ComboBox			method()					获取/设置请求方式
+ * 			Object/core.html.easyui.form.ComboBox			data()						获取/设置数据
+ * 			Object/core.html.easyui.form.ComboBox			queryParams()				获取/设置过滤参数
+ * 			Object/core.html.easyui.form.ComboBox			limitToList()				获取/设置
+ * 			Object/core.html.easyui.form.ComboBox			showItemIcon()				获取/设置项目图标
+ * 			Object/core.html.easyui.form.ComboBox			groupPosition()				获取/设置分组位置
+ * 			Object/core.html.easyui.form.ComboBox			filter()					获取/设置过滤
+ * 			Object/core.html.easyui.form.ComboBox			formatter()					获取/设置格式化
+ * 			Object/core.html.easyui.form.ComboBox			loader()					获取/设置加载
+ * 			Object/core.html.easyui.form.ComboBox			loadFilter()				获取/设置加载过滤
+ * 			Object/core.html.easyui.form.ComboBox			onBeforeLoad()				获取/设置加载前事件
+ * 			Object/core.html.easyui.form.ComboBox			onLoadSuccess()				获取/设置加载成功事件
+ * 			Object/core.html.easyui.form.ComboBox			onLoadError()				获取/设置加载失败事件
+ * 			Object/core.html.easyui.form.ComboBox			onSelect()					获取/设置选择事件
+ * 			Object/core.html.easyui.form.ComboBox			onUnselect()				获取/设置取消选择事件
+ * 			core.html.easyui.form.ComboBox					init()						初始化组件模板
+ * 			Object											getData()					获取数据
+ * 			Object											loadData(Object data)		加载数据
+ * 			Object											reload(String url)			远程加载数据
+ * 			Object											select(Object value)		选择某值
+ * 			Object											unselect(Object value)		取消选择某值
  * 
  * @date	2016年8月30日 08:39:57
  */
@@ -10049,14 +10609,17 @@ core.html.easyui.form.ComboBox = (function() {
 	 * @returns {core.html.easyui.form.ComboBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.ComboBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.combobox({
 			// 属性
@@ -10482,7 +11045,24 @@ core.html.easyui.form.ComboBox = (function() {
  * @desc	数字框模板
  * @type	类
  * 
- * @date 2016年8月30日 11:26:43
+ * @constructor	core.html.easyui.form.NumberBox(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.NumberBox			min()						获取/设置最小值
+ * 			Object/core.html.easyui.form.NumberBox			max()						获取/设置最大值
+ * 			Object/core.html.easyui.form.NumberBox			precision()					获取/设置精度
+ * 			Object/core.html.easyui.form.NumberBox			decimalSeparator()			获取/设置分隔符
+ * 			Object/core.html.easyui.form.NumberBox			groupSeparator()			获取/设置分组分隔符
+ * 			Object/core.html.easyui.form.NumberBox			prefix()					获取/设置前缀字符串
+ * 			Object/core.html.easyui.form.NumberBox			suffix()					获取/设置后缀字符串
+ * 			Object/core.html.easyui.form.NumberBox			filter()					获取/设置过滤
+ * 			Object/core.html.easyui.form.NumberBox			formatter()					获取/设置格式化
+ * 			Object/core.html.easyui.form.NumberBox			parser()					获取/设置解析
+ * 			core.html.easyui.form.NumberBox					init()						初始化组件模板
+ * 			Object											fix()						
+ * 
+ * @date	2016年8月30日 11:26:43
  */
 
 core.html.easyui.form.NumberBox = (function() {
@@ -10712,13 +11292,16 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.NumberBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.numberbox({
 			// 属性
@@ -11019,6 +11602,22 @@ core.html.easyui.form.NumberBox = (function() {
  * @desc	日期框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.DateBox(String id)
+ * 
+ * @extend	core.html.easyui.form.Combo
+ * 
+ * @method	Object/core.html.easyui.form.DateBox			currentText()				获取/设置今天按钮
+ * 			Object/core.html.easyui.form.DateBox			closeText()					获取/设置关闭按钮
+ * 			Object/core.html.easyui.form.DateBox			okText()					获取/设置确认按钮
+ * 			Object/core.html.easyui.form.DateBox			buttons()					获取/设置按钮组
+ * 			Object/core.html.easyui.form.DateBox			sharedCalendar()			获取/设置日期框索引
+ * 			Object/core.html.easyui.form.DateBox			formatter()					获取/设置格式化
+ * 			Object/core.html.easyui.form.DateBox			parser()					获取/设置解析
+ * 			Object/core.html.easyui.form.DateBox			onSelect()					获取/设置选择事件
+ * 			core.html.easyui.form.DateBox					init()						初始化组件模板			
+ * 			Object											calendar()					获取日期面板对象
+ * 			Object											cloneFrom(String from)		从xx复制
+ * 
  * @date	2016年8月30日 13:53:06
  */
 
@@ -11214,14 +11813,17 @@ core.html.easyui.form.DateBox = (function() {
 	 * @returns {core.html.easyui.form.DateBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.DateBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.datebox({
 			// 属性
@@ -11598,6 +12200,15 @@ core.html.easyui.form.DateBox = (function() {
  * @desc	日期时间框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.DateTimeBox(String id)
+ * 
+ * @method	继承core.html.easyui.form.DateBox所有方法
+ * 			Object/core.html.easyui.form.DateTimeBox		spinnerWidth()			获取/设置spinner宽度
+ * 			Object/core.html.easyui.form.DateTimeBox		showSeconds()			获取/设置是否显示秒信息
+ * 			Object/core.html.easyui.form.DateTimeBox		timeSeparator()			获取/设置时间分割符
+ * 			core.html.easyui.form.DateTimeBox				init()					初始化组件模板
+ * 			Object											spinner()				获取spinner对象
+ * 
  * @date	2016年8月31日 10:44:02
  */
 
@@ -11690,14 +12301,17 @@ core.html.easyui.form.DateTimeBox = (function() {
 	 * @returns {core.html.easyui.form.DateTimeBox}
 	 */
 	Constructor.prototype.init = function() {
-
+				
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.datetimebox({
 			// 属性
@@ -12089,6 +12703,19 @@ core.html.easyui.form.DateTimeBox = (function() {
  * @desc	微调框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.Spinner(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	Object/core.html.easyui.form.Spinner		min()				获取/设置最小值
+ * 			Object/core.html.easyui.form.Spinner		max()				获取/设置最大值
+ * 			Object/core.html.easyui.form.Spinner		increment()			获取/设置步幅
+ * 			Object/core.html.easyui.form.Spinner		spinAlign()			获取/设置位置
+ * 			Object/core.html.easyui.form.Spinner		spin()				获取/设置用户点击旋转调用函数
+ * 			function/core.html.easyui.form.Spinner		onSpinUp()			获取/设置抬起事件
+ * 			function/core.html.easyui.form.Spinner		onSpinDown()		获取/设置按下事件
+ * 			core.html.easyui.form.Spinner				init()				初始化组件模板
+ * 
  * @date	2016年8月31日 11:23:11
  */
 
@@ -12264,13 +12891,16 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.Spinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.spinner({
 			// 属性
@@ -12557,6 +13187,13 @@ core.html.easyui.form.Spinner = (function() {
  * @desc	数字微调框模板
  * @type	类
  * 
+ * @constructor core.html.easyui.form.NumberSpinner(String id)
+ * 
+ * @extend	core.html.easyui.form.Spinner
+ * 			core.html.easyui.form.NumberBox
+ * 
+ * @method	core.html.easyui.form.NumberSpinner		init()						初始化组件模板
+ * 
  * @date	2016年8月31日 14:02:08
  */
 
@@ -12585,14 +13222,17 @@ core.html.easyui.form.NumberSpinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
 			new core.lang.Exception(this, "core.html.easyui.form.NumberSpinner", "参数异常", "div(id:" + this.id()
 					+ ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.NumberSpinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
 		}
-
+		
+		// 获取jQuery对象
+		var $jQuery = $("#" + this.id());
 		// 参数配置
 		$jQuery.numberspinner({
 			// 属性
@@ -12888,6 +13528,21 @@ core.html.easyui.form.NumberSpinner = (function() {
  * @desc	时间微调框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.TimeSpinner(String id)
+ * 
+ * @extend	core.html.easyui.form.Spinner
+ * 
+ * @method	String/core.html.easyui.form.TimeSpinner		separator()			获取/设置分隔符
+ * 			Boolean/core.html.easyui.form.TimeSpinner		showSeconds()		获取/设置显示秒
+ * 			Object/core.html.easyui.form.TimeSpinner		highlight()			获取/设置高亮
+ * 			Object/core.html.easyui.form.TimeSpinner		formatter()			获取/设置格式化
+ * 			Object/core.html.easyui.form.TimeSpinner		parser()			获取/设置解析时间
+ * 			Object/core.html.easyui.form.TimeSpinner		selections()		获取/设置突出的部分
+ * 			core.html.easyui.form.TimeSpinner				init()				初始化组件模板
+ * 			Object											getHours()			获取小时值
+ * 			Object											getMinutes()		获取分钟值
+ * 			Object											getSeconds()		获取秒值
+ * 
  * @date	2016年9月1日 10:28:12
  */
 
@@ -13039,13 +13694,16 @@ core.html.easyui.form.TimeSpinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.TimeSpinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.timespinner({
 			// 属性
@@ -13372,6 +14030,12 @@ core.html.easyui.form.TimeSpinner = (function() {
  * @desc	日期时间微调框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.DateTimeSpinner(String id)
+ * 
+ * @extend	core.html.easyui.form.TimeSpinner
+ * 
+ * @method	core.html.easyui.form.DateTimeSpinner		init()		初始化组件模板
+ * 
  * @date	2016年9月1日 10:41:10
  */
 
@@ -13404,14 +14068,18 @@ core.html.easyui.form.DateTimeSpinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
 			new core.lang.Exception(this, "core.html.easyui.form.DateTimeSpinner", "参数异常", "div(id:" + this.id()
 					+ ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeSpinner", "参数警告", "div(id:" + this.id()
+					+ ")存在多个.");
 		}
-
+		
+		// 获取jQuery对象
+		var $jQuery = $("#" + this.id());
 		// 参数配置
 		$jQuery.datetimespinner({
 			// 属性
@@ -13737,6 +14405,40 @@ core.html.easyui.form.DateTimeSpinner = (function() {
  * @package core.html.easyui.form
  * @desc	拖动条模板
  * @type	类
+ * 
+ * @constructor	core.html.easyui.form.Slider(String id)
+ * 
+ * @method	Object/core.html.easyui.form.Slider			id()						获取/设置ID
+ * 			Object/core.html.easyui.form.Slider			width()						获取/设置宽度
+ * 			Object/core.html.easyui.form.Slider			height()					获取/设置高度
+ * 			Object/core.html.easyui.form.Slider			mode()						获取/设置拖动条方向
+ * 			Object/core.html.easyui.form.Slider			reversed()					获取/设置方向反转
+ * 			Object/core.html.easyui.form.Slider			showTip()					获取/设置显示值信息
+ * 			Object/core.html.easyui.form.Slider			disabled()					获取/设置禁用
+ * 			Object/core.html.easyui.form.Slider			range()						获取/设置拖动条范围
+ * 			Object/core.html.easyui.form.Slider			value()						获取/设置值
+ * 			Object/core.html.easyui.form.Slider			min()						获取/设置最小值
+ * 			Object/core.html.easyui.form.Slider			max()						获取/设置最大值
+ * 			Object/core.html.easyui.form.Slider			step()						获取/设置步幅
+ * 			Object/core.html.easyui.form.Slider			rule()						获取/设置
+ * 			Object/core.html.easyui.form.Slider			tipFormatter()				获取/设置格式化显示信息
+ * 			Object/core.html.easyui.form.Slider			converter()					获取/设置转换某些值
+ * 			Object/core.html.easyui.form.Slider			onChange()					获取/设置改变事件
+ * 			Object/core.html.easyui.form.Slider			onSlideStart()				获取/设置开始拖动事件
+ * 			Object/core.html.easyui.form.Slider			onSlideEnd()				获取/设置结束拖动事件
+ * 			Object/core.html.easyui.form.Slider			onComplete()				获取/设置完整
+ * 			core.html.easyui.form.Slider				init()						初始化组件模板
+ * 			Object										options()				
+ * 			Object										destroy()					销毁对象
+ * 			Object										resize(Object param)		改变大小
+ * 			Object										getValue()					获取值
+ * 			Object										getValues()					获取值
+ * 			Object										setValue(Object value)		设置值
+ * 			Object										setValues(Object value)		设置值
+ * 			Object										clear()						清除
+ * 			Object										reset()						重置
+ * 			Object										enable()					启用
+ * 			Object										disable()					禁用
  * 
  * @date	2016年9月1日 11:19:58
  */
@@ -14152,13 +14854,16 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.Slider", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.Slider", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Slider", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.slider({
 			// 属性
@@ -14309,6 +15014,15 @@ core.html.easyui.form.Slider = (function() {
  * @desc	文件框模板
  * @type	类
  * 
+ * @constructor	core.html.easyui.form.FileBox(String id)
+ * 
+ * @extend	core.html.easyui.form.TextBox
+ * 
+ * @method	String/core.html.easyui.form.FileBox		accept()			获取/设置指定文件类型
+ * 			Object/core.html.easyui.form.FileBox		multiple()			获取/设置是否可接收多个文件
+ * 			String/core.html.easyui.form.FileBox		separator()			获取/设置多文件名之间的分隔符
+ * 			core.html.easyui.form.FileBox				init()				初始化组件模板
+ * 
  * @date	2016年9月1日 14:28:07
  */
 
@@ -14400,13 +15114,16 @@ core.html.easyui.form.FileBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
+		// 校验ID个数
+		var idLength = $("[id='" + this.id() + "']").length;
+		if (idLength === 0) {
+			new core.lang.Exception(this, "core.html.easyui.form.FileBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+		} else if (idLength > 1) {
+			new core.lang.Warning(this, "core.html.easyui.form.FileBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+		}
+		
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
-		// 判断ID是否存在
-		if ($jQuery.length === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.FileBox", "参数异常", "div(id:" + this.id() + ")不存在.");
-		}
-
 		// 参数配置
 		$jQuery.filebox({
 			// 属性
