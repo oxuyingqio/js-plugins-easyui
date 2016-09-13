@@ -6828,6 +6828,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 				core.html.util.Cookie.getInstance().set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
 			}
 		});
+		
+		return this;
 	};
 
 	/**
