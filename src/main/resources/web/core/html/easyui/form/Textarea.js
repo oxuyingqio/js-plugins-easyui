@@ -24,7 +24,7 @@ core.html.easyui.form.Textarea = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		core.html.easyui.form.TextBox.superClass.constructor.call(this, id);
+		core.html.easyui.form.Textarea.superClass.constructor.call(this, id);
 		this.multiline(true);
 	};
 	// 继承验证文本框模板
