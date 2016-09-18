@@ -32,10 +32,10 @@ public class Release {
 		String[] packagePaths = { "package.js", "html/easyui/extend", "html/easyui/base", "html/easyui/layout",
 				"html/easyui/button", "html/easyui/window/Window.js", "html/easyui/window/Dialog.js",
 				"html/easyui/window/Messager.js", "html/easyui/datagrid", "html/easyui/form/Form.js",
-				"html/easyui/form/ValidateBox.js", "html/easyui/form/TextBox.js", "html/easyui/form/PasswordBox.js",
-				"html/easyui/form/Combo.js", "html/easyui/form/ComboBox.js", "html/easyui/form/NumberBox.js",
-				"html/easyui/form/DateBox.js", "html/easyui/form/DateTimeBox.js", "html/easyui/form/Spinner.js",
-				"html/easyui/form/NumberSpinner.js", "html/easyui/form/TimeSpinner.js",
+				"html/easyui/form/ValidateBox.js", "html/easyui/form/TextBox.js", "html/easyui/form/Textarea.js",
+				"html/easyui/form/PasswordBox.js", "html/easyui/form/Combo.js", "html/easyui/form/ComboBox.js",
+				"html/easyui/form/NumberBox.js", "html/easyui/form/DateBox.js", "html/easyui/form/DateTimeBox.js",
+				"html/easyui/form/Spinner.js", "html/easyui/form/NumberSpinner.js", "html/easyui/form/TimeSpinner.js",
 				"html/easyui/form/DateTimeSpinner.js", "html/easyui/form/Slider.js", "html/easyui/form/FileBox.js", };
 
 		// 操作的文件类型
