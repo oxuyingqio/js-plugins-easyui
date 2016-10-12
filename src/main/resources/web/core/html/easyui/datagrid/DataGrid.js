@@ -1967,7 +1967,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
-	 * 获取所有行
+	 * 获取页脚所有行
 	 * 
 	 * @returns
 	 */
