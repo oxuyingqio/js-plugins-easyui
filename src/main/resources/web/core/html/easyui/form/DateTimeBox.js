@@ -109,9 +109,10 @@ core.html.easyui.form.DateTimeBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象

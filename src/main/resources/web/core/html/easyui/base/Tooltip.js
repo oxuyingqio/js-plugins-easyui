@@ -46,7 +46,7 @@ core.html.easyui.base.Tooltip = (function() {
 
 		// 校验ID
 		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空");
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空.");
 		}
 
 		/**
@@ -364,15 +364,15 @@ core.html.easyui.base.Tooltip = (function() {
 	 * @returns {core.html.easyui.base.Tooltip}
 	 */
 	Constructor.prototype.init = function() {
-				
+
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
-		
+
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
 		// 参数配置

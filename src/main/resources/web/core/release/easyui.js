@@ -149,7 +149,7 @@ core.html.easyui.base.Tooltip = (function() {
 
 		// 校验ID
 		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空");
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空.");
 		}
 
 		/**
@@ -467,15 +467,15 @@ core.html.easyui.base.Tooltip = (function() {
 	 * @returns {core.html.easyui.base.Tooltip}
 	 */
 	Constructor.prototype.init = function() {
-				
+
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
-		
+
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
 		// 参数配置
@@ -1838,9 +1838,9 @@ core.html.easyui.layout.Panel = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.layout.Panel", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.layout.Panel", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -2771,9 +2771,9 @@ core.html.easyui.layout.Tabs = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.layout.Tabs", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.layout.Tabs", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -3349,9 +3349,11 @@ core.html.easyui.button.LinkButton = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.button.LinkButton", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.button.LinkButton", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.button.LinkButton", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.button.LinkButton", "构造参数警告", "DIV(ID:" + this.id()
+					+ ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -3774,10 +3776,10 @@ core.html.easyui.button.SwitchButton = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.button.SwitchButton", "参数异常", "div(id:" + this.id()
+			new core.lang.Exception(this, "core.html.easyui.button.SwitchButton", "构造参数异常", "DIV(ID:" + this.id()
 					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.button.SwitchButton", "参数警告", "div(id:" + this.id()
+			new core.lang.Warning(this, "core.html.easyui.button.SwitchButton", "构造参数警告", "DIV(ID:" + this.id()
 					+ ")存在多个.");
 		}
 		
@@ -4122,9 +4124,9 @@ core.html.easyui.window.Window = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Window", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.window.Window", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.window.Window", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.window.Window", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -4538,9 +4540,9 @@ core.html.easyui.window.Dialog = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.window.Dialog", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.window.Dialog", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -6686,11 +6688,13 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "构造参数警告", "DIV(ID:" + this.id()
+					+ ")存在多个.");
 		}
-		
+
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
 		// 参数配置
@@ -6828,7 +6832,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 				core.html.util.Cookie.getInstance().set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
 			}
 		});
-		
+
 		return this;
 	};
 
@@ -7044,7 +7048,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
-	 * 获取所有行
+	 * 获取页脚所有行
 	 * 
 	 * @returns
 	 */
@@ -7496,7 +7500,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 * 
 	 * @returns {Number}
 	 */
-	Constructor.prototype.getCurrentDataNum = function() {
+	Constructor.prototype.getCurrentPageDataNum = function() {
 
 		var data = this.getData();
 		return data.rows.length;
@@ -7553,7 +7557,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.selectBeforePage = function() {
+	Constructor.prototype.gotoBeforePage = function() {
 
 		this.gotoPage(this.getCurrentPageNum() - 1);
 	}
@@ -7563,7 +7567,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.selectNextPage = function() {
+	Constructor.prototype.gotoNextPage = function() {
 
 		this.gotoPage(this.getCurrentPageNum() + 1);
 	}
@@ -8435,9 +8439,10 @@ core.html.easyui.form.ValidateBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.ValidateBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.ValidateBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -9086,9 +9091,9 @@ core.html.easyui.form.TextBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.TextBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.TextBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -9551,9 +9556,10 @@ core.html.easyui.form.PasswordBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.PasswordBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.PasswordBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -10207,9 +10213,9 @@ core.html.easyui.form.Combo = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Combo", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.Combo", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.Combo", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.Combo", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -11048,9 +11054,9 @@ core.html.easyui.form.ComboBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.ComboBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.ComboBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -11730,9 +11736,9 @@ core.html.easyui.form.NumberBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.NumberBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.NumberBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -12252,9 +12258,9 @@ core.html.easyui.form.DateBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.DateBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.DateBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.DateBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -12740,9 +12746,10 @@ core.html.easyui.form.DateTimeBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.DateTimeBox", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -13329,9 +13336,9 @@ core.html.easyui.form.Spinner = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.Spinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.Spinner", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -13660,10 +13667,11 @@ core.html.easyui.form.NumberSpinner = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberSpinner", "参数异常", "div(id:" + this.id()
+			new core.lang.Exception(this, "core.html.easyui.form.NumberSpinner", "构造参数异常", "DIV(ID:" + this.id()
 					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.NumberSpinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.NumberSpinner", "构造参数警告", "DIV(ID:" + this.id()
+					+ ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -14132,9 +14140,10 @@ core.html.easyui.form.TimeSpinner = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.TimeSpinner", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.TimeSpinner", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -14506,10 +14515,10 @@ core.html.easyui.form.DateTimeSpinner = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.DateTimeSpinner", "参数异常", "div(id:" + this.id()
+			new core.lang.Exception(this, "core.html.easyui.form.DateTimeSpinner", "构造参数异常", "DIV(ID:" + this.id()
 					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.DateTimeSpinner", "参数警告", "div(id:" + this.id()
+			new core.lang.Warning(this, "core.html.easyui.form.DateTimeSpinner", "构造参数警告", "DIV(ID:" + this.id()
 					+ ")存在多个.");
 		}
 		
@@ -15292,9 +15301,9 @@ core.html.easyui.form.Slider = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Slider", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.Slider", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.Slider", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.Slider", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象
@@ -15552,9 +15561,9 @@ core.html.easyui.form.FileBox = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.FileBox", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.form.FileBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.FileBox", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.form.FileBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 		
 		// 获取jQuery对象

@@ -1609,11 +1609,13 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "参数异常", "div(id:" + this.id() + ")不存在.");
+			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "构造参数异常", "DIV(ID:" + this.id()
+					+ ")不存在.");
 		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "参数警告", "div(id:" + this.id() + ")存在多个.");
+			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "构造参数警告", "DIV(ID:" + this.id()
+					+ ")存在多个.");
 		}
-		
+
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
 		// 参数配置
@@ -1751,7 +1753,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 				core.html.util.Cookie.getInstance().set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
 			}
 		});
-		
+
 		return this;
 	};
 
@@ -2419,7 +2421,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 * 
 	 * @returns {Number}
 	 */
-	Constructor.prototype.getCurrentDataNum = function() {
+	Constructor.prototype.getCurrentPageDataNum = function() {
 
 		var data = this.getData();
 		return data.rows.length;
@@ -2476,7 +2478,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.selectBeforePage = function() {
+	Constructor.prototype.gotoBeforePage = function() {
 
 		this.gotoPage(this.getCurrentPageNum() - 1);
 	}
@@ -2486,7 +2488,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.selectNextPage = function() {
+	Constructor.prototype.gotoNextPage = function() {
 
 		this.gotoPage(this.getCurrentPageNum() + 1);
 	}
