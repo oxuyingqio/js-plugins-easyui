@@ -36,7 +36,7 @@ public class Release {
 				"html/easyui/form/PasswordBox.js", "html/easyui/form/Combo.js", "html/easyui/form/ComboBox.js",
 				"html/easyui/form/NumberBox.js", "html/easyui/form/DateBox.js", "html/easyui/form/DateTimeBox.js",
 				"html/easyui/form/Spinner.js", "html/easyui/form/NumberSpinner.js", "html/easyui/form/TimeSpinner.js",
-				"html/easyui/form/DateTimeSpinner.js", "html/easyui/form/Slider.js", "html/easyui/form/FileBox.js", };
+				"html/easyui/form/DateTimeSpinner.js", "html/easyui/form/Slider.js", "html/easyui/form/FileBox.js" };
 
 		// 操作的文件类型
 		String fileType = ".js";
