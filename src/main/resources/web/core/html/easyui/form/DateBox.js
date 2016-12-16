@@ -37,6 +37,7 @@ core.html.easyui.form.DateBox = (function() {
 		core.html.easyui.form.DateBox.superClass.constructor.call(this, id);
 		this.panelWidth($.fn.datebox.defaults.panelWidth);
 		this.panelHeight($.fn.datebox.defaults.panelHeight);
+		this.keyHandler($.fn.datebox.defaults.keyHandler);
 
 		/**
 		 * 属性
@@ -215,7 +216,7 @@ core.html.easyui.form.DateBox = (function() {
 	 * @returns {core.html.easyui.form.DateBox}
 	 */
 	Constructor.prototype.init = function() {
-				
+
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
@@ -223,7 +224,7 @@ core.html.easyui.form.DateBox = (function() {
 		} else if (idLength > 1) {
 			new core.lang.Warning(this, "core.html.easyui.form.DateBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
-		
+
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
 		// 参数配置

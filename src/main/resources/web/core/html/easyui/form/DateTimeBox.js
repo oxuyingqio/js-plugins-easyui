@@ -28,6 +28,7 @@ core.html.easyui.form.DateTimeBox = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.DateTimeBox.superClass.constructor.call(this, id);
+		this.keyHandler($.fn.datetimebox.defaults.keyHandler);
 		this.buttons($.fn.datetimebox.defaults.buttons);
 		this.formatter($.fn.datetimebox.defaults.formatter);
 		this.parser($.fn.datetimebox.defaults.parser);
@@ -105,7 +106,7 @@ core.html.easyui.form.DateTimeBox = (function() {
 	 * @returns {core.html.easyui.form.DateTimeBox}
 	 */
 	Constructor.prototype.init = function() {
-				
+
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
@@ -114,7 +115,7 @@ core.html.easyui.form.DateTimeBox = (function() {
 		} else if (idLength > 1) {
 			new core.lang.Warning(this, "core.html.easyui.form.DateTimeBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
-		
+
 		// 获取jQuery对象
 		var $jQuery = $("#" + this.id());
 		// 参数配置
