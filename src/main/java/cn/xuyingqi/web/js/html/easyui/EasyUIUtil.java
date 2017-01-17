@@ -63,6 +63,14 @@ public class EasyUIUtil {
 
 	public static void main(String[] args) {
 
+		EasyUIUtil.downloadTheme("metro-blue", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("metro-gray", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("metro-green", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("metro-orange", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("metro-red", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("ui-cupertino", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("ui-dark-hive", new File("D:/Users/XuYQ/Desktop"));
+		EasyUIUtil.downloadTheme("ui-pepper-grinder", new File("D:/Users/XuYQ/Desktop"));
 		EasyUIUtil.downloadTheme("ui-sunny", new File("D:/Users/XuYQ/Desktop"));
 		System.out.println("操作结束");
 	}
