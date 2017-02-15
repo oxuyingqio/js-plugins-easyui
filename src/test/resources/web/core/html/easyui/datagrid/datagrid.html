@@ -4,32 +4,36 @@
 <meta charset="UTF-8">
 <title>core.html.easyui.datagrid</title>
 
-<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/icon.css">
 
 </head>
 <body>
 	<div id="datagrid"></div>
 </body>
 
-<script type="text/javascript" src="/~/core/resource/jquery-3.1.0/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.1/jquery-3.1.1.js"></script>
 
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js"></script>
 
-<script type="text/javascript" src="/~/core/release/core.min.js"></script>
-<script type="text/javascript" src="/~/core/release/easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/release/core.js"></script>
 
-<!-- <script type="text/javascript" src="/~/core/package.js"></script> -->
+<script type="text/javascript" src="/~/core/package.js"></script>
 
-<!-- <script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script> -->
-<!-- <script type="text/javascript" src="/~/core/html/easyui/datagrid/Datagrid.js"></script> -->
+<script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/datagrid/Datagrid.js"></script>
 
 <script type="text/javascript">
 	$(function() {
 		var dataGrid = new core.html.easyui.datagrid.DataGrid("datagrid");
 
 		dataGrid.columns([ [ {
+			field : 'ck',
+			title : 'ck',
+			rowspan : 2,
+			checkbox : true
+		}, {
 			field : 'itemid',
 			title : 'Item ID',
 			rowspan : 2,
@@ -64,15 +68,22 @@
 			field : 'status',
 			title : 'Status',
 			width : 60
-		} ] ]);
-		dataGrid.url("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json");
-		dataGrid.onSelect(function(index, row) {
-			alert(index + "===" + dataGrid.getRowIndex(row));
-		});
-		dataGrid.height("500px");
-		dataGrid.init();
-		
-		alert(dataGrid.getPageNum())
+		} ] ]).url("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json").height("500px")
+				.singleSelect(true).onSelect(function(index, row) {
+					alert(index + "===" + dataGrid.getRowIndex(row));
+
+					var row1 = dataGrid.getSelected();
+					row1.itemid = "XuYQ";
+
+					console.log(index)
+					console.log(row1)
+
+					dataGrid.updateRow({
+						index : index,
+						row : row1
+					});
+					dataGrid.refreshRow(index);
+				}).init();
 	});
 </script>
 
