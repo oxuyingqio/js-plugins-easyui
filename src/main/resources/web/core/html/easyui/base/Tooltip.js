@@ -46,6 +46,7 @@ core.html.easyui.base.Tooltip = (function() {
 
 		// 校验ID
 		if (_id === null || _id === undefined) {
+
 			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空.");
 		}
 
@@ -368,8 +369,10 @@ core.html.easyui.base.Tooltip = (function() {
 		// 校验ID个数
 		var idLength = $("[id='" + this.id() + "']").length;
 		if (idLength === 0) {
+
 			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
 		} else if (idLength > 1) {
+
 			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
 		}
 
