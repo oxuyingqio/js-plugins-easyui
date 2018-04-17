@@ -17,7 +17,7 @@ import cn.xuyingqi.util.util.FileUtils;
 public class Release {
 
 	// 日志
-	private static Logger logger = Logger.getLogger(Release.class);
+	private static final Logger LOGGER = Logger.getLogger(Release.class);
 
 	/**
 	 * 生成JS发布文件
@@ -29,7 +29,13 @@ public class Release {
 		// JavaScript核心包公共路径
 		String jsCommonPath = "/src/main/resources/web/core/";
 		// HTML EasyUI扩展包路径集合
-		String[] packagePaths = { "package.js", "html/easyui/extend", "html/easyui/base", "html/easyui/layout",
+		String[] packagePaths = { "package.js", "html/easyui/extend", 
+				
+				
+				
+				
+				
+				"html/easyui/base", "html/easyui/layout",
 				"html/easyui/button", "html/easyui/window/Window.js", "html/easyui/window/Dialog.js",
 				"html/easyui/window/Messager.js", "html/easyui/datagrid", "html/easyui/form/Form.js",
 				"html/easyui/form/ValidateBox.js", "html/easyui/form/TextBox.js", "html/easyui/form/Textarea.js",
@@ -56,7 +62,7 @@ public class Release {
 					new HandleSpecifyFormatFile(fileType, new CopyFileContent2SpecifiedFile(coreFile)));
 		}
 
-		logger.debug("操作结束");
+		LOGGER.debug("操作结束");
 	}
 
 	public static void main(String[] args) {

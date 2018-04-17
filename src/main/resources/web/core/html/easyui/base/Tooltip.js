@@ -4,34 +4,34 @@
  * @desc	工具提示模板
  * @type	类
  * 
- * @constructor	core.html.easyui.base.Tooltip(String id)
+ * @constructor core.html.easyui.base.Tooltip(String id)
  * 
- * @method	String/core.html.easyui.base.Tooltip	id()					获取/设置id
- * 			String/core.html.easyui.base.Tooltip	position()				获取/设置工具提示的位置
- * 			String/core.html.easyui.base.Tooltip	content()				获取/设置提示内容
- * 			Boolean/core.html.easyui.base.Tooltip	trackMouse()			获取/设置提示工具随着鼠标移动
- * 			Number/core.html.easyui.base.Tooltip	deltaX()				获取/设置水平偏移值
- * 			Number/core.html.easyui.base.Tooltip	deltaY()				获取/设置垂直偏移值
- * 			function/core.html.easyui.base.Tooltip	showEvent()				获取/设置显示事件
- * 			function/core.html.easyui.base.Tooltip	hideEvent()				获取/设置隐藏事件
- * 			Number/core.html.easyui.base.Tooltip	showDelay()				获取/设置显示工具延迟时间
- * 			Number/core.html.easyui.base.Tooltip	hideDelay()				获取/设置隐藏工具延迟时间
- * 			function/core.html.easyui.base.Tooltip	onShow()				获取/设置显示事件
- * 			function/core.html.easyui.base.Tooltip	onHide()				获取/设置隐藏事件
- * 			function/core.html.easyui.base.Tooltip	onUpdate()				获取/设置更新事件
- * 			function/core.html.easyui.base.Tooltip	onPosition()			获取/设置位置改变事件
- * 			function/core.html.easyui.base.Tooltip	onDestroy()				获取/设置销毁事件
- * 			core.html.easyui.base.Tooltip			init()					初始化组件模板
- * 			Object									options()		
- * 			Object									tip()			
- * 			Object									arrow()
- * 			Object									show()					显示
- * 			Object									hide()					隐藏
- * 			Object									update(String content)	更新内容
- * 			Object									reposition()			重置显示位置
- * 			Object									destroy()				销毁对象
+ * @method String/core.html.easyui.base.Tooltip		id()					获取/设置id
+ *         String/core.html.easyui.base.Tooltip 	position()				获取/设置工具提示的位置
+ *         String/core.html.easyui.base.Tooltip 	content() 				获取/设置提示内容
+ *         Boolean/core.html.easyui.base.Tooltip 	trackMouse() 			获取/设置提示工具随着鼠标移动
+ *         Number/core.html.easyui.base.Tooltip 	deltaX() 				获取/设置水平偏移值
+ *         Number/core.html.easyui.base.Tooltip 	deltaY() 				获取/设置垂直偏移值
+ *         function/core.html.easyui.base.Tooltip 	showEvent() 			获取/设置显示事件
+ *         function/core.html.easyui.base.Tooltip 	hideEvent() 			获取/设置隐藏事件
+ *         Number/core.html.easyui.base.Tooltip 	showDelay() 			获取/设置显示工具延迟时间
+ *         Number/core.html.easyui.base.Tooltip 	hideDelay() 			获取/设置隐藏工具延迟时间
+ *         function/core.html.easyui.base.Tooltip 	onShow() 				获取/设置显示事件
+ *         function/core.html.easyui.base.Tooltip 	onHide() 				获取/设置隐藏事件
+ *         function/core.html.easyui.base.Tooltip 	onUpdate() 				获取/设置更新事件
+ *         function/core.html.easyui.base.Tooltip 	onPosition()			获取/设置位置改变事件
+ *         function/core.html.easyui.base.Tooltip 	onDestroy() 			获取/设置销毁事件
+ *         core.html.easyui.base.Tooltip 			init() 					初始化组件模板
+ *         Object									options()
+ *         Object									tip()
+ *         Object									arrow()
+ *         Object									show()					显示
+ *         Object									hide()					隐藏
+ *         Object									update(String content)	更新内容
+ *         Object									reposition()			重置显示位置
+ *         Object									destroy()				销毁对象
  * 
- * @date	2016年8月29日 15:03:57
+ * @date 2016年8月29日 15:03:57
  */
 
 core.html.easyui.base.Tooltip = (function() {
@@ -42,10 +42,10 @@ core.html.easyui.base.Tooltip = (function() {
 	 * @param id{String}
 	 *            ID
 	 */
-	var Constructor = function(_id) {
+	var Constructor = function() {
 
 		// 校验ID
-		if (_id === null || _id === undefined) {
+		if (arguments.length === 0) {
 
 			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "ID属性不能为空.");
 		}
@@ -54,9 +54,16 @@ core.html.easyui.base.Tooltip = (function() {
 		 * 属性
 		 */
 		/**
-		 * ID
+		 * jQuery对象
 		 */
-		var id = _id;
+		var $jQuery;
+		if (typeof (arguments[0]) === "string") {
+
+			$jQuery = $("#" + arguments[0]);
+		} else {
+
+			$jQuery = arguments[0];
+		}
 		/**
 		 * 工具提示的位置
 		 */
@@ -119,19 +126,13 @@ core.html.easyui.base.Tooltip = (function() {
 		var onDestroy = $.fn.tooltip.defaults.onDestroy;
 
 		/**
-		 * 获取/设置id
+		 * 获取/设置jQuery对象
 		 * 
 		 * @param id
 		 */
-		this.id = function() {
+		this.$jQuery = function() {
 
-			switch (arguments.length) {
-			case 0:
-				return id;
-			default:
-				id = arguments[0];
-				return this;
-			}
+			return $jQuery;
 		};
 
 		/**
@@ -367,13 +368,9 @@ core.html.easyui.base.Tooltip = (function() {
 	Constructor.prototype.init = function() {
 
 		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
+		if ($jQuery.length === 0) {
 
-			new core.lang.Exception(this, "core.html.easyui.base.Tooltip", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-
-			new core.lang.Warning(this, "core.html.easyui.base.Tooltip", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+			new core.lang.Exception($jQuery, "core.html.easyui.base.Tooltip", "构造参数异常", "Document不存在.");
 		}
 
 		// 获取jQuery对象
