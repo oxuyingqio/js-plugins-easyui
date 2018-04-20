@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.button.MenuButton</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/icon.css">
+
+</head>
+<body>
+	<div id="mm" style="width:150px;">
+	    <div data-options="iconCls:'icon-undo'">Undo</div>
+	    <div data-options="iconCls:'icon-redo'">Redo</div>
+	    <div class="menu-sep"></div>
+	    <div>Cut</div>
+	    <div>Copy</div>
+	    <div>Paste</div>
+	    <div class="menu-sep"></div>
+	    <div data-options="iconCls:'icon-remove'">Delete</div>
+	    <div>Select All</div>
+	</div>
+	<div id="menubutton"></div>
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.1/jquery-3.1.1.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/button/Menu.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/button/LinkButton.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/button/MenuButton.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		
+		var menubutton = new core.html.easyui.button.MenuButton($("#menubutton"));
+		menubutton.menu("#mm");
+		console.log(menubutton);
+		menubutton.init();
+	});
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.button.LinkButton</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/icon.css">
+
+</head>
+<body>
+	<div id="linkbutton"></div>
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.1/jquery-3.1.1.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/button/LinkButton.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		var linkbutton = new core.html.easyui.button.LinkButton($("#linkbutton"));
+		linkbutton.text("测试");
+		linkbutton.onClick(function() {
+
+			alert("点我了");
+		});
+		linkbutton.init();
+	});
+</script>
+
+</html>

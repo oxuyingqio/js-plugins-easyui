@@ -4,58 +4,49 @@
  * @desc	开关按钮模板
  * @type	类
  * 
- * @constructor	core.html.easyui.button.SwitchButton(String id)
+ * @constructor	core.html.easyui.button.SwitchButton(string id/object jQuery)
  * 
- * @method	String/core.html.easyui.button.SwitchButton		id()					获取/设置id
- * 			Number/core.html.easyui.button.SwitchButton		width()					获取/设置宽度
- * 			Number/core.html.easyui.button.SwitchButton		height()				获取/设置高度
- * 			Number/core.html.easyui.button.SwitchButton		handleWidth()			获取/设置中心宽度
- * 			Boolean/core.html.easyui.button.SwitchButton	checked()				获取/设置选中
- * 			Boolean/core.html.easyui.button.SwitchButton	disabled()				获取/设置不可用
- * 			Boolean/core.html.easyui.button.SwitchButton	readonly()				获取/设置只读
- * 			Boolean/core.html.easyui.button.SwitchButton	reversed()				获取/设置开关位置反转
- * 			String/core.html.easyui.button.SwitchButton		onText()				获取/设置开文字描述
- * 			String/core.html.easyui.button.SwitchButton		offText()				获取/设置关文字描述
- * 			String/core.html.easyui.button.SwitchButton		handleText()			获取/设置中心文字
- * 			String/core.html.easyui.button.SwitchButton		value()					获取/设置值
- * 			function/core.html.easyui.button.SwitchButton	onChange()				获取/设置改变事件
- * 			core.html.easyui.button.SwitchButton			init()					初始化组件模板
- * 			Object											options()				
- * 			Object											resize(Object param)	改变大小
- * 			Object											disable()				禁用
- * 			Object											enable()				启用
- * 			Object											readonly(Object mode)	只读
- * 			Object											check()					选中
- * 			Object											uncheck()				取消选中
- * 			Object											clear()					清除选中值
- * 			Object											reset()					重置选中值
- * 			Object											setValue()				设置值
+ * @method	object											$jQuery()							获取jQuery对象
+ * 			number/core.html.easyui.button.SwitchButton		width(number width)					获取/设置宽度
+ * 			number/core.html.easyui.button.SwitchButton		height(number height)				获取/设置高度
+ * 			number/core.html.easyui.button.SwitchButton		handleWidth(number handleWidth)		获取/设置中心宽度
+ * 			boolean/core.html.easyui.button.SwitchButton	checked(boolean checked)			获取/设置选中
+ * 			boolean/core.html.easyui.button.SwitchButton	disabled(boolean disabled)			获取/设置不可用
+ * 			boolean/core.html.easyui.button.SwitchButton	readonly(boolean readonly)			获取/设置只读
+ * 			boolean/core.html.easyui.button.SwitchButton	reversed(boolean reversed)			获取/设置开关位置反转
+ * 			string/core.html.easyui.button.SwitchButton		onText(string onText)				获取/设置开文字描述
+ * 			string/core.html.easyui.button.SwitchButton		offText(string offText)				获取/设置关文字描述
+ * 			string/core.html.easyui.button.SwitchButton		handleText(string handleText)		获取/设置中心文字
+ * 			string/core.html.easyui.button.SwitchButton		value(string value)					获取/设置值
+ * 			function/core.html.easyui.button.SwitchButton	onChange(function onChange)			获取/设置改变事件
+ * 			core.html.easyui.button.SwitchButton			init()								初始化组件模板
+ * 			object											options()				
+ * 			void											resize(object param)				改变大小
+ * 			void											disable()							禁用
+ * 			void											enable()							启用
+ * 			void											readonly(object mode)				只读
+ * 			void											check()								选中
+ * 			void											uncheck()							取消选中
+ * 			void											clear()								清除选中值
+ * 			void											reset()								重置选中值
+ * 			void											setValue(string value)				设置值
  * 
- * @date	2016年8月29日 15:52:53
+ * @date	2018年4月20日 10:34:28
  */
-
 core.html.easyui.button.SwitchButton = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(_id) {
-
-		// 校验ID
-		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.button.SwitchButton", "构造参数异常", "ID属性不能为空");
-		}
+	var Constructor = function() {
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * ID
+		 * jQuery对象
 		 */
-		var id = _id;
+		var $jQuery;
 		/**
 		 * 宽度
 		 */
@@ -109,26 +100,33 @@ core.html.easyui.button.SwitchButton = (function() {
 		 */
 		var onChange = $.fn.switchbutton.defaults.onChange;
 
-		/**
-		 * 获取/设置id
-		 * 
-		 * @param id
-		 */
-		this.id = function() {
+		// 判断构造参数类型
+		switch (typeof (arguments[0])) {
+		case "string":
+			$jQuery = $("#" + arguments[0]);
+			break;
+		case "object":
+			$jQuery = arguments[0];
+			break;
+		default:
+			new core.lang.Exception(arguments[0], "core.html.easyui.button.SwitchButton", "构造参数异常", "非字符或jQuery对象");
+		}
 
-			switch (arguments.length) {
-			case 0:
-				return id;
-			default:
-				id = arguments[0];
-				return this;
-			}
+		/**
+		 * 获取jQuery对象
+		 * 
+		 * @returns {object}
+		 */
+		this.$jQuery = function() {
+
+			return $jQuery;
 		};
 
 		/**
 		 * 获取/设置宽度
 		 * 
-		 * @param width
+		 * @param width{number}
+		 * @returns {number/core.html.easyui.button.SwitchButton}
 		 */
 		this.width = function() {
 
@@ -144,7 +142,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置高度
 		 * 
-		 * @param height
+		 * @param height{number}
+		 * @returns {number/core.html.easyui.button.SwitchButton}
 		 */
 		this.height = function() {
 
@@ -160,7 +159,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置中心宽度
 		 * 
-		 * @param handleWidth
+		 * @param handleWidth{number}
+		 * @returns {number/core.html.easyui.button.SwitchButton}
 		 */
 		this.handleWidth = function() {
 
@@ -176,7 +176,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置选中
 		 * 
-		 * @param checked
+		 * @param checked{boolean}
+		 * @returns {boolean/core.html.easyui.button.SwitchButton}
 		 */
 		this.checked = function() {
 
@@ -192,7 +193,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置不可用
 		 * 
-		 * @param disabled
+		 * @param disabled{boolean}
+		 * @returns {boolean/core.html.easyui.button.SwitchButton}
 		 */
 		this.disabled = function() {
 
@@ -208,7 +210,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置只读
 		 * 
-		 * @param readonly
+		 * @param readonly{boolean}
+		 * @returns {boolean/core.html.easyui.button.SwitchButton}
 		 */
 		this.readonly = function() {
 
@@ -224,7 +227,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置开关位置反转
 		 * 
-		 * @param reversed
+		 * @param reversed{boolean}
+		 * @returns {boolean/core.html.easyui.button.SwitchButton}
 		 */
 		this.reversed = function() {
 
@@ -240,7 +244,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置开文字描述
 		 * 
-		 * @param onText
+		 * @param onText{string}
+		 * @returns {string/core.html.easyui.button.SwitchButton}
 		 */
 		this.onText = function() {
 
@@ -256,7 +261,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置关文字描述
 		 * 
-		 * @param offText
+		 * @param offText{string}
+		 * @returns {string/core.html.easyui.button.SwitchButton}
 		 */
 		this.offText = function() {
 
@@ -272,7 +278,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置中心文字
 		 * 
-		 * @param handleText
+		 * @param handleText{string}
+		 * @returns {string/core.html.easyui.button.SwitchButton}
 		 */
 		this.handleText = function() {
 
@@ -288,7 +295,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置值
 		 * 
-		 * @param value
+		 * @param value{string}
+		 * @returns {string/core.html.easyui.button.SwitchButton}
 		 */
 		this.value = function() {
 
@@ -304,7 +312,8 @@ core.html.easyui.button.SwitchButton = (function() {
 		/**
 		 * 获取/设置改变事件
 		 * 
-		 * @param onChange
+		 * @param onChange{function}
+		 * @returns {function/core.html.easyui.button.SwitchButton}
 		 */
 		this.onChange = function() {
 
@@ -324,26 +333,19 @@ core.html.easyui.button.SwitchButton = (function() {
 	 * @returns {core.html.easyui.button.SwitchButton}
 	 */
 	Constructor.prototype.init = function() {
-				
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.button.SwitchButton", "构造参数异常", "DIV(ID:" + this.id()
-					+ ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.button.SwitchButton", "构造参数警告", "DIV(ID:" + this.id()
-					+ ")存在多个.");
+
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.button.SwitchButton", "构造参数异常", "Document不存在.");
 		}
-		
+
 		// 备份this对象
 		var _this = this;
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
 		// 参数配置
-		$jQuery.switchbutton({
+		this.$jQuery().switchbutton({
 			// 属性
-			id : this.id(),
 			width : this.width(),
 			height : this.height(),
 			handleWidth : this.handleWidth(),
@@ -374,21 +376,23 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).switchbutton("options");
+		return this.$jQuery()
+		switchbutton("options");
 	};
 
 	/**
 	 * 改变大小
 	 * 
+	 * @param param{object}
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(param) {
 
-		return $("#" + this.id()).switchbutton("resize", param);
+		return this.$jQuery().switchbutton("resize", param);
 	};
 
 	/**
@@ -398,7 +402,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).switchbutton("disable");
+		return this.$jQuery().switchbutton("disable");
 	};
 
 	/**
@@ -408,18 +412,18 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).switchbutton("enable");
+		return this.$jQuery().switchbutton("enable");
 	};
 
 	/**
 	 * 只读
 	 * 
-	 * @param mode
+	 * @param mode{object}
 	 * @returns
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).switchbutton("readonly", mode);
+		return this.$jQuery().switchbutton("readonly", mode);
 	};
 
 	/**
@@ -429,7 +433,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	Constructor.prototype.check = function() {
 
-		return $("#" + this.id()).switchbutton("check");
+		return this.$jQuery().switchbutton("check");
 	};
 
 	/**
@@ -439,7 +443,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	Constructor.prototype.uncheck = function() {
 
-		return $("#" + this.id()).switchbutton("uncheck");
+		return this.$jQuery().switchbutton("uncheck");
 	};
 
 	/**
@@ -449,7 +453,7 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).switchbutton("clear");
+		return this.$jQuery().switchbutton("clear");
 	};
 
 	/**
@@ -459,17 +463,18 @@ core.html.easyui.button.SwitchButton = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).switchbutton("reset");
+		return this.$jQuery().switchbutton("reset");
 	};
 
 	/**
 	 * 设置值
 	 * 
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).switchbutton("setValue", value);
+		return this.$jQuery().switchbutton("setValue", value);
 	};
 
 	// 返回构造函数

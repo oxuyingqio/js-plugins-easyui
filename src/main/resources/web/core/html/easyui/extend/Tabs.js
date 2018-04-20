@@ -24,7 +24,7 @@ $.extend($.fn.tabs.methods, {
 			$(this).children("div.tabs-header").find("ul.tabs").undelegate("li", "dblclick.tabs").delegate("li",
 					"dblclick.tabs", function(e) {
 
-						if (callback && typeof (callback) == "function") {
+						if (callback && typeof (callback) === "function") {
 
 							var title = $(this).text();
 							var index = $(_this).tabs("getTabIndex", $(_this).tabs("getTab", title));

@@ -6,19 +6,19 @@
  * 
  * @constructor	core.html.easyui.base.Droppable(string id/object jQuery)
  * 
- * @method	object										$jQuery()				获取/设置jQuery对象
- *			selector/core.html.easyui.base.Droppable 	accept()				获取/设置
- *			boolean/core.html.easyui.base.Droppable 	disabled() 				获取/设置
- *			function/core.html.easyui.base.Droppable 	onDragEnter() 			获取/设置
- *			function/core.html.easyui.base.Droppable 	onDragOver() 			获取/设置
- *			function/core.html.easyui.base.Droppable 	onDragLeave()			获取/设置
- *			function/core.html.easyui.base.Droppable 	onDrop() 				获取/设置
- *			core.html.easyui.base.Droppable 			init() 					初始化组件模板
+ * @method	object										$jQuery()							获取/设置jQuery对象
+ *			object/core.html.easyui.base.Droppable 		accept(object accept)				获取/设置
+ *			boolean/core.html.easyui.base.Droppable 	disabled(boolean disabled) 			获取/设置
+ *			function/core.html.easyui.base.Droppable 	onDragEnter(function onDragEnter) 	获取/设置
+ *			function/core.html.easyui.base.Droppable 	onDragOver(function onDragOver) 	获取/设置
+ *			function/core.html.easyui.base.Droppable 	onDragLeave(function onDragLeave)	获取/设置
+ *			function/core.html.easyui.base.Droppable 	onDrop(function onDrop) 			获取/设置
+ *			core.html.easyui.base.Droppable 			init() 								初始化组件模板
  *			object										options()
- *			void										enable()				启用
- *			void										disable()				禁用
+ *			void										enable()							启用
+ *			void										disable()							禁用
  * 
- * @date	2018年4月17日 14:36:21
+ * @date	2018年4月20日 13:54:43
  */
 core.html.easyui.base.Droppable = (function() {
 
@@ -77,6 +77,8 @@ core.html.easyui.base.Droppable = (function() {
 
 		/**
 		 * 获取jQuery对象
+		 * 
+		 * @returns {object}
 		 */
 		this.$jQuery = function() {
 
@@ -86,7 +88,8 @@ core.html.easyui.base.Droppable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param accept
+		 * @param accept{object}
+		 * @returns {object/core.html.easyui.base.Droppable}
 		 */
 		this.accept = function() {
 
@@ -102,7 +105,8 @@ core.html.easyui.base.Droppable = (function() {
 		/**
 		 * 获取/设置禁止
 		 * 
-		 * @param disabled
+		 * @param disabled{boolean}
+		 * @returns {boolean/core.html.easyui.base.Droppable}
 		 */
 		this.disabled = function() {
 
@@ -118,7 +122,8 @@ core.html.easyui.base.Droppable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDragEnter
+		 * @param onDragEnter{function}
+		 * @returns {function/core.html.easyui.base.Droppable}
 		 */
 		this.onDragEnter = function() {
 
@@ -134,7 +139,8 @@ core.html.easyui.base.Droppable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDragOver
+		 * @param onDragOver{function}
+		 * @returns {function/core.html.easyui.base.Droppable}
 		 */
 		this.onDragOver = function() {
 
@@ -150,7 +156,8 @@ core.html.easyui.base.Droppable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDragLeave
+		 * @param onDragLeave{function}
+		 * @returns {function/core.html.easyui.base.Droppable}
 		 */
 		this.onDragLeave = function() {
 
@@ -166,7 +173,8 @@ core.html.easyui.base.Droppable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDrop
+		 * @param onDrop{function}
+		 * @returns {function/core.html.easyui.base.Droppable}
 		 */
 		this.onDrop = function() {
 
@@ -214,7 +222,7 @@ core.html.easyui.base.Droppable = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 

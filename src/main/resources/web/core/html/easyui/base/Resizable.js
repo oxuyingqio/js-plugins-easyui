@@ -6,23 +6,23 @@
  * 
  * @constructor	core.html.easyui.base.Resizable(string id/object jQuery)
  * 
- * @method	object										$jQuery()			获取/设置jQuery对象
- *			boolean/core.html.easyui.base.Resizable 	disabled() 			获取/设置禁止
- *			string/core.html.easyui.base.Resizable 		handles()			获取/设置
- *			number/core.html.easyui.base.Resizable 		minWidth() 			获取/设置
- *			number/core.html.easyui.base.Resizable 		minHeight() 		获取/设置
- *			number/core.html.easyui.base.Resizable 		maxWidth() 			获取/设置
- *			number/core.html.easyui.base.Resizable 		maxHeight() 		获取/设置
- *			number/core.html.easyui.base.Resizable 		edge() 				获取/设置
- *			function/core.html.easyui.base.Resizable 	onStartResize() 	获取/设置
- *			function/core.html.easyui.base.Resizable 	onResize() 			获取/设置
- *			function/core.html.easyui.base.Resizable 	onStopResize()		获取/设置
- *			core.html.easyui.base.Resizable 			init() 				初始化组件模板
+ * @method	object										$jQuery()								获取/设置jQuery对象
+ *			boolean/core.html.easyui.base.Resizable 	disabled(boolean disabled) 				获取/设置禁止
+ *			string/core.html.easyui.base.Resizable 		handles(string handles)					获取/设置
+ *			number/core.html.easyui.base.Resizable 		minWidth(number minWidth) 				获取/设置
+ *			number/core.html.easyui.base.Resizable 		minHeight(number minHeight) 			获取/设置
+ *			number/core.html.easyui.base.Resizable 		maxWidth(number maxWidth) 				获取/设置
+ *			number/core.html.easyui.base.Resizable 		maxHeight(number maxHeight) 			获取/设置
+ *			number/core.html.easyui.base.Resizable 		edge(number edge) 						获取/设置
+ *			function/core.html.easyui.base.Resizable 	onStartResize(function onStartResize) 	获取/设置
+ *			function/core.html.easyui.base.Resizable 	onResize(function onResize) 			获取/设置
+ *			function/core.html.easyui.base.Resizable 	onStopResize(function onStopResize)		获取/设置
+ *			core.html.easyui.base.Resizable 			init() 									初始化组件模板
  *			object										options()
- *			void										enable()			启用
- *			void										disable()			禁用
+ *			void										enable()								启用
+ *			void										disable()								禁用
  * 
- * @date	2018年4月17日 15:10:06
+ * @date	2018年4月20日 14:02:13
  */
 core.html.easyui.base.Resizable = (function() {
 
@@ -97,6 +97,8 @@ core.html.easyui.base.Resizable = (function() {
 
 		/**
 		 * 获取jQuery对象
+		 * 
+		 * @returns {object}
 		 */
 		this.$jQuery = function() {
 
@@ -106,7 +108,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置禁止
 		 * 
-		 * @param disabled
+		 * @param disabled{boolean}
+		 * @returns {boolean/core.html.easyui.base.Resizable}
 		 */
 		this.disabled = function() {
 
@@ -118,11 +121,12 @@ core.html.easyui.base.Resizable = (function() {
 				return this;
 			}
 		};
-		
+
 		/**
 		 * 获取/设置
 		 * 
-		 * @param handles
+		 * @param handles{string}
+		 * @returns {string/core.html.easyui.base.Resizable}
 		 */
 		this.handles = function() {
 
@@ -138,7 +142,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param minWidth
+		 * @param minWidth{number}
+		 * @returns {number/core.html.easyui.base.Resizable}
 		 */
 		this.minWidth = function() {
 
@@ -154,7 +159,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param minHeight
+		 * @param minHeight{number}
+		 * @returns {number/core.html.easyui.base.Resizable}
 		 */
 		this.minHeight = function() {
 
@@ -170,7 +176,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param maxWidth
+		 * @param maxWidth{number}
+		 * @returns {number/core.html.easyui.base.Resizable}
 		 */
 		this.maxWidth = function() {
 
@@ -186,7 +193,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param maxHeight
+		 * @param maxHeight{number}
+		 * @returns {number/core.html.easyui.base.Resizable}
 		 */
 		this.maxHeight = function() {
 
@@ -202,7 +210,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param edge
+		 * @param edge{number}
+		 * @returns {number/core.html.easyui.base.Resizable}
 		 */
 		this.edge = function() {
 
@@ -218,7 +227,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onStartResize
+		 * @param onStartResize{function}
+		 * @returns {function/core.html.easyui.base.Resizable}
 		 */
 		this.onStartResize = function() {
 
@@ -234,7 +244,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onResize
+		 * @param onResize{function}
+		 * @returns {function/core.html.easyui.base.Resizable}
 		 */
 		this.onResize = function() {
 
@@ -250,7 +261,8 @@ core.html.easyui.base.Resizable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onStopResize
+		 * @param onStopResize{function}
+		 * @returns {function/core.html.easyui.base.Resizable}
 		 */
 		this.onStopResize = function() {
 
@@ -302,7 +314,7 @@ core.html.easyui.base.Resizable = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
@@ -324,7 +336,7 @@ core.html.easyui.base.Resizable = (function() {
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.disable = function(e) {
+	Constructor.prototype.disable = function() {
 
 		return this.$jQuery().resizable("disable");
 	};

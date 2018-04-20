@@ -6,28 +6,28 @@
  * 
  * @constructor	core.html.easyui.base.Draggable(string id/object jQuery)
  * 
- * @method	object										$jQuery()				获取/设置jQuery对象
- *			function/core.html.easyui.base.Draggable 	proxy()					获取/设置代理
- *			boolean/core.html.easyui.base.Draggable 	revert() 				获取/设置停止拖动,元素是否返回初始位置
- *			string/core.html.easyui.base.Draggable 		cursor() 				获取/设置拖动时,鼠标样式
- *			number/core.html.easyui.base.Draggable 		deltaX() 				获取/设置水平偏移值
- *			number/core.html.easyui.base.Draggable 		deltaY() 				获取/设置垂直偏移值
- *			selector/core.html.easyui.base.Draggable 	handle() 				获取/设置
- *			boolean/core.html.easyui.base.Draggable 	disabled() 				获取/设置禁止拖动
- *			number/core.html.easyui.base.Draggable 		edge() 					获取/设置可拖动的宽度
- *			string/core.html.easyui.base.Draggable 		axis() 					获取/设置元素移动的轴,v/h
- *			number/core.html.easyui.base.Draggable 		delay() 				获取/设置延迟启动拖动毫秒值
- *			function/core.html.easyui.base.Draggable 	onBeforeDrag() 			获取/设置拖动前事件
- *			function/core.html.easyui.base.Draggable 	onStartDrag() 			获取/设置开始拖动事件
- *			function/core.html.easyui.base.Draggable 	onDrag()				获取/设置拖动中事件
- *			function/core.html.easyui.base.Draggable 	onEndDrag() 			获取/设置结束拖动前事件
- *			function/core.html.easyui.base.Draggable 	onStopDrag() 			获取/设置结束拖动事件
- *			core.html.easyui.base.Draggable 			init() 					初始化组件模板
+ * @method	object										$jQuery()								获取/设置jQuery对象
+ *			function/core.html.easyui.base.Draggable 	proxy(function proxy)					获取/设置代理
+ *			boolean/core.html.easyui.base.Draggable 	revert(boolean revert) 					获取/设置停止拖动,元素是否返回初始位置
+ *			string/core.html.easyui.base.Draggable 		cursor(string cursor) 					获取/设置拖动时,鼠标样式
+ *			number/core.html.easyui.base.Draggable 		deltaX(number deltaX) 					获取/设置水平偏移值
+ *			number/core.html.easyui.base.Draggable 		deltaY(number deltaY) 					获取/设置垂直偏移值
+ *			object/core.html.easyui.base.Draggable 		handle(object handle) 					获取/设置
+ *			boolean/core.html.easyui.base.Draggable 	disabled(boolean disabled) 				获取/设置禁止拖动
+ *			number/core.html.easyui.base.Draggable 		edge(number edge) 						获取/设置可拖动的宽度
+ *			string/core.html.easyui.base.Draggable 		axis(string axis) 						获取/设置元素移动的轴,v/h
+ *			number/core.html.easyui.base.Draggable 		delay(number delay) 					获取/设置延迟启动拖动毫秒值
+ *			function/core.html.easyui.base.Draggable 	onBeforeDrag(function onBeforeDrag) 	获取/设置拖动前事件
+ *			function/core.html.easyui.base.Draggable 	onStartDrag(function onStartDrag) 		获取/设置开始拖动事件
+ *			function/core.html.easyui.base.Draggable 	onDrag(function onDrag)					获取/设置拖动中事件
+ *			function/core.html.easyui.base.Draggable 	onEndDrag(function onEndDrag) 			获取/设置结束拖动前事件
+ *			function/core.html.easyui.base.Draggable 	onStopDrag(function onStopDrag) 		获取/设置结束拖动事件
+ *			core.html.easyui.base.Draggable 			init() 									初始化组件模板
  *			object										options()
- *			void										enable()				启用
- *			void										disable()				禁用
+ *			void										enable()								启用
+ *			void										disable()								禁用
  * 
- * @date	2018年4月17日 11:31:40
+ * @date	2018年4月20日 11:39:25
  */
 core.html.easyui.base.Draggable = (function() {
 
@@ -122,6 +122,8 @@ core.html.easyui.base.Draggable = (function() {
 
 		/**
 		 * 获取jQuery对象
+		 * 
+		 * @returns {object}
 		 */
 		this.$jQuery = function() {
 
@@ -131,7 +133,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置代理
 		 * 
-		 * @param proxy
+		 * @param proxy{function}
+		 * @returns {function/core.html.easyui.base.Draggable}
 		 */
 		this.proxy = function() {
 
@@ -147,7 +150,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置停止拖动,元素是否返回初始位置
 		 * 
-		 * @param revert
+		 * @param revert{boolean}
+		 * @returns {boolean/core.html.easyui.base.Draggable}
 		 */
 		this.revert = function() {
 
@@ -163,7 +167,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置拖动时,鼠标样式
 		 * 
-		 * @param cursor
+		 * @param cursor{string}
+		 * @returns {string/core.html.easyui.base.Draggable}
 		 */
 		this.cursor = function() {
 
@@ -179,7 +184,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置水平偏移值
 		 * 
-		 * @param deltaX
+		 * @param deltaX{number}
+		 * @returns {number/core.html.easyui.base.Draggable}
 		 */
 		this.deltaX = function() {
 
@@ -195,7 +201,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置垂直偏移值
 		 * 
-		 * @param deltaY
+		 * @param deltaY{number}
+		 * @returns {number/core.html.easyui.base.Draggable}
 		 */
 		this.deltaY = function() {
 
@@ -211,7 +218,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param handle
+		 * @param handle{object}
+		 * @returns {object/core.html.easyui.base.Draggable}
 		 */
 		this.handle = function() {
 
@@ -227,7 +235,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置禁止拖动
 		 * 
-		 * @param disabled
+		 * @param disabled{boolean}
+		 * @returns {boolean/core.html.easyui.base.Draggable}
 		 */
 		this.disabled = function() {
 
@@ -243,7 +252,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置可拖动的宽度
 		 * 
-		 * @param edge
+		 * @param edge{number}
+		 * @returns {number/core.html.easyui.base.Draggable}
 		 */
 		this.edge = function() {
 
@@ -259,7 +269,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置元素移动的轴,v/h
 		 * 
-		 * @param axis
+		 * @param axis{string}
+		 * @returns {string/core.html.easyui.base.Draggable}
 		 */
 		this.axis = function() {
 
@@ -275,7 +286,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置延迟启动拖动毫秒值
 		 * 
-		 * @param delay
+		 * @param delay{number}
+		 * @returns {number/core.html.easyui.base.Draggable}
 		 */
 		this.delay = function() {
 
@@ -291,7 +303,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置拖动前事件
 		 * 
-		 * @param onBeforeDrag
+		 * @param onBeforeDrag{function}
+		 * @returns {function/core.html.easyui.base.Draggable}
 		 */
 		this.onBeforeDrag = function() {
 
@@ -307,7 +320,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置开始拖动事件
 		 * 
-		 * @param onStartDrag
+		 * @param onStartDrag{function}
+		 * @returns {function/core.html.easyui.base.Draggable}
 		 */
 		this.onStartDrag = function() {
 
@@ -323,7 +337,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置拖动中事件
 		 * 
-		 * @param onDrag
+		 * @param onDrag{function}
+		 * @returns {function/core.html.easyui.base.Draggable}
 		 */
 		this.onDrag = function() {
 
@@ -339,7 +354,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置结束拖动前事件
 		 * 
-		 * @param onEndDrag
+		 * @param onEndDrag{function}
+		 * @returns {function/core.html.easyui.base.Draggable}
 		 */
 		this.onEndDrag = function() {
 
@@ -355,7 +371,8 @@ core.html.easyui.base.Draggable = (function() {
 		/**
 		 * 获取/设置结束拖动事件
 		 * 
-		 * @param onStopDrag
+		 * @param onStopDrag{function}
+		 * @returns {function/core.html.easyui.base.Draggable}
 		 */
 		this.onStopDrag = function() {
 
@@ -412,7 +429,7 @@ core.html.easyui.base.Draggable = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
