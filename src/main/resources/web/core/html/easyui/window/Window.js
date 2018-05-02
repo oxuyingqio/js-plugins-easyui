@@ -4,43 +4,48 @@
  * @desc	窗口模板
  * @type	类
  * 
- * @constructor core.html.easyui.window.Window(String id)
+ * @constructor core.html.easyui.window.Window(string id/object jQuery)
  * 
- * @extend	core.html.easyui.layout.Panel
+ * @extend	core.html.easyui.base.Draggable
+ * 			core.html.easyui.base.Resizable
+ * 			core.html.easyui.layout.Panel
  * 
- * @method	Number/core.html.easyui.window.Window		zIndex()						获取/设置zIndex
- * 			Boolean/core.html.easyui.window.Window		draggable()						获取/设置是否可拖
- * 			Boolean/core.html.easyui.window.Window		resizable()						获取/设置是否可改变大小
- * 			Boolean/core.html.easyui.window.Window		shadow()						获取/设置是否显示影子
- * 			Boolean/core.html.easyui.window.Window		inline()						获取/设置
- * 			Boolean/core.html.easyui.window.Window		modal()							获取/设置模态窗口
- * 			Boolean/core.html.easyui.window.Window		constrain()						获取/设置是否限制窗口位置
- * 			core.html.easyui.window.Window				init()							初始化
- * 			Object										window()	
- * 			Object										hcenter()
- * 			Object										vcenter()
- * 			Object										center()
+ * @method	继承core.html.easyui.base.Draggable所有方法
+ * 			继承core.html.easyui.base.Resizable所有方法
+ * 			继承core.html.easyui.layout.Panel所有方法
+ * 			number/core.html.easyui.window.Window		zIndex(number zIndex)				获取/设置zIndex
+ * 			boolean/core.html.easyui.window.Window		draggable(boolean draggable)		获取/设置是否可拖
+ * 			boolean/core.html.easyui.window.Window		resizable(boolean resizable)		获取/设置是否可改变大小
+ * 			boolean/core.html.easyui.window.Window		shadow(boolean shadow)				获取/设置是否显示影子
+ * 			boolean/core.html.easyui.window.Window		inline(boolean inline)				获取/设置
+ * 			boolean/core.html.easyui.window.Window		modal(boolean modal)				获取/设置模态窗口
+ * 			boolean/core.html.easyui.window.Window		constrain(boolean constrain)		获取/设置是否限制窗口位置
+ * 			core.html.easyui.window.Window				init()								初始化
+ * 			object										window()	
+ * 			void										hcenter()
+ * 			void										vcenter()
+ * 			void										center()
  * 
- * @date	2016年8月29日 11:24:13
+ * @date	2018年4月25日 13:51:13
  */
-
 core.html.easyui.window.Window = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.window.Window.superClass.constructor.call(this, id);
+		core.html.easyui.base.Draggable.call(this, arguments[0]);
+		core.html.easyui.base.Resizable.call(this, arguments[0]);
+		core.html.easyui.layout.Panel.call(this, arguments[0]);
 		this.title($.fn.window.defaults.title);
 		this.collapsible($.fn.window.defaults.collapsible);
 		this.minimizable($.fn.window.defaults.minimizable);
 		this.maximizable($.fn.window.defaults.maximizable);
 		this.closable($.fn.window.defaults.closable);
+		this.closed($.fn.window.defaults.closed);
+		this.border($.fn.window.defaults.border);
 
 		/**
 		 * 属性
@@ -77,7 +82,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置zIndex
 		 * 
-		 * @param zIndex
+		 * @param zIndex{number}
+		 * @returns {number/core.html.easyui.window.Window}
 		 */
 		this.zIndex = function() {
 
@@ -93,7 +99,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置是否可拖
 		 * 
-		 * @param draggable
+		 * @param draggable{boolean}
+		 * @returns {boolean/core.html.easyui.window.Window}
 		 */
 		this.draggable = function() {
 
@@ -109,7 +116,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置是否可改变大小
 		 * 
-		 * @param resizable
+		 * @param resizable{boolean}
+		 * @returns {boolean/core.html.easyui.window.Window}
 		 */
 		this.resizable = function() {
 
@@ -125,7 +133,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置是否显示影子
 		 * 
-		 * @param shadow
+		 * @param shadow{boolean}
+		 * @returns {boolean/core.html.easyui.window.Window}
 		 */
 		this.shadow = function() {
 
@@ -141,7 +150,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param inline
+		 * @param inline{boolean}
+		 * @returns {boolean/core.html.easyui.window.Window}
 		 */
 		this.inline = function() {
 
@@ -157,7 +167,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置模态窗口
 		 * 
-		 * @param modal
+		 * @param modal{boolean}
+		 * @returns {boolean/core.html.easyui.window.Window}
 		 */
 		this.modal = function() {
 
@@ -173,7 +184,8 @@ core.html.easyui.window.Window = (function() {
 		/**
 		 * 获取/设置是否限制窗口位置
 		 * 
-		 * @param constrain
+		 * @param constrain{boolean}
+		 * @returns {boolean/core.html.easyui.window.Window}
 		 */
 		this.constrain = function() {
 
@@ -186,8 +198,6 @@ core.html.easyui.window.Window = (function() {
 			}
 		};
 	};
-	// 继承面板模板
-	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**
 	 * 初始化
@@ -196,19 +206,31 @@ core.html.easyui.window.Window = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Window", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.window.Window", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.window.Window", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.window({
-			// 属性
+		this.$jQuery().window({
+			// Draggable继承属性
+			proxy : this.proxy(),
+			revert : this.revert(),
+			cursor : this.cursor(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			handle : this.handle(),
+			disabled : this.disabled(),
+			edge : this.edge(),
+			axis : this.axis(),
+			delay : this.delay(),
+			// Resizable继承属性
+			handles : this.handles(),
+			minWidth : this.minWidth(),
+			minHeight : this.minHeight(),
+			maxWidth : this.maxWidth(),
+			maxHeight : this.maxHeight(),
 			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
@@ -226,6 +248,8 @@ core.html.easyui.window.Window = (function() {
 			doSize : this.doSize(),
 			noheader : this.noheader(),
 			content : this.content(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
 			collapsible : this.collapsible(),
 			minimizable : this.minimizable(),
 			maximizable : this.maximizable(),
@@ -257,7 +281,16 @@ core.html.easyui.window.Window = (function() {
 			modal : this.modal(),
 			constrain : this.constrain(),
 
-			// 事件
+			// Draggable继承事件
+			onBeforeDrag : this.onBeforeDrag(),
+			onStartDrag : this.onStartDrag(),
+			onDrag : this.onDrag(),
+			onEndDrag : this.onEndDrag(),
+			onStopDrag : this.onStopDrag(),
+			// Resizable继承事件
+			onStartResize : this.onStartResize(),
+			onResize : this.onResize(),
+			onStopResize : this.onStopResize(),
 			// Panel继承事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
@@ -272,7 +305,6 @@ core.html.easyui.window.Window = (function() {
 			onCollapse : this.onCollapse(),
 			onBeforeExpand : this.onBeforeExpand(),
 			onExpand : this.onExpand(),
-			onResize : this.onResize(),
 			onMove : this.onMove(),
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
@@ -283,214 +315,15 @@ core.html.easyui.window.Window = (function() {
 	};
 
 	/**
-	 * Panel继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.options = function() {
-
-		return $("#" + this.id()).window("options");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).window("panel");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.header = function() {
-
-		return $("#" + this.id()).window("header");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.footer = function() {
-
-		return $("#" + this.id()).window("footer");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.body = function() {
-
-		return $("#" + this.id()).window("body");
-	};
-
-	/**
-	 * 设置标题
-	 * 
-	 * @param title
-	 * @returns
-	 */
-	Constructor.prototype.setTitle = function(title) {
-
-		return $("#" + this.id()).window("setTitle", title);
-	};
-
-	/**
-	 * 打开面板
-	 * 
-	 * @param forceOpen
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.open = function(forceOpen) {
-
-		return $("#" + this.id()).window("open", forceOpen);
-	};
-
-	/**
-	 * 关闭面板
-	 * 
-	 * @param forceClose
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.close = function(forceClose) {
-
-		return $("#" + this.id()).window("close", forceClose);
-	};
-
-	/**
-	 * 销毁面板
-	 * 
-	 * @param forceDestroy
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function(forceDestroy) {
-
-		return $("#" + this.id()).window("destroy", forceDestroy);
-	};
-
-	/**
-	 * 清空面板内容
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).window("clear");
-	};
-
-	/**
-	 * 刷新面板
-	 * 
-	 * @param href
-	 *            链接
-	 * @returns
-	 */
-	Constructor.prototype.refresh = function(href) {
-
-		return $("#" + this.id()).window("refresh", href);
-	};
-
-	/**
-	 * 改变面板窗口大小
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(options) {
-
-		return $("#" + this.id()).window("resize", options);
-	};
-
-	/**
-	 * 调整布局
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.doLayout = function() {
-
-		return $("#" + this.id()).window("doLayout");
-	};
-
-	/**
-	 * 移动面板
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.move = function(options) {
-
-		return $("#" + this.id()).window("move", options);
-	};
-
-	/**
-	 * 最大化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.maximize = function() {
-
-		return $("#" + this.id()).window("maximize");
-	};
-
-	/**
-	 * 最小化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.minimize = function() {
-
-		return $("#" + this.id()).window("minimize");
-	};
-
-	/**
-	 * 恢复面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.restore = function() {
-
-		return $("#" + this.id()).window("restore");
-	};
-
-	/**
-	 * 折叠面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.collapse = function(animate) {
-
-		return $("#" + this.id()).window("collapse", animate);
-	};
-
-	/**
-	 * 展开面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.expand = function(animate) {
-
-		return $("#" + this.id()).window("expand", animate);
-	};
-
-	/**
 	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.window = function() {
 
-		return $("#" + this.id()).window("window");
+		return this.$jQuery().window("window");
 	};
 
 	/**
@@ -499,7 +332,7 @@ core.html.easyui.window.Window = (function() {
 	 */
 	Constructor.prototype.hcenter = function() {
 
-		return $("#" + this.id()).window("hcenter");
+		return this.$jQuery().window("hcenter");
 	};
 
 	/**
@@ -508,7 +341,7 @@ core.html.easyui.window.Window = (function() {
 	 */
 	Constructor.prototype.vcenter = function() {
 
-		return $("#" + this.id()).window("vcenter");
+		return this.$jQuery().window("vcenter");
 	};
 
 	/**
@@ -517,7 +350,7 @@ core.html.easyui.window.Window = (function() {
 	 */
 	Constructor.prototype.center = function() {
 
-		return $("#" + this.id()).window("center");
+		return this.$jQuery().window("center");
 	};
 
 	// 返回构造函数

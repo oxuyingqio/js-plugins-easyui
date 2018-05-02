@@ -5,20 +5,19 @@
  * @type	类
  * 
  * @method	static core.html.easyui.window.Messager	getInstance()													获取消息实例
- * 			void									show(Object options)											提示框
- * 			void									showMessage(String title, String msg, Number time)				提示框
+ * 			void									show(object options)											提示框
+ * 			void									alert(string title, string msg, string icon, function callback)	弹出框
+ * 			void									confirm(string title, string msg, function callback)			确认框
+ * 			void									prompt(string title, string msg, function callback)				
+ * 			void									progress(object options)										进度条
+ * 			void									showMessage(string title, string msg, number time)				提示框
  * 			void									showSuccess()													提示成功
  * 			void									showFail()														提示失败
- * 			void									alert(String title, String msg, String icon, function callback)	弹出框
- * 			void									alertException(Object e, String attribute)						弹出异常
- * 			void									confirm(String title, String msg, function callback)			确认框
- * 			void									prompt(String title, String msg, function callback)				
- * 			void									progress(Object obj)											进度条
- * 			void									progressMessage(String title, String msg)						进度条
+ * 			void									alertException(object e, string attribute)						弹出异常
+ * 			void									progressMessage(string title, string msg)						进度条
  * 
- * @date	2016年8月29日 14:10:46
+ * @date	2018年4月25日 14:25:18
  */
-
 core.html.easyui.window.Messager = (function() {
 
 	/**
@@ -36,7 +35,8 @@ core.html.easyui.window.Messager = (function() {
 	/**
 	 * 提示框
 	 * 
-	 * @param options
+	 * @param options{object}
+	 * @returns
 	 */
 	Constructor.prototype.show = function(options) {
 
@@ -44,14 +44,87 @@ core.html.easyui.window.Messager = (function() {
 	};
 
 	/**
+	 * 弹出框
+	 * 
+	 * @param title{string}
+	 *            标题
+	 * @param msg{string}
+	 *            信息
+	 * @param icon{string}
+	 *            图标
+	 * @param callback{function}
+	 *            回调
+	 * @returns
+	 */
+	Constructor.prototype.alert = function(title, msg, icon, callback) {
+
+		title = title === null ? "警告" : title;
+		title = title === "" ? "&nbsp;" : title;
+
+		icon = icon === null ? "error" : icon;
+
+		$.messager.alert(title, msg, icon, callback);
+	};
+
+	/**
+	 * 确认框
+	 * 
+	 * @param title{string}
+	 *            标题头
+	 * @param msg{string}
+	 *            信息
+	 * @param callback{function}
+	 *            回调
+	 * @returns
+	 */
+	Constructor.prototype.confirm = function(title, msg, callback) {
+
+		title = title === null ? "温馨提示" : title;
+		title = title === "" ? "&nbsp;" : title;
+
+		$.messager.confirm(title, msg, callback);
+	};
+
+	/**
+	 * 输入确认框
+	 * 
+	 * @param title{string}
+	 *            标题头
+	 * @param msg{string}
+	 *            信息
+	 * @param callback{function}
+	 *            回调
+	 * @returns
+	 */
+	Constructor.prototype.prompt = function(title, msg, callback) {
+
+		title = title === null ? "温馨提示" : title;
+		title = title === "" ? "&nbsp;" : title;
+
+		$.messager.prompt(title, msg, callback);
+	};
+
+	/**
+	 * 进度条
+	 * 
+	 * @param options{object}
+	 * @returns
+	 */
+	Constructor.prototype.progress = function(options) {
+
+		$.messager.progress(options);
+	};
+
+	/**
 	 * 提示框
 	 * 
-	 * @param title{String}
+	 * @param title{string}
 	 *            标题头
-	 * @param msg{String}
+	 * @param msg{string}
 	 *            信息
-	 * @param time{Number}
+	 * @param time{number}
 	 *            显示时间
+	 * @returns
 	 */
 	Constructor.prototype.showMessage = function(title, msg, time) {
 
@@ -75,6 +148,8 @@ core.html.easyui.window.Messager = (function() {
 
 	/**
 	 * 提示成功
+	 * 
+	 * @returns
 	 */
 	Constructor.prototype.showSuccess = function() {
 
@@ -83,6 +158,8 @@ core.html.easyui.window.Messager = (function() {
 
 	/**
 	 * 提示失败
+	 * 
+	 * @returns
 	 */
 	Constructor.prototype.showFail = function() {
 
@@ -90,34 +167,13 @@ core.html.easyui.window.Messager = (function() {
 	};
 
 	/**
-	 * 弹出框
-	 * 
-	 * @param title{String}
-	 *            标题
-	 * @param msg{String}
-	 *            信息
-	 * @param icon{String}
-	 *            图标
-	 * @param callback{function}
-	 *            回调
-	 */
-	Constructor.prototype.alert = function(title, msg, icon, callback) {
-
-		title = title === null ? "警告" : title;
-		title = title === "" ? "&nbsp;" : title;
-
-		icon = icon === null ? "error" : icon;
-
-		$.messager.alert(title, msg, icon, callback);
-	};
-
-	/**
 	 * 弹出异常
 	 * 
-	 * @param e{Object}
+	 * @param e{object}
 	 *            异常对象
-	 * @param attr{String}
+	 * @param attr{string}
 	 *            异常对象属性
+	 * @returns
 	 */
 	Constructor.prototype.alertException = function(e, attr) {
 
@@ -125,48 +181,13 @@ core.html.easyui.window.Messager = (function() {
 	};
 
 	/**
-	 * 确认框
-	 * 
-	 * @param title{String}
-	 *            标题头
-	 * @param msg{String}
-	 *            信息
-	 * @param callback{function}
-	 *            回调
-	 */
-	Constructor.prototype.confirm = function(title, msg, callback) {
-
-		title = title === null ? "温馨提示" : title;
-		title = title === "" ? "&nbsp;" : title;
-
-		$.messager.confirm(title, msg, callback);
-	};
-
-	Constructor.prototype.prompt = function(title, msg, callback) {
-
-		title = title === null ? "温馨提示" : title;
-		title = title === "" ? "&nbsp;" : title;
-
-		$.messager.prompt(title, msg, callback);
-	};
-
-	/**
 	 * 进度条
 	 * 
-	 * @param obj
-	 */
-	Constructor.prototype.progress = function(obj) {
-
-		$.messager.progress(obj);
-	};
-
-	/**
-	 * 进度条
-	 * 
-	 * @param title
+	 * @param title{string}
 	 *            标题
-	 * @param msg
+	 * @param msg{string}
 	 *            信息
+	 * @returns
 	 */
 	Constructor.prototype.progressMessage = function(title, msg) {
 
@@ -189,6 +210,7 @@ core.html.easyui.window.Messager = (function() {
 		getInstance : function() {
 
 			if (messager == null) {
+
 				messager = new Constructor();
 			}
 

@@ -4,29 +4,30 @@
  * @desc	弹出框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.window.Dialog(String id)
+ * @constructor	core.html.easyui.window.Dialog(string id/object jQuery)
+ * 
+ * @extend	core.html.easyui.window.Window
+ * 			core.html.easyui.button.LinkButton
  * 
  * @method	继承core.html.easyui.window.Window所有方法
- * 			Object/core.html.easyui.window.Dialog	toolbar()							获取/设置工具条
- * 			Array/core.html.easyui.window.Dialog	buttons()							获取/设置按钮组
+ * 			继承core.html.easyui.button.LinkButton所有方法
+ * 			array/core.html.easyui.window.Dialog	toolbar(array toolbar)				获取/设置工具条
+ * 			array/core.html.easyui.window.Dialog	buttons(array buttons)				获取/设置按钮组
  * 			core.html.easyui.window.Dialog			init()								初始化
- * 			Object									dialog()
+ * 			object									dialog()
  * 
- * @date	2016年8月29日 11:36:31
+ * @date	2018年4月25日 14:05:00
  */
-
 core.html.easyui.window.Dialog = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.window.Dialog.superClass.constructor.call(this, id);
+		core.html.easyui.window.Window.call(this, arguments[0]);
+		core.html.easyui.button.LinkButton.call(this, arguments[0]);
 		this.title($.fn.dialog.defaults.title);
 		this.collapsible($.fn.dialog.defaults.collapsible);
 		this.minimizable($.fn.dialog.defaults.minimizable);
@@ -48,7 +49,8 @@ core.html.easyui.window.Dialog = (function() {
 		/**
 		 * 获取/设置工具条
 		 * 
-		 * @param toolbar
+		 * @param toolbar{array}
+		 * @returns {array/core.html.easyui.window.Dialog}
 		 */
 		this.toolbar = function() {
 
@@ -64,7 +66,8 @@ core.html.easyui.window.Dialog = (function() {
 		/**
 		 * 获取/设置按钮组
 		 * 
-		 * @param buttons
+		 * @param buttons{array}
+		 * @returns {array/core.html.easyui.window.Dialog}
 		 */
 		this.buttons = function() {
 
@@ -77,8 +80,6 @@ core.html.easyui.window.Dialog = (function() {
 			}
 		};
 	};
-	// 继承窗口模板
-	core.lang.Class.extend(Constructor, core.html.easyui.window.Window);
 
 	/**
 	 * 初始化
@@ -86,20 +87,32 @@ core.html.easyui.window.Dialog = (function() {
 	 * @returns {core.html.easyui.window.Dialog}
 	 */
 	Constructor.prototype.init = function() {
-		
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.window.Dialog", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.window.Dialog", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.window.Dialog", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.dialog({
-			// 属性
+		this.$jQuery().dialog({
+			// Draggable继承属性
+			proxy : this.proxy(),
+			revert : this.revert(),
+			cursor : this.cursor(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			handle : this.handle(),
+			disabled : this.disabled(),
+			edge : this.edge(),
+			axis : this.axis(),
+			delay : this.delay(),
+			// Resizable继承属性
+			handles : this.handles(),
+			minWidth : this.minWidth(),
+			minHeight : this.minHeight(),
+			maxWidth : this.maxWidth(),
+			maxHeight : this.maxHeight(),
 			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
@@ -117,6 +130,8 @@ core.html.easyui.window.Dialog = (function() {
 			doSize : this.doSize(),
 			noheader : this.noheader(),
 			content : this.content(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
 			collapsible : this.collapsible(),
 			minimizable : this.minimizable(),
 			maximizable : this.maximizable(),
@@ -147,11 +162,25 @@ core.html.easyui.window.Dialog = (function() {
 			inline : this.inline(),
 			modal : this.modal(),
 			constrain : this.constrain(),
-			// 属性
-			toolbar : this.toolbar(),
-			buttons : this.buttons(),
+			// LinkButton继承属性
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
 
-			// 事件
+			// Draggable继承事件
+			onBeforeDrag : this.onBeforeDrag(),
+			onStartDrag : this.onStartDrag(),
+			onDrag : this.onDrag(),
+			onEndDrag : this.onEndDrag(),
+			onStopDrag : this.onStopDrag(),
+			// Resizable继承事件
+			onStartResize : this.onStartResize(),
+			onResize : this.onResize(),
+			onStopResize : this.onStopResize(),
 			// Panel继承事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
@@ -166,252 +195,15 @@ core.html.easyui.window.Dialog = (function() {
 			onCollapse : this.onCollapse(),
 			onBeforeExpand : this.onBeforeExpand(),
 			onExpand : this.onExpand(),
-			onResize : this.onResize(),
 			onMove : this.onMove(),
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
-			onMinimize : this.onMinimize()
+			onMinimize : this.onMinimize(),
+			// 事件
+			onClick : this.onClick()
 		});
 
 		return this;
-	};
-
-	/**
-	 * Panel继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.options = function() {
-
-		return $("#" + this.id()).dialog("options");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).dialog("panel");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.header = function() {
-
-		return $("#" + this.id()).dialog("header");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.footer = function() {
-
-		return $("#" + this.id()).dialog("footer");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.body = function() {
-
-		return $("#" + this.id()).dialog("body");
-	};
-
-	/**
-	 * 设置标题
-	 * 
-	 * @param title
-	 * @returns
-	 */
-	Constructor.prototype.setTitle = function(title) {
-
-		return $("#" + this.id()).dialog("setTitle", title);
-	};
-
-	/**
-	 * 打开面板
-	 * 
-	 * @param forceOpen
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.open = function(forceOpen) {
-
-		return $("#" + this.id()).dialog("open", forceOpen);
-	};
-
-	/**
-	 * 关闭面板
-	 * 
-	 * @param forceClose
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.close = function(forceClose) {
-
-		return $("#" + this.id()).dialog("close", forceClose);
-	};
-
-	/**
-	 * 销毁面板
-	 * 
-	 * @param forceDestroy
-	 *            是否调用回调
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function(forceDestroy) {
-
-		return $("#" + this.id()).dialog("destroy", forceDestroy);
-	};
-
-	/**
-	 * 清空面板内容
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).dialog("clear");
-	};
-
-	/**
-	 * 刷新面板
-	 * 
-	 * @param href
-	 *            链接
-	 * @returns
-	 */
-	Constructor.prototype.refresh = function(href) {
-
-		return $("#" + this.id()).dialog("refresh", href);
-	};
-
-	/**
-	 * 改变面板窗口大小
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(options) {
-
-		return $("#" + this.id()).dialog("resize", options);
-	};
-
-	/**
-	 * 调整布局
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.doLayout = function() {
-
-		return $("#" + this.id()).dialog("doLayout");
-	};
-
-	/**
-	 * 移动面板
-	 * 
-	 * @param options
-	 * @returns
-	 */
-	Constructor.prototype.move = function(options) {
-
-		return $("#" + this.id()).dialog("move", options);
-	};
-
-	/**
-	 * 最大化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.maximize = function() {
-
-		return $("#" + this.id()).dialog("maximize");
-	};
-
-	/**
-	 * 最小化
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.minimize = function() {
-
-		return $("#" + this.id()).dialog("minimize");
-	};
-
-	/**
-	 * 恢复面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.restore = function() {
-
-		return $("#" + this.id()).dialog("restore");
-	};
-
-	/**
-	 * 折叠面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.collapse = function(animate) {
-
-		return $("#" + this.id()).dialog("collapse", animate);
-	};
-
-	/**
-	 * 展开面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.expand = function(animate) {
-
-		return $("#" + this.id()).dialog("expand", animate);
-	};
-
-	/**
-	 * Window继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.window = function() {
-
-		return $("#" + this.id()).dialog("window");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.hcenter = function() {
-
-		return $("#" + this.id()).dialog("hcenter");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.vcenter = function() {
-
-		return $("#" + this.id()).dialog("vcenter");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.center = function() {
-
-		return $("#" + this.id()).dialog("center");
 	};
 
 	/**
@@ -419,11 +211,11 @@ core.html.easyui.window.Dialog = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.dialog = function() {
 
-		return $("#" + this.id()).dialog("dialog");
+		return this.$jQuery().dialog("dialog");
 	};
 
 	// 返回构造函数

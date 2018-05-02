@@ -6,6 +6,8 @@
  * 
  * @constructor	core.html.easyui.base.Pagination(string id/object jQuery)
  * 
+ * @extend	core.html.easyui.button.LinkButton
+ * 
  * @method	继承core.html.easyui.base.LinkButton所有方法
  * 			number/core.html.easyui.base.Pagination		total(number total)								获取/设置
  * 			number/core.html.easyui.base.Pagination		pageSize(number pageSize)						获取/设置

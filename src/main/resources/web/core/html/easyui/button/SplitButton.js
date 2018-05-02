@@ -6,6 +6,8 @@
  * 
  * @constructor	core.html.easyui.button.SplitButton(string id/object jQuery)
  * 
+ * @extend	core.html.easyui.button.MenuButton
+ * 
  * @method	继承core.html.easyui.button.MenuButton所有方法
  *			core.html.easyui.button.SplitButton 			init() 						初始化组件模板
  *			object											options()
@@ -13,7 +15,7 @@
  *			void											enable()
  *			void											destroy()
  * 
- * @date	2018年4月20日 09:54:48
+ * @date	2018年4月23日 16:51:17
  */
 core.html.easyui.button.SplitButton = (function() {
 

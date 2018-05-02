@@ -1,161 +1,176 @@
 /**
- * @name	Datagrid
+ * @name	DataGrid
  * @package core.html.easyui.datagrid
  * @desc	数据列表模板
  * @type	类型
  * 
- * @constructor	core.html.easyui.datagrid.DataGrid(String id)
+ * @constructor	core.html.easyui.datagrid.DataGrid(string id/object jQuery)
+ * 
+ * @extend	core.html.easyui.layout.Panel
+ * 			core.html.easyui.base.Resizable
+ * 			core.html.easyui.button.LinkButton
+ * 			core.html.easyui.base.Pagination
  * 
  * @method	继承core.html.easyui.layout.Panel所有方法
- * 			Object/core.html.easyui.datagrid.DataGrid	columns()										获取/设置列
- * 			Object/core.html.easyui.datagrid.DataGrid	frozenColumns()									获取/设置冻结列
- * 			Object/core.html.easyui.datagrid.DataGrid	fitColumns()									获取/设置列宽自适应
- * 			Object/core.html.easyui.datagrid.DataGrid	resizeHandle()									获取/设置
- * 			Object/core.html.easyui.datagrid.DataGrid	autoRowHeight()									获取/设置行高自适应
- * 			Object/core.html.easyui.datagrid.DataGrid	toolbar()										获取/设置工具条
- * 			Object/core.html.easyui.datagrid.DataGrid	striped()										获取/设置隔行变色
- * 			Object/core.html.easyui.datagrid.DataGrid	nowrap()										获取/设置禁止文字自动换行
- * 			Object/core.html.easyui.datagrid.DataGrid	idField()										获取/设置id字段
- * 			Object/core.html.easyui.datagrid.DataGrid	url()											获取/设置数据URL
- * 			Object/core.html.easyui.datagrid.DataGrid	data()											获取/设置数据
- * 			Object/core.html.easyui.datagrid.DataGrid	loadMsg()										获取/设置数据加载等待提示
- * 			Object/core.html.easyui.datagrid.DataGrid	emptyMsg()										获取/设置
- * 			Object/core.html.easyui.datagrid.DataGrid	pagination()									获取/设置添加页脚工具栏
- * 			Object/core.html.easyui.datagrid.DataGrid	rownumbers()									获取/设置显示行号
- * 			Object/core.html.easyui.datagrid.DataGrid	singleSelect()									获取/设置仅能选中单行
- * 			Object/core.html.easyui.datagrid.DataGrid	ctrlSelect()									获取/设置ctrl键选中
- * 			Object/core.html.easyui.datagrid.DataGrid	checkOnSelect()									获取/设置check时选中
- * 			Object/core.html.easyui.datagrid.DataGrid	selectOnCheck()									获取/设置选中时check
- * 			Object/core.html.easyui.datagrid.DataGrid	pagePosition()									获取/设置分页工具条位置
- * 			Object/core.html.easyui.datagrid.DataGrid	pageNumber()									获取/设置默认页码
- * 			Object/core.html.easyui.datagrid.DataGrid	pageSize()										获取/设置分页数
- * 			Object/core.html.easyui.datagrid.DataGrid	pageList()										获取/设置分页数可选列表
- * 			Object/core.html.easyui.datagrid.DataGrid	sortName()										获取/设置排序字段
- * 			Object/core.html.easyui.datagrid.DataGrid	sortOrder()										获取/设置排序方式
- * 			Object/core.html.easyui.datagrid.DataGrid	multiSort()										获取/设置
- * 			Object/core.html.easyui.datagrid.DataGrid	remoteSort()									获取/设置向后台发送排序条件
- * 			Object/core.html.easyui.datagrid.DataGrid	showHeader()									获取/设置显示标头
- * 			Object/core.html.easyui.datagrid.DataGrid	showFooter()									获取/设置显示脚
- * 			Object/core.html.easyui.datagrid.DataGrid	scrollbarSize()									获取/设置
- * 			Object/core.html.easyui.datagrid.DataGrid	rownumberWidth()								获取/设置行号宽度
- * 			Object/core.html.easyui.datagrid.DataGrid	editorHeight()									获取/设置编辑框高度
- * 			Object/core.html.easyui.datagrid.DataGrid	rowStyler()										获取/设置行样式
- * 			Object/core.html.easyui.datagrid.DataGrid	loadFilter()									获取/设置数据加载过滤
- * 			Object/core.html.easyui.datagrid.DataGrid	editors()										获取/设置编辑
- * 			Object/core.html.easyui.datagrid.DataGrid	view()											获取/设置展示
- * 			Object/core.html.easyui.datagrid.DataGrid	onLoadSuccess()									获取/设置数据加载成功事件
- * 			Object/core.html.easyui.datagrid.DataGrid	onClickRow()									获取/设置行单击事件
- * 			Object/core.html.easyui.datagrid.DataGrid	onDblClickRow()									获取/设置行双击事件
- * 			Object/core.html.easyui.datagrid.DataGrid	onClickCell()									获取/设置单元格单击事件
- * 			Object/core.html.easyui.datagrid.DataGrid	onDblClickCell()								获取/设置单元格双击事件
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeSortColumn()							获取/设置排序前
- * 			Object/core.html.easyui.datagrid.DataGrid	onSortColumn()									获取/设置排序
- * 			Object/core.html.easyui.datagrid.DataGrid	onResizeColumn()								获取/设置改变列宽
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeSelect()								获取/设置选中前
- * 			Object/core.html.easyui.datagrid.DataGrid	onSelect()										获取/设置选中
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeUnselect()								获取/设置取消选中前
- * 			Object/core.html.easyui.datagrid.DataGrid	onUnselect()									获取/设置取消选中
- * 			Object/core.html.easyui.datagrid.DataGrid	onSelectAll()									获取/设置选中所有时
- * 			Object/core.html.easyui.datagrid.DataGrid	onUnselectAll()									获取/设置取消选中所有时
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeCheck()									获取/设置勾选前
- * 			Object/core.html.easyui.datagrid.DataGrid	onCheck()										获取/设置勾选
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeUncheck()								获取/设置取消勾选前
- * 			Object/core.html.easyui.datagrid.DataGrid	onUncheck()										获取/设置取消勾选
- * 			Object/core.html.easyui.datagrid.DataGrid	onCheckAll()									获取/设置勾选所有
- * 			Object/core.html.easyui.datagrid.DataGrid	onUncheckAll()									获取/设置取消勾选所有
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeforeEdit()									获取/设置编辑前
- * 			Object/core.html.easyui.datagrid.DataGrid	onBeginEdit()									获取/设置编辑
- * 			Object/core.html.easyui.datagrid.DataGrid	onEndEdit()										获取/设置结束编辑
- * 			Object/core.html.easyui.datagrid.DataGrid	onAfterEdit()									获取/设置编辑后
- * 			Object/core.html.easyui.datagrid.DataGrid	onCancelEdit()									获取/设置取消编辑
- * 			Object/core.html.easyui.datagrid.DataGrid	onHeaderContextMenu()							获取/设置标题头右键点击
- * 			Object/core.html.easyui.datagrid.DataGrid	onRowContextMenu()								获取/设置行右键点击事件
- * 			core.html.easyui.datagrid.Datagrid			init()											初始化组件模板
- * 			Object										options()		
- * 			Object										getPager()										获取页面对象
- * 			Object										getPanel()										获取面板对象
- * 			Object										getColumnFields(Object frozen)					获取列字段
- * 			Object										getColumnOption(Object field)					获取列属性
- * 			Object										resize(Object param)							调整大小
- * 			Object										load(Object param)								重新加载数据
- * 			Object										reload(Object param)							重新加载数据,且停留在当前页面
- * 			Object										reloadFooter(Object footer)						重载页脚
- * 			Object										loading()										显示载入中
- * 			Object										loaded()										隐藏载入中
- * 			Object										fitColumns()									列宽自适应
- * 			Object										fixColumnSize(Object field)						固定列宽
- * 			Object										fixRowHeight(Number index)						固定指定列高度
- * 			Object										freezeRow(Number index)							冻结指定行
- * 			Object										autoSizeColumn(Object field)					列宽自适应
- * 			Object										loadData(Object data)							加载数据
- * 			Object										getData()										获取当前数据
- * 			Object										getRows()										获取所有行
- * 			Object										getFooterRows()									获取所有行
- * 			Object										getRowIndex(Object row)							获取指定行号
- * 			Object										getChecked()									获取勾选行
- * 			Object										getSelected()									获取选中节点
- * 			Object										getSelections()									获取所有选中行
- * 			Object										clearSelections()								清除所有选中行
- * 			Object										clearChecked()									清除所有勾选的行
- * 			Object										scrollTo(Number index)							滚动至指定行
- * 			Object										gotoPage(Object param)							跳至某页
- * 			Object										highlightRow(Number index)						高亮行
- * 			Object										selectAll()										选中所有行
- * 			Object										unselectAll()									取消选中所有行
- * 			Object										selectRow(Number index)							选中行
- * 			Object										selectRecord(Object idValue)					通过ID选中行
- * 			Object										unselectRow(Number index)						取消选中行
- * 			Object										checkAll()										勾选所有行
- * 			Object										uncheckAll()									取消勾选所有行
- * 			Object										checkRow(Number index)							勾选行
- * 			Object										uncheckRow(Number index)						取消勾选行
- * 			Object										beginEdit(Number index)							编辑行
- * 			Object										endEdit(Number index)							结束编辑行
- * 			Object										cancelEdit(Number index)						取消编辑行
- * 			Object										getEditors(Number index)						获取行所有编辑器
- * 			Object										getEditor(Object options)						获取行中某列编辑器
- * 			Object										refreshRow(Number index)						刷新行
- * 			Object										validateRow(Number index)						验证行
- * 			Object										updateRow(Object param)							更新行
- * 			Object										appendRow(Object row)							添加行
- * 			Object										insertRow(Object row)							插入行
- * 			Object										deleteRow(Number index)							删除行
- * 			Object										getChanges(Object type)							获取修改行
- * 			Object										acceptChanges()									提交所有修改行
- * 			Object										rejectChanges()									回滚修改行
- * 			Object										mergeCells(Object options)						合并单元格
- * 			Object										showColumn(Object field)						显示列
- * 			Object										hideColumn(Object field)						隐藏列
- * 			Object										sort(Object param)								排序
- * 			Object										setWidth(Number width)							设置宽度
- * 			Object										setHeight(Number height)						设置高度
- * 			Object										getCurrentDataNum()								获取当前页数据条数
- * 			Object										getTotalDataNum()								获取记录总条数
- * 			Object										getPageSize()									获取分页数
- * 			Object										getPageNum()									获取总页数
- * 			Object										getCurrentPageNum()								获取当前页码
- * 			Object										selectBeforePage()								翻至前一页
- * 			Object										selectNextPage()								翻至后一页
- * 			Object										getRow(Number index)							获取指定行数据
- * 			Object										changeRowOrder(Number index1, Number index2)	互换两行位置
- * 			Object										getSelectedRowIndex()							获取选中行索引
+ * 			继承core.html.easyui.base.Resizable所有方法
+ * 			继承core.html.easyui.button.LinkButton所有方法
+ * 			继承core.html.easyui.base.Pagination所有方法
+ * 			array/core.html.easyui.datagrid.DataGrid	columns(array columns)								获取/设置列
+ * 			array/core.html.easyui.datagrid.DataGrid	frozenColumns(array frozenColumns)					获取/设置冻结列
+ * 			boolean/core.html.easyui.datagrid.DataGrid	fitColumns(boolean fitColumns)						获取/设置列宽自适应
+ * 			string/core.html.easyui.datagrid.DataGrid	resizeHandle(string resizeHandle)					获取/设置
+ * 			number/core.html.easyui.datagrid.DataGrid	resizeEdge(number resizeEdge)						获取/设置
+ * 			boolean/core.html.easyui.datagrid.DataGrid	autoRowHeight(boolean autoRowHeight)				获取/设置行高自适应
+ * 			array/core.html.easyui.datagrid.DataGrid	toolbar(array toolbar)								获取/设置工具条
+ * 			boolean/core.html.easyui.datagrid.DataGrid	striped(boolean striped)							获取/设置隔行变色
+ * 			boolean/core.html.easyui.datagrid.DataGrid	nowrap(boolean nowrap)								获取/设置禁止文字自动换行
+ * 			string/core.html.easyui.datagrid.DataGrid	idField(string idField)								获取/设置id字段
+ * 			string/core.html.easyui.datagrid.DataGrid	url(string url)										获取/设置数据URL
+ * 			array/core.html.easyui.datagrid.DataGrid	data(array data)									获取/设置数据
+ * 			string/core.html.easyui.datagrid.DataGrid	loadMsg(string loadMsg)								获取/设置数据加载等待提示
+ * 			string/core.html.easyui.datagrid.DataGrid	emptyMsg(string emptyMsg)							获取/设置
+ * 			boolean/core.html.easyui.datagrid.DataGrid	pagination(boolean pagination)						获取/设置添加页脚工具栏
+ * 			boolean/core.html.easyui.datagrid.DataGrid	rownumbers(boolean rownumbers)						获取/设置显示行号
+ * 			boolean/core.html.easyui.datagrid.DataGrid	singleSelect(boolean singleSelect)					获取/设置仅能选中单行
+ * 			boolean/core.html.easyui.datagrid.DataGrid	ctrlSelect(boolean ctrlSelect)						获取/设置ctrl键选中
+ * 			boolean/core.html.easyui.datagrid.DataGrid	checkOnSelect(boolean checkOnSelect)				获取/设置check时选中
+ * 			boolean/core.html.easyui.datagrid.DataGrid	selectOnCheck(boolean selectOnCheck)				获取/设置选中时check
+ * 			boolean/core.html.easyui.datagrid.DataGrid	scrollOnSelect(boolean scrollOnSelect)				获取/设置选中时check
+ * 			string/core.html.easyui.datagrid.DataGrid	pagePosition(string pagePosition)					获取/设置分页工具条位置
+ * 			string/core.html.easyui.datagrid.DataGrid	sortName(string sortName)							获取/设置排序字段
+ * 			string/core.html.easyui.datagrid.DataGrid	sortOrder(string sortOrder)							获取/设置排序方式
+ * 			boolean/core.html.easyui.datagrid.DataGrid	multiSort(boolean multiSort)						获取/设置
+ * 			boolean/core.html.easyui.datagrid.DataGrid	remoteSort(boolean remoteSort)						获取/设置向后台发送排序条件
+ * 			boolean/core.html.easyui.datagrid.DataGrid	showHeader(boolean showHeader)						获取/设置显示标头
+ * 			boolean/core.html.easyui.datagrid.DataGrid	showFooter(boolean showFooter)						获取/设置显示脚
+ * 			number/core.html.easyui.datagrid.DataGrid	scrollbarSize(number scrollbarSize)					获取/设置
+ * 			number/core.html.easyui.datagrid.DataGrid	rownumberWidth(number rownumberWidth)				获取/设置行号宽度
+ * 			number/core.html.easyui.datagrid.DataGrid	editorHeight(number editorHeight)					获取/设置编辑框高度
+ * 			function/core.html.easyui.datagrid.DataGrid	rowStyler(function rowStyler)						获取/设置行样式
+ * 			function/core.html.easyui.datagrid.DataGrid	loadFilter(function loadFilter)						获取/设置数据加载过滤
+ * 			object/core.html.easyui.datagrid.DataGrid	editors(object editors)								获取/设置编辑
+ * 			object/core.html.easyui.datagrid.DataGrid	view(object view)									获取/设置展示
+ * 			function/core.html.easyui.datagrid.DataGrid	onLoadSuccess(function onLoadSuccess)				获取/设置数据加载成功事件
+ * 			function/core.html.easyui.datagrid.DataGrid	onClickRow(function onClickRow)						获取/设置行单击事件
+ * 			function/core.html.easyui.datagrid.DataGrid	onDblClickRow(function onDblClickRow)				获取/设置行双击事件
+ * 			function/core.html.easyui.datagrid.DataGrid	onClickCell(function onClickCell)					获取/设置单元格单击事件
+ * 			function/core.html.easyui.datagrid.DataGrid	onDblClickCell(function onDblClickCell)				获取/设置单元格双击事件
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeforeSortColumn(function onBeforeSortColumn)		获取/设置排序前
+ * 			function/core.html.easyui.datagrid.DataGrid	onSortColumn(function onSortColumn)					获取/设置排序
+ * 			function/core.html.easyui.datagrid.DataGrid	onResizeColumn(function onResizeColumn)				获取/设置改变列宽
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeforeSelect(function onBeforeSelect)				获取/设置选中前
+ * 			function/core.html.easyui.datagrid.DataGrid	onSelect(function onSelect)							获取/设置选中
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeforeUnselect(function onBeforeUnselect)			获取/设置取消选中前
+ * 			function/core.html.easyui.datagrid.DataGrid	onUnselect(function onUnselect)						获取/设置取消选中
+ * 			function/core.html.easyui.datagrid.DataGrid	onSelectAll(function onSelectAll)					获取/设置选中所有时
+ * 			function/core.html.easyui.datagrid.DataGrid	onUnselectAll(function onUnselectAll)				获取/设置取消选中所有时
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeforeCheck(function onBeforeCheck)				获取/设置勾选前
+ * 			function/core.html.easyui.datagrid.DataGrid	onCheck(function onCheck)							获取/设置勾选
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeforeUncheck(function onBeforeUncheck)			获取/设置取消勾选前
+ * 			function/core.html.easyui.datagrid.DataGrid	onUncheck(function onUncheck)						获取/设置取消勾选
+ * 			function/core.html.easyui.datagrid.DataGrid	onCheckAll(function onCheckAll)						获取/设置勾选所有
+ * 			function/core.html.easyui.datagrid.DataGrid	onUncheckAll(function onUncheckAll)					获取/设置取消勾选所有
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeforeEdit(function onBeforeEdit)					获取/设置编辑前
+ * 			function/core.html.easyui.datagrid.DataGrid	onBeginEdit(function onBeginEdit)					获取/设置编辑
+ * 			function/core.html.easyui.datagrid.DataGrid	onEndEdit(function onEndEdit)						获取/设置结束编辑
+ * 			function/core.html.easyui.datagrid.DataGrid	onAfterEdit(function onAfterEdit)					获取/设置编辑后
+ * 			function/core.html.easyui.datagrid.DataGrid	onCancelEdit(function onCancelEdit)					获取/设置取消编辑
+ * 			function/core.html.easyui.datagrid.DataGrid	onHeaderContextMenu(function onHeaderContextMenu)	获取/设置标题头右键点击
+ * 			function/core.html.easyui.datagrid.DataGrid	onRowContextMenu(function onRowContextMenu)			获取/设置行右键点击事件
+ * 			core.html.easyui.datagrid.Datagrid			init()												初始化组件模板
+ * 			object										options()
+ * 			object										getPager()											获取页面对象
+ * 			object										getPanel()											获取面板对象
+ * 			object										getColumnFields(boolean frozen)						获取列字段
+ * 			object										getColumnOption(object field)						获取列属性
+ * 			void										resize(object param)								调整大小
+ * 			void										load(object param)									重新加载数据
+ * 			void										reload(object param)								重新加载数据,且停留在当前页面
+ * 			void										reloadFooter(object footer)							重载页脚
+ * 			void										loading()											显示载入中
+ * 			void										loaded()											隐藏载入中
+ * 			void										fitColumns()										列宽自适应
+ * 			void										fixColumnSize(object field)							固定列宽
+ * 			void										fixRowHeight(number index)							固定指定列高度
+ * 			void										freezeRow(number index)								冻结指定行
+ * 			void										autoSizeColumn(object field)						列宽自适应
+ * 			void										loadData(array data)								加载数据
+ * 			array										getData()											获取当前数据
+ * 			array										getRows()											获取所有行
+ * 			object										getFooterRows()										获取所有行
+ * 			number										getRowIndex(object row)								获取指定行号
+ * 			object										getChecked()										获取勾选行
+ * 			object										getSelected()										获取选中节点
+ * 			array										getSelections()										获取所有选中行
+ * 			void										clearSelections()									清除所有选中行
+ * 			void										clearChecked()										清除所有勾选的行
+ * 			void										scrollTo(number index)								滚动至指定行
+ * 			void										gotoPage(number param)								跳至某页
+ * 			void										highlightRow(number index)							高亮行
+ * 			void										selectAll()											选中所有行
+ * 			void										unselectAll()										取消选中所有行
+ * 			void										selectRow(number index)								选中行
+ * 			void										selectRecord(string idValue)						通过ID选中行
+ * 			void										unselectRow(number index)							取消选中行
+ * 			void										checkAll()											勾选所有行
+ * 			void										uncheckAll()										取消勾选所有行
+ * 			void										checkRow(number index)								勾选行
+ * 			void										uncheckRow(number index)							取消勾选行
+ * 			void										beginEdit(number index)								编辑行
+ * 			void										endEdit(number index)								结束编辑行
+ * 			void										cancelEdit(number index)							取消编辑行
+ * 			object										getEditors(number index)							获取行所有编辑器
+ * 			object										getEditor(object options)							获取行中某列编辑器
+ * 			void										refreshRow(number index)							刷新行
+ * 			void										validateRow(number index)							验证行
+ * 			void										updateRow(object param)								更新行
+ * 			void										appendRow(object row)								添加行
+ * 			void										insertRow(object row)								插入行
+ * 			void										deleteRow(number index)								删除行
+ * 			array										getChanges(object type)								获取修改行
+ * 			void										acceptChanges()										提交所有修改行
+ * 			void										rejectChanges()										回滚修改行
+ * 			void										mergeCells(object options)							合并单元格
+ * 			void										showColumn(object field)							显示列
+ * 			void										hideColumn(object field)							隐藏列
+ * 			void										sort(object param)									排序
+ * 			void										setWidth(number width)								设置宽度
+ * 			void										setHeight(number height)							设置高度
+ * 			number										getCurrentDataNum()									获取当前页数据条数
+ * 			number										getTotalDataNum()									获取记录总条数
+ * 			number										getPageSize()										获取分页数
+ * 			number										getPageNum()										获取总页数
+ * 			number										getCurrentPageNum()									获取当前页码
+ * 			void										selectBeforePage()									翻至前一页
+ * 			void										selectNextPage()									翻至后一页
+ * 			object										getRow(number index)								获取指定行数据
+ * 			number										getSelectedRowIndex()								获取选中行索引
  * 
- * @date	2016年8月26日 16:51:16
+ * @date	2018年4月27日 15:27:12
  */
-
 core.html.easyui.datagrid.DataGrid = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.datagrid.DataGrid.superClass.constructor.call(this, id);
+		core.html.easyui.layout.Panel.call(this, arguments[0]);
+		core.html.easyui.base.Resizable.call(this, arguments[0]);
+		core.html.easyui.button.LinkButton.call(this, arguments[0]);
+		core.html.easyui.base.Pagination.call(this, arguments[0]);
+		// 默认参数修改
+		this.method($.fn.datagrid.defaults.method);
+		this.pageNumber($.fn.datagrid.defaults.pageNumber);
+		this
+				.pageSize(core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize") == null ? $.fn.datagrid.defaults.pageSize
+						: core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize"));
+		this.pageList($.fn.datagrid.defaults.pageList);
+		this.queryParams($.fn.datagrid.defaults.queryParams);
 		this.loader($.fn.datagrid.defaults.loader);
+		this.onLoadError($.fn.datagrid.defaults.onLoadError);
+		this.onBeforeLoad($.fn.datagrid.defaults.onBeforeLoad);
 
 		/**
 		 * 属性
@@ -176,6 +191,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		 * 
 		 */
 		var resizeHandle = $.fn.datagrid.defaults.resizeHandle;
+		/**
+		 * 
+		 */
+		var resizeEdge = $.fn.datagrid.defaults.resizeEdge;
 		/**
 		 * 行高自适应
 		 */
@@ -237,22 +256,13 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		 */
 		var selectOnCheck = $.fn.datagrid.defaults.selectOnCheck;
 		/**
+		 * 
+		 */
+		var scrollOnSelect = $.fn.datagrid.defaults.scrollOnSelect;
+		/**
 		 * 分页工具条位置
 		 */
 		var pagePosition = $.fn.datagrid.defaults.pagePosition;
-		/**
-		 * 默认页码
-		 */
-		var pageNumber = $.fn.datagrid.defaults.pageNumber;
-		/**
-		 * 分页数
-		 */
-		var pageSize = core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize") == null ? $.fn.datagrid.defaults.pageSize
-				: core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize");
-		/**
-		 * 分页数可选列表
-		 */
-		var pageList = $.fn.datagrid.defaults.pageList;
 		/**
 		 * 排序字段
 		 */
@@ -291,20 +301,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		var editorHeight = $.fn.datagrid.defaults.editorHeight;
 		/**
 		 * 行样式
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns {String} css样式
 		 */
 		var rowStyler = $.fn.datagrid.defaults.rowStyler;
 		/**
 		 * 数据加载过滤
-		 * 
-		 * @param data{Object}
-		 *            原始数据
-		 * @returns {Object} 过滤后数据
 		 */
 		var loadFilter = $.fn.datagrid.defaults.loadFilter;
 		/**
@@ -321,277 +321,118 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		 */
 		/**
 		 * 数据加载成功
-		 * 
-		 * @param data{Object}
-		 *            加载数据
-		 * @returns
 		 */
 		var onLoadSuccess = $.fn.datagrid.defaults.onLoadSuccess;
 		/**
 		 * 行单击事件
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onClickRow = $.fn.datagrid.defaults.onClickRow;
 		/**
 		 * 行双击事件
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onDblClickRow = $.fn.datagrid.defaults.onDblClickRow;
 		/**
 		 * 单元格单击事件
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param field{Object}
-		 *            字段
-		 * @param value{Object}
-		 *            值
-		 * @returns
 		 */
 		var onClickCell = $.fn.datagrid.defaults.onClickCell;
 		/**
 		 * 单元格双击事件
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param field{Object}
-		 *            字段
-		 * @param value{Object}
-		 *            值
-		 * @returns
 		 */
 		var onDblClickCell = $.fn.datagrid.defaults.onDblClickCell;
 		/**
 		 * 排序前
-		 * 
-		 * @param sort{Object}
-		 *            排序字段
-		 * @param order{String}
-		 *            排序方式
-		 * @returns
 		 */
 		var onBeforeSortColumn = $.fn.datagrid.defaults.onBeforeSortColumn;
 		/**
 		 * 排序
-		 * 
-		 * @param sort{Object}
-		 *            排序字段
-		 * @param order{String}
-		 *            排序方式
-		 * @returns
 		 */
 		var onSortColumn = $.fn.datagrid.defaults.onSortColumn;
 		/**
 		 * 改变列宽
-		 * 
-		 * @param field{Object}
-		 *            字段
-		 * @param width{Number}
-		 *            宽度
-		 * @returns
 		 */
 		var onResizeColumn = $.fn.datagrid.defaults.onResizeColumn;
 		/**
 		 * 选中前
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onBeforeSelect = $.fn.datagrid.defaults.onBeforeSelect;
 		/**
 		 * 选中
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onSelect = $.fn.datagrid.defaults.onSelect;
 		/**
 		 * 取消选中前
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onBeforeUnselect = $.fn.datagrid.defaults.onBeforeUnselect;
 		/**
 		 * 取消选中
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onUnselect = $.fn.datagrid.defaults.onUnselect;
 		/**
 		 * 选中所有时
-		 * 
-		 * @param rows{Array}
-		 *            选中的行对象集合
-		 * @returns
 		 */
 		var onSelectAll = $.fn.datagrid.defaults.onSelectAll;
 		/**
 		 * 取消选中所有时
-		 * 
-		 * @param rows{Array}
-		 *            取消选中的行对象集合
-		 * @returns
 		 */
 		var onUnselectAll = $.fn.datagrid.defaults.onUnselectAll;
 		/**
 		 * 勾选前
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onBeforeCheck = $.fn.datagrid.defaults.onBeforeCheck;
 		/**
 		 * 勾选
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onCheck = $.fn.datagrid.defaults.onCheck;
 		/**
 		 * 取消勾选前
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onBeforeUncheck = $.fn.datagrid.defaults.onBeforeUncheck;
 		/**
 		 * 取消勾选
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onUncheck = $.fn.datagrid.defaults.onUncheck;
 		/**
 		 * 勾选所有
-		 * 
-		 * @param rows{Array}
-		 *            行对象集合
-		 * @returns
 		 */
 		var onCheckAll = $.fn.datagrid.defaults.onCheckAll;
 		/**
 		 * 取消勾选所有
-		 * 
-		 * @param rows{Array}
-		 *            行对象集合
-		 * @returns
 		 */
 		var onUncheckAll = $.fn.datagrid.defaults.onUncheckAll;
 		/**
 		 * 编辑前
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onBeforeEdit = $.fn.datagrid.defaults.onBeforeEdit;
 		/**
 		 * 编辑
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onBeginEdit = $.fn.datagrid.defaults.onBeginEdit;
 		/**
 		 * 结束编辑
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @param changes{Array}
-		 *            改变的行对象集合
-		 * @returns
 		 */
 		var onEndEdit = $.fn.datagrid.defaults.onEndEdit;
 		/**
 		 * 编辑后
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @param changes{Array}
-		 *            改变的行对象集合
-		 * @returns
 		 */
 		var onAfterEdit = $.fn.datagrid.defaults.onAfterEdit;
 		/**
 		 * 取消编辑
-		 * 
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onCancelEdit = $.fn.datagrid.defaults.onCancelEdit;
 		/**
 		 * 标题头右键点击
-		 * 
-		 * @param e{Object}
-		 * @param field{Object}
-		 *            字段
-		 * @returns
 		 */
 		var onHeaderContextMenu = $.fn.datagrid.defaults.onHeaderContextMenu;
 		/**
 		 * 行右键点击事件
-		 * 
-		 * @param e{Object}
-		 * @param index{Number}
-		 *            行号
-		 * @param row{Object}
-		 *            行对象
-		 * @returns
 		 */
 		var onRowContextMenu = $.fn.datagrid.defaults.onRowContextMenu;
 
 		/**
 		 * 获取/设置列
 		 * 
-		 * @param columns
+		 * @param columns{array}
+		 * @returns {array/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.columns = function() {
 
@@ -607,7 +448,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置冻结列
 		 * 
-		 * @param frozenColumns
+		 * @param frozenColumns{array}
+		 * @returns {array/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.frozenColumns = function() {
 
@@ -623,7 +465,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置列宽自适应
 		 * 
-		 * @param fitColumns
+		 * @param fitColumns{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.fitColumns = function() {
 
@@ -639,7 +482,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param resizeHandle
+		 * @param resizeHandle{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.resizeHandle = function() {
 
@@ -653,9 +497,27 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		};
 
 		/**
+		 * 获取/设置
+		 * 
+		 * @param resizeEdge{number}
+		 * @returns {number/core.html.easyui.datagrid.DataGrid}
+		 */
+		this.resizeEdge = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return resizeEdge;
+			default:
+				resizeEdge = arguments[0];
+				return this;
+			}
+		};
+
+		/**
 		 * 获取/设置行高自适应
 		 * 
-		 * @param autoRowHeight
+		 * @param autoRowHeight{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.autoRowHeight = function() {
 
@@ -671,7 +533,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置工具条
 		 * 
-		 * @param toolbar
+		 * @param toolbar{array}
+		 * @returns {array/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.toolbar = function() {
 
@@ -687,7 +550,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置隔行变色
 		 * 
-		 * @param striped
+		 * @param striped{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.striped = function() {
 
@@ -703,7 +567,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置禁止文字自动换行
 		 * 
-		 * @param nowrap
+		 * @param nowrap{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.nowrap = function() {
 
@@ -719,7 +584,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置id字段
 		 * 
-		 * @param idField
+		 * @param idField{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.idField = function() {
 
@@ -735,7 +601,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置数据URL
 		 * 
-		 * @param url
+		 * @param url{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.url = function() {
 
@@ -751,7 +618,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置数据
 		 * 
-		 * @param data
+		 * @param data{array}
+		 * @returns {array/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.data = function() {
 
@@ -767,7 +635,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置数据加载等待提示
 		 * 
-		 * @param loadMsg
+		 * @param loadMsg{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.loadMsg = function() {
 
@@ -783,7 +652,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param emptyMsg
+		 * @param emptyMsg{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.emptyMsg = function() {
 
@@ -799,7 +669,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置添加页脚工具栏
 		 * 
-		 * @param pagination
+		 * @param pagination{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.pagination = function() {
 
@@ -815,7 +686,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置显示行号
 		 * 
-		 * @param rownumbers
+		 * @param rownumbers{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.rownumbers = function() {
 
@@ -831,7 +703,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置仅能选中单行
 		 * 
-		 * @param singleSelect
+		 * @param singleSelect{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.singleSelect = function() {
 
@@ -847,7 +720,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置ctrl键选中
 		 * 
-		 * @param ctrlSelect
+		 * @param ctrlSelect{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.ctrlSelect = function() {
 
@@ -863,7 +737,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置check时选中
 		 * 
-		 * @param checkOnSelect
+		 * @param checkOnSelect{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.checkOnSelect = function() {
 
@@ -879,7 +754,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置选中时check
 		 * 
-		 * @param selectOnCheck
+		 * @param selectOnCheck{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.selectOnCheck = function() {
 
@@ -893,9 +769,27 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		};
 
 		/**
+		 * 获取/设置
+		 * 
+		 * @param scrollOnSelect{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
+		 */
+		this.scrollOnSelect = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return scrollOnSelect;
+			default:
+				scrollOnSelect = arguments[0];
+				return this;
+			}
+		};
+
+		/**
 		 * 获取/设置分页工具条位置
 		 * 
-		 * @param pagePosition
+		 * @param pagePosition{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.pagePosition = function() {
 
@@ -909,57 +803,10 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		};
 
 		/**
-		 * 获取/设置默认页码
-		 * 
-		 * @param pageNumber
-		 */
-		this.pageNumber = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return pageNumber;
-			default:
-				pageNumber = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置分页数
-		 * 
-		 * @param pageSize
-		 */
-		this.pageSize = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return pageSize;
-			default:
-				pageSize = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置分页数可选列表
-		 * 
-		 * @param pageList
-		 */
-		this.pageList = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return pageList;
-			default:
-				pageList = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置排序字段
 		 * 
-		 * @param sortName
+		 * @param sortName{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.sortName = function() {
 
@@ -975,7 +822,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置排序方式
 		 * 
-		 * @param sortOrder
+		 * @param sortOrder{string}
+		 * @returns {string/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.sortOrder = function() {
 
@@ -991,7 +839,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param multiSort
+		 * @param multiSort{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.multiSort = function() {
 
@@ -1007,7 +856,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置向后台发送排序条件
 		 * 
-		 * @param remoteSort
+		 * @param remoteSort{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.remoteSort = function() {
 
@@ -1023,7 +873,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置显示标头
 		 * 
-		 * @param showHeader
+		 * @param showHeader{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.showHeader = function() {
 
@@ -1039,7 +890,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置显示脚
 		 * 
-		 * @param showFooter
+		 * @param showFooter{boolean}
+		 * @returns {boolean/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.showFooter = function() {
 
@@ -1055,7 +907,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param scrollbarSize
+		 * @param scrollbarSize{number}
+		 * @returns {number/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.scrollbarSize = function() {
 
@@ -1071,7 +924,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置行号宽度
 		 * 
-		 * @param rownumberWidth
+		 * @param rownumberWidth{number}
+		 * @returns {number/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.rownumberWidth = function() {
 
@@ -1087,7 +941,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置编辑框高度
 		 * 
-		 * @param editorHeight
+		 * @param editorHeight{number}
+		 * @returns {number/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.editorHeight = function() {
 
@@ -1103,7 +958,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置行样式
 		 * 
-		 * @param rowStyler
+		 * @param rowStyler{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.rowStyler = function() {
 
@@ -1119,7 +975,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置数据加载过滤
 		 * 
-		 * @param loadFilter
+		 * @param loadFilter{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.loadFilter = function() {
 
@@ -1135,7 +992,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置编辑
 		 * 
-		 * @param editors
+		 * @param editors{object}
+		 * @returns {object/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.editors = function() {
 
@@ -1151,7 +1009,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置展示
 		 * 
-		 * @param view
+		 * @param view{object}
+		 * @returns {object/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.view = function() {
 
@@ -1167,7 +1026,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置数据加载成功事件
 		 * 
-		 * @param onLoadSuccess
+		 * @param onLoadSuccess{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onLoadSuccess = function() {
 
@@ -1183,7 +1043,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置行单击事件
 		 * 
-		 * @param onClickRow
+		 * @param onClickRow{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onClickRow = function() {
 
@@ -1199,7 +1060,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置行双击事件
 		 * 
-		 * @param onDblClickRow
+		 * @param onDblClickRow{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onDblClickRow = function() {
 
@@ -1215,7 +1077,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置单元格单击事件
 		 * 
-		 * @param onClickCell
+		 * @param onClickCell{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onClickCell = function() {
 
@@ -1231,7 +1094,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置单元格双击事件
 		 * 
-		 * @param onDblClickCell
+		 * @param onDblClickCell{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onDblClickCell = function() {
 
@@ -1247,7 +1111,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置排序前
 		 * 
-		 * @param onBeforeSortColumn
+		 * @param onBeforeSortColumn{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeforeSortColumn = function() {
 
@@ -1263,7 +1128,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置排序
 		 * 
-		 * @param onSortColumn
+		 * @param onSortColumn{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onSortColumn = function() {
 
@@ -1279,7 +1145,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置改变列宽
 		 * 
-		 * @param onResizeColumn
+		 * @param onResizeColumn{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onResizeColumn = function() {
 
@@ -1295,7 +1162,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置选中前
 		 * 
-		 * @param onBeforeSelect
+		 * @param onBeforeSelect{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeforeSelect = function() {
 
@@ -1311,7 +1179,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置选中
 		 * 
-		 * @param onSelect
+		 * @param onSelect{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onSelect = function() {
 
@@ -1327,7 +1196,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消选中前
 		 * 
-		 * @param onBeforeUnselect
+		 * @param onBeforeUnselect{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeforeUnselect = function() {
 
@@ -1343,7 +1213,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消选中
 		 * 
-		 * @param onUnselect
+		 * @param onUnselect{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onUnselect = function() {
 
@@ -1359,7 +1230,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置选中所有时
 		 * 
-		 * @param onSelectAll
+		 * @param onSelectAll{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onSelectAll = function() {
 
@@ -1375,7 +1247,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消选中所有时
 		 * 
-		 * @param onUnselectAll
+		 * @param onUnselectAll{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onUnselectAll = function() {
 
@@ -1391,7 +1264,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置勾选前
 		 * 
-		 * @param onBeforeCheck
+		 * @param onBeforeCheck{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeforeCheck = function() {
 
@@ -1407,7 +1281,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置勾选
 		 * 
-		 * @param onCheck
+		 * @param onCheck{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onCheck = function() {
 
@@ -1423,7 +1298,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消勾选前
 		 * 
-		 * @param onBeforeUncheck
+		 * @param onBeforeUncheck{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeforeUncheck = function() {
 
@@ -1439,7 +1315,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消勾选
 		 * 
-		 * @param onUncheck
+		 * @param onUncheck{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onUncheck = function() {
 
@@ -1455,7 +1332,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置勾选所有
 		 * 
-		 * @param onCheckAll
+		 * @param onCheckAll{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onCheckAll = function() {
 
@@ -1471,7 +1349,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消勾选所有
 		 * 
-		 * @param onUncheckAll
+		 * @param onUncheckAll{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onUncheckAll = function() {
 
@@ -1487,7 +1366,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置编辑前
 		 * 
-		 * @param onBeforeEdit
+		 * @param onBeforeEdit{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeforeEdit = function() {
 
@@ -1503,7 +1383,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置编辑
 		 * 
-		 * @param onBeginEdit
+		 * @param onBeginEdit{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onBeginEdit = function() {
 
@@ -1519,7 +1400,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置结束编辑
 		 * 
-		 * @param onEndEdit
+		 * @param onEndEdit{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onEndEdit = function() {
 
@@ -1535,7 +1417,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置编辑后
 		 * 
-		 * @param onAfterEdit
+		 * @param onAfterEdit{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onAfterEdit = function() {
 
@@ -1551,7 +1434,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置取消编辑
 		 * 
-		 * @param onCancelEdit
+		 * @param onCancelEdit{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onCancelEdit = function() {
 
@@ -1567,7 +1451,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置标题头右键点击
 		 * 
-		 * @param onHeaderContextMenu
+		 * @param onHeaderContextMenu{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onHeaderContextMenu = function() {
 
@@ -1583,7 +1468,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		/**
 		 * 获取/设置行右键点击事件
 		 * 
-		 * @param onRowContextMenu
+		 * @param onRowContextMenu{function}
+		 * @returns {function/core.html.easyui.datagrid.DataGrid}
 		 */
 		this.onRowContextMenu = function() {
 
@@ -1596,31 +1482,22 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			}
 		};
 	};
-	// 继承面板模板
-	core.lang.Class.extend(Constructor, core.html.easyui.layout.Panel);
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.datagrid.Datagrid}
+	 * @returns {core.html.easyui.datagrid.DataGrid}
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.datagrid.Datagrid", "构造参数异常", "DIV(ID:" + this.id()
-					+ ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.datagrid.Datagrid", "构造参数警告", "DIV(ID:" + this.id()
-					+ ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.datagrid.DataGrid", "构造参数异常", "Document不存在.");
 		}
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
 		// 参数配置
-		$jQuery.datagrid({
-			// 属性
+		this.$jQuery().datagrid({
 			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
@@ -1638,6 +1515,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			doSize : this.doSize(),
 			noheader : this.noheader(),
 			content : this.content(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
 			collapsible : this.collapsible(),
 			minimizable : this.minimizable(),
 			maximizable : this.maximizable(),
@@ -1660,11 +1539,43 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			method : this.method(),
 			queryParams : this.queryParams(),
 			loader : this.loader(),
+			// Resizable继承属性
+			disabled : this.disabled(),
+			handles : this.handles(),
+			minWidth : this.minWidth(),
+			minHeight : this.minHeight(),
+			maxWidth : this.maxWidth(),
+			maxHeight : this.maxHeight(),
+			edge : this.edge(),
+			// LinkButton继承属性
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// Pagination继承属性
+			total : this.total(),
+			pageSize : this.pageSize(),
+			pageNumber : this.pageNumber(),
+			pageList : this.pageList(),
+			loading : this.loading(),
+			buttons : this.buttons(),
+			layout : this.layout(),
+			links : this.links(),
+			showPageList : this.showPageList(),
+			showRefresh : this.showRefresh(),
+			showPageInfo : this.showPageInfo(),
+			beforePageText : this.beforePageText(),
+			afterPageText : this.afterPageText(),
+			displayMsg : this.displayMsg(),
 			// 属性
 			columns : this.columns(),
 			frozenColumns : this.frozenColumns(),
 			fitColumns : this.fitColumns(),
 			resizeHandle : this.resizeHandle(),
+			resizeEdge : this.resizeEdge(),
 			autoRowHeight : this.autoRowHeight(),
 			toolbar : this.toolbar(),
 			striped : this.striped(),
@@ -1680,10 +1591,8 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			ctrlSelect : this.ctrlSelect(),
 			checkOnSelect : this.checkOnSelect(),
 			selectOnCheck : this.selectOnCheck(),
+			scrollOnSelect : this.scrollOnSelect(),
 			pagePosition : this.pagePosition(),
-			pageNumber : this.pageNumber(),
-			pageSize : this.pageSize(),
-			pageList : this.pageList(),
 			sortName : this.sortName(),
 			sortOrder : this.sortOrder(),
 			multiSort : this.multiSort(),
@@ -1698,7 +1607,6 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			editors : this.editors(),
 			view : this.view(),
 
-			// 事件
 			// Panel继承事件
 			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
@@ -1718,6 +1626,16 @@ core.html.easyui.datagrid.DataGrid = (function() {
 			onMaximize : this.onMaximize(),
 			onRestore : this.onRestore(),
 			onMinimize : this.onMinimize(),
+			// Resizable继承事件
+			onStartResize : this.onStartResize(),
+			onStopResize : this.onStopResize(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
+			// Pagination继承事件
+			onSelectPage : this.onSelectPage(),
+			onBeforeRefresh : this.onBeforeRefresh(),
+			onRefresh : this.onRefresh(),
+			onChangePageSize : this.onChangePageSize(),
 			// 事件
 			onLoadSuccess : this.onLoadSuccess(),
 			onClickRow : this.onClickRow(),
@@ -1749,7 +1667,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		});
 
 		$(this.getPager()).pagination({
+			
 			onChangePageSize : function(pageSize) {
+				
 				core.html.util.Cookie.getInstance().set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
 			}
 		});
@@ -1762,100 +1682,100 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).datagrid("options");
+		return this.$jQuery().datagrid("options");
 	};
 
 	/**
 	 * 获取页面对象
 	 * 
-	 * @returns {Object}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getPager = function() {
 
-		return $("#" + this.id()).datagrid("getPager");
+		return this.$jQuery().datagrid("getPager");
 	};
 
 	/**
 	 * 获取面板对象
 	 * 
-	 * @returns {Object}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getPanel = function() {
 
-		return $("#" + this.id()).datagrid("getPanel");
+		return this.$jQuery().datagrid("getPanel");
 	};
 
 	/**
 	 * 获取列字段
 	 * 
-	 * @param frozen{Object}
-	 * @returns {Object}
+	 * @param frozen{boolean}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getColumnFields = function(frozen) {
 
-		return $("#" + this.id()).datagrid("getColumnFields", frozen);
+		return this.$jQuery().datagrid("getColumnFields", frozen);
 	};
 
 	/**
 	 * 获取列属性
 	 * 
-	 * @param field{Object}
-	 * @returns {Object}
+	 * @param field{object}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getColumnOption = function(field) {
 
-		return $("#" + this.id()).datagrid("getColumnOption", field);
+		return this.$jQuery().datagrid("getColumnOption", field);
 	};
 
 	/**
 	 * 调整大小
 	 * 
-	 * @param param{Object}
+	 * @param param{object}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(param) {
 
-		return $("#" + this.id()).datagrid("resize", param);
+		return this.$jQuery().datagrid("resize", param);
 	};
 
 	/**
 	 * 重新加载数据
 	 * 
-	 * @param param{Object}
+	 * @param param{object}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.load = function(param) {
 
-		return $("#" + this.id()).datagrid("load", param);
+		return this.$jQuery().datagrid("load", param);
 	};
 
 	/**
 	 * 重新加载数据,且停留在当前页面
 	 * 
-	 * @param param{Object}
+	 * @param param{object}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.reload = function(param) {
 
-		return $("#" + this.id()).datagrid("reload", param);
+		return this.$jQuery().datagrid("reload", param);
 	};
 
 	/**
 	 * 重载页脚
 	 * 
-	 * @param footer{Object}
+	 * @param footer{object}
 	 * @returns
 	 */
 	Constructor.prototype.reloadFooter = function(footer) {
 
-		return $("#" + this.id()).datagrid("reloadFooter", footer);
+		return this.$jQuery().datagrid("reloadFooter", footer);
 	};
 
 	/**
@@ -1865,7 +1785,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.loading = function() {
 
-		return $("#" + this.id()).datagrid("loading");
+		return this.$jQuery().datagrid("loading");
 	};
 
 	/**
@@ -1875,7 +1795,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.loaded = function() {
 
-		return $("#" + this.id()).datagrid("loaded");
+		return this.$jQuery().datagrid("loaded");
 	};
 
 	/**
@@ -1885,139 +1805,139 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.fitColumns = function() {
 
-		return $("#" + this.id()).datagrid("fitColumns");
+		return this.$jQuery().datagrid("fitColumns");
 	};
 
 	/**
 	 * 固定列宽
 	 * 
-	 * @param field{Object}
+	 * @param field{object}
 	 *            字段
 	 * @returns
 	 */
 	Constructor.prototype.fixColumnSize = function(field) {
 
-		return $("#" + this.id()).datagrid("fixColumnSize", field);
+		return this.$jQuery().datagrid("fixColumnSize", field);
 	};
 
 	/**
 	 * 固定指定列高度
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.fixRowHeight = function(index) {
 
-		return $("#" + this.id()).datagrid("fixRowHeight", index);
+		return this.$jQuery().datagrid("fixRowHeight", index);
 	};
 
 	/**
 	 * 冻结指定行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.freezeRow = function(index) {
 
-		return $("#" + this.id()).datagrid("freezeRow", index);
+		return this.$jQuery().datagrid("freezeRow", index);
 	};
 
 	/**
 	 * 列宽自适应
 	 * 
-	 * @param field{Object}
+	 * @param field{object}
 	 *            列字段
 	 * @returns
 	 */
 	Constructor.prototype.autoSizeColumn = function(field) {
 
-		return $("#" + this.id()).datagrid("autoSizeColumn", field);
+		return this.$jQuery().datagrid("autoSizeColumn", field);
 	};
 
 	/**
 	 * 加载数据
 	 * 
-	 * @param data{Object}
+	 * @param data{array}
 	 *            需要加载的数据
 	 * @returns
 	 */
 	Constructor.prototype.loadData = function(data) {
 
-		return $("#" + this.id()).datagrid("loadData", data);
+		return this.$jQuery().datagrid("loadData", data);
 	};
 
 	/**
 	 * 获取当前数据
 	 * 
-	 * @returns {Array}
+	 * @returns {array}
 	 */
 	Constructor.prototype.getData = function() {
 
-		return $("#" + this.id()).datagrid("getData");
+		return this.$jQuery().datagrid("getData");
 	};
 
 	/**
 	 * 获取所有行
 	 * 
-	 * @returns {Array}
+	 * @returns {array}
 	 */
 	Constructor.prototype.getRows = function() {
 
-		return $("#" + this.id()).datagrid("getRows");
+		return this.$jQuery().datagrid("getRows");
 	};
 
 	/**
 	 * 获取页脚所有行
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.getFooterRows = function() {
 
-		return $("#" + this.id()).datagrid("getFooterRows");
+		return this.$jQuery().datagrid("getFooterRows");
 	};
 
 	/**
 	 * 获取指定行号
 	 * 
-	 * @param row{Object}
+	 * @param row{object}
 	 *            行对象
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getRowIndex = function(row) {
 
-		return $("#" + this.id()).datagrid("getRowIndex", row);
+		return this.$jQuery().datagrid("getRowIndex", row);
 	};
 
 	/**
 	 * 获取勾选行
 	 * 
-	 * @returns {Object}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getChecked = function() {
 
-		return $("#" + this.id()).datagrid("getChecked");
+		return this.$jQuery().datagrid("getChecked");
 	};
 
 	/**
 	 * 获取选中节点
 	 * 
-	 * @returns {Object}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getSelected = function() {
 
-		return $("#" + this.id()).datagrid("getSelected");
+		return this.$jQuery().datagrid("getSelected");
 	};
 
 	/**
 	 * 获取所有选中行
 	 * 
-	 * @returns {Array}
+	 * @returns {array}
 	 */
 	Constructor.prototype.getSelections = function() {
 
-		return $("#" + this.id()).datagrid("getSelections");
+		return this.$jQuery().datagrid("getSelections");
 	};
 
 	/**
@@ -2027,7 +1947,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.clearSelections = function() {
 
-		return $("#" + this.id()).datagrid("clearSelections");
+		return this.$jQuery().datagrid("clearSelections");
 	};
 
 	/**
@@ -2037,43 +1957,43 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.clearChecked = function() {
 
-		return $("#" + this.id()).datagrid("clearChecked");
+		return this.$jQuery().datagrid("clearChecked");
 	};
 
 	/**
 	 * 滚动至指定行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.scrollTo = function(index) {
 
-		return $("#" + this.id()).datagrid("scrollTo", index);
+		return this.$jQuery().datagrid("scrollTo", index);
 	};
 
 	/**
 	 * 跳至某页
 	 * 
-	 * @param param{Object}
+	 * @param param{number}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.gotoPage = function(param) {
 
-		return $("#" + this.id()).datagrid("gotoPage", param);
+		return this.$jQuery().datagrid("gotoPage", param);
 	};
 
 	/**
 	 * 高亮行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.highlightRow = function(index) {
 
-		return $("#" + this.id()).datagrid("highlightRow", index);
+		return this.$jQuery().datagrid("highlightRow", index);
 	};
 
 	/**
@@ -2083,7 +2003,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.selectAll = function() {
 
-		return $("#" + this.id()).datagrid("selectAll");
+		return this.$jQuery().datagrid("selectAll");
 	};
 
 	/**
@@ -2093,43 +2013,43 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.unselectAll = function() {
 
-		return $("#" + this.id()).datagrid("unselectAll");
+		return this.$jQuery().datagrid("unselectAll");
 	};
 
 	/**
 	 * 选中行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.selectRow = function(index) {
 
-		return $("#" + this.id()).datagrid("selectRow", index);
+		return this.$jQuery().datagrid("selectRow", index);
 	};
 
 	/**
 	 * 通过ID选中行
 	 * 
-	 * @param idValue{String}
+	 * @param idValue{string}
 	 *            id值
 	 * @returns
 	 */
 	Constructor.prototype.selectRecord = function(idValue) {
 
-		return $("#" + this.id()).datagrid("selectRecord", idValue);
+		return this.$jQuery().datagrid("selectRecord", idValue);
 	};
 
 	/**
 	 * 取消选中行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.unselectRow = function(index) {
 
-		return $("#" + this.id()).datagrid("unselectRow", index);
+		return this.$jQuery().datagrid("unselectRow", index);
 	};
 
 	/**
@@ -2139,7 +2059,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.checkAll = function() {
 
-		return $("#" + this.id()).datagrid("checkAll");
+		return this.$jQuery().datagrid("checkAll");
 	};
 
 	/**
@@ -2149,175 +2069,175 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.uncheckAll = function() {
 
-		return $("#" + this.id()).datagrid("uncheckAll");
+		return this.$jQuery().datagrid("uncheckAll");
 	};
 
 	/**
 	 * 勾选行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.checkRow = function(index) {
 
-		return $("#" + this.id()).datagrid("checkRow", index);
+		return this.$jQuery().datagrid("checkRow", index);
 	};
 
 	/**
 	 * 取消勾选行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.uncheckRow = function(index) {
 
-		return $("#" + this.id()).datagrid("uncheckRow", index);
+		return this.$jQuery().datagrid("uncheckRow", index);
 	};
 
 	/**
 	 * 编辑行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.beginEdit = function(index) {
 
-		return $("#" + this.id()).datagrid("beginEdit", index);
+		return this.$jQuery().datagrid("beginEdit", index);
 	};
 
 	/**
 	 * 结束编辑行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.endEdit = function(index) {
 
-		return $("#" + this.id()).datagrid("endEdit", index);
+		return this.$jQuery().datagrid("endEdit", index);
 	};
 
 	/**
 	 * 取消编辑行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.cancelEdit = function(index) {
 
-		return $("#" + this.id()).datagrid("cancelEdit", index);
+		return this.$jQuery().datagrid("cancelEdit", index);
 	};
 
 	/**
 	 * 获取行所有编辑器
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.getEditors = function(index) {
 
-		return $("#" + this.id()).datagrid("getEditors", index);
+		return this.$jQuery().datagrid("getEditors", index);
 	};
 
 	/**
 	 * 获取行中某列编辑器
 	 * 
-	 * @param options{Object}
+	 * @param options{object}
 	 *            参数
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.getEditor = function(options) {
 
-		return $("#" + this.id()).datagrid("getEditor", options);
+		return this.$jQuery().datagrid("getEditor", options);
 	};
 
 	/**
 	 * 刷新行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.refreshRow = function(index) {
 
-		return $("#" + this.id()).datagrid("refreshRow", index);
+		return this.$jQuery().datagrid("refreshRow", index);
 	};
 
 	/**
 	 * 验证行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.validateRow = function(index) {
 
-		return $("#" + this.id()).datagrid("validateRow", index);
+		return this.$jQuery().datagrid("validateRow", index);
 	};
 
 	/**
 	 * 更新行
 	 * 
-	 * @param param{Object}
+	 * @param param{object}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.updateRow = function(param) {
 
-		return $("#" + this.id()).datagrid("updateRow", param);
+		return this.$jQuery().datagrid("updateRow", param);
 	};
 
 	/**
 	 * 添加行
 	 * 
-	 * @param row{Object}
+	 * @param row{object}
 	 *            行对象
 	 * @returns
 	 */
 	Constructor.prototype.appendRow = function(row) {
 
-		return $("#" + this.id()).datagrid("appendRow", row);
+		return this.$jQuery().datagrid("appendRow", row);
 	};
 
 	/**
 	 * 插入行
 	 * 
-	 * @param param{Object}
+	 * @param param{object}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.insertRow = function(param) {
 
-		return $("#" + this.id()).datagrid("insertRow", param);
+		return this.$jQuery().datagrid("insertRow", param);
 	};
 
 	/**
 	 * 删除行
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
 	 * @returns
 	 */
 	Constructor.prototype.deleteRow = function(index) {
 
-		return $("#" + this.id()).datagrid("deleteRow", index);
+		return this.$jQuery().datagrid("deleteRow", index);
 	};
 
 	/**
 	 * 获取修改行
 	 * 
-	 * @param type{Object}
+	 * @param type{object}
 	 *            类型
-	 * @returns
+	 * @returns {array}
 	 */
 	Constructor.prototype.getChanges = function(type) {
 
-		return $("#" + this.id()).datagrid("getChanges", type);
+		return this.$jQuery().datagrid("getChanges", type);
 	};
 
 	/**
@@ -2327,7 +2247,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.acceptChanges = function() {
 
-		return $("#" + this.id()).datagrid("acceptChanges");
+		return this.$jQuery().datagrid("acceptChanges");
 	};
 
 	/**
@@ -2337,67 +2257,68 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	 */
 	Constructor.prototype.rejectChanges = function() {
 
-		return $("#" + this.id()).datagrid("rejectChanges");
+		return this.$jQuery().datagrid("rejectChanges");
 	};
 
 	/**
 	 * 合并单元格
 	 * 
-	 * @param options{Object}
+	 * @param options{object}
 	 * @returns
 	 */
 	Constructor.prototype.mergeCells = function(options) {
 
-		return $("#" + this.id()).datagrid("mergeCells", options);
+		return this.$jQuery().datagrid("mergeCells", options);
 	};
 
 	/**
 	 * 显示列
 	 * 
-	 * @param field{Object}
+	 * @param field{object}
 	 *            列字段
 	 * @returns
 	 */
 	Constructor.prototype.showColumn = function(field) {
 
-		return $("#" + this.id()).datagrid("showColumn", field);
+		return this.$jQuery().datagrid("showColumn", field);
 	};
 
 	/**
 	 * 隐藏列
 	 * 
-	 * @param field{Object}
+	 * @param field{object}
 	 *            列字段
 	 * @returns
 	 */
 	Constructor.prototype.hideColumn = function(field) {
 
-		return $("#" + this.id()).datagrid("hideColumn", field);
+		return this.$jQuery().datagrid("hideColumn", field);
 	};
 
 	/**
 	 * 排序
 	 * 
-	 * @param param{Object}
+	 * @param param{object}
 	 *            参数
 	 * @returns
 	 */
 	Constructor.prototype.sort = function(param) {
 
-		return $("#" + this.id()).datagrid("sort", param);
+		return this.$jQuery().datagrid("sort", param);
 	};
 
 	/** ==========扩展方法========== */
 	/**
 	 * 设置宽度
 	 * 
-	 * @param width{Number}
+	 * @param width{number}
 	 *            宽度
 	 * @returns
 	 */
 	Constructor.prototype.setWidth = function(width) {
 
 		return this.resize({
+			
 			width : width
 		});
 	};
@@ -2405,13 +2326,14 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	/**
 	 * 设置高度
 	 * 
-	 * @param height{Number}
+	 * @param height{number}
 	 *            高度
 	 * @returns
 	 */
 	Constructor.prototype.setHeight = function(height) {
 
 		return this.resize({
+			
 			height : height
 		});
 	};
@@ -2419,58 +2341,55 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	/**
 	 * 获取当前页数据条数
 	 * 
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getCurrentPageDataNum = function() {
 
-		var data = this.getData();
-		return data.rows.length;
+		return this.getData().rows.length;
 	}
 
 	/**
 	 * 获取记录总条数
 	 * 
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getTotalDataNum = function() {
 
-		var data = this.getData();
-		return data.total;
+		return this.getData().total;
 	}
 
 	/**
 	 * 获取分页数
 	 * 
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getPageSize = function() {
 
-		var options = $(this.getPager()).pagination("options");
-		return options.pageSize;
+		return $(this.getPager()).pagination("options").pageSize;
 	}
 
 	/**
 	 * 获取总页数
 	 * 
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getPageNum = function() {
 
 		var options = $(this.getPager()).pagination("options");
 		var total = options.total;
 		var max = Math.ceil(total / options.pageSize);
+		
 		return max;
 	}
 
 	/**
 	 * 获取当前页码
 	 * 
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getCurrentPageNum = function() {
 
-		var options = $(this.getPager()).pagination("options");
-		return options.pageNumber;
+		return $(this.getPager()).pagination("options").pageNumber;
 	}
 
 	/**
@@ -2496,9 +2415,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	/**
 	 * 获取指定行数据
 	 * 
-	 * @param index{Number}
+	 * @param index{number}
 	 *            行号
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.getRow = function(index) {
 
@@ -2506,41 +2425,9 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	};
 
 	/**
-	 * 互换两行位置
-	 * 
-	 * @param index1{Number}
-	 *            行号1
-	 * @param index2{Number}
-	 *            行号2
-	 * @returns
-	 */
-	Constructor.prototype.changeRowOrder = function(index1, index2) {
-
-		var min = index1 > index2 ? index2 : index1;
-		var max = index1 > index2 ? index1 : index2;
-
-		var rowMin = this.getRows()[min];
-		var rowMax = this.getRows()[max];
-
-		// 删除
-		this.deleteRow(max);
-		this.deleteRow(min);
-
-		// 添加
-		this.insertRow({
-			index : min,
-			row : rowMax
-		});
-		this.insertRow({
-			index : max,
-			row : rowMin
-		});
-	}
-
-	/**
 	 * 获取选中行索引
 	 * 
-	 * @returns {Number}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getSelectedRowIndex = function() {
 

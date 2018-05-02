@@ -35,17 +35,19 @@ public class EasyUIUtil {
 		 * 主题涉及的文件
 		 */
 		String[] themeFiles = new String[] { easyuiURL + commonFile + theme + "/accordion.css",
-				easyuiURL + commonFile + theme + "/calendar.css", easyuiURL + commonFile + theme + "/combo.css",
-				easyuiURL + commonFile + theme + "/combobox.css", easyuiURL + commonFile + theme + "/datagrid.css",
-				easyuiURL + commonFile + theme + "/datalist.css", easyuiURL + commonFile + theme + "/datebox.css",
-				easyuiURL + commonFile + theme + "/dialog.css", easyuiURL + commonFile + theme + "/easyui.css",
-				easyuiURL + commonFile + theme + "/filebox.css", easyuiURL + commonFile + theme + "/layout.css",
-				easyuiURL + commonFile + theme + "/linkbutton.css", easyuiURL + commonFile + theme + "/menu.css",
-				easyuiURL + commonFile + theme + "/menubutton.css", easyuiURL + commonFile + theme + "/messager.css",
-				easyuiURL + commonFile + theme + "/numberbox.css", easyuiURL + commonFile + theme + "/pagination.css",
-				easyuiURL + commonFile + theme + "/panel.css", easyuiURL + commonFile + theme + "/passwordbox.css",
+				easyuiURL + commonFile + theme + "/calendar.css", easyuiURL + commonFile + theme + "/checkbox.css",
+				easyuiURL + commonFile + theme + "/combo.css", easyuiURL + commonFile + theme + "/combobox.css",
+				easyuiURL + commonFile + theme + "/datagrid.css", easyuiURL + commonFile + theme + "/datalist.css",
+				easyuiURL + commonFile + theme + "/datebox.css", easyuiURL + commonFile + theme + "/dialog.css",
+				easyuiURL + commonFile + theme + "/easyui.css", easyuiURL + commonFile + theme + "/filebox.css",
+				easyuiURL + commonFile + theme + "/layout.css", easyuiURL + commonFile + theme + "/linkbutton.css",
+				easyuiURL + commonFile + theme + "/menu.css", easyuiURL + commonFile + theme + "/menubutton.css",
+				easyuiURL + commonFile + theme + "/messager.css", easyuiURL + commonFile + theme + "/numberbox.css",
+				easyuiURL + commonFile + theme + "/pagination.css", easyuiURL + commonFile + theme + "/panel.css",
+				easyuiURL + commonFile + theme + "/passwordbox.css",
 				easyuiURL + commonFile + theme + "/progressbar.css",
-				easyuiURL + commonFile + theme + "/propertygrid.css", easyuiURL + commonFile + theme + "/searchbox.css",
+				easyuiURL + commonFile + theme + "/propertygrid.css",
+				easyuiURL + commonFile + theme + "/radiobutton.css", easyuiURL + commonFile + theme + "/searchbox.css",
 				easyuiURL + commonFile + theme + "/slider.css", easyuiURL + commonFile + theme + "/spinner.css",
 				easyuiURL + commonFile + theme + "/splitbutton.css",
 				easyuiURL + commonFile + theme + "/switchbutton.css", easyuiURL + commonFile + theme + "/tabs.css",
@@ -83,6 +85,7 @@ public class EasyUIUtil {
 
 	public static void main(String[] args) {
 
+		EasyUIUtil.downloadTheme("material-teal", new File("D:/Users/XuYQ/Desktop"));
 		EasyUIUtil.downloadTheme("metro-blue", new File("D:/Users/XuYQ/Desktop"));
 		EasyUIUtil.downloadTheme("metro-gray", new File("D:/Users/XuYQ/Desktop"));
 		EasyUIUtil.downloadTheme("metro-green", new File("D:/Users/XuYQ/Desktop"));

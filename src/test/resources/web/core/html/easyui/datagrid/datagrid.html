@@ -14,21 +14,21 @@
 
 <script type="text/javascript" src="/~/core/resource/jquery-3.1.1/jquery-3.1.1.js"></script>
 
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/locale/easyui-lang-zh_CN.js"></script>
 
 <script type="text/javascript" src="/~/core/release/core.js"></script>
 
 <script type="text/javascript" src="/~/core/package.js"></script>
 
 <script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/base/Resizable.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/button/LinkButton.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/base/Pagination.js"></script>
 <script type="text/javascript" src="/~/core/html/easyui/datagrid/Datagrid.js"></script>
 
 <script type="text/javascript">
 	$(function() {
-		alert($.fn.panel.defaults.cache)
-		alert($.fn.datagrid.defaults.cache)
-		
 		var dataGrid = new core.html.easyui.datagrid.DataGrid("datagrid");
 
 		dataGrid.columns([ [ {
@@ -71,7 +71,7 @@
 			field : 'status',
 			title : 'Status',
 			width : 60
-		} ] ]).url("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json").height("500px")
+		} ] ]).url("http://localhost:8080/~/core/html/easyui/datagrid/dataGrid.json").height("500px").pagination(true)
 				.singleSelect(true).onSelect(function(index, row) {
 					alert(index + "===" + dataGrid.getRowIndex(row));
 
@@ -83,6 +83,9 @@
 						row : row1
 					});
 					dataGrid.refreshRow(index);
+				}).onChangePageSize(function() {
+
+					alert(123);
 				}).init();
 	});
 </script>

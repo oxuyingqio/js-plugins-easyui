@@ -4,102 +4,78 @@
  * @desc	Tab页模板
  * @type	类
  * 
- * @constructor	core.html.easyui.layout.Tabs(String id)
+ * @constructor	core.html.easyui.layout.Tabs(string id/object jQuery)
  * 
- * @method	String/core.html.easyui.layout.Tabs		id()						获取/设置ID
- * 			Number/core.html.easyui.layout.Tabs		width()						获取/设置宽度
- * 			Number/core.html.easyui.layout.Tabs		height()					获取/设置高度
- * 			Boolean/core.html.easyui.layout.Tabs	plain()						获取/设置无格式
- * 			Boolean/core.html.easyui.layout.Tabs	fit()						获取/设置自适应
- * 			Boolean/core.html.easyui.layout.Tabs	border()					获取/设置边框
- * 			Boolean/core.html.easyui.layout.Tabs	scrollIncrement()			
- * 			Number/core.html.easyui.layout.Tabs		scrollDuration()			获取/设置滚动时间
- * 			Array/core.html.easyui.layout.Tabs		tools()						获取/设置工具条
- * 			String/core.html.easyui.layout.Tabs		toolPosition()				获取/设置工具条位置
- * 			String/core.html.easyui.layout.Tabs		tabPosition()				获取/设置Tab页位置
- * 			Number/core.html.easyui.layout.Tabs		headerWidth()				获取/设置头宽度
- * 			Number/core.html.easyui.layout.Tabs		tabWidth()					获取/设置Tab页宽度
- * 			Number/core.html.easyui.layout.Tabs		tabHeight()					获取/设置Tab页高度
- * 			Number/core.html.easyui.layout.Tabs		selected()					获取/设置默认选中的Tab页索引
- * 			Boolean/core.html.easyui.layout.Tabs	showHeaderAttr()			获取/设置显示标头
- * 			Boolean/core.html.easyui.layout.Tabs	justified()					获取/设置Tab页宽度自适应
- * 			Boolean/core.html.easyui.layout.Tabs	narrow()					获取/设置Tab页之间的空间
- * 			Boolean/core.html.easyui.layout.Tabs	pill()						获取/设置Tab页样式
- * 			function/core.html.easyui.layout.Tabs	onLoad()					获取/设置加载事件
- * 			function/core.html.easyui.layout.Tabs	onSelect()					获取/设置选择事件
- * 			function/core.html.easyui.layout.Tabs	onUnselect()				获取/设置取消选择事件
- * 			function/core.html.easyui.layout.Tabs	onBeforeClose()				获取/设置关闭前事件
- * 			function/core.html.easyui.layout.Tabs	onClose()					获取/设置关闭事件
- * 			function/core.html.easyui.layout.Tabs	onAdd()						获取/设置添加事件
- * 			function/core.html.easyui.layout.Tabs	onUpdate()					获取/设置更新事件
- * 			function/core.html.easyui.layout.Tabs	onContextMenu()				获取/设置右键事件
- * 			function/core.html.easyui.layout.Tabs	onDblClick()				获取/设置双击事件
- * 			core.html.easyui.layout.Tabs			init()						初始化
- * 			Object									options()					
- * 			Object									tabs()						
- * 			Object									resize()					改变窗口大小
- * 			Object									add(Object options)			添加Tab页
- * 			Object									close(Object which)			关闭指定Tab
- * 			Object									getTab(Object which)		获取指定Tab
- * 			Object									getTabIndex(Object which)	获取指定Tab页索引
- * 			Object									getSelected()				获取选中Tab页
- * 			Object									select(Object which)		选中指定Tab
- * 			Object									unselect(Object which)		取消选中指定Tab
- * 			Object									showHeader()				显示头
- * 			Object									hideHeader()				隐藏头
- * 			Object									showTool()					显示工具
- * 			Object									hideTool()					隐藏工具
- * 			Boolean									exists(Object which)		判断指定Tab是否存在
- * 			Boolean									update(Object param)		更新
- * 			Object									enableTab(Object which)		启用Tab
- * 			Object									disableTab(Object which)	禁用Tab
- * 			Object									scrollBy(Number deltaX)		滚动至
+ * @extend	core.html.easyui.layout.Panel
+ * 			core.html.easyui.button.LinkButton
  * 
- * @date	2016年8月26日 16:34:52
+ * @method	继承core.html.easyui.layout.Panel所有方法
+ * 			继承core.html.easyui.button.LinkButton所有方法
+ * 			number/core.html.easyui.layout.Tabs		scrollIncrement(number scrollIncrement)	
+ * 			number/core.html.easyui.layout.Tabs		scrollDuration(number scrollDuration)	获取/设置滚动时间
+ * 			string/core.html.easyui.layout.Tabs		toolPosition(string toolPosition)		获取/设置工具条位置
+ * 			string/core.html.easyui.layout.Tabs		tabPosition(string tabPosition)			获取/设置Tab页位置
+ * 			number/core.html.easyui.layout.Tabs		headerWidth(number headerWidth)			获取/设置头宽度
+ * 			number/core.html.easyui.layout.Tabs		tabWidth(number tabWidth)				获取/设置Tab页宽度
+ * 			number/core.html.easyui.layout.Tabs		tabHeight(number tabHeight)				获取/设置Tab页高度
+ * 			boolean/core.html.easyui.layout.Tabs	showHeaderAttr(boolean showHeaderAttr)	获取/设置显示标头
+ * 			boolean/core.html.easyui.layout.Tabs	justified(boolean justified)			获取/设置Tab页宽度自适应
+ * 			boolean/core.html.easyui.layout.Tabs	narrow(boolean narrow)					获取/设置Tab页之间的空间
+ * 			boolean/core.html.easyui.layout.Tabs	pill(boolean pill)						获取/设置Tab页样式
+ * 			function/core.html.easyui.layout.Tabs	onSelect(function onSelect)				获取/设置选择事件
+ * 			function/core.html.easyui.layout.Tabs	onUnselect(function onUnselect)			获取/设置取消选择事件
+ * 			function/core.html.easyui.layout.Tabs	onAdd(function onAdd)					获取/设置添加事件
+ * 			function/core.html.easyui.layout.Tabs	onUpdate(function onUpdate)				获取/设置更新事件
+ * 			function/core.html.easyui.layout.Tabs	onContextMenu(function onContextMenu)	获取/设置右键事件
+ * 			function/core.html.easyui.layout.Tabs	onDblClick(function onDblClick)			获取/设置双击事件
+ * 			core.html.easyui.layout.Tabs			init()									初始化
+ * 			object									options()					
+ * 			object									tabs()						
+ * 			void									resize()								改变窗口大小
+ * 			void									add(object options)						添加Tab页
+ * 			void									close(object which)						关闭指定Tab
+ * 			object									getTab(object which)					获取指定Tab
+ * 			number									getTabIndex(object tab)					获取指定Tab页索引
+ * 			object									getSelected()							获取选中Tab页
+ * 			void									select(object which)					选中指定Tab
+ * 			void									unselect(object which)					取消选中指定Tab
+ * 			void									showHeader()							显示头
+ * 			void									hideHeader()							隐藏头
+ * 			void									showTool()								显示工具
+ * 			void									hideTool()								隐藏工具
+ * 			boolean									exists(object which)					判断指定Tab是否存在
+ * 			void									update(object param)					更新
+ * 			void									enableTab(object which)					启用Tab
+ * 			void									disableTab(object which)				禁用Tab
+ * 			void									scrollBy(number deltaX)					滚动至
+ * 
+ * @date	2018年4月24日 11:53:56
  */
-
 core.html.easyui.layout.Tabs = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(_id) {
+	var Constructor = function() {
 
-		// 校验ID
-		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "构造参数异常", "ID属性不能为空");
-		}
+		// 调用父类构造
+		core.html.easyui.layout.Panel.call(this, arguments[0]);
+		core.html.easyui.button.LinkButton.call(this, arguments[0]);
+		// 默认参数修改
+		this.width($.fn.tabs.defaults.width);
+		this.height($.fn.tabs.defaults.height);
+		this.plain($.fn.tabs.defaults.plain);
+		this.fit($.fn.tabs.defaults.fit);
+		this.border($.fn.tabs.defaults.border);
+		this.tools($.fn.tabs.defaults.tools);
+		this.selected($.fn.tabs.defaults.selected);
+		this.onLoad($.fn.tabs.defaults.onLoad);
+		this.onBeforeClose($.fn.tabs.defaults.onBeforeClose);
+		this.onClose($.fn.tabs.defaults.onClose);
 
 		/**
 		 * 属性
 		 */
-		/**
-		 * ID
-		 */
-		var id = _id;
-		/**
-		 * 宽度
-		 */
-		var width = $.fn.tabs.defaults.width;
-		/**
-		 * 高度
-		 */
-		var height = $.fn.tabs.defaults.height;
-		/**
-		 * 无格式
-		 */
-		var plain = $.fn.tabs.defaults.plain;
-		/**
-		 * 自适应
-		 */
-		var fit = $.fn.tabs.defaults.fit;
-		/**
-		 * 边框
-		 */
-		var border = $.fn.tabs.defaults.border;
 		/**
 		 * 
 		 */
@@ -108,10 +84,6 @@ core.html.easyui.layout.Tabs = (function() {
 		 * 滚动持续时间
 		 */
 		var scrollDuration = $.fn.tabs.defaults.scrollDuration;
-		/**
-		 * 工具条
-		 */
-		var tools = $.fn.tabs.defaults.tools;
 		/**
 		 * 工具条位置
 		 */
@@ -133,10 +105,6 @@ core.html.easyui.layout.Tabs = (function() {
 		 */
 		var tabHeight = $.fn.tabs.defaults.tabHeight;
 		/**
-		 * 初始化选中Tab页索引
-		 */
-		var selected = $.fn.tabs.defaults.selected;
-		/**
 		 * 显示头
 		 */
 		var showHeaderAttr = $.fn.tabs.defaults.showHeader;
@@ -157,10 +125,6 @@ core.html.easyui.layout.Tabs = (function() {
 		 * 事件
 		 */
 		/**
-		 * 加载事件
-		 */
-		var onLoad = $.fn.tabs.defaults.onLoad;
-		/**
 		 * 选择事件
 		 */
 		var onSelect = $.fn.tabs.defaults.onSelect;
@@ -169,17 +133,7 @@ core.html.easyui.layout.Tabs = (function() {
 		 */
 		var onUnselect = $.fn.tabs.defaults.onUnselect;
 		/**
-		 * 关闭前事件
-		 */
-		var onBeforeClose = $.fn.tabs.defaults.onBeforeClose;
-		/**
-		 * 关闭事件
-		 */
-		var onClose = $.fn.tabs.defaults.onClose;
-		/**
 		 * 添加事件
-		 * 
-		 * @param onAdd
 		 */
 		var onAdd = $.fn.tabs.defaults.onAdd;
 		/**
@@ -198,105 +152,10 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置ID
-		 * 
-		 * @param id
-		 */
-		this.id = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return id;
-			default:
-				id = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置宽度
-		 * 
-		 * @param width
-		 */
-		this.width = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return width;
-			default:
-				width = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置高度
-		 * 
-		 * @param height
-		 */
-		this.height = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return height;
-			default:
-				height = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置无格式
-		 * 
-		 * @param plain
-		 */
-		this.plain = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return plain;
-			default:
-				plain = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置自适应
-		 * 
-		 * @param fit
-		 */
-		this.fit = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return fit;
-			default:
-				fit = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置边框
-		 * 
-		 * @param border
-		 */
-		this.border = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return border;
-			default:
-				border = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置
 		 * 
-		 * @param scrollIncrement
+		 * @param scrollIncrement{number}
+		 * @returns {number/core.html.easyui.layout.Tabs}
 		 */
 		this.scrollIncrement = function() {
 
@@ -312,7 +171,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置滚动时间
 		 * 
-		 * @param scrollDuration
+		 * @param scrollDuration{number}
+		 * @returns {number/core.html.easyui.layout.Tabs}
 		 */
 		this.scrollDuration = function() {
 
@@ -326,25 +186,10 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置工具条
-		 * 
-		 * @param tools
-		 */
-		this.tools = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return tools;
-			default:
-				tools = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置工具条位置
 		 * 
-		 * @param toolPosition
+		 * @param toolPosition{string}
+		 * @returns {string/core.html.easyui.layout.Tabs}
 		 */
 		this.toolPosition = function() {
 
@@ -360,7 +205,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置Tab页位置
 		 * 
-		 * @param tabPosition
+		 * @param tabPosition{string}
+		 * @returns {string/core.html.easyui.layout.Tabs}
 		 */
 		this.tabPosition = function() {
 
@@ -376,7 +222,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置头宽度
 		 * 
-		 * @param headerWidth
+		 * @param headerWidth{number}
+		 * @returns {number/core.html.easyui.layout.Tabs}
 		 */
 		this.headerWidth = function() {
 
@@ -392,7 +239,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置Tab页宽度
 		 * 
-		 * @param tabWidth
+		 * @param tabWidth{number}
+		 * @returns {number/core.html.easyui.layout.Tabs}
 		 */
 		this.tabWidth = function() {
 
@@ -408,7 +256,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置Tab页高度
 		 * 
-		 * @param tabHeight
+		 * @param tabHeight{number}
+		 * @returns {number/core.html.easyui.layout.Tabs}
 		 */
 		this.tabHeight = function() {
 
@@ -422,25 +271,10 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置默认选中的Tab页索引
-		 * 
-		 * @param selected
-		 */
-		this.selected = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return selected;
-			default:
-				selected = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置显示标头
 		 * 
-		 * @param showHeader
+		 * @param showHeader{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Tabs}
 		 */
 		this.showHeaderAttr = function() {
 
@@ -456,7 +290,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置Tab页宽度自适应
 		 * 
-		 * @param justified
+		 * @param justified{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Tabs}
 		 */
 		this.justified = function() {
 
@@ -472,7 +307,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置Tab页之间的空间
 		 * 
-		 * @param narrow
+		 * @param narrow{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Tabs}
 		 */
 		this.narrow = function() {
 
@@ -488,7 +324,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置Tab页样式
 		 * 
-		 * @param pill
+		 * @param pill{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Tabs}
 		 */
 		this.pill = function() {
 
@@ -502,25 +339,10 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置加载事件
-		 * 
-		 * @param onLoad
-		 */
-		this.onLoad = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onLoad;
-			default:
-				onLoad = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置选择事件
 		 * 
-		 * @param onSelect
+		 * @param onSelect{function}
+		 * @returns {function/core.html.easyui.layout.Tabs}
 		 */
 		this.onSelect = function() {
 
@@ -536,7 +358,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置取消选择事件
 		 * 
-		 * @param onUnselect
+		 * @param onUnselect{function}
+		 * @returns {function/core.html.easyui.layout.Tabs}
 		 */
 		this.onUnselect = function() {
 
@@ -550,41 +373,10 @@ core.html.easyui.layout.Tabs = (function() {
 		};
 
 		/**
-		 * 获取/设置关闭前事件
-		 * 
-		 * @param onBeforeClose
-		 */
-		this.onBeforeClose = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onBeforeClose;
-			default:
-				onBeforeClose = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置关闭事件
-		 * 
-		 * @param onClose
-		 */
-		this.onClose = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onClose;
-			default:
-				onClose = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置添加事件
 		 * 
-		 * @param onAdd
+		 * @param onAdd{function}
+		 * @returns {function/core.html.easyui.layout.Tabs}
 		 */
 		this.onAdd = function() {
 
@@ -600,7 +392,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置更新事件
 		 * 
-		 * @param onUpdate
+		 * @param onUpdate{function}
+		 * @returns {function/core.html.easyui.layout.Tabs}
 		 */
 		this.onUpdate = function() {
 
@@ -616,7 +409,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置右键事件
 		 * 
-		 * @param onContextMenu
+		 * @param onContextMenu{function}
+		 * @returns {function/core.html.easyui.layout.Tabs}
 		 */
 		this.onContextMenu = function() {
 
@@ -632,7 +426,8 @@ core.html.easyui.layout.Tabs = (function() {
 		/**
 		 * 获取/设置双击事件
 		 * 
-		 * @param onDblClick
+		 * @param onDblClick{function}
+		 * @returns {function/core.html.easyui.layout.Tabs}
 		 */
 		this.onDblClick = function() {
 
@@ -652,52 +447,108 @@ core.html.easyui.layout.Tabs = (function() {
 	 * @returns {core.html.easyui.layout.Tabs}
 	 */
 	Constructor.prototype.init = function() {
-		
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Tabs", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.layout.Tabs", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.layout.Tabs", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.tabs({
-			// 属性
+		this.$jQuery().tabs({
+			// Panel继承属性
 			id : this.id(),
+			title : this.title(),
+			iconCls : this.iconCls(),
 			width : this.width(),
 			height : this.height(),
-			plain : this.plain(),
+			left : this.left(),
+			top : this.top(),
+			cls : this.cls(),
+			headerCls : this.headerCls(),
+			bodyCls : this.bodyCls(),
+			style : this.style(),
 			fit : this.fit(),
 			border : this.border(),
+			doSize : this.doSize(),
+			noheader : this.noheader(),
+			content : this.content(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
+			collapsible : this.collapsible(),
+			minimizable : this.minimizable(),
+			maximizable : this.maximizable(),
+			closable : this.closable(),
+			tools : this.tools(),
+			header : this.header(),
+			footer : this.footer(),
+			openAnimation : this.openAnimation(),
+			openDuration : this.openDuration(),
+			closeAnimation : this.closeAnimation(),
+			closeDuration : this.closeDuration(),
+			collapsed : this.collapsed(),
+			minimized : this.minimized(),
+			maximized : this.maximized(),
+			closed : this.closed(),
+			href : this.href(),
+			cache : this.cache(),
+			loadingMessage : this.loadingMessage(),
+			extractor : this.extractor(),
+			method : this.method(),
+			queryParams : this.queryParams(),
+			loader : this.loader(),
+			// LinkButton继承属性
+			disabled : this.disabled(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// 属性
 			scrollIncrement : this.scrollIncrement(),
 			scrollDuration : this.scrollDuration(),
-			tools : this.tools(),
 			toolPosition : this.toolPosition(),
 			tabPosition : this.tabPosition(),
 			headerWidth : this.headerWidth(),
 			tabWidth : this.tabWidth(),
 			tabHeight : this.tabHeight(),
-			selected : this.selected(),
-			showHeader : this.showHeaderAttr(),
+			showHeaderAttr : this.showHeaderAttr(),
 			justified : this.justified(),
 			narrow : this.narrow(),
 			pill : this.pill(),
 
-			// 事件
+			// Panel继承事件
+			onBeforeLoad : this.onBeforeLoad(),
 			onLoad : this.onLoad(),
-			onSelect : this.onSelect(),
-			onUnselect : this.onUnselect(),
+			onLoadError : this.onLoadError(),
+			onBeforeOpen : this.onBeforeOpen(),
+			onOpen : this.onOpen(),
 			onBeforeClose : this.onBeforeClose(),
 			onClose : this.onClose(),
+			onBeforeDestroy : this.onBeforeDestroy(),
+			onDestroy : this.onDestroy(),
+			onBeforeCollapse : this.onBeforeCollapse(),
+			onCollapse : this.onCollapse(),
+			onBeforeExpand : this.onBeforeExpand(),
+			onExpand : this.onExpand(),
+			onResize : this.onResize(),
+			onMove : this.onMove(),
+			onMaximize : this.onMaximize(),
+			onRestore : this.onRestore(),
+			onMinimize : this.onMinimize(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
+			// 事件
+			onSelect : this.onSelect(),
+			onUnselect : this.onUnselect(),
 			onAdd : this.onAdd(),
 			onUpdate : this.onUpdate(),
 			onContextMenu : this.onContextMenu()
 		});
 		// 扩展事件
-		$jQuery.tabs("onDblClick", this.onDblClick());
+		this.$jQuery().tabs("onDblClick", this.onDblClick());
 
 		return this;
 	};
@@ -707,20 +558,20 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).tabs("options");
+		return this.$jQuery().tabs("options");
 	};
 
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.tabs = function() {
 
-		return $("#" + this.id()).tabs("tabs");
+		return this.$jQuery().tabs("tabs");
 	};
 
 	/**
@@ -730,83 +581,83 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	Constructor.prototype.resize = function() {
 
-		return $("#" + this.id()).tabs("resize");
+		return this.$jQuery().tabs("resize");
 	};
 
 	/**
 	 * 添加Tab页
 	 * 
-	 * @param options
+	 * @param options{object}
 	 * @returns
 	 */
 	Constructor.prototype.add = function(options) {
 
-		return $("#" + this.id()).tabs("add", options);
+		return this.$jQuery().tabs("add", options);
 	};
 
 	/**
 	 * 关闭指定Tab
 	 * 
-	 * @param which
+	 * @param which{object}
 	 * @returns
 	 */
 	Constructor.prototype.close = function(which) {
 
-		return $("#" + this.id()).tabs("close", which);
+		return this.$jQuery().tabs("close", which);
 	};
 
 	/**
 	 * 获取指定Tab
 	 * 
-	 * @param which
-	 * @returns
+	 * @param which{object}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getTab = function(which) {
 
-		return $("#" + this.id()).tabs("getTab", which);
+		return this.$jQuery().tabs("getTab", which);
 	};
 
 	/**
 	 * 获取指定Tab页索引
 	 * 
-	 * @param tab
-	 * @returns
+	 * @param tab{object}
+	 * @returns {number}
 	 */
 	Constructor.prototype.getTabIndex = function(tab) {
 
-		return $("#" + this.id()).tabs("getTabIndex", tab);
+		return this.$jQuery().tabs("getTabIndex", tab);
 	};
 
 	/**
 	 * 获取选中Tab页
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.getSelected = function() {
 
-		return $("#" + this.id()).tabs("getSelected");
+		return this.$jQuery().tabs("getSelected");
 	};
 
 	/**
 	 * 选中指定Tab
 	 * 
-	 * @param which
+	 * @param which{object}
 	 * @returns
 	 */
 	Constructor.prototype.select = function(which) {
 
-		return $("#" + this.id()).tabs("select", which);
+		return this.$jQuery().tabs("select", which);
 	};
 
 	/**
 	 * 取消选中指定Tab
 	 * 
-	 * @param which
+	 * @param which{object}
 	 * @returns
 	 */
 	Constructor.prototype.unselect = function(which) {
 
-		return $("#" + this.id()).tabs("unselect", which);
+		return this.$jQuery().tabs("unselect", which);
 	};
 
 	/**
@@ -816,7 +667,7 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	Constructor.prototype.showHeader = function() {
 
-		return $("#" + this.id()).tabs("showHeader");
+		return this.$jQuery().tabs("showHeader");
 	};
 
 	/**
@@ -826,7 +677,7 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	Constructor.prototype.hideHeader = function() {
 
-		return $("#" + this.id()).tabs("hideHeader");
+		return this.$jQuery().tabs("hideHeader");
 	};
 
 	/**
@@ -836,7 +687,7 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	Constructor.prototype.showTool = function() {
 
-		return $("#" + this.id()).tabs("showTool");
+		return this.$jQuery().tabs("showTool");
 	};
 
 	/**
@@ -846,62 +697,62 @@ core.html.easyui.layout.Tabs = (function() {
 	 */
 	Constructor.prototype.hideTool = function() {
 
-		return $("#" + this.id()).tabs("hideTool");
+		return this.$jQuery().tabs("hideTool");
 	};
 
 	/**
 	 * 判断指定Tab是否存在
 	 * 
-	 * @param which
-	 * @returns
+	 * @param which{object}
+	 * @returns {boolean}
 	 */
 	Constructor.prototype.exists = function(which) {
 
-		return $("#" + this.id()).tabs("exists", which);
+		return this.$jQuery().tabs("exists", which);
 	};
 
 	/**
 	 * 更新
 	 * 
-	 * @param param
+	 * @param param{object}
 	 * @returns
 	 */
 	Constructor.prototype.update = function(param) {
 
-		return $("#" + this.id()).tabs("update", param);
+		return this.$jQuery().tabs("update", param);
 	};
 
 	/**
 	 * 启用Tab
 	 * 
-	 * @param which
+	 * @param which{object}
 	 * @returns
 	 */
 	Constructor.prototype.enableTab = function(which) {
 
-		return $("#" + this.id()).tabs("enableTab", which);
+		return this.$jQuery().tabs("enableTab", which);
 	};
 
 	/**
 	 * 禁用Tab
 	 * 
-	 * @param which
+	 * @param which{object}
 	 * @returns
 	 */
 	Constructor.prototype.disableTab = function(which) {
 
-		return $("#" + this.id()).tabs("disableTab", which);
+		return this.$jQuery().tabs("disableTab", which);
 	};
 
 	/**
 	 * 滚动至
 	 * 
-	 * @param deltaX
+	 * @param deltaX{number}
 	 * @returns
 	 */
 	Constructor.prototype.scrollBy = function(deltaX) {
 
-		return $("#" + this.id()).tabs("scrollBy", deltaX);
+		return this.$jQuery().tabs("scrollBy", deltaX);
 	};
 
 	// 返回构造函数

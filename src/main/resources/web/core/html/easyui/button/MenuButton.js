@@ -6,6 +6,9 @@
  * 
  * @constructor	core.html.easyui.button.MenuButton(string id/object jQuery)
  * 
+ * @extend	core.html.easyui.button.Menu
+ * 			core.html.easyui.button.LinkButton
+ * 
  * @method	继承core.html.easyui.button.Menu所有方法
  * 			继承core.html.easyui.button.LinkButton所有方法
  *			string/core.html.easyui.button.MenuButton 		menu(string menu)						获取/设置
@@ -19,7 +22,7 @@
  *			void											enable()
  *			void											destroy()
  * 
- * @date	2018年4月19日 14:43:12
+ * @date	2018年4月23日 16:51:01
  */
 core.html.easyui.button.MenuButton = (function() {
 
@@ -194,7 +197,7 @@ core.html.easyui.button.MenuButton = (function() {
 			// menu继承事件
 			onShow : this.onShow(),
 			onHide : this.onHide(),
-			onClick : this.onClick(),
+			onClick : this.onClick()
 		});
 
 		return this;

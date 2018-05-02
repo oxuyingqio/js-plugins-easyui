@@ -4,61 +4,52 @@
  * @desc	校验文本框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.ValidateBox(String id)
+ * @constructor	core.html.easyui.form.ValidateBox(string id/object jQuery)
  * 
- * @method	Object/core.html.easyui.form.ValidateBox			id()					获取/设置ID
- * 			Object/core.html.easyui.form.ValidateBox			required()				获取/设置是否校验
- * 			Object/core.html.easyui.form.ValidateBox			validType()				获取/设置校验方式
- * 			Object/core.html.easyui.form.ValidateBox			delay()					获取/设置校验延迟时间
- * 			Object/core.html.easyui.form.ValidateBox			missingMessage()		获取/设置字段为空提示信息
- * 			Object/core.html.easyui.form.ValidateBox			invalidMessage()		获取/设置校验提示信息
- * 			Object/core.html.easyui.form.ValidateBox			tipPosition()			获取/设置工具提示条位置
- * 			Object/core.html.easyui.form.ValidateBox			deltaX()				获取/设置水平位置偏移值
- * 			Object/core.html.easyui.form.ValidateBox			novalidate()			获取/设置是否关闭校验
- * 			Object/core.html.easyui.form.ValidateBox			editable()				获取/设置是否可输
- * 			Object/core.html.easyui.form.ValidateBox			disabled()				获取/设置是否可用
- * 			Object/core.html.easyui.form.ValidateBox			readonly()				获取/设置是否只读
- * 			Object/core.html.easyui.form.ValidateBox			validateOnCreate()		获取/设置是否创建时验证
- * 			Object/core.html.easyui.form.ValidateBox			validateOnBlur()		获取/设置是否失去焦点时验证
- * 			Object/core.html.easyui.form.ValidateBox			onBeforeValidate()		获取/设置验证前事件
- * 			Object/core.html.easyui.form.ValidateBox			onValidate()			获取/设置验证事件
- * 			core.html.easyui.form.ValidateBox					init()					初始化组件模板
- * 			Object												options()				
- * 			Object												destroy()				销毁组件
- * 			Object												validate()				校验
- * 			Object												isValid()				判断是否校验通过
- * 			Object												enableValidation()		启用校验
- * 			Object												disableValidation()		禁用校验
- * 			Object												resetValidation()		重置校验
- * 			Object												enable()				启用
- * 			Object												disable()				禁用
- * 			Object												readonly()				只读
+ * @method	继承core.html.easyui.base.Tooltip所有方法
+ * 			boolean/core.html.easyui.form.ValidateBox		required(boolean required)					获取/设置是否校验
+ * 			string/core.html.easyui.form.ValidateBox		validType(string validType)					获取/设置校验方式
+ * 			number/core.html.easyui.form.ValidateBox		delay(number delay)							获取/设置校验延迟时间
+ * 			string/core.html.easyui.form.ValidateBox		missingMessage(string missingMessage)		获取/设置字段为空提示信息
+ * 			string/core.html.easyui.form.ValidateBox		invalidMessage(string invalidMessage)		获取/设置校验提示信息
+ * 			string/core.html.easyui.form.ValidateBox		tipPosition(string tipPosition)				获取/设置工具提示条位置
+ * 			boolean/core.html.easyui.form.ValidateBox		novalidate(boolean novalidate)				获取/设置是否关闭校验
+ * 			boolean/core.html.easyui.form.ValidateBox		editable(boolean editable)					获取/设置是否可输
+ * 			boolean/core.html.easyui.form.ValidateBox		disabled(boolean disabled)					获取/设置是否可用
+ * 			boolean/core.html.easyui.form.ValidateBox		readonly(boolean readonly)					获取/设置是否只读
+ * 			boolean/core.html.easyui.form.ValidateBox		validateOnCreate(boolean validateOnCreate)	获取/设置是否创建时验证
+ * 			boolean/core.html.easyui.form.ValidateBox		validateOnBlur(boolean validateOnBlur)		获取/设置是否失去焦点时验证
+ * 			function/core.html.easyui.form.ValidateBox		onBeforeValidate(function onBeforeValidate)	获取/设置验证前事件
+ * 			function/core.html.easyui.form.ValidateBox		onValidate(function onValidate)				获取/设置验证事件
+ * 			core.html.easyui.form.ValidateBox				init()										初始化组件模板
+ * 			object											options()				
+ * 			void											destroy()									销毁组件
+ * 			object											validate()									校验
+ * 			object											isValid()									判断是否校验通过
+ * 			void											enableValidation()							启用校验
+ * 			void											disableValidation()							禁用校验
+ * 			void											resetValidation()							重置校验
+ * 			void											enable()									启用
+ * 			void											disable()									禁用
+ * 			void											readonly(boolean mode)						只读
  * 
- * @date	2016年8月29日 16:39:29
+ * @date	2018年4月23日 15:22:05
  */
-
 core.html.easyui.form.ValidateBox = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(_id) {
+	var Constructor = function() {
 
-		// 校验ID
-		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "构造参数异常", "ID属性不能为空");
-		}
+		// 调用父类构造
+		core.html.easyui.form.ValidateBox.superClass.constructor.call(this, arguments[0]);
+		// 默认参数修改
+		this.deltaX($.fn.validatebox.defaults.deltaX);
 
 		/**
 		 * 属性
 		 */
-		/**
-		 * ID
-		 */
-		var id = _id;
 		/**
 		 * 是否校验
 		 */
@@ -83,10 +74,6 @@ core.html.easyui.form.ValidateBox = (function() {
 		 * 工具提示条位置
 		 */
 		var tipPosition = $.fn.validatebox.defaults.tipPosition;
-		/**
-		 * 水平位置偏移值
-		 */
-		var deltaX = $.fn.validatebox.defaults.deltaX;
 		/**
 		 * 是否关闭校验
 		 */
@@ -125,25 +112,10 @@ core.html.easyui.form.ValidateBox = (function() {
 		var onValidate = $.fn.validatebox.defaults.onValidate;
 
 		/**
-		 * 获取/设置ID
-		 * 
-		 * @param id
-		 */
-		this.id = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return id;
-			default:
-				id = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置是否校验
 		 * 
-		 * @param required
+		 * @param required{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.required = function() {
 
@@ -159,7 +131,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置校验方式
 		 * 
-		 * @param validType
+		 * @param validType{string}
+		 * @returns {string/core.html.easyui.form.ValidateBox}
 		 */
 		this.validType = function() {
 
@@ -175,7 +148,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置校验延迟时间
 		 * 
-		 * @param delay
+		 * @param delay{number}
+		 * @returns {number/core.html.easyui.form.ValidateBox}
 		 */
 		this.delay = function() {
 
@@ -191,7 +165,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置字段为空提示信息
 		 * 
-		 * @param missingMessage
+		 * @param missingMessage{string}
+		 * @returns {string/core.html.easyui.form.ValidateBox}
 		 */
 		this.missingMessage = function() {
 
@@ -207,7 +182,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置校验提示信息
 		 * 
-		 * @param invalidMessage
+		 * @param invalidMessage{string}
+		 * @returns {string/core.html.easyui.form.ValidateBox}
 		 */
 		this.invalidMessage = function() {
 
@@ -223,7 +199,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置工具提示条位置
 		 * 
-		 * @param tipPosition
+		 * @param tipPosition{string}
+		 * @returns {string/core.html.easyui.form.ValidateBox}
 		 */
 		this.tipPosition = function() {
 
@@ -237,25 +214,10 @@ core.html.easyui.form.ValidateBox = (function() {
 		};
 
 		/**
-		 * 获取/设置水平位置偏移值
-		 * 
-		 * @param deltaX
-		 */
-		this.deltaX = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return deltaX;
-			default:
-				deltaX = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置是否关闭校验
 		 * 
-		 * @param novalidate
+		 * @param novalidate{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.novalidate = function() {
 
@@ -271,7 +233,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置是否可输
 		 * 
-		 * @param editable
+		 * @param editable{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.editable = function() {
 
@@ -287,7 +250,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置是否可用
 		 * 
-		 * @param disabled
+		 * @param disabled{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.disabled = function() {
 
@@ -303,7 +267,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置是否只读
 		 * 
-		 * @param readonly
+		 * @param readonly{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.readonly = function() {
 
@@ -319,7 +284,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置是否创建时验证
 		 * 
-		 * @param validateOnCreate
+		 * @param validateOnCreate{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.validateOnCreate = function() {
 
@@ -335,7 +301,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置是否失去焦点时验证
 		 * 
-		 * @param validateOnBlur
+		 * @param validateOnBlur{boolean}
+		 * @returns {boolean/core.html.easyui.form.ValidateBox}
 		 */
 		this.validateOnBlur = function() {
 
@@ -351,7 +318,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置验证前事件
 		 * 
-		 * @param onBeforeValidate
+		 * @param onBeforeValidate{function}
+		 * @returns {function/core.html.easyui.form.ValidateBox}
 		 */
 		this.onBeforeValidate = function() {
 
@@ -367,7 +335,8 @@ core.html.easyui.form.ValidateBox = (function() {
 		/**
 		 * 获取/设置验证事件
 		 * 
-		 * @param onValidate
+		 * @param onValidate{function}
+		 * @returns {function/core.html.easyui.form.ValidateBox}
 		 */
 		this.onValidate = function() {
 
@@ -380,6 +349,8 @@ core.html.easyui.form.ValidateBox = (function() {
 			}
 		};
 	};
+	// 继承父类
+	core.lang.Class.extend(Constructor, core.html.easyui.base.Tooltip);
 
 	/**
 	 * 初始化组件模板
@@ -387,29 +358,32 @@ core.html.easyui.form.ValidateBox = (function() {
 	 * @returns {core.html.easyui.form.ValidateBox}
 	 */
 	Constructor.prototype.init = function() {
-				
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ValidateBox", "构造参数异常", "DIV(ID:" + this.id()
-					+ ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.ValidateBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.ValidateBox", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.validatebox({
+		this.$jQuery().validatebox({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// 属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
@@ -417,6 +391,12 @@ core.html.easyui.form.ValidateBox = (function() {
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
 
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
 			// 事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate()
@@ -430,11 +410,11 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).validatebox("options");
+		return this.$jQuery().validatebox("options");
 	};
 
 	/**
@@ -444,27 +424,27 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).validatebox("destroy");
+		return this.$jQuery().validatebox("destroy");
 	};
 
 	/**
 	 * 校验
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).validatebox("validate");
+		return this.$jQuery().validatebox("validate");
 	};
 
 	/**
 	 * 判断是否校验通过
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.isValid = function() {
 
-		return $("#" + this.id()).validatebox("isValid");
+		return this.$jQuery().validatebox("isValid");
 	};
 
 	/**
@@ -474,7 +454,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).validatebox("enableValidation");
+		return this.$jQuery().validatebox("enableValidation");
 	};
 
 	/**
@@ -484,7 +464,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).validatebox("disableValidation");
+		return this.$jQuery().validatebox("disableValidation");
 	};
 
 	/**
@@ -494,7 +474,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).validatebox("resetValidation");
+		return this.$jQuery().validatebox("resetValidation");
 	};
 
 	/**
@@ -504,7 +484,7 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).validatebox("enable");
+		return this.$jQuery().validatebox("enable");
 	};
 
 	/**
@@ -514,17 +494,18 @@ core.html.easyui.form.ValidateBox = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).validatebox("disable");
+		return this.$jQuery().validatebox("disable");
 	};
 
 	/**
 	 * 只读
 	 * 
+	 * @param mode{boolean}
 	 * @returns
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).validatebox("readonly", mode);
+		return this.$jQuery().validatebox("readonly", mode);
 	};
 
 	// 返回构造函数

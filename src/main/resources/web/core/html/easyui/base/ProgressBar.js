@@ -1,24 +1,24 @@
 /**
  * @name	ProgressBar
  * @package core.html.easyui.base
- * @desc	模板
+ * @desc	进度条模板
  * @type	类
  * 
  * @constructor	core.html.easyui.base.ProgressBar(string id/object jQuery)
  * 
- * @method	object										$jQuery()							获取/设置jQuery对象
- *			object/core.html.easyui.base.ProgressBar 		accept(object accept)				获取/设置
- *			boolean/core.html.easyui.base.ProgressBar 	disabled(boolean disabled) 			获取/设置
- *			function/core.html.easyui.base.ProgressBar 	onDragEnter(function onDragEnter) 	获取/设置
- *			function/core.html.easyui.base.ProgressBar 	onDragOver(function onDragOver) 	获取/设置
- *			function/core.html.easyui.base.ProgressBar 	onDragLeave(function onDragLeave)	获取/设置
- *			function/core.html.easyui.base.ProgressBar 	onDrop(function onDrop) 			获取/设置
- *			core.html.easyui.base.ProgressBar 			init() 								初始化组件模板
- *			object										options()
- *			void										enable()							启用
- *			void										disable()							禁用
+ * @method	object											$jQuery()						获取/设置jQuery对象
+ *			string/core.html.easyui.base.ProgressBar 		width(string width)				获取/设置
+ *			number/core.html.easyui.base.ProgressBar 		height(number height) 			获取/设置
+ *			number/core.html.easyui.base.ProgressBar 		value(number value) 			获取/设置
+ *			string/core.html.easyui.base.ProgressBar 		text(string text) 				获取/设置
+ *			function/core.html.easyui.base.ProgressBar 		onChange(function onChange)		获取/设置
+ *			core.html.easyui.base.ProgressBar 				init() 							初始化组件模板
+ *			object											options()
+ *			void											resize(number width)				
+ *			object											getValue()							
+ *			void											setValue(object value)				
  * 
- * @date	2018年4月20日 13:54:43
+ * @date	2018年4月23日 10:46:02
  */
 core.html.easyui.base.ProgressBar = (function() {
 
@@ -37,11 +37,19 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 
 		 */
-		var accept = $.fn.progressbar.defaults.accept;
+		var width = $.fn.progressbar.defaults.width;
 		/**
-		 * 禁止
+		 * 
 		 */
-		var disabled = $.fn.progressbar.defaults.disabled;
+		var height = $.fn.progressbar.defaults.height;
+		/**
+		 * 
+		 */
+		var value = $.fn.progressbar.defaults.value;
+		/**
+		 * 
+		 */
+		var text = $.fn.progressbar.defaults.text;
 
 		/**
 		 * 事件
@@ -49,19 +57,7 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 
 		 */
-		var onDragEnter = $.fn.progressbar.defaults.onDragEnter;
-		/**
-		 * 
-		 */
-		var onDragOver = $.fn.progressbar.defaults.onDragOver;
-		/**
-		 * 
-		 */
-		var onDragLeave = $.fn.progressbar.defaults.onDragLeave;
-		/**
-		 * 
-		 */
-		var onDrop = $.fn.progressbar.defaults.onDrop;
+		var onChange = $.fn.progressbar.defaults.onChange;
 
 		// 判断构造参数类型
 		switch (typeof (arguments[0])) {
@@ -88,33 +84,16 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param accept{object}
-		 * @returns {object/core.html.easyui.base.ProgressBar}
+		 * @param width{string}
+		 * @returns {string/core.html.easyui.base.ProgressBar}
 		 */
-		this.accept = function() {
+		this.width = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return accept;
+				return width;
 			default:
-				accept = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置禁止
-		 * 
-		 * @param disabled{boolean}
-		 * @returns {boolean/core.html.easyui.base.ProgressBar}
-		 */
-		this.disabled = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return disabled;
-			default:
-				disabled = arguments[0];
+				width = arguments[0];
 				return this;
 			}
 		};
@@ -122,16 +101,16 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDragEnter{function}
-		 * @returns {function/core.html.easyui.base.ProgressBar}
+		 * @param height{number}
+		 * @returns {number/core.html.easyui.base.ProgressBar}
 		 */
-		this.onDragEnter = function() {
+		this.height = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDragEnter;
+				return height;
 			default:
-				onDragEnter = arguments[0];
+				height = arguments[0];
 				return this;
 			}
 		};
@@ -139,16 +118,16 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDragOver{function}
-		 * @returns {function/core.html.easyui.base.ProgressBar}
+		 * @param value{number}
+		 * @returns {number/core.html.easyui.base.ProgressBar}
 		 */
-		this.onDragOver = function() {
+		this.value = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDragOver;
+				return value;
 			default:
-				onDragOver = arguments[0];
+				value = arguments[0];
 				return this;
 			}
 		};
@@ -156,16 +135,16 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDragLeave{function}
-		 * @returns {function/core.html.easyui.base.ProgressBar}
+		 * @param text{string}
+		 * @returns {string/core.html.easyui.base.ProgressBar}
 		 */
-		this.onDragLeave = function() {
+		this.text = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDragLeave;
+				return text;
 			default:
-				onDragLeave = arguments[0];
+				text = arguments[0];
 				return this;
 			}
 		};
@@ -173,16 +152,16 @@ core.html.easyui.base.ProgressBar = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onDrop{function}
+		 * @param onChange{function}
 		 * @returns {function/core.html.easyui.base.ProgressBar}
 		 */
-		this.onDrop = function() {
+		this.onChange = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return onDrop;
+				return onChange;
 			default:
-				onDrop = arguments[0];
+				onChange = arguments[0];
 				return this;
 			}
 		};
@@ -204,14 +183,13 @@ core.html.easyui.base.ProgressBar = (function() {
 		// 参数配置
 		this.$jQuery().progressbar({
 			// 属性
-			accept : this.accept(),
-			disabled : this.disabled(),
+			width : this.width(),
+			height : this.height(),
+			value : this.value(),
+			text : this.text(),
 
 			// 事件
-			onDragEnter : this.onDragEnter(),
-			onDragOver : this.onDragOver(),
-			onDragLeave : this.onDragLeave(),
-			onDrop : this.onDrop()
+			onChange : this.onChange()
 		});
 
 		return this;
@@ -230,23 +208,32 @@ core.html.easyui.base.ProgressBar = (function() {
 	};
 
 	/**
-	 * 启用
 	 * 
+	 * @param width{number}
 	 * @returns
 	 */
-	Constructor.prototype.enable = function() {
+	Constructor.prototype.resize = function(width) {
 
-		return this.$jQuery().progressbar("enable");
+		return this.$jQuery().progressbar("resize", width);
 	};
 
 	/**
-	 * 禁用
 	 * 
+	 * @returns {object}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().progressbar("getValue");
+	};
+
+	/**
+	 * 
+	 * @param value{object}
 	 * @returns
 	 */
-	Constructor.prototype.disable = function(e) {
+	Constructor.prototype.setValue = function(value) {
 
-		return this.$jQuery().progressbar("disable");
+		return this.$jQuery().progressbar("setValue", value);
 	};
 
 	// 返回构造函数

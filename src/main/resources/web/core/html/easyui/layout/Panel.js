@@ -4,110 +4,108 @@
  * @desc	面板模板
  * @type	类
  * 
- * @constructor	core.html.easyui.layout.Panel(String id)
+ * @constructor	core.html.easyui.button.LinkButton(string id/object jQuery)
  * 
- * @method	String/core.html.easyui.layout.Panel		id()								获取/设置 id
- * 			String/core.html.easyui.layout.Panel		title()								获取/设置标题
- * 			String/core.html.easyui.layout.Panel		iconCls()							获取/设置图标样式
- * 			Number/core.html.easyui.layout.Panel		width()								获取/设置宽度
- * 			Number/core.html.easyui.layout.Panel		height()							获取/设置高度
- * 			Number/core.html.easyui.layout.Panel		left()								获取/设置左偏移
- * 			Number/core.html.easyui.layout.Panel		top()								获取/设置上偏移
- * 			String/core.html.easyui.layout.Panel		cls()								获取/设置样式
- * 			String/core.html.easyui.layout.Panel		headerCls()							获取/设置标头样式
- * 			String/core.html.easyui.layout.Panel		bodyCls()							获取/设置内容样式
- * 			String/core.html.easyui.layout.Panel		style()								获取/设置样式
- * 			Boolean/core.html.easyui.layout.Panel		fit()								获取/设置自适应
- * 			Boolean/core.html.easyui.layout.Panel		border()							获取/设置边框
- * 			Boolean/core.html.easyui.layout.Panel		doSize()							获取/设置调整布局
- * 			Boolean/core.html.easyui.layout.Panel		noheader()							获取/设置不创建标头
- * 			String/core.html.easyui.layout.Panel		content()							获取/设置内容
- * 			Boolean/core.html.easyui.layout.Panel		collapsible()						获取/设置显示折叠按钮
- * 			Boolean/core.html.easyui.layout.Panel		minimizable()						获取/设置显示最小化按钮
- * 			Boolean/core.html.easyui.layout.Panel		maximizable()						获取/设置显示最大化按钮
- * 			Boolean/core.html.easyui.layout.Panel		closable()							获取/设置显示关闭按钮
- * 			Array/core.html.easyui.layout.Panel			tools()								获取/设置工具条
- * 			Object/core.html.easyui.layout.Panel		header()							获取/设置头
- * 			Object/core.html.easyui.layout.Panel		footer()							获取/设置脚
- * 			Object/core.html.easyui.layout.Panel		openAnimation()						获取/设置打开动画
- * 			Object/core.html.easyui.layout.Panel		openDuration()						获取/设置打开时间
- * 			Object/core.html.easyui.layout.Panel		closeAnimation()					获取/设置关闭动画
- * 			Object/core.html.easyui.layout.Panel		closeDuration()						获取/设置关闭时间
- * 			Object/core.html.easyui.layout.Panel		collapsed()							获取/设置初始化折叠
- * 			Object/core.html.easyui.layout.Panel		minimized()							获取/设置初始化最小
- * 			Object/core.html.easyui.layout.Panel		maximized()							获取/设置初始化最大
- * 			Object/core.html.easyui.layout.Panel		closed()							获取/设置初始化关闭
- * 			Object/core.html.easyui.layout.Panel		href()								获取/设置超链接
- * 			Object/core.html.easyui.layout.Panel		cache()								获取/设置缓存
- * 			Object/core.html.easyui.layout.Panel		loadingMessage()					获取/设置加载信息
- * 			Object/core.html.easyui.layout.Panel		extractor()							获取/设置ajax响应中提取数据
- * 			Object/core.html.easyui.layout.Panel		method()							获取/设置请求方式
- * 			Object/core.html.easyui.layout.Panel		queryParams()						获取/设置参数
- * 			function/core.html.easyui.layout.Panel		loader()							获取/设置加载器
- * 			function/core.html.easyui.layout.Panel		onBeforeLoad()						获取/设置加载前事件
- * 			function/core.html.easyui.layout.Panel		onLoad()							获取/设置加载事件
- * 			function/core.html.easyui.layout.Panel		onLoadError()						获取/设置加载失败事件
- * 			function/core.html.easyui.layout.Panel		onBeforeOpen()						获取/设置打开前事件
- * 			function/core.html.easyui.layout.Panel		onOpen()							获取/设置打开事件
- * 			function/core.html.easyui.layout.Panel		onBeforeClose()						获取/设置关闭前事件
- * 			function/core.html.easyui.layout.Panel		onClose()							获取/设置关闭事件
- * 			function/core.html.easyui.layout.Panel		onBeforeDestroy()					获取/设置销毁事件
- * 			function/core.html.easyui.layout.Panel		onDestroy()							获取/设置销毁事件
- * 			function/core.html.easyui.layout.Panel		onBeforeCollapse()					获取/设置折叠前事件
- * 			function/core.html.easyui.layout.Panel		onCollapse()						获取/设置折叠事件
- * 			function/core.html.easyui.layout.Panel		onBeforeExpand()					获取/设置展开事件
- * 			function/core.html.easyui.layout.Panel		onExpand()							获取/设置展开事件
- * 			function/core.html.easyui.layout.Panel		onResize()							获取/设置窗口大小改变事件
- * 			function/core.html.easyui.layout.Panel		onMove()							获取/设置移动事件
- * 			function/core.html.easyui.layout.Panel		onMaximize()						获取/设置最大化事件
- * 			function/core.html.easyui.layout.Panel		onRestore()							获取/设置恢复事件
- * 			function/core.html.easyui.layout.Panel		onMinimize()						获取/设置最小化事件
- * 			core.html.easyui.layout.Panel				init()								初始化组件模板
- * 			Object										options()			
- * 			Object										panel()				
- * 			Object										header()
- * 			Object										footer()
- * 			Object										body()
- * 			Object										setTitle(String titile)				设置标题
- * 			Object										open(Boolean forceOpen)				打开面板
- * 			Object										close(Boolean forceClose)			关闭面板
- * 			Object										destroy(Boolean forceDestroy)		销毁面板
- * 			Object										clear()								清空面板内容
- * 			Object										refresh()							刷新面板
- * 			Object										resize()							改变面板窗口大小
- * 			Object										doLayout()							调整布局
- * 			Object										move(Object options)				移动面板
- * 			Object										maximize()							最大化
- * 			Object										minimize()							最小化
- * 			Object										restore()							恢复面板
- * 			Object										collapse()							折叠面板
- * 			Object										expand()							展开面板
+ * @method	object									$jQuery()									获取/设置jQuery对象
+ * 			string/core.html.easyui.layout.Panel	id(string id)								获取/设置 id
+ * 			string/core.html.easyui.layout.Panel	title(string title)							获取/设置标题
+ * 			string/core.html.easyui.layout.Panel	iconCls(string iconCls)						获取/设置图标样式
+ * 			number/core.html.easyui.layout.Panel	width(number width)							获取/设置宽度
+ * 			number/core.html.easyui.layout.Panel	height(number height)						获取/设置高度
+ * 			number/core.html.easyui.layout.Panel	left(number left)							获取/设置左偏移
+ * 			number/core.html.easyui.layout.Panel	top(number top)								获取/设置上偏移
+ * 			string/core.html.easyui.layout.Panel	cls(string cls)								获取/设置样式
+ * 			string/core.html.easyui.layout.Panel	headerCls(string headerCls)					获取/设置标头样式
+ * 			string/core.html.easyui.layout.Panel	bodyCls(string bodyCls)						获取/设置内容样式
+ * 			string/core.html.easyui.layout.Panel	style(string style)							获取/设置样式
+ * 			boolean/core.html.easyui.layout.Panel	fit(boolean fit)							获取/设置自适应
+ * 			boolean/core.html.easyui.layout.Panel	border(boolean border)						获取/设置边框
+ * 			boolean/core.html.easyui.layout.Panel	doSize(boolean doSize)						获取/设置调整布局
+ * 			boolean/core.html.easyui.layout.Panel	noheader(boolean noheader)					获取/设置不创建标头
+ * 			string/core.html.easyui.layout.Panel	content(string content)						获取/设置内容
+ * 			string/core.html.easyui.layout.Panel	halign(string halign)						获取/设置
+ * 			string/core.html.easyui.layout.Panel	titleDirection(string titleDirection)		获取/设置
+ * 			boolean/core.html.easyui.layout.Panel	collapsible(boolean collapsible)			获取/设置显示折叠按钮
+ * 			boolean/core.html.easyui.layout.Panel	minimizable(boolean minimizable)			获取/设置显示最小化按钮
+ * 			boolean/core.html.easyui.layout.Panel	maximizable(boolean maximizable)			获取/设置显示最大化按钮
+ * 			boolean/core.html.easyui.layout.Panel	closable(boolean closable)					获取/设置显示关闭按钮
+ * 			array/core.html.easyui.layout.Panel		tools(array tools)							获取/设置工具条
+ * 			object/core.html.easyui.layout.Panel	header(object header)						获取/设置头
+ * 			object/core.html.easyui.layout.Panel	footer(object footer)						获取/设置脚
+ * 			string/core.html.easyui.layout.Panel	openAnimation(string openAnimation)			获取/设置打开动画
+ * 			number/core.html.easyui.layout.Panel	openDuration(number openDuration)			获取/设置打开时间
+ * 			string/core.html.easyui.layout.Panel	closeAnimation(string closeAnimation)		获取/设置关闭动画
+ * 			number/core.html.easyui.layout.Panel	closeDuration(number closeDuration)			获取/设置关闭时间
+ * 			boolean/core.html.easyui.layout.Panel	collapsed(boolean collapsed)				获取/设置初始化折叠
+ * 			boolean/core.html.easyui.layout.Panel	minimized(boolean minimized)				获取/设置初始化最小
+ * 			boolean/core.html.easyui.layout.Panel	maximized(boolean maximized)				获取/设置初始化最大
+ * 			boolean/core.html.easyui.layout.Panel	closed(boolean closed)						获取/设置初始化关闭
+ * 			string/core.html.easyui.layout.Panel	href(string href)							获取/设置超链接
+ * 			boolean/core.html.easyui.layout.Panel	cache(boolean cache)						获取/设置缓存
+ * 			string/core.html.easyui.layout.Panel	loadingMessage(string loadingMessage)		获取/设置加载信息
+ * 			function/core.html.easyui.layout.Panel	extractor(function extractor)				获取/设置ajax响应中提取数据
+ * 			string/core.html.easyui.layout.Panel	method(string method)						获取/设置请求方式
+ * 			object/core.html.easyui.layout.Panel	queryParams(object queryParams)				获取/设置参数
+ * 			function/core.html.easyui.layout.Panel	loader(function loader)						获取/设置加载器
+ * 			function/core.html.easyui.layout.Panel	onBeforeLoad(function onBeforeLoad)			获取/设置加载前事件
+ * 			function/core.html.easyui.layout.Panel	onLoad(function onLoad)						获取/设置加载事件
+ * 			function/core.html.easyui.layout.Panel	onLoadError(function onLoadError)			获取/设置加载失败事件
+ * 			function/core.html.easyui.layout.Panel	onBeforeOpen(function onBeforeOpen)			获取/设置打开前事件
+ * 			function/core.html.easyui.layout.Panel	onOpen(function onOpen)						获取/设置打开事件
+ * 			function/core.html.easyui.layout.Panel	onBeforeClose(function onBeforeClose)		获取/设置关闭前事件
+ * 			function/core.html.easyui.layout.Panel	onClose(function onClose)					获取/设置关闭事件
+ * 			function/core.html.easyui.layout.Panel	onBeforeDestroy(function onBeforeDestroy)	获取/设置销毁事件
+ * 			function/core.html.easyui.layout.Panel	onDestroy(function onDestroy)				获取/设置销毁事件
+ * 			function/core.html.easyui.layout.Panel	onBeforeCollapse(function onBeforeCollapse)	获取/设置折叠前事件
+ * 			function/core.html.easyui.layout.Panel	onCollapse(function onCollapse)				获取/设置折叠事件
+ * 			function/core.html.easyui.layout.Panel	onBeforeExpand(function onBeforeExpand)		获取/设置展开事件
+ * 			function/core.html.easyui.layout.Panel	onExpand(function onExpand)					获取/设置展开事件
+ * 			function/core.html.easyui.layout.Panel	onResize(function onResize)					获取/设置窗口大小改变事件
+ * 			function/core.html.easyui.layout.Panel	onMove(function onMove)						获取/设置移动事件
+ * 			function/core.html.easyui.layout.Panel	onMaximize(function onMaximize)				获取/设置最大化事件
+ * 			function/core.html.easyui.layout.Panel	onRestore(function onRestore)				获取/设置恢复事件
+ * 			function/core.html.easyui.layout.Panel	onMinimize(function onMinimize)				获取/设置最小化事件
+ * 			core.html.easyui.layout.Panel			init()										初始化组件模板
+ * 			object									options()			
+ * 			object									panel()				
+ * 			object									header()
+ * 			object									footer()
+ * 			object									body()
+ * 			void									setTitle(string titile)						设置标题
+ * 			void									open(function forceOpen)					打开面板
+ * 			void									close(function forceClose)					关闭面板
+ * 			void									destroy(function forceDestroy)				销毁面板
+ * 			void									clear()										清空面板内容
+ * 			void									refresh(string href)						刷新面板
+ * 			void									resize(object options)						改变面板窗口大小
+ * 			void									doLayout()									调整布局
+ * 			void									move(object options)						移动面板
+ * 			void									maximize()									最大化
+ * 			void									minimize()									最小化
+ * 			void									restore()									恢复面板
+ * 			void									collapse(number animate)					折叠面板
+ * 			void									expand(number animate)						展开面板
  * 
- * @date	2016年8月25日 17:57:53
+ * @date	2018年4月24日 11:02:50
  */
-
 core.html.easyui.layout.Panel = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(_id) {
-
-		// 校验ID
-		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "构造参数异常", "ID属性不能为空");
-		}
+	var Constructor = function() {
 
 		/**
 		 * 属性
 		 */
 		/**
+		 * jQuery对象
+		 */
+		var $jQuery;
+		/**
 		 * ID
 		 */
-		var id = _id;
+		var id = $.fn.panel.defaults.id;
 		/**
 		 * 标题
 		 */
@@ -168,6 +166,14 @@ core.html.easyui.layout.Panel = (function() {
 		 * 内容
 		 */
 		var content = $.fn.panel.defaults.content;
+		/**
+		 * 
+		 */
+		var halign = $.fn.panel.defaults.halign;
+		/**
+		 * 
+		 */
+		var titleDirection = $.fn.panel.defaults.titleDirection;
 		/**
 		 * 显示折叠按钮
 		 */
@@ -262,8 +268,6 @@ core.html.easyui.layout.Panel = (function() {
 		 */
 		/**
 		 * 加载前事件
-		 * 
-		 * @param param
 		 */
 		var onBeforeLoad = $.fn.panel.defaults.onBeforeLoad;
 		/**
@@ -316,16 +320,10 @@ core.html.easyui.layout.Panel = (function() {
 		var onExpand = $.fn.panel.defaults.onExpand;
 		/**
 		 * 改变大小事件
-		 * 
-		 * @param width
-		 * @param height
 		 */
 		var onResize = $.fn.panel.defaults.onResize;
 		/**
 		 * 移动事件
-		 * 
-		 * @param left
-		 * @param top
 		 */
 		var onMove = $.fn.panel.defaults.onMove;
 		/**
@@ -341,10 +339,33 @@ core.html.easyui.layout.Panel = (function() {
 		 */
 		var onMinimize = $.fn.panel.defaults.onMinimize;
 
+		// 判断构造参数类型
+		switch (typeof (arguments[0])) {
+		case "string":
+			$jQuery = $("#" + arguments[0]);
+			break;
+		case "object":
+			$jQuery = arguments[0];
+			break;
+		default:
+			new core.lang.Exception(arguments[0], "core.html.easyui.button.LinkButton", "构造参数异常", "非字符或jQuery对象");
+		}
+
+		/**
+		 * 获取jQuery对象
+		 * 
+		 * @returns {object}
+		 */
+		this.$jQuery = function() {
+
+			return $jQuery;
+		};
+		
 		/**
 		 * 获取/设置 id
 		 * 
-		 * @param id
+		 * @param id{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.id = function() {
 
@@ -360,7 +381,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置标题
 		 * 
-		 * @param title
+		 * @param title{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.title = function() {
 
@@ -376,7 +398,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置图标样式
 		 * 
-		 * @param iconCls
+		 * @param iconCls{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.iconCls = function() {
 
@@ -392,7 +415,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置宽度
 		 * 
-		 * @param width
+		 * @param width{number}
+		 * @returns {number/core.html.easyui.layout.Panel}
 		 */
 		this.width = function() {
 
@@ -408,7 +432,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置高度
 		 * 
-		 * @param height
+		 * @param height{number}
+		 * @returns {number/core.html.easyui.layout.Panel}
 		 */
 		this.height = function() {
 
@@ -424,7 +449,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置左偏移
 		 * 
-		 * @param left
+		 * @param left{number}
+		 * @returns {number/core.html.easyui.layout.Panel}
 		 */
 		this.left = function() {
 
@@ -440,7 +466,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置上偏移
 		 * 
-		 * @param top
+		 * @param top{number}
+		 * @returns {number/core.html.easyui.layout.Panel}
 		 */
 		this.top = function() {
 
@@ -456,7 +483,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置样式
 		 * 
-		 * @param cls
+		 * @param cls{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.cls = function() {
 
@@ -472,7 +500,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置标头样式
 		 * 
-		 * @param headerCls
+		 * @param headerCls{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.headerCls = function() {
 
@@ -488,7 +517,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置内容样式
 		 * 
-		 * @param bodyCls
+		 * @param bodyCls{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.bodyCls = function() {
 
@@ -504,7 +534,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置样式
 		 * 
-		 * @param style
+		 * @param style{object}
+		 * @returns {object/core.html.easyui.layout.Panel}
 		 */
 		this.style = function() {
 
@@ -520,7 +551,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置自适应
 		 * 
-		 * @param fit
+		 * @param fit{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.fit = function() {
 
@@ -536,7 +568,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置边框
 		 * 
-		 * @param border
+		 * @param border{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.border = function() {
 
@@ -552,7 +585,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置调整布局
 		 * 
-		 * @param doSize
+		 * @param doSize{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.doSize = function() {
 
@@ -568,7 +602,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置不创建标头
 		 * 
-		 * @param noheader
+		 * @param noheader{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.noheader = function() {
 
@@ -584,7 +619,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置内容
 		 * 
-		 * @param content
+		 * @param content{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.content = function() {
 
@@ -598,9 +634,44 @@ core.html.easyui.layout.Panel = (function() {
 		};
 
 		/**
+		 * 获取/设置
+		 * 
+		 * @param halign{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
+		 */
+		this.halign = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return halign;
+			default:
+				halign = arguments[0];
+				return this;
+			}
+		};
+
+		/**
+		 * 获取/设置
+		 * 
+		 * @param titleDirection{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
+		 */
+		this.titleDirection = function() {
+
+			switch (arguments.length) {
+			case 0:
+				return titleDirection;
+			default:
+				titleDirection = arguments[0];
+				return this;
+			}
+		};
+
+		/**
 		 * 获取/设置显示折叠按钮
 		 * 
-		 * @param collapsible
+		 * @param collapsible{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.collapsible = function() {
 
@@ -616,7 +687,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置显示最小化按钮
 		 * 
-		 * @param minimizable
+		 * @param minimizable{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.minimizable = function() {
 
@@ -632,7 +704,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置显示最大化按钮
 		 * 
-		 * @param maximizable
+		 * @param maximizable{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.maximizable = function() {
 
@@ -648,7 +721,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置显示关闭按钮
 		 * 
-		 * @param closable
+		 * @param closable{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.closable = function() {
 
@@ -664,7 +738,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置工具条
 		 * 
-		 * @param tools
+		 * @param tools{array}
+		 * @returns {array/core.html.easyui.layout.Panel}
 		 */
 		this.tools = function() {
 
@@ -680,7 +755,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置头
 		 * 
-		 * @param header
+		 * @param header{object}
+		 * @returns {object/core.html.easyui.layout.Panel}
 		 */
 		this.header = function() {
 
@@ -696,7 +772,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置脚
 		 * 
-		 * @param footer
+		 * @param footer{object}
+		 * @returns {object/core.html.easyui.layout.Panel}
 		 */
 		this.footer = function() {
 
@@ -712,7 +789,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置打开动画
 		 * 
-		 * @param openAnimation
+		 * @param openAnimation{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.openAnimation = function() {
 
@@ -728,7 +806,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置打开时间
 		 * 
-		 * @param openDuration
+		 * @param openDuration{number}
+		 * @returns {number/core.html.easyui.layout.Panel}
 		 */
 		this.openDuration = function() {
 
@@ -744,7 +823,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置关闭动画
 		 * 
-		 * @param closeAnimation
+		 * @param closeAnimation{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.closeAnimation = function() {
 
@@ -760,7 +840,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置关闭时间
 		 * 
-		 * @param closeDuration
+		 * @param closeDuration{number}
+		 * @returns {number/core.html.easyui.layout.Panel}
 		 */
 		this.closeDuration = function() {
 
@@ -776,7 +857,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置初始化折叠
 		 * 
-		 * @param collapsed
+		 * @param collapsed{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.collapsed = function() {
 
@@ -792,7 +874,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置初始化最小
 		 * 
-		 * @param minimized
+		 * @param minimized{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.minimized = function() {
 
@@ -808,7 +891,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置初始化最大
 		 * 
-		 * @param maximized
+		 * @param maximized{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.maximized = function() {
 
@@ -824,7 +908,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置初始化关闭
 		 * 
-		 * @param closed
+		 * @param closed{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.closed = function() {
 
@@ -840,7 +925,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置超链接
 		 * 
-		 * @param href
+		 * @param href{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.href = function() {
 
@@ -856,7 +942,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置缓存
 		 * 
-		 * @param cache
+		 * @param cache{boolean}
+		 * @returns {boolean/core.html.easyui.layout.Panel}
 		 */
 		this.cache = function() {
 
@@ -872,7 +959,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置加载信息
 		 * 
-		 * @param loadingMessage
+		 * @param loadingMessage{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.loadingMessage = function() {
 
@@ -888,7 +976,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置ajax响应中提取数据
 		 * 
-		 * @param extractor
+		 * @param extractor{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.extractor = function() {
 
@@ -904,7 +993,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置请求方式
 		 * 
-		 * @param method
+		 * @param method{string}
+		 * @returns {string/core.html.easyui.layout.Panel}
 		 */
 		this.method = function() {
 
@@ -920,7 +1010,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置参数
 		 * 
-		 * @param queryParams
+		 * @param queryParams{object}
+		 * @returns {object/core.html.easyui.layout.Panel}
 		 */
 		this.queryParams = function() {
 
@@ -936,7 +1027,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置加载器
 		 * 
-		 * @param loader
+		 * @param loader{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.loader = function() {
 
@@ -952,7 +1044,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置加载前事件
 		 * 
-		 * @param onBeforeLoad
+		 * @param onBeforeLoad{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onBeforeLoad = function() {
 
@@ -968,7 +1061,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置加载事件
 		 * 
-		 * @param onLoad
+		 * @param onLoad{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onLoad = function() {
 
@@ -984,7 +1078,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置加载失败事件
 		 * 
-		 * @param onLoadError
+		 * @param onLoadError{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onLoadError = function() {
 
@@ -1000,7 +1095,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置打开前事件
 		 * 
-		 * @param onBeforeOpen
+		 * @param onBeforeOpen{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onBeforeOpen = function() {
 
@@ -1016,7 +1112,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置打开事件
 		 * 
-		 * @param onOpen
+		 * @param onOpen{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onOpen = function() {
 
@@ -1032,7 +1129,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置关闭前事件
 		 * 
-		 * @param onBeforeClose
+		 * @param onBeforeClose{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onBeforeClose = function() {
 
@@ -1048,7 +1146,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置关闭事件
 		 * 
-		 * @param onClose
+		 * @param onClose{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onClose = function() {
 
@@ -1064,7 +1163,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置销毁事件
 		 * 
-		 * @param onBeforeDestroy
+		 * @param onBeforeDestroy{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onBeforeDestroy = function() {
 
@@ -1080,7 +1180,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置销毁事件
 		 * 
-		 * @param onDestroy
+		 * @param onDestroy{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onDestroy = function() {
 
@@ -1096,7 +1197,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置折叠前事件
 		 * 
-		 * @param onBeforeCollapse
+		 * @param onBeforeCollapse{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onBeforeCollapse = function() {
 
@@ -1112,7 +1214,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置折叠事件
 		 * 
-		 * @param onCollapse
+		 * @param onCollapse{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onCollapse = function() {
 
@@ -1128,7 +1231,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置展开事件
 		 * 
-		 * @param onBeforeExpand
+		 * @param onBeforeExpand{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onBeforeExpand = function() {
 
@@ -1144,7 +1248,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置展开事件
 		 * 
-		 * @param onExpand
+		 * @param onExpand{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onExpand = function() {
 
@@ -1160,7 +1265,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置窗口大小改变事件
 		 * 
-		 * @param onResize
+		 * @param onResize{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onResize = function() {
 
@@ -1176,7 +1282,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置移动事件
 		 * 
-		 * @param onMove
+		 * @param onMove{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onMove = function() {
 
@@ -1192,7 +1299,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置最大化事件
 		 * 
-		 * @param onMaximize
+		 * @param onMaximize{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onMaximize = function() {
 
@@ -1208,7 +1316,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置恢复事件
 		 * 
-		 * @param onRestore
+		 * @param onRestore{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onRestore = function() {
 
@@ -1224,7 +1333,8 @@ core.html.easyui.layout.Panel = (function() {
 		/**
 		 * 获取/设置最小化事件
 		 * 
-		 * @param onMinimize
+		 * @param onMinimize{function}
+		 * @returns {function/core.html.easyui.layout.Panel}
 		 */
 		this.onMinimize = function() {
 
@@ -1245,18 +1355,14 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	Constructor.prototype.init = function() {
 		
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.layout.Panel", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.layout.Panel", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.layout.Panel", "构造参数异常", "Document不存在.");
 		}
 		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
 		// 参数配置
-		$jQuery.panel({
+		this.$jQuery().panel({
 			// 属性
 			id : this.id(),
 			title : this.title(),
@@ -1274,6 +1380,8 @@ core.html.easyui.layout.Panel = (function() {
 			doSize : this.doSize(),
 			noheader : this.noheader(),
 			content : this.content(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
 			collapsible : this.collapsible(),
 			minimizable : this.minimizable(),
 			maximizable : this.maximizable(),
@@ -1326,94 +1434,94 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).panel("options");
+		return this.$jQuery().panel("options");
 	};
 
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.panel = function() {
 
-		return $("#" + this.id()).panel("panel");
+		return this.$jQuery().panel("panel");
 	};
 
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.header = function() {
 
-		return $("#" + this.id()).panel("header");
+		return this.$jQuery().panel("header");
 	};
 
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.footer = function() {
 
-		return $("#" + this.id()).panel("footer");
+		return this.$jQuery().panel("footer");
 	};
 
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.body = function() {
 
-		return $("#" + this.id()).panel("body");
+		return this.$jQuery().panel("body");
 	};
 
 	/**
 	 * 设置标题
 	 * 
-	 * @param title
+	 * @param title{string}
 	 * @returns
 	 */
 	Constructor.prototype.setTitle = function(title) {
 
-		return $("#" + this.id()).panel("setTitle", title);
+		return this.$jQuery().panel("setTitle", title);
 	};
 
 	/**
 	 * 打开面板
 	 * 
-	 * @param forceOpen
+	 * @param forceOpen{function}
 	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.open = function(forceOpen) {
 
-		return $("#" + this.id()).panel("open", forceOpen);
+		return this.$jQuery().panel("open", forceOpen);
 	};
 
 	/**
 	 * 关闭面板
 	 * 
-	 * @param forceClose
+	 * @param forceClose{function}
 	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.close = function(forceClose) {
 
-		return $("#" + this.id()).panel("close", forceClose);
+		return this.$jQuery().panel("close", forceClose);
 	};
 
 	/**
 	 * 销毁面板
 	 * 
-	 * @param forceDestroy
+	 * @param forceDestroy{function}
 	 *            是否调用回调
 	 * @returns
 	 */
 	Constructor.prototype.destroy = function(forceDestroy) {
 
-		return $("#" + this.id()).panel("destroy", forceDestroy);
+		return this.$jQuery().panel("destroy", forceDestroy);
 	};
 
 	/**
@@ -1423,30 +1531,30 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).panel("clear");
+		return this.$jQuery().panel("clear");
 	};
 
 	/**
 	 * 刷新面板
 	 * 
-	 * @param href
+	 * @param href{string}
 	 *            链接
 	 * @returns
 	 */
 	Constructor.prototype.refresh = function(href) {
 
-		return $("#" + this.id()).panel("refresh", href);
+		return this.$jQuery().panel("refresh", href);
 	};
 
 	/**
 	 * 改变面板窗口大小
 	 * 
-	 * @param options
+	 * @param options{object}
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(options) {
 
-		return $("#" + this.id()).panel("resize", options);
+		return this.$jQuery().panel("resize", options);
 	};
 
 	/**
@@ -1456,18 +1564,18 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	Constructor.prototype.doLayout = function() {
 
-		return $("#" + this.id()).panel("doLayout");
+		return this.$jQuery().panel("doLayout");
 	};
 
 	/**
 	 * 移动面板
 	 * 
-	 * @param options
+	 * @param options{object}
 	 * @returns
 	 */
 	Constructor.prototype.move = function(options) {
 
-		return $("#" + this.id()).panel("move", options);
+		return this.$jQuery().panel("move", options);
 	};
 
 	/**
@@ -1477,7 +1585,7 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	Constructor.prototype.maximize = function() {
 
-		return $("#" + this.id()).panel("maximize");
+		return this.$jQuery().panel("maximize");
 	};
 
 	/**
@@ -1487,7 +1595,7 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	Constructor.prototype.minimize = function() {
 
-		return $("#" + this.id()).panel("minimize");
+		return this.$jQuery().panel("minimize");
 	};
 
 	/**
@@ -1497,27 +1605,29 @@ core.html.easyui.layout.Panel = (function() {
 	 */
 	Constructor.prototype.restore = function() {
 
-		return $("#" + this.id()).panel("restore");
+		return this.$jQuery().panel("restore");
 	};
 
 	/**
 	 * 折叠面板
 	 * 
+	 * @param animate{number}
 	 * @returns
 	 */
 	Constructor.prototype.collapse = function(animate) {
 
-		return $("#" + this.id()).panel("collapse", animate);
+		return this.$jQuery().panel("collapse", animate);
 	};
 
 	/**
 	 * 展开面板
 	 * 
+	 * @param animate{number}
 	 * @returns
 	 */
 	Constructor.prototype.expand = function(animate) {
 
-		return $("#" + this.id()).panel("expand", animate);
+		return this.$jQuery().panel("expand", animate);
 	};
 
 	// 返回构造函数

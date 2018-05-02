@@ -4,71 +4,77 @@
  * @desc	文本框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.TextBox(String id)
+ * @constructor	core.html.easyui.form.TextBox(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.ValidateBox
+ * 			core.html.easyui.button.LinkButton
  * 
- * @method	Object/core.html.easyui.form.TextBox			width()						获取/设置宽度
- * 			Object/core.html.easyui.form.TextBox			height()					获取/设置高度
- * 			Object/core.html.easyui.form.TextBox			prompt()					获取/设置输入框提示信息
- * 			Object/core.html.easyui.form.TextBox			value()						获取/设置值
- * 			Object/core.html.easyui.form.TextBox			type()						获取/设置输入框类型
- * 			Object/core.html.easyui.form.TextBox			label()						获取/设置标签
- * 			Object/core.html.easyui.form.TextBox			labelWidth()				获取/设置标签宽度
- * 			Object/core.html.easyui.form.TextBox			labelPosition()				获取/设置标签位置
- * 			Object/core.html.easyui.form.TextBox			labelAlign()				获取/设置标签排列
- * 			Object/core.html.easyui.form.TextBox			multiline()					获取/设置多行文本框
- * 			Object/core.html.easyui.form.TextBox			icons()						获取/设置图标
- * 			Object/core.html.easyui.form.TextBox			iconCls()					获取/设置图标样式
- * 			Object/core.html.easyui.form.TextBox			iconAlign()					获取/设置图标排列
- * 			Object/core.html.easyui.form.TextBox			iconWidth()					获取/设置图标宽度
- * 			Object/core.html.easyui.form.TextBox			buttonText()				获取/设置按钮文本
- * 			Object/core.html.easyui.form.TextBox			buttonIcon()				获取/设置按钮图标
- * 			Object/core.html.easyui.form.TextBox			buttonAlign()				获取/设置按钮排列
- * 			Object/core.html.easyui.form.TextBox			onChange()					获取/设置改变事件
- * 			Object/core.html.easyui.form.TextBox			onResize()					获取/设置改变大小事件
- * 			Object/core.html.easyui.form.TextBox			onClickButton()				获取/设置点击按钮事件
- * 			Object/core.html.easyui.form.TextBox			onClickIcon()				获取/设置点击图标事件
- * 			core.html.easyui.form.TextBox					init()						初始化组件模板
- * 			Object											textbox()				
- * 			Object											button()				
- * 			Object											resize(Object width)		改变宽度
- * 			Object											clear()						清除
- * 			Object											reset()						重置
- * 			Object											initValue(Object value)	
- * 			Object											setText(String text)		设置显示文本
- * 			Object											getText()					获取显示文本
- * 			Object											setValue(Object value)		设置值
- * 			Object											getValue()					获取值
- * 			Object											getIcon(Number index)		获取图标对象
+ * @method	继承core.html.easyui.form.ValidateBox所有方法
+ * 			继承core.html.easyui.button.LinkButton所有方法
+ * 			string/core.html.easyui.form.TextBox		cls(string cls)							获取/设置样式
+ * 			string/core.html.easyui.form.TextBox		prompt(string prompt)					获取/设置输入框提示信息
+ * 			string/core.html.easyui.form.TextBox		value(string value)						获取/设置值
+ * 			string/core.html.easyui.form.TextBox		type(string type)						获取/设置输入框类型
+ * 			string/core.html.easyui.form.TextBox		label(string label)						获取/设置标签
+ * 			number/core.html.easyui.form.TextBox		labelWidth(number labelWidth)			获取/设置标签宽度
+ * 			string/core.html.easyui.form.TextBox		labelPosition(string labelPosition)		获取/设置标签位置
+ * 			string/core.html.easyui.form.TextBox		labelAlign(string labelAlign)			获取/设置标签排列
+ * 			boolean/core.html.easyui.form.TextBox		multiline(boolean multiline)			获取/设置多行文本框
+ * 			array/core.html.easyui.form.TextBox			icons(array icons)						获取/设置图标
+ * 			number/core.html.easyui.form.TextBox		iconWidth(number iconWidth)				获取/设置图标宽度
+ * 			string/core.html.easyui.form.TextBox		buttonText(string buttonText)			获取/设置按钮文本
+ * 			string/core.html.easyui.form.TextBox		buttonIcon(string buttonIcon)			获取/设置按钮图标
+ * 			string/core.html.easyui.form.TextBox		buttonAlign(string buttonAlign)			获取/设置按钮排列
+ * 			function/core.html.easyui.form.TextBox		onChange(function onChange)				获取/设置改变事件
+ * 			function/core.html.easyui.form.TextBox		onResize(function function)				获取/设置改变大小事件
+ * 			function/core.html.easyui.form.TextBox		onClickButton(function onClickButton)	获取/设置点击按钮事件
+ * 			function/core.html.easyui.form.TextBox		onClickIcon(function onClickIcon)		获取/设置点击图标事件
+ * 			core.html.easyui.form.TextBox				init()									初始化组件模板
+ * 			object										options()					
+ * 			object										textbox()				
+ * 			object										button()	
+ * 			void										destroy()
+ * 			void										resize(number width)					改变宽度
+ * 			void										disable()
+ * 			void										enable()
+ * 			void										readonly(boolean mode)
+ * 			void										clear()									清除
+ * 			void										reset()									重置
+ * 			void										initValue(string value)	
+ * 			void										setText(string text)					设置显示文本
+ * 			string										getText()								获取显示文本
+ * 			void										setValue(string value)					设置值
+ * 			string										getValue()								获取值
+ * 			object										getIcon(number index)					获取图标对象
  * 
- * @date	2016年8月29日 17:37:49
+ * @date	2018年4月23日 16:35:16
  */
-
 core.html.easyui.form.TextBox = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		core.html.easyui.form.TextBox.superClass.constructor.call(this, id);
+		core.html.easyui.form.Validate.call(this, arguments[0]);
+		core.html.easyui.button.LinkButton.call(this, arguments[0]);
+		// 默认参数修改
+		this.width($.fn.textbox.defaults.width);
+		this.height($.fn.textbox.defaults.height);
+		this.editable($.fn.textbox.defaults.editable);
+		this.disabled($.fn.textbox.defaults.disabled);
+		this.readonly($.fn.textbox.defaults.readonly);
+		this.iconCls($.fn.textbox.defaults.iconCls);
+		this.iconAlign($.fn.textbox.defaults.iconAlign);
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * 宽度
+		 * 样式
 		 */
-		var width = $.fn.textbox.defaults.width;
-		/**
-		 * 高度
-		 */
-		var height = $.fn.textbox.defaults.height;
+		var cls = $.fn.textbox.defaults.cls;
 		/**
 		 * 输入框提示信息
 		 */
@@ -106,14 +112,6 @@ core.html.easyui.form.TextBox = (function() {
 		 */
 		var icons = $.fn.textbox.defaults.icons;
 		/**
-		 * 图标样式
-		 */
-		var iconCls = $.fn.textbox.defaults.iconCls;
-		/**
-		 * 图标排列
-		 */
-		var iconAlign = $.fn.textbox.defaults.iconAlign;
-		/**
 		 * 图标宽度
 		 */
 		var iconWidth = $.fn.textbox.defaults.iconWidth;
@@ -135,20 +133,10 @@ core.html.easyui.form.TextBox = (function() {
 		 */
 		/**
 		 * 改变事件
-		 * 
-		 * @param newValue
-		 *            新值
-		 * @param oldValue
-		 *            旧值
 		 */
 		var onChange = $.fn.textbox.defaults.onChange;
 		/**
 		 * 改变大小事件
-		 * 
-		 * @param width
-		 *            宽度
-		 * @param height
-		 *            高度
 		 */
 		var onResize = $.fn.textbox.defaults.onResize;
 		/**
@@ -157,39 +145,22 @@ core.html.easyui.form.TextBox = (function() {
 		var onClickButton = $.fn.textbox.defaults.onClickButton;
 		/**
 		 * 点击图标事件
-		 * 
-		 * @param index
 		 */
 		var onClickIcon = $.fn.textbox.defaults.onClickIcon;
 
 		/**
-		 * 获取/设置宽度
+		 * 获取/设置样式
 		 * 
-		 * @param width
+		 * @param cls{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
-		this.width = function() {
+		this.cls = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return width;
+				return cls;
 			default:
-				width = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置高度
-		 * 
-		 * @param height
-		 */
-		this.height = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return height;
-			default:
-				height = arguments[0];
+				cls = arguments[0];
 				return this;
 			}
 		};
@@ -197,7 +168,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置输入框提示信息
 		 * 
-		 * @param prompt
+		 * @param prompt{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.prompt = function() {
 
@@ -213,7 +185,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置值
 		 * 
-		 * @param value
+		 * @param value{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.value = function() {
 
@@ -229,7 +202,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置输入框类型
 		 * 
-		 * @param type
+		 * @param type{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.type = function() {
 
@@ -245,7 +219,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置标签
 		 * 
-		 * @param label
+		 * @param label{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.label = function() {
 
@@ -261,7 +236,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置标签宽度
 		 * 
-		 * @param labelWidth
+		 * @param labelWidth{number}
+		 * @returns {number/core.html.easyui.form.TextBox}
 		 */
 		this.labelWidth = function() {
 
@@ -277,7 +253,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置标签位置
 		 * 
-		 * @param labelPosition
+		 * @param labelPosition{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.labelPosition = function() {
 
@@ -293,7 +270,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置标签排列
 		 * 
-		 * @param labelAlign
+		 * @param labelAlign{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.labelAlign = function() {
 
@@ -309,7 +287,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置多行文本框
 		 * 
-		 * @param multiline
+		 * @param multiline{boolean}
+		 * @returns {boolean/core.html.easyui.form.TextBox}
 		 */
 		this.multiline = function() {
 
@@ -325,7 +304,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置图标
 		 * 
-		 * @param icons
+		 * @param icons{array}
+		 * @returns {array/core.html.easyui.form.TextBox}
 		 */
 		this.icons = function() {
 
@@ -339,41 +319,10 @@ core.html.easyui.form.TextBox = (function() {
 		};
 
 		/**
-		 * 获取/设置图标样式
-		 * 
-		 * @param iconCls
-		 */
-		this.iconCls = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return iconCls;
-			default:
-				iconCls = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置图标排列
-		 * 
-		 * @param iconAlign
-		 */
-		this.iconAlign = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return iconAlign;
-			default:
-				iconAlign = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置图标宽度
 		 * 
-		 * @param iconWidth
+		 * @param iconWidth{number}
+		 * @returns {number/core.html.easyui.form.TextBox}
 		 */
 		this.iconWidth = function() {
 
@@ -389,7 +338,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置按钮文本
 		 * 
-		 * @param buttonText
+		 * @param buttonText{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.buttonText = function() {
 
@@ -405,7 +355,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置按钮图标
 		 * 
-		 * @param buttonIcon
+		 * @param buttonIcon{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.buttonIcon = function() {
 
@@ -421,7 +372,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置按钮排列
 		 * 
-		 * @param buttonAlign
+		 * @param buttonAlign{string}
+		 * @returns {string/core.html.easyui.form.TextBox}
 		 */
 		this.buttonAlign = function() {
 
@@ -437,7 +389,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置改变事件
 		 * 
-		 * @param onChange
+		 * @param onChange{function}
+		 * @returns {function/core.html.easyui.form.TextBox}
 		 */
 		this.onChange = function() {
 
@@ -453,7 +406,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置改变大小事件
 		 * 
-		 * @param onResize
+		 * @param onResize{function}
+		 * @returns {function/core.html.easyui.form.TextBox}
 		 */
 		this.onResize = function() {
 
@@ -469,7 +423,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置点击按钮事件
 		 * 
-		 * @param onClickButton
+		 * @param onClickButton{function}
+		 * @returns {function/core.html.easyui.form.TextBox}
 		 */
 		this.onClickButton = function() {
 
@@ -485,7 +440,8 @@ core.html.easyui.form.TextBox = (function() {
 		/**
 		 * 获取/设置点击图标事件
 		 * 
-		 * @param onClickIcon
+		 * @param onClickIcon{function}
+		 * @returns {function/core.html.easyui.form.TextBox}
 		 */
 		this.onClickIcon = function() {
 
@@ -498,8 +454,6 @@ core.html.easyui.form.TextBox = (function() {
 			}
 		};
 	};
-	// 继承验证文本框模板
-	core.lang.Class.extend(Constructor, core.html.easyui.form.ValidateBox);
 
 	/**
 	 * 初始化组件模板
@@ -507,38 +461,52 @@ core.html.easyui.form.TextBox = (function() {
 	 * @returns {core.html.easyui.form.TextBox}
 	 */
 	Constructor.prototype.init = function() {
-				
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TextBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.TextBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.button.MenuButton", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.textbox({
-			// 属性
+		this.$jQuery().textbox({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// 属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// 属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -548,17 +516,22 @@ core.html.easyui.form.TextBox = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// 事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
@@ -570,15 +543,33 @@ core.html.easyui.form.TextBox = (function() {
 	};
 
 	/**
-	 * Validate继承方法
+	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).textbox("options");
+		return this.$jQuery().textbox("options");
+	};
+
+	/**
+	 * 
+	 * @returns {object}
+	 */
+	Constructor.prototype.textbox = function() {
+
+		return this.$jQuery().textbox("textbox");
+	};
+
+	/**
+	 * 
+	 * @returns {object}
+	 */
+	Constructor.prototype.button = function() {
+
+		return this.$jQuery().textbox("button");
 	};
 
 	/**
@@ -588,67 +579,18 @@ core.html.easyui.form.TextBox = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).textbox("destroy");
+		return this.$jQuery().textbox("destroy");
 	};
 
 	/**
-	 * 校验
+	 * 改变宽度
 	 * 
+	 * @param width{number}
 	 * @returns
 	 */
-	Constructor.prototype.validate = function() {
+	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).textbox("validate");
-	};
-
-	/**
-	 * 判断是否校验通过
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.isValid = function() {
-
-		return $("#" + this.id()).textbox("isValid");
-	};
-
-	/**
-	 * 启用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enableValidation = function() {
-
-		return $("#" + this.id()).textbox("enableValidation");
-	};
-
-	/**
-	 * 禁用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disableValidation = function() {
-
-		return $("#" + this.id()).textbox("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).textbox("resetValidation");
-	};
-
-	/**
-	 * 启用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enable = function() {
-
-		return $("#" + this.id()).textbox("enable");
+		return this.$jQuery().textbox("resize", width);
 	};
 
 	/**
@@ -658,49 +600,28 @@ core.html.easyui.form.TextBox = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).textbox("disable");
+		return this.$jQuery().textbox("disable");
+	};
+
+	/**
+	 * 启用
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.enable = function() {
+
+		return this.$jQuery().textbox("enable");
 	};
 
 	/**
 	 * 只读
 	 * 
+	 * @param mode{boolean}
 	 * @returns
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).textbox("readonly", mode);
-	};
-
-	/**
-	 * 方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.textbox = function() {
-
-		return $("#" + this.id()).textbox("textbox");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.button = function() {
-
-		return $("#" + this.id()).textbox("button");
-	};
-
-	/**
-	 * 改变宽度
-	 * 
-	 * @param width
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(width) {
-
-		return $("#" + this.id()).textbox("resize", width);
+		return this.$jQuery().textbox("readonly", mode);
 	};
 
 	/**
@@ -710,7 +631,7 @@ core.html.easyui.form.TextBox = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).textbox("clear");
+		return this.$jQuery().textbox("clear");
 	};
 
 	/**
@@ -720,70 +641,70 @@ core.html.easyui.form.TextBox = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).textbox("reset");
+		return this.$jQuery().textbox("reset");
 	};
 
 	/**
 	 * 
-	 * @param value
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.initValue = function(value) {
 
-		return $("#" + this.id()).textbox("initValue", value);
+		return this.$jQuery().textbox("initValue", value);
 	};
 
 	/**
 	 * 设置显示文本
 	 * 
-	 * @param text
+	 * @param text{string}
 	 * @returns
 	 */
 	Constructor.prototype.setText = function(text) {
 
-		return $("#" + this.id()).textbox("setText", text);
+		return this.$jQuery().textbox("setText", text);
 	};
 
 	/**
 	 * 获取显示文本
 	 * 
-	 * @returns
+	 * @returns {string}
 	 */
 	Constructor.prototype.getText = function() {
 
-		return $("#" + this.id()).textbox("getText");
+		return this.$jQuery().textbox("getText");
 	};
 
 	/**
 	 * 设置值
 	 * 
-	 * @param value
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).textbox("setValue", value);
+		return this.$jQuery().textbox("setValue", value);
 	};
 
 	/**
 	 * 获取值
 	 * 
-	 * @returns
+	 * @returns {string}
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).textbox("getValue");
+		return this.$jQuery().textbox("getValue");
 	};
 
 	/**
 	 * 获取图标对象
 	 * 
-	 * @param index
-	 * @returns
+	 * @param index{number}
+	 * @returns {object}
 	 */
 	Constructor.prototype.getIcon = function(index) {
 
-		return $("#" + this.id()).textbox("getIcon", index);
+		return this.$jQuery().textbox("getIcon", index);
 	};
 
 	// 返回构造函数

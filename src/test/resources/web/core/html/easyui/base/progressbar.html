@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>core.html.easyui.base.ProgressBar</title>
+
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/icon.css">
+
+</head>
+<body>
+	<div id="rr"></div>
+</body>
+
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.1/jquery-3.1.1.js"></script>
+
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/locale/easyui-lang-zh_CN.js"></script>
+
+<script type="text/javascript" src="/~/core/release/core.js"></script>
+
+<script type="text/javascript" src="/~/core/package.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/base/ProgressBar.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		var progressbar = new core.html.easyui.base.ProgressBar($("#rr"));
+		progressbar.init();
+	});
+</script>
+
+</html>
