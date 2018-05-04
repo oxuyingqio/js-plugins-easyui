@@ -4,34 +4,32 @@
  * @desc	密码框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.PasswordBox(String id)
+ * @constructor	core.html.easyui.form.PasswordBox(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.TextBox
  * 
- * @method	Object/core.html.easyui.form.PasswordBox		passwordChar()			获取/设置密码显示字符
- * 			Object/core.html.easyui.form.PasswordBox		checkInterval()			获取/设置检查间隔时间
- * 			Object/core.html.easyui.form.PasswordBox		lastDelay()				获取/设置延迟转换
- * 			Object/core.html.easyui.form.PasswordBox		revealed()				获取/设置是否隐藏密码
- * 			Object/core.html.easyui.form.PasswordBox		showEye()				获取/设置是否显示显示密码按钮
- * 			core.html.easyui.form.PasswordBox				init()					初始化组件模板		
- * 			Object											showPassword()			显示密码
- * 			Object											hidePassword()			隐藏密码
+ * @method	继承core.html.easyui.form.TextBox所有方法
+ * 			string/core.html.easyui.form.PasswordBox		passwordChar(string passwordChar)	获取/设置密码显示字符
+ * 			number/core.html.easyui.form.PasswordBox		checkInterval(number checkInterval)	获取/设置检查间隔时间
+ * 			number/core.html.easyui.form.PasswordBox		lastDelay(number lastDelay)			获取/设置延迟转换
+ * 			boolean/core.html.easyui.form.PasswordBox		revealed(boolean revealed)			获取/设置是否隐藏密码
+ * 			boolean/core.html.easyui.form.PasswordBox		showEye(boolean showEye)			获取/设置是否显示显示密码按钮
+ * 			core.html.easyui.form.PasswordBox				init()								初始化组件模板		
+ * 			object											options()
+ * 			void											showPassword()						显示密码
+ * 			void											hidePassword()						隐藏密码
  * 
- * @date	2016年8月29日 17:37:49
+ * @date	2018年5月2日 16:05:52
  */
-
 core.html.easyui.form.PasswordBox = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.PasswordBox.superClass.constructor.call(this, id);
+		core.html.easyui.form.PasswordBox.superClass.constructor.call(this, arguments[0]);
 
 		/**
 		 * 属性
@@ -60,7 +58,8 @@ core.html.easyui.form.PasswordBox = (function() {
 		/**
 		 * 获取/设置密码显示字符
 		 * 
-		 * @param passwordChar
+		 * @param passwordChar{string}
+		 * @returns {string/core.html.easyui.form.PasswordBox}
 		 */
 		this.passwordChar = function() {
 
@@ -76,7 +75,8 @@ core.html.easyui.form.PasswordBox = (function() {
 		/**
 		 * 获取/设置检查间隔时间
 		 * 
-		 * @param checkInterval
+		 * @param checkInterval{number}
+		 * @returns {number/core.html.easyui.form.PasswordBox}
 		 */
 		this.checkInterval = function() {
 
@@ -92,7 +92,8 @@ core.html.easyui.form.PasswordBox = (function() {
 		/**
 		 * 获取/设置延迟转换
 		 * 
-		 * @param lastDelay
+		 * @param lastDelay{number}
+		 * @returns {number/core.html.easyui.form.PasswordBox}
 		 */
 		this.lastDelay = function() {
 
@@ -108,7 +109,8 @@ core.html.easyui.form.PasswordBox = (function() {
 		/**
 		 * 获取/设置是否隐藏密码
 		 * 
-		 * @param revealed
+		 * @param revealed{boolean}
+		 * @returns {boolean/core.html.easyui.form.PasswordBox}
 		 */
 		this.revealed = function() {
 
@@ -124,7 +126,8 @@ core.html.easyui.form.PasswordBox = (function() {
 		/**
 		 * 获取/设置是否显示显示密码按钮
 		 * 
-		 * @param showEye
+		 * @param showEye{boolean}
+		 * @returns {boolean/core.html.easyui.form.PasswordBox}
 		 */
 		this.showEye = function() {
 
@@ -147,38 +150,51 @@ core.html.easyui.form.PasswordBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.PasswordBox", "构造参数异常", "DIV(ID:" + this.id()
-					+ ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.PasswordBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.PasswordBox", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.passwordbox({
-			// 属性
+		this.$jQuery().passwordbox({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// TextBox继承属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// TextBox继承属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -188,8 +204,6 @@ core.html.easyui.form.PasswordBox = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
@@ -201,10 +215,17 @@ core.html.easyui.form.PasswordBox = (function() {
 			revealed : this.revealed(),
 			showEye : this.showEye(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
@@ -216,225 +237,17 @@ core.html.easyui.form.PasswordBox = (function() {
 	};
 
 	/**
-	 * Validate继承方法
+	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).passwordbox("options");
+		return this.$jQuery().passwordbox("options");
 	};
 
-	/**
-	 * 销毁组件
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function() {
-
-		return $("#" + this.id()).passwordbox("destroy");
-	};
-
-	/**
-	 * 校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.validate = function() {
-
-		return $("#" + this.id()).passwordbox("validate");
-	};
-
-	/**
-	 * 判断是否校验通过
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.isValid = function() {
-
-		return $("#" + this.id()).passwordbox("isValid");
-	};
-
-	/**
-	 * 启用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enableValidation = function() {
-
-		return $("#" + this.id()).passwordbox("enableValidation");
-	};
-
-	/**
-	 * 禁用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disableValidation = function() {
-
-		return $("#" + this.id()).passwordbox("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).passwordbox("resetValidation");
-	};
-
-	/**
-	 * 启用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enable = function() {
-
-		return $("#" + this.id()).passwordbox("enable");
-	};
-
-	/**
-	 * 禁用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disable = function() {
-
-		return $("#" + this.id()).passwordbox("disable");
-	};
-
-	/**
-	 * 只读
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.readonly = function(mode) {
-
-		return $("#" + this.id()).passwordbox("readonly", mode);
-	};
-
-	/**
-	 * TextBox继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.textbox = function() {
-
-		return $("#" + this.id()).passwordbox("textbox");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.button = function() {
-
-		return $("#" + this.id()).passwordbox("button");
-	};
-
-	/**
-	 * 改变宽度
-	 * 
-	 * @param width
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(width) {
-
-		return $("#" + this.id()).passwordbox("resize", width);
-	};
-
-	/**
-	 * 清除
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).passwordbox("clear");
-	};
-
-	/**
-	 * 重置
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.reset = function() {
-
-		return $("#" + this.id()).passwordbox("reset");
-	};
-
-	/**
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.initValue = function(value) {
-
-		return $("#" + this.id()).passwordbox("initValue", value);
-	};
-
-	/**
-	 * 设置显示文本
-	 * 
-	 * @param text
-	 * @returns
-	 */
-	Constructor.prototype.setText = function(text) {
-
-		return $("#" + this.id()).passwordbox("setText", text);
-	};
-
-	/**
-	 * 获取显示文本
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getText = function() {
-
-		return $("#" + this.id()).textbox("getText");
-	};
-
-	/**
-	 * 设置值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.setValue = function(value) {
-
-		return $("#" + this.id()).textbox("setValue", value);
-	};
-
-	/**
-	 * 获取值
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValue = function() {
-
-		return $("#" + this.id()).passwordbox("getValue");
-	};
-
-	/**
-	 * 获取图标对象
-	 * 
-	 * @param index
-	 * @returns
-	 */
-	Constructor.prototype.getIcon = function(index) {
-
-		return $("#" + this.id()).passwordbox("getIcon", index);
-	};
-
-	/**
-	 * 方法
-	 */
 	/**
 	 * 显示密码
 	 * 
@@ -442,7 +255,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	 */
 	Constructor.prototype.showPassword = function() {
 
-		return $("#" + this.id()).passwordbox("showPassword");
+		return this.$jQuery().passwordbox("showPassword");
 	};
 
 	/**
@@ -452,7 +265,7 @@ core.html.easyui.form.PasswordBox = (function() {
 	 */
 	Constructor.prototype.hidePassword = function() {
 
-		return $("#" + this.id()).passwordbox("hidePassword");
+		return this.$jQuery().passwordbox("hidePassword");
 	};
 
 	// 返回构造函数

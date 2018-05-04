@@ -4,37 +4,35 @@
  * @desc	时间微调框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.TimeSpinner(String id)
+ * @constructor	core.html.easyui.form.TimeSpinner(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.Spinner
  * 
- * @method	String/core.html.easyui.form.TimeSpinner		separator()			获取/设置分隔符
- * 			Boolean/core.html.easyui.form.TimeSpinner		showSeconds()		获取/设置显示秒
- * 			Object/core.html.easyui.form.TimeSpinner		highlight()			获取/设置高亮
- * 			Object/core.html.easyui.form.TimeSpinner		formatter()			获取/设置格式化
- * 			Object/core.html.easyui.form.TimeSpinner		parser()			获取/设置解析时间
- * 			Object/core.html.easyui.form.TimeSpinner		selections()		获取/设置突出的部分
- * 			core.html.easyui.form.TimeSpinner				init()				初始化组件模板
- * 			Object											getHours()			获取小时值
- * 			Object											getMinutes()		获取分钟值
- * 			Object											getSeconds()		获取秒值
+ * @method	继承core.html.easyui.form.Spinner所有方法
+ * 			string/core.html.easyui.form.TimeSpinner	separator(string separator)			获取/设置分隔符
+ * 			boolean/core.html.easyui.form.TimeSpinner	showSeconds(boolean showSeconds)	获取/设置显示秒
+ * 			number/core.html.easyui.form.TimeSpinner	highlight(number highlight)			获取/设置高亮
+ * 			function/core.html.easyui.form.TimeSpinner	formatter(function formatter)		获取/设置格式化
+ * 			function/core.html.easyui.form.TimeSpinner	parser(function parser)				获取/设置解析时间
+ * 			array/core.html.easyui.form.TimeSpinner		selections(array selections)		获取/设置突出的部分
+ * 			core.html.easyui.form.TimeSpinner			init()								初始化组件模板
+ * 			void										options()
+ * 			void										setValue(string value)
+ * 			number										getHours()							获取小时值
+ * 			number										getMinutes()						获取分钟值
+ * 			number										getSeconds()						获取秒值
  * 
- * @date	2016年9月1日 10:28:12
+ * @date	2018年5月4日 14:30:31
  */
-
 core.html.easyui.form.TimeSpinner = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.TimeSpinner.superClass.constructor.call(this, id);
-		this.spin($.fn.timespinner.defaults.spin);
+		core.html.easyui.form.TimeSpinner.superClass.constructor.call(this, arguments[0]);
 
 		/**
 		 * 属性
@@ -67,7 +65,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 		/**
 		 * 获取/设置分隔符
 		 * 
-		 * @param separator
+		 * @param separator{string}
+		 * @returns {string/core.html.easyui.form.TimeSpinner}
 		 */
 		this.separator = function() {
 
@@ -83,7 +82,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 		/**
 		 * 获取/设置显示秒
 		 * 
-		 * @param showSeconds
+		 * @param showSeconds{boolean}
+		 * @returns {boolean/core.html.easyui.form.TimeSpinner}
 		 */
 		this.showSeconds = function() {
 
@@ -99,7 +99,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 		/**
 		 * 获取/设置高亮
 		 * 
-		 * @param highlight
+		 * @param highlight{number}
+		 * @returns {number/core.html.easyui.form.TimeSpinner}
 		 */
 		this.highlight = function() {
 
@@ -115,7 +116,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 		/**
 		 * 获取/设置格式化
 		 * 
-		 * @param formatter
+		 * @param formatter{function}
+		 * @returns {function/core.html.easyui.form.TimeSpinner}
 		 */
 		this.formatter = function() {
 
@@ -131,7 +133,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 		/**
 		 * 获取/设置解析时间
 		 * 
-		 * @param parser
+		 * @param parser{function}
+		 * @returns {function/core.html.easyui.form.TimeSpinner}
 		 */
 		this.parser = function() {
 
@@ -147,7 +150,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 		/**
 		 * 获取/设置突出的部分
 		 * 
-		 * @param selections
+		 * @param selections{array}
+		 * @returns {array/core.html.easyui.form.TimeSpinner}
 		 */
 		this.selections = function() {
 
@@ -160,7 +164,7 @@ core.html.easyui.form.TimeSpinner = (function() {
 			}
 		};
 	};
-	// 继承微调框模板
+	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.Spinner);
 
 	/**
@@ -170,38 +174,51 @@ core.html.easyui.form.TimeSpinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TimeSpinner", "构造参数异常", "DIV(ID:" + this.id()
-					+ ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.TimeSpinner", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.Spinner", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.timespinner({
-			// 属性
+		this.$jQuery().timespinner({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// TextBox继承属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// TextBox继承属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -211,8 +228,6 @@ core.html.easyui.form.TimeSpinner = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
@@ -231,10 +246,17 @@ core.html.easyui.form.TimeSpinner = (function() {
 			parser : this.parser(),
 			selections : this.selections(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
@@ -249,253 +271,56 @@ core.html.easyui.form.TimeSpinner = (function() {
 	};
 
 	/**
-	 * Validate继承方法
+	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).timespinner("options");
-	};
-
-	/**
-	 * 销毁组件
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function() {
-
-		return $("#" + this.id()).timespinner("destroy");
-	};
-
-	/**
-	 * 校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.validate = function() {
-
-		return $("#" + this.id()).timespinner("validate");
-	};
-
-	/**
-	 * 判断是否校验通过
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.isValid = function() {
-
-		return $("#" + this.id()).timespinner("isValid");
-	};
-
-	/**
-	 * 启用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enableValidation = function() {
-
-		return $("#" + this.id()).timespinner("enableValidation");
-	};
-
-	/**
-	 * 禁用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disableValidation = function() {
-
-		return $("#" + this.id()).timespinner("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).timespinner("resetValidation");
-	};
-
-	/**
-	 * 启用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enable = function() {
-
-		return $("#" + this.id()).timespinner("enable");
-	};
-
-	/**
-	 * 禁用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disable = function() {
-
-		return $("#" + this.id()).timespinner("disable");
-	};
-
-	/**
-	 * 只读
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.readonly = function(mode) {
-
-		return $("#" + this.id()).timespinner("readonly", mode);
-	};
-
-	/**
-	 * TextBox继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.textbox = function() {
-
-		return $("#" + this.id()).timespinner("textbox");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.button = function() {
-
-		return $("#" + this.id()).timespinner("button");
-	};
-
-	/**
-	 * 改变宽度
-	 * 
-	 * @param width
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(width) {
-
-		return $("#" + this.id()).timespinner("resize", width);
-	};
-
-	/**
-	 * 清除
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).timespinner("clear");
-	};
-
-	/**
-	 * 重置
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.reset = function() {
-
-		return $("#" + this.id()).timespinner("reset");
-	};
-
-	/**
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.initValue = function(value) {
-
-		return $("#" + this.id()).timespinner("initValue", value);
-	};
-
-	/**
-	 * 设置显示文本
-	 * 
-	 * @param text
-	 * @returns
-	 */
-	Constructor.prototype.setText = function(text) {
-
-		return $("#" + this.id()).timespinner("setText", text);
-	};
-
-	/**
-	 * 获取显示文本
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getText = function() {
-
-		return $("#" + this.id()).timespinner("getText");
+		return this.$jQuery().timespinner("options");
 	};
 
 	/**
 	 * 设置值
 	 * 
-	 * @param value
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).timespinner("setValue", value);
+		return this.$jQuery().timespinner("setValue", value);
 	};
 
-	/**
-	 * 获取值
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValue = function() {
-
-		return $("#" + this.id()).timespinner("getValue");
-	};
-
-	/**
-	 * 获取图标对象
-	 * 
-	 * @param index
-	 * @returns
-	 */
-	Constructor.prototype.getIcon = function(index) {
-
-		return $("#" + this.id()).timespinner("getIcon", index);
-	};
-
-	/**
-	 * 方法
-	 */
 	/**
 	 * 获取小时值
 	 * 
-	 * @returns
+	 * @returns {number}
 	 */
 	Constructor.prototype.getHours = function() {
 
-		return $("#" + this.id()).timespinner("getHours");
+		return this.$jQuery().timespinner("getHours");
 	};
 
 	/**
 	 * 获取分钟值
 	 * 
-	 * @returns
+	 * @returns {number}
 	 */
 	Constructor.prototype.getMinutes = function() {
 
-		return $("#" + this.id()).timespinner("getMinutes");
+		return this.$jQuery().timespinner("getMinutes");
 	};
 
 	/**
 	 * 获取秒值
 	 * 
-	 * @returns
+	 * @returns {number}
 	 */
 	Constructor.prototype.getSeconds = function() {
 
-		return $("#" + this.id()).timespinner("getSeconds");
+		return this.$jQuery().timespinner("getSeconds");
 	};
 
 	// 返回构造函数

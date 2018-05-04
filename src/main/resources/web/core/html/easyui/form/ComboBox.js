@@ -4,54 +4,57 @@
  * @desc	下拉框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.ComboBox(String id)
+ * @constructor	core.html.easyui.form.ComboBox(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.Combo
  * 
- * @method	Object/core.html.easyui.form.ComboBox			valueField()				获取/设置值域字段名
- * 			Object/core.html.easyui.form.ComboBox			textField()					获取/设置显示域字段名
- * 			Object/core.html.easyui.form.ComboBox			groupField()				获取/设置分组字段
- * 			Object/core.html.easyui.form.ComboBox			groupFormatter()			获取/设置分组格式化
- * 			Object/core.html.easyui.form.ComboBox			mode()						获取/设置数据获取模式
- * 			Object/core.html.easyui.form.ComboBox			url()						获取/设置链接
- * 			Object/core.html.easyui.form.ComboBox			method()					获取/设置请求方式
- * 			Object/core.html.easyui.form.ComboBox			data()						获取/设置数据
- * 			Object/core.html.easyui.form.ComboBox			queryParams()				获取/设置过滤参数
- * 			Object/core.html.easyui.form.ComboBox			limitToList()				获取/设置
- * 			Object/core.html.easyui.form.ComboBox			showItemIcon()				获取/设置项目图标
- * 			Object/core.html.easyui.form.ComboBox			groupPosition()				获取/设置分组位置
- * 			Object/core.html.easyui.form.ComboBox			filter()					获取/设置过滤
- * 			Object/core.html.easyui.form.ComboBox			formatter()					获取/设置格式化
- * 			Object/core.html.easyui.form.ComboBox			loader()					获取/设置加载
- * 			Object/core.html.easyui.form.ComboBox			loadFilter()				获取/设置加载过滤
- * 			Object/core.html.easyui.form.ComboBox			onBeforeLoad()				获取/设置加载前事件
- * 			Object/core.html.easyui.form.ComboBox			onLoadSuccess()				获取/设置加载成功事件
- * 			Object/core.html.easyui.form.ComboBox			onLoadError()				获取/设置加载失败事件
- * 			Object/core.html.easyui.form.ComboBox			onSelect()					获取/设置选择事件
- * 			Object/core.html.easyui.form.ComboBox			onUnselect()				获取/设置取消选择事件
- * 			core.html.easyui.form.ComboBox					init()						初始化组件模板
- * 			Object											getData()					获取数据
- * 			Object											loadData(Object data)		加载数据
- * 			Object											reload(String url)			远程加载数据
- * 			Object											select(Object value)		选择某值
- * 			Object											unselect(Object value)		取消选择某值
+ * @method	继承core.html.easyui.form.Combo所有方法
+ * 			string/core.html.easyui.form.ComboBox		valueField(string valueField)			获取/设置值域字段名
+ * 			string/core.html.easyui.form.ComboBox		textField(string textField)				获取/设置显示域字段名
+ * 			string/core.html.easyui.form.ComboBox		groupField(string groupField)			获取/设置分组字段
+ * 			function/core.html.easyui.form.ComboBox		groupFormatter(function groupFormatter)	获取/设置分组格式化
+ * 			string/core.html.easyui.form.ComboBox		mode(string mode)						获取/设置数据获取模式
+ * 			string/core.html.easyui.form.ComboBox		url(string url)							获取/设置链接
+ * 			array/core.html.easyui.form.ComboBox		data(array data)						获取/设置数据
+ * 			boolean/core.html.easyui.form.ComboBox		limitToList(boolean limitToList)		获取/设置
+ * 			boolean/core.html.easyui.form.ComboBox		showItemIcon(boolean showItemIcon)		获取/设置项目图标
+ * 			string/core.html.easyui.form.ComboBox		groupPosition(string groupPosition)		获取/设置分组位置
+ * 			function/core.html.easyui.form.ComboBox		filter(function filter)					获取/设置过滤
+ * 			function/core.html.easyui.form.ComboBox		formatter(function formatter)			获取/设置格式化
+ * 			function/core.html.easyui.form.ComboBox		loadFilter(function loadFilter)			获取/设置加载过滤
+ * 			function/core.html.easyui.form.ComboBox		onLoadSuccess(function onLoadSuccess)	获取/设置加载成功事件
+ * 			function/core.html.easyui.form.ComboBox		onSelect(function onSelect)				获取/设置选择事件
+ * 			function/core.html.easyui.form.ComboBox		onUnselect(function onUnselect)			获取/设置取消选择事件
+ * 			core.html.easyui.form.ComboBox				init()									初始化组件模板
+ * 			object										options()
+ * 			array										getData()								获取数据
+ * 			void										loadData(array data)					加载数据
+ * 			void										reload(string url)						远程加载数据
+ * 			void										setValues(array values)
+ * 			void										setValue(string value)
+ * 			void										clear()
+ * 			void										select(string value)					选择某值
+ * 			void										unselect(string value)					取消选择某值
  * 
- * @date	2016年8月30日 08:39:57
+ * @date	2018年5月3日 15:04:37
  */
-
 core.html.easyui.form.ComboBox = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.ComboBox.superClass.constructor.call(this, id);
-		this.keyHandler($.fn.combobox.defaults.keyHandler);
+		core.html.easyui.form.ComboBox.superClass.constructor.call(this, arguments[0]);
+		// 默认参数修改
+		this.method($.fn.combobox.defaults.method);
+		this.queryParams($.fn.combobox.defaults.queryParams);
+		this.loader($.fn.combobox.defaults.loader);
+		this.onBeforeLoad($.fn.combobox.defaults.onBeforeLoad);
+		this.onLoadError($.fn.combobox.defaults.onLoadError);
+		this.onChange($.fn.combobox.defaults.onChange);
+		this.onClick($.fn.combobox.defaults.onClick);
 
 		/**
 		 * 属性
@@ -81,17 +84,9 @@ core.html.easyui.form.ComboBox = (function() {
 		 */
 		var url = $.fn.combobox.defaults.url;
 		/**
-		 * 请求方式
-		 */
-		var method = $.fn.combobox.defaults.method;
-		/**
 		 * 数据
 		 */
 		var data = $.fn.combobox.defaults.data;
-		/**
-		 * 过滤参数
-		 */
-		var queryParams = $.fn.combobox.defaults.queryParams;
 		/**
 		 * 
 		 */
@@ -113,10 +108,6 @@ core.html.easyui.form.ComboBox = (function() {
 		 */
 		var formatter = $.fn.combobox.defaults.formatter;
 		/**
-		 * 加载
-		 */
-		var loader = $.fn.combobox.defaults.loader;
-		/**
 		 * 加载过滤
 		 */
 		var loadFilter = $.fn.combobox.defaults.loadFilter;
@@ -125,17 +116,9 @@ core.html.easyui.form.ComboBox = (function() {
 		 * 事件
 		 */
 		/**
-		 * 加载前事件
-		 */
-		var onBeforeLoad = $.fn.combobox.defaults.onBeforeLoad;
-		/**
 		 * 加载成功事件
 		 */
 		var onLoadSuccess = $.fn.combobox.defaults.onLoadSuccess;
-		/**
-		 * 加载失败事件
-		 */
-		var onLoadError = $.fn.combobox.defaults.onLoadError;
 		/**
 		 * 选择事件
 		 */
@@ -148,7 +131,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置值域字段名
 		 * 
-		 * @param valueField
+		 * @param valueField{string}
+		 * @returns {string/core.html.easyui.form.ComboBox}
 		 */
 		this.valueField = function() {
 
@@ -164,7 +148,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置显示域字段名
 		 * 
-		 * @param textField
+		 * @param textField{string}
+		 * @returns {string/core.html.easyui.form.ComboBox}
 		 */
 		this.textField = function() {
 
@@ -180,7 +165,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置分组字段
 		 * 
-		 * @param groupField
+		 * @param groupField{string}
+		 * @returns {string/core.html.easyui.form.ComboBox}
 		 */
 		this.groupField = function() {
 
@@ -196,7 +182,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置分组格式化
 		 * 
-		 * @param groupFormatter
+		 * @param groupFormatter{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.groupFormatter = function() {
 
@@ -212,7 +199,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置数据获取模式
 		 * 
-		 * @param mode
+		 * @param mode{string}
+		 * @returns {string/core.html.easyui.form.ComboBox}
 		 */
 		this.mode = function() {
 
@@ -228,7 +216,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置链接
 		 * 
-		 * @param url
+		 * @param url{string}
+		 * @returns {string/core.html.easyui.form.ComboBox}
 		 */
 		this.url = function() {
 
@@ -242,25 +231,10 @@ core.html.easyui.form.ComboBox = (function() {
 		};
 
 		/**
-		 * 获取/设置请求方式
-		 * 
-		 * @param method
-		 */
-		this.method = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return method;
-			default:
-				method = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置数据
 		 * 
-		 * @param data
+		 * @param data{array}
+		 * @returns {array/core.html.easyui.form.ComboBox}
 		 */
 		this.data = function() {
 
@@ -274,25 +248,10 @@ core.html.easyui.form.ComboBox = (function() {
 		};
 
 		/**
-		 * 获取/设置过滤参数
-		 * 
-		 * @param queryParams
-		 */
-		this.queryParams = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return queryParams;
-			default:
-				queryParams = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置
 		 * 
-		 * @param limitToList
+		 * @param limitToList{boolean}
+		 * @returns {boolean/core.html.easyui.form.ComboBox}
 		 */
 		this.limitToList = function() {
 
@@ -308,7 +267,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置项目图标
 		 * 
-		 * @param showItemIcon
+		 * @param showItemIcon{boolean}
+		 * @returns {boolean/core.html.easyui.form.ComboBox}
 		 */
 		this.showItemIcon = function() {
 
@@ -324,7 +284,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置分组位置
 		 * 
-		 * @param groupPosition
+		 * @param groupPosition{string}
+		 * @returns {string/core.html.easyui.form.ComboBox}
 		 */
 		this.groupPosition = function() {
 
@@ -340,7 +301,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置过滤
 		 * 
-		 * @param filter
+		 * @param filter{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.filter = function() {
 
@@ -356,7 +318,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置格式化
 		 * 
-		 * @param formatter
+		 * @param formatter{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.formatter = function() {
 
@@ -370,25 +333,10 @@ core.html.easyui.form.ComboBox = (function() {
 		};
 
 		/**
-		 * 获取/设置加载
-		 * 
-		 * @param loader
-		 */
-		this.loader = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return loader;
-			default:
-				loader = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置加载过滤
 		 * 
-		 * @param loadFilter
+		 * @param loadFilter{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.loadFilter = function() {
 
@@ -402,25 +350,10 @@ core.html.easyui.form.ComboBox = (function() {
 		};
 
 		/**
-		 * 获取/设置加载前事件
-		 * 
-		 * @param onBeforeLoad
-		 */
-		this.onBeforeLoad = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onBeforeLoad;
-			default:
-				onBeforeLoad = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置加载成功事件
 		 * 
-		 * @param onLoadSuccess
+		 * @param onLoadSuccess{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.onLoadSuccess = function() {
 
@@ -434,25 +367,10 @@ core.html.easyui.form.ComboBox = (function() {
 		};
 
 		/**
-		 * 获取/设置加载失败事件
-		 * 
-		 * @param onLoadError
-		 */
-		this.onLoadError = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return onLoadError;
-			default:
-				onLoadError = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置选择事件
 		 * 
-		 * @param onSelect
+		 * @param onSelect{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.onSelect = function() {
 
@@ -468,7 +386,8 @@ core.html.easyui.form.ComboBox = (function() {
 		/**
 		 * 获取/设置取消选择事件
 		 * 
-		 * @param onUnselect
+		 * @param onUnselect{function}
+		 * @returns {function/core.html.easyui.form.ComboBox}
 		 */
 		this.onUnselect = function() {
 
@@ -481,7 +400,7 @@ core.html.easyui.form.ComboBox = (function() {
 			}
 		};
 	};
-	// 继承下拉框模板
+	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.Combo);
 
 	/**
@@ -491,37 +410,51 @@ core.html.easyui.form.ComboBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.ComboBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.ComboBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.ComboBox", "构造参数异常", "Document不存在.");
 		}
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
 		// 参数配置
-		$jQuery.combobox({
-			// 属性
+		this.$jQuery().combobox({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// TextBox继承属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// TextBox继承属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -531,12 +464,45 @@ core.html.easyui.form.ComboBox = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			// Panel继承属性
+			title : this.title(),
+			left : this.left(),
+			top : this.top(),
+			headerCls : this.headerCls(),
+			bodyCls : this.bodyCls(),
+			style : this.style(),
+			fit : this.fit(),
+			border : this.border(),
+			doSize : this.doSize(),
+			noheader : this.noheader(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
+			collapsible : this.collapsible(),
+			minimizable : this.minimizable(),
+			maximizable : this.maximizable(),
+			closable : this.closable(),
+			tools : this.tools(),
+			header : this.header(),
+			footer : this.footer(),
+			openAnimation : this.openAnimation(),
+			openDuration : this.openDuration(),
+			closeAnimation : this.closeAnimation(),
+			closeDuration : this.closeDuration(),
+			collapsed : this.collapsed(),
+			minimized : this.minimized(),
+			maximized : this.maximized(),
+			closed : this.closed(),
+			href : this.href(),
+			cache : this.cache(),
+			loadingMessage : this.loadingMessage(),
+			extractor : this.extractor(),
+			method : this.method(),
+			queryParams : this.queryParams(),
+			loader : this.loader(),
 			// Combo继承属性
 			panelWidth : this.panelWidth(),
 			panelHeight : this.panelHeight(),
@@ -546,6 +512,8 @@ core.html.easyui.form.ComboBox = (function() {
 			panelMaxHeight : this.panelMaxHeight(),
 			panelAlign : this.panelAlign(),
 			multiple : this.multiple(),
+			multivalue : this.multivalue(),
+			reversed : this.reversed(),
 			selectOnNavigation : this.selectOnNavigation(),
 			separator : this.separator(),
 			hasDownArrow : this.hasDownArrow(),
@@ -557,33 +525,52 @@ core.html.easyui.form.ComboBox = (function() {
 			groupFormatter : this.groupFormatter(),
 			mode : this.mode(),
 			url : this.url(),
-			method : this.method(),
 			data : this.data(),
-			queryParams : this.queryParams(),
 			limitToList : this.limitToList(),
 			showItemIcon : this.showItemIcon(),
 			groupPosition : this.groupPosition(),
 			filter : this.filter(),
 			formatter : this.formatter(),
-			loader : this.loader(),
 			loadFilter : this.loadFilter(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
 			onClickIcon : this.onClickIcon(),
+			// Panel继承事件
+			onBeforeLoad : this.onBeforeLoad(),
+			onLoad : this.onLoad(),
+			onLoadError : this.onLoadError(),
+			onBeforeOpen : this.onBeforeOpen(),
+			onOpen : this.onOpen(),
+			onBeforeClose : this.onBeforeClose(),
+			onClose : this.onClose(),
+			onBeforeDestroy : this.onBeforeDestroy(),
+			onBeforeCollapse : this.onBeforeCollapse(),
+			onCollapse : this.onCollapse(),
+			onBeforeExpand : this.onBeforeExpand(),
+			onExpand : this.onExpand(),
+			onMove : this.onMove(),
+			onMaximize : this.onMaximize(),
+			onRestore : this.onRestore(),
+			onMinimize : this.onMinimize(),
 			// Combo继承事件
 			onShowPanel : this.onShowPanel(),
 			onHidePanel : this.onHidePanel(),
 			// 事件
-			onBeforeLoad : this.onBeforeLoad(),
 			onLoadSuccess : this.onLoadSuccess(),
-			onLoadError : this.onLoadError(),
 			onSelect : this.onSelect(),
 			onUnselect : this.onUnselect()
 		});
@@ -592,137 +579,69 @@ core.html.easyui.form.ComboBox = (function() {
 	};
 
 	/**
-	 * Validate继承方法
+	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).combobox("options");
+		return this.$jQuery().combobox("options");
 	};
 
 	/**
-	 * 销毁组件
+	 * 获取数据
 	 * 
-	 * @returns
+	 * @returns {array}
 	 */
-	Constructor.prototype.destroy = function() {
+	Constructor.prototype.getData = function() {
 
-		return $("#" + this.id()).combobox("destroy");
+		return this.$jQuery().combobox("getData");
 	};
 
 	/**
-	 * 校验
+	 * 加载数据
 	 * 
+	 * @param data{array}
 	 * @returns
 	 */
-	Constructor.prototype.validate = function() {
+	Constructor.prototype.loadData = function(data) {
 
-		return $("#" + this.id()).combobox("validate");
+		return this.$jQuery().combobox("loadData", data);
 	};
 
 	/**
-	 * 判断是否校验通过
+	 * 远程加载数据
 	 * 
+	 * @param url{string}
 	 * @returns
 	 */
-	Constructor.prototype.isValid = function() {
+	Constructor.prototype.reload = function(url) {
 
-		return $("#" + this.id()).combobox("isValid");
+		return this.$jQuery().combobox("reload", url);
 	};
 
 	/**
-	 * 启用校验
+	 * 设置值集合
 	 * 
+	 * @param values{array}
 	 * @returns
 	 */
-	Constructor.prototype.enableValidation = function() {
+	Constructor.prototype.setValues = function(values) {
 
-		return $("#" + this.id()).combobox("enableValidation");
+		return this.$jQuery().combobox("setValues", values);
 	};
 
 	/**
-	 * 禁用校验
+	 * 设置值
 	 * 
+	 * @param value{string}
 	 * @returns
 	 */
-	Constructor.prototype.disableValidation = function() {
+	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).combobox("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).combobox("resetValidation");
-	};
-
-	/**
-	 * 启用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enable = function() {
-
-		return $("#" + this.id()).combobox("enable");
-	};
-
-	/**
-	 * 禁用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disable = function() {
-
-		return $("#" + this.id()).combobox("disable");
-	};
-
-	/**
-	 * 只读
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.readonly = function(mode) {
-
-		return $("#" + this.id()).combobox("readonly", mode);
-	};
-
-	/**
-	 * TextBox继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.textbox = function() {
-
-		return $("#" + this.id()).combobox("textbox");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.button = function() {
-
-		return $("#" + this.id()).combobox("button");
-	};
-
-	/**
-	 * 改变宽度
-	 * 
-	 * @param width
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(width) {
-
-		return $("#" + this.id()).combobox("resize", width);
+		return this.$jQuery().combobox("setValue", value);
 	};
 
 	/**
@@ -732,189 +651,29 @@ core.html.easyui.form.ComboBox = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).combobox("clear");
-	};
-
-	/**
-	 * 重置
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.reset = function() {
-
-		return $("#" + this.id()).combobox("reset");
-	};
-
-	/**
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.initValue = function(value) {
-
-		return $("#" + this.id()).combobox("initValue", value);
-	};
-
-	/**
-	 * 设置显示文本
-	 * 
-	 * @param text
-	 * @returns
-	 */
-	Constructor.prototype.setText = function(text) {
-
-		return $("#" + this.id()).combobox("setText", text);
-	};
-
-	/**
-	 * 获取显示文本
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getText = function() {
-
-		return $("#" + this.id()).combobox("getText");
-	};
-
-	/**
-	 * 设置值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.setValue = function(value) {
-
-		return $("#" + this.id()).combobox("setValue", value);
-	};
-
-	/**
-	 * 获取值
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValue = function() {
-
-		return $("#" + this.id()).combobox("getValue");
-	};
-
-	/**
-	 * 获取图标对象
-	 * 
-	 * @param index
-	 * @returns
-	 */
-	Constructor.prototype.getIcon = function(index) {
-
-		return $("#" + this.id()).combobox("getIcon", index);
-	};
-
-	/**
-	 * Combo继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).combobox("panel");
-	};
-
-	/**
-	 * 显示面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.showPanel = function() {
-
-		return $("#" + this.id()).combobox("showPanel");
-	};
-
-	/**
-	 * 隐藏面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.hidePanel = function() {
-
-		return $("#" + this.id()).combobox("hidePanel");
-	};
-
-	/**
-	 * 获取值集合
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValues = function() {
-
-		return $("#" + this.id()).combobox("getValues");
-	};
-
-	/**
-	 * 设置值集合
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.setValues = function(values) {
-
-		return $("#" + this.id()).combobox("setValues", values);
-	};
-
-	/**
-	 * 方法
-	 */
-	/**
-	 * 获取数据
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getData = function() {
-
-		return $("#" + this.id()).combobox("getData");
-	};
-
-	/**
-	 * 加载数据
-	 * 
-	 * @param data
-	 * @returns
-	 */
-	Constructor.prototype.loadData = function(data) {
-
-		return $("#" + this.id()).combobox("loadData", data);
-	};
-
-	/**
-	 * 远程加载数据
-	 * 
-	 * @param url
-	 * @returns
-	 */
-	Constructor.prototype.reload = function(url) {
-
-		return $("#" + this.id()).combobox("reload", url);
+		return this.$jQuery().combobox("clear");
 	};
 
 	/**
 	 * 选择某值
 	 * 
-	 * @param value
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.select = function(value) {
 
-		return $("#" + this.id()).combobox("select", value);
+		return this.$jQuery().combobox("select", value);
 	};
 
 	/**
 	 * 取消选择某值
 	 * 
-	 * @param value
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.unselect = function(value) {
 
-		return $("#" + this.id()).combobox("unselect", value);
+		return this.$jQuery().combobox("unselect", value);
 	};
 
 	// 返回构造函数

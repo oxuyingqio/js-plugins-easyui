@@ -1,31 +1,29 @@
 /**
- * @name	DateBox
+ * @name	ComboTree
  * @package core.html.easyui.form
- * @desc	日期框模板
+ * @desc	下拉框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.DateBox(string id/object jQuery)
+ * @constructor	core.html.easyui.form.ComboTree(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.Combo
- * 			core.html.easyui.form.Calendar
+ * 			core.html.easyui.datagrid.Tree
  * 
  * @method	继承core.html.easyui.form.Combo所有方法
- * 			继承core.html.easyui.form.Calendar所有方法
- * 			string/core.html.easyui.form.DateBox		currentText(string )		获取/设置今天按钮
- * 			string/core.html.easyui.form.DateBox		closeText(string )			获取/设置关闭按钮
- * 			string/core.html.easyui.form.DateBox		okText(string )				获取/设置确认按钮
- * 			array/core.html.easyui.form.DateBox			buttons(array )				获取/设置按钮组
- * 			string/core.html.easyui.form.DateBox		sharedCalendar(string )		获取/设置日期框索引
- * 			function/core.html.easyui.form.DateBox		parser(function )			获取/设置解析
- * 			core.html.easyui.form.DateBox				init()						初始化组件模板			
+ * 			继承core.html.easyui.datagrid.Tree所有方法
+ * 			string/core.html.easyui.form.ComboTree		textField(string textField)			获取/设置
+ * 			core.html.easyui.form.ComboTree				init()								初始化组件模板
  * 			object										options()
- * 			object										calendar()					获取日期面板对象
- * 			void										cloneFrom(string from)		从xx复制
+ * 			object										tree()	
+ * 			void										loadData(array data)
+ * 			void										reload(string url)
+ * 			void										clear()
+ * 			void										setValues(array values)				设置值集合
+ * 			void										setValue(string value)
  * 
- * @date	2018年5月4日 13:55:49
+ * @date	2018年5月4日 09:07:22
  */
-
-core.html.easyui.form.DateBox = (function() {
+core.html.easyui.form.ComboTree = (function() {
 
 	/**
 	 * 构造函数
@@ -34,140 +32,31 @@ core.html.easyui.form.DateBox = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.Combo.call(this, arguments[0]);
-		core.html.easyui.form.Calendar.call(this, arguments[0]);
+		core.html.easyui.datagrid.Tree.call(this, arguments[0]);
 		// 默认参数修改
-		this.panelWidth($.fn.datebox.defaults.panelWidth);
-		this.panelHeight($.fn.datebox.defaults.panelHeight);
-		this.disabled($.fn.datebox.defaults.disabled);
-		this.formatter($.fn.datebox.defaults.formatter);
-		this.onSelect($.fn.datebox.defaults.onSelect);
+		this.editable($.fn.combotree.defaults.editable);
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * 今天按钮
+		 * 
 		 */
-		var currentText = $.fn.datebox.defaults.currentText;
-		/**
-		 * 关闭按钮
-		 */
-		var closeText = $.fn.datebox.defaults.closeText;
-		/**
-		 * 确认按钮
-		 */
-		var okText = $.fn.datebox.defaults.okText;
-		/**
-		 * 按钮组
-		 */
-		var buttons = $.fn.datebox.defaults.buttons;
-		/**
-		 * 日期框索引
-		 */
-		var sharedCalendar = $.fn.datebox.defaults.sharedCalendar;
-		/**
-		 * 解析
-		 */
-		var parser = $.fn.datebox.defaults.parser;
+		var textField = $.fn.combotree.defaults.textField;
 
 		/**
-		 * 获取/设置今天按钮
+		 * 获取/设置
 		 * 
-		 * @param currentText{string}
-		 * @returns {string/core.html.easyui.form.DateBox}
+		 * @param textField{string}
+		 * @returns {string/core.html.easyui.form.ComboTree}
 		 */
-		this.currentText = function() {
+		this.textField = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return currentText;
+				return textField;
 			default:
-				currentText = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置关闭按钮
-		 * 
-		 * @param closeText{string}
-		 * @returns {string/core.html.easyui.form.DateBox}
-		 */
-		this.closeText = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return closeText;
-			default:
-				closeText = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置确认按钮
-		 * 
-		 * @param okText{string}
-		 * @returns {string/core.html.easyui.form.DateBox}
-		 */
-		this.okText = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return okText;
-			default:
-				okText = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置按钮组
-		 * 
-		 * @param buttons{array}
-		 * @returns {array/core.html.easyui.form.DateBox}
-		 */
-		this.buttons = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return buttons;
-			default:
-				buttons = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置日期框索引
-		 * 
-		 * @param sharedCalendar{string}
-		 * @returns {string/core.html.easyui.form.DateBox}
-		 */
-		this.sharedCalendar = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return sharedCalendar;
-			default:
-				sharedCalendar = arguments[0];
-				return this;
-			}
-		};
-
-		/**
-		 * 获取/设置解析
-		 * 
-		 * @param parser{function}
-		 * @returns {function/core.html.easyui.form.DateBox}
-		 */
-		this.parser = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return parser;
-			default:
-				parser = arguments[0];
+				textField = arguments[0];
 				return this;
 			}
 		};
@@ -176,18 +65,18 @@ core.html.easyui.form.DateBox = (function() {
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.form.DateBox}
+	 * @returns {core.html.easyui.form.ComboTree}
 	 */
 	Constructor.prototype.init = function() {
 
 		// 校验Document是否存在
 		if (this.$jQuery().length === 0) {
 
-			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.Calendar", "构造参数异常", "Document不存在.");
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.ComboTree", "构造参数异常", "Document不存在.");
 		}
 
 		// 参数配置
-		this.$jQuery().datebox({
+		this.$jQuery().combotree({
 			// Tooltip继承属性
 			position : this.position(),
 			content : this.content(),
@@ -288,26 +177,29 @@ core.html.easyui.form.DateBox = (function() {
 			separator : this.separator(),
 			hasDownArrow : this.hasDownArrow(),
 			keyHandler : this.keyHandler(),
-			// Calendar继承属性
-			showWeek : this.showWeek(),
-			weekNumberHeader : this.weekNumberHeader(),
-			getWeekNumber : this.getWeekNumber(),
-			firstDay : this.firstDay(),
-			weeks : this.weeks(),
-			months : this.months(),
-			year : this.year(),
-			month : this.month(),
-			current : this.current(),
+			// Draggable继承属性
+			proxy : this.proxy(),
+			revert : this.revert(),
+			cursor : this.cursor(),
+			handle : this.handle(),
+			edge : this.edge(),
+			axis : this.axis(),
+			// Droppable继承属性
+			accept : this.accept(),
+			// Tree继承属性
+			url : this.url(),
+			animate : this.animate(),
+			checkbox : this.checkbox(),
+			cascadeCheck : this.cascadeCheck(),
+			onlyLeafCheck : this.onlyLeafCheck(),
+			lines : this.lines(),
+			dnd : this.dnd(),
+			data : this.data(),
 			formatter : this.formatter(),
-			styler : this.styler(),
-			validator : this.validator(),
+			filter : this.filter(),
+			loadFilter : this.loadFilter(),
 			// 属性
-			currentText: this.currentText(),
-			closeText: this.closeText(),
-			okText: this.okText(),
-			buttons: this.buttons(),
-			sharedCalendar: this.sharedCalendar(),
-			parser: this.parser(),
+			textField : this.textField(),
 
 			// Tooltip继承事件
 			onShow : this.onShow(),
@@ -345,8 +237,28 @@ core.html.easyui.form.DateBox = (function() {
 			// Combo继承事件
 			onShowPanel : this.onShowPanel(),
 			onHidePanel : this.onHidePanel(),
-			// Calendar继承事件
-			onSelect : this.onSelect()
+			// Draggable继承事件
+			onBeforeDrag : this.onBeforeDrag(),
+			onStartDrag : this.onStartDrag(),
+			onDrag : this.onDrag(),
+			onEndDrag : this.onEndDrag(),
+			onStopDrag : this.onStopDrag(),
+			// Droppable继承事件
+			onDragOver : this.onDragOver(),
+			onDragLeave : this.onDragLeave(),
+			onDrop : this.onDrop(),
+			// Tree继承事件
+			onDblClick : this.onDblClick(),
+			onLoadSuccess : this.onLoadSuccess(),
+			onBeforeCheck : this.onBeforeCheck(),
+			onCheck : this.onCheck(),
+			onBeforeSelect : this.onBeforeSelect(),
+			onSelect : this.onSelect(),
+			onContextMenu : this.onContextMenu(),
+			onBeforeDrop : this.onBeforeDrop(),
+			onBeforeEdit : this.onBeforeEdit(),
+			onAfterEdit : this.onAfterEdit(),
+			onCancelEdit : this.onCancelEdit()
 		});
 
 		return this;
@@ -361,16 +273,45 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.options = function() {
 
-		return this.$jQuery().datebox("options");
+		return this.$jQuery().combotree("options");
 	};
-
+	
 	/**
 	 * 
 	 * @returns {object}
 	 */
-	Constructor.prototype.calendar = function() {
+	Constructor.prototype.tree = function() {
 
-		return this.$jQuery().datebox("calendar");
+		return this.$jQuery().combotree("tree");
+	};
+
+	/**
+	 * 
+	 * @param data{array}
+	 * @returns
+	 */
+	Constructor.prototype.loadData = function(data) {
+
+		return this.$jQuery().combotree("loadData", data);
+	};
+
+	/**
+	 * 
+	 * @param url{string}
+	 * @returns
+	 */
+	Constructor.prototype.reload = function(url) {
+
+		return this.$jQuery().combotree("reload", url);
+	};
+
+	/**
+	 * 
+	 * @returns
+	 */
+	Constructor.prototype.clear = function() {
+
+		return this.$jQuery().combotree("clear");
 	};
 
 	/**
@@ -381,18 +322,18 @@ core.html.easyui.form.DateBox = (function() {
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return this.$jQuery().datebox("setValue", value);
+		return this.$jQuery().combotree("setValue", value);
 	};
 
 	/**
-	 * 从xx复制
+	 * 设置值集合
 	 * 
-	 * @param from{string}
+	 * @param values{array}
 	 * @returns
 	 */
-	Constructor.prototype.cloneFrom = function(from) {
+	Constructor.prototype.setValues = function(values) {
 
-		return this.$jQuery().datebox("cloneFrom");
+		return this.$jQuery().combotree("setValues", values);
 	};
 
 	// 返回构造函数

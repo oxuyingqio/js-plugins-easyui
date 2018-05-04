@@ -1,38 +1,51 @@
 /**
- * @name Form
+ * @name	Form
  * @package core.html.easyui.form
- * @desc 表单模板
- * @type 类
+ * @desc	表单模板
+ * @type	类
  * 
- * @constructor core.html.easyui.form.Form(String id)
+ * @constructor	core.html.easyui.form.Form(string id/object jQuery)
  * 
- * @method Object/core.html.easyui.form.Form id() 获取/设置ID
+ * @method 	object								$jQuery()								获取jQuery对象
+ * 			boolean/core.html.easyui.form.Form	novalidate(boolean novalidate)			获取/设置取消校验
+ * 			boolean/core.html.easyui.form.Form	iframe(boolean iframe)					获取/设置使用iframe模式
+ * 			boolean/core.html.easyui.form.Form	ajax(boolean ajax)						获取/设置ajax
+ * 			boolean/core.html.easyui.form.Form	dirty(boolean dirty)					获取/设置仅提交更改的字段
+ * 			object/core.html.easyui.form.Form	queryParams(object queryParams)			获取/设置参数
+ * 			string/core.html.easyui.form.Form	url(string url)							获取/设置action地址
+ * 			function/core.html.easyui.form.Form	onSubmit(function onSubmit)				获取/设置提交事件
+ * 			function/core.html.easyui.form.Form	onProgress(function onSubmit)			获取/设置
+ * 			function/core.html.easyui.form.Form	success(function success)				获取/设置成功事件
+ * 			function/core.html.easyui.form.Form	onBeforeLoad(function onBeforeLoad)		获取/设置加载前
+ * 			function/core.html.easyui.form.Form	onLoadSuccess(function onLoadSuccess)	获取/设置加载成功
+ * 			function/core.html.easyui.form.Form	onLoadError(function onLoadError)		获取/设置加载失败
+ * 			function/core.html.easyui.form.Form	onChange(function onChange)				获取/设置改变事件
+ * 			void								submit(object options)					提交
+ * 			void								load(object data)						加载数据
+ * 			void								clear()									清空数据
+ * 			void								reset()									重置
+ * 			void								validate()								校验
+ * 			void								enableValidation()						启用校验
+ * 			void								disableValidation()						禁用校验
+ * 			void								resetValidation()						重置校验
+ * 			void								resetDirty()							重置提交修改
  * 
- * @date 2016年9月14日 09:20:24
+ * @date	2018年5月2日 15:45:38
  */
-
 core.html.easyui.form.Form = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(_id) {
-
-		// 校验ID
-		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.form.Form", "构造参数异常", "ID属性不能为空");
-		}
+	var Constructor = function() {
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * ID
+		 * jQuery对象
 		 */
-		var id = _id;
+		var $jQuery;
 		/**
 		 * 取消校验
 		 */
@@ -90,26 +103,33 @@ core.html.easyui.form.Form = (function() {
 		 */
 		var onChange = $.fn.form.defaults.onChange;
 
+		// 判断构造参数类型
+		switch (typeof (arguments[0])) {
+		case "string":
+			$jQuery = $("#" + arguments[0]);
+			break;
+		case "object":
+			$jQuery = arguments[0];
+			break;
+		default:
+			new core.lang.Exception(arguments[0], "core.html.easyui.form.Form", "构造参数异常", "非字符或jQuery对象");
+		}
+
 		/**
-		 * 获取/设置ID
+		 * 获取jQuery对象
 		 * 
-		 * @param id
+		 * @returns {object}
 		 */
-		this.id = function() {
+		this.$jQuery = function() {
 
-			switch (arguments.length) {
-			case 0:
-				return id;
-			default:
-				id = arguments[0];
-				return this;
-			}
+			return $jQuery;
 		};
-
+		
 		/**
 		 * 获取/设置取消校验
 		 * 
-		 * @param novalidate
+		 * @param novalidate{boolean}
+		 * @returns {boolean/core.html.easyui.form.Form}
 		 */
 		this.novalidate = function() {
 
@@ -125,7 +145,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置使用iframe模式
 		 * 
-		 * @param iframe
+		 * @param iframe{boolean}
+		 * @returns {boolean/core.html.easyui.form.Form}
 		 */
 		this.iframe = function() {
 
@@ -141,7 +162,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置ajax
 		 * 
-		 * @param ajax
+		 * @param ajax{boolean}
+		 * @returns {boolean/core.html.easyui.form.Form}
 		 */
 		this.ajax = function() {
 
@@ -157,7 +179,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置仅提交更改的字段
 		 * 
-		 * @param dirty
+		 * @param dirty{boolean}
+		 * @returns {boolean/core.html.easyui.form.Form}
 		 */
 		this.dirty = function() {
 
@@ -173,7 +196,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置参数
 		 * 
-		 * @param queryParams
+		 * @param queryParams{object}
+		 * @returns {object/core.html.easyui.form.Form}
 		 */
 		this.queryParams = function() {
 
@@ -189,7 +213,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置action地址
 		 * 
-		 * @param url
+		 * @param url{string}
+		 * @returns {string/core.html.easyui.form.Form}
 		 */
 		this.url = function() {
 
@@ -205,7 +230,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置提交事件
 		 * 
-		 * @param onSubmit
+		 * @param onSubmit{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.onSubmit = function() {
 
@@ -221,7 +247,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param onProgress
+		 * @param onProgress{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.onProgress = function() {
 
@@ -237,7 +264,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置成功事件
 		 * 
-		 * @param success
+		 * @param success{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.success = function() {
 
@@ -253,7 +281,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置加载前
 		 * 
-		 * @param onBeforeLoad
+		 * @param onBeforeLoad{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.onBeforeLoad = function() {
 
@@ -269,7 +298,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置加载成功
 		 * 
-		 * @param onLoadSuccess
+		 * @param onLoadSuccess{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.onLoadSuccess = function() {
 
@@ -285,7 +315,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置加载失败
 		 * 
-		 * @param onLoadError
+		 * @param onLoadError{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.onLoadError = function() {
 
@@ -301,7 +332,8 @@ core.html.easyui.form.Form = (function() {
 		/**
 		 * 获取/设置改变事件
 		 * 
-		 * @param onChange
+		 * @param onChange{function}
+		 * @returns {function/core.html.easyui.form.Form}
 		 */
 		this.onChange = function() {
 
@@ -321,21 +353,23 @@ core.html.easyui.form.Form = (function() {
 	/**
 	 * 提交
 	 * 
+	 * @param options{object}
 	 * @returns
 	 */
 	Constructor.prototype.submit = function(options) {
 
-		return $("#" + this.id()).form("submit", options);
+		return this.$jQuery().form("submit", options);
 	};
 
 	/**
 	 * 加载数据
 	 * 
+	 * @param data{object}
 	 * @returns
 	 */
 	Constructor.prototype.load = function(data) {
 
-		return $("#" + this.id()).form("load", data);
+		return this.$jQuery().form("load", data);
 	};
 
 	/**
@@ -345,7 +379,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).form("clear");
+		return this.$jQuery().form("clear");
 	};
 
 	/**
@@ -355,7 +389,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).form("reset");
+		return this.$jQuery().form("reset");
 	};
 
 	/**
@@ -365,7 +399,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.validate = function() {
 
-		return $("#" + this.id()).form("validate");
+		return this.$jQuery().form("validate");
 	};
 
 	/**
@@ -375,7 +409,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.enableValidation = function() {
 
-		return $("#" + this.id()).form("enableValidation");
+		return this.$jQuery().form("enableValidation");
 	};
 
 	/**
@@ -385,7 +419,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.disableValidation = function() {
 
-		return $("#" + this.id()).form("disableValidation");
+		return this.$jQuery().form("disableValidation");
 	};
 
 	/**
@@ -395,7 +429,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.resetValidation = function() {
 
-		return $("#" + this.id()).form("resetValidation");
+		return this.$jQuery().form("resetValidation");
 	};
 
 	/**
@@ -405,7 +439,7 @@ core.html.easyui.form.Form = (function() {
 	 */
 	Constructor.prototype.resetDirty = function() {
 
-		return $("#" + this.id()).form("resetDirty");
+		return this.$jQuery().form("resetDirty");
 	};
 
 	// 返回构造函数

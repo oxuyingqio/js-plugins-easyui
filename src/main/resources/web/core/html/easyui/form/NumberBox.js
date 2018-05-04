@@ -4,38 +4,48 @@
  * @desc	数字框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.NumberBox(String id)
+ * @constructor	core.html.easyui.form.NumberBox(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.TextBox
  * 
- * @method	Object/core.html.easyui.form.NumberBox			min()						获取/设置最小值
- * 			Object/core.html.easyui.form.NumberBox			max()						获取/设置最大值
- * 			Object/core.html.easyui.form.NumberBox			precision()					获取/设置精度
- * 			Object/core.html.easyui.form.NumberBox			decimalSeparator()			获取/设置分隔符
- * 			Object/core.html.easyui.form.NumberBox			groupSeparator()			获取/设置分组分隔符
- * 			Object/core.html.easyui.form.NumberBox			prefix()					获取/设置前缀字符串
- * 			Object/core.html.easyui.form.NumberBox			suffix()					获取/设置后缀字符串
- * 			Object/core.html.easyui.form.NumberBox			filter()					获取/设置过滤
- * 			Object/core.html.easyui.form.NumberBox			formatter()					获取/设置格式化
- * 			Object/core.html.easyui.form.NumberBox			parser()					获取/设置解析
- * 			core.html.easyui.form.NumberBox					init()						初始化组件模板
- * 			Object											fix()						
+ * @method	继承core.html.easyui.form.NumberBox所有方法
+ * 			number/core.html.easyui.form.NumberBox			min(number min)								获取/设置最小值
+ * 			number/core.html.easyui.form.NumberBox			max(number max)								获取/设置最大值
+ * 			number/core.html.easyui.form.NumberBox			precision(number precision)					获取/设置精度
+ * 			string/core.html.easyui.form.NumberBox			decimalSeparator(string decimalSeparator)	获取/设置分隔符
+ * 			string/core.html.easyui.form.NumberBox			groupSeparator(string groupSeparator)		获取/设置分组分隔符
+ * 			string/core.html.easyui.form.NumberBox			prefix(string prefix)						获取/设置前缀字符串
+ * 			string/core.html.easyui.form.NumberBox			suffix(string suffix)						获取/设置后缀字符串
+ * 			function/core.html.easyui.form.NumberBox		filter(function filter)						获取/设置过滤
+ * 			function/core.html.easyui.form.NumberBox		formatter(function formatter)				获取/设置格式化
+ * 			function/core.html.easyui.form.NumberBox		parser(function parser)						获取/设置解析
+ * 			core.html.easyui.form.NumberBox					init()										初始化组件模板
+ * 			object											options()
+ * 			void											destroy()
+ * 			void											disable()
+ * 			void											enable()
+ * 			void											fix()
+ * 			void											setValue(string value)
+ * 			string											getValue()
+ * 			void											clear()						
+ * 			void											reset()
  * 
- * @date	2016年8月30日 11:26:43
+ * @date	2018年5月4日 11:14:00
  */
 
 core.html.easyui.form.NumberBox = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.NumberBox.superClass.constructor.call(this, id);
+		core.html.easyui.form.NumberBox.superClass.constructor.call(this, arguments[0]);
+		// 修改默认参数
+		this.disabled($.fn.numberbox.defaults.disabled);
+		this.value($.fn.numberbox.defaults.value);
+		this.onChange($.fn.numberbox.defaults.onChange);
 
 		/**
 		 * 属性
@@ -84,7 +94,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置最小值
 		 * 
-		 * @param min
+		 * @param min{number}
+		 * @returns {number/core.html.easyui.form.NumberBox}
 		 */
 		this.min = function() {
 
@@ -100,7 +111,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置最大值
 		 * 
-		 * @param max
+		 * @param max{number}
+		 * @returns {number/core.html.easyui.form.NumberBox}
 		 */
 		this.max = function() {
 
@@ -116,7 +128,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置精度
 		 * 
-		 * @param precision
+		 * @param precision{number}
+		 * @returns {number/core.html.easyui.form.NumberBox}
 		 */
 		this.precision = function() {
 
@@ -132,7 +145,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置分隔符
 		 * 
-		 * @param decimalSeparator
+		 * @param decimalSeparator{string}
+		 * @returns {string/core.html.easyui.form.NumberBox}
 		 */
 		this.decimalSeparator = function() {
 
@@ -148,7 +162,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置分组分隔符
 		 * 
-		 * @param groupSeparator
+		 * @param groupSeparator{string}
+		 * @returns {string/core.html.easyui.form.NumberBox}
 		 */
 		this.groupSeparator = function() {
 
@@ -164,7 +179,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置前缀字符串
 		 * 
-		 * @param prefix
+		 * @param prefix{string}
+		 * @returns {string/core.html.easyui.form.NumberBox}
 		 */
 		this.prefix = function() {
 
@@ -180,7 +196,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置后缀字符串
 		 * 
-		 * @param suffix
+		 * @param suffix{string}
+		 * @returns {string/core.html.easyui.form.NumberBox}
 		 */
 		this.suffix = function() {
 
@@ -196,7 +213,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置过滤
 		 * 
-		 * @param filter
+		 * @param filter{function}
+		 * @returns {function/core.html.easyui.form.NumberBox}
 		 */
 		this.filter = function() {
 
@@ -212,7 +230,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置格式化
 		 * 
-		 * @param formatter
+		 * @param formatter{function}
+		 * @returns {function/core.html.easyui.form.NumberBox}
 		 */
 		this.formatter = function() {
 
@@ -228,7 +247,8 @@ core.html.easyui.form.NumberBox = (function() {
 		/**
 		 * 获取/设置解析
 		 * 
-		 * @param parser
+		 * @param parser{function}
+		 * @returns {function/core.html.easyui.form.NumberBox}
 		 */
 		this.parser = function() {
 
@@ -241,7 +261,7 @@ core.html.easyui.form.NumberBox = (function() {
 			}
 		};
 	};
-	// 继承文本框模板
+	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.TextBox);
 
 	/**
@@ -251,37 +271,51 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.NumberBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.NumberBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.NumberBox", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.numberbox({
-			// 属性
+		this.$jQuery().numberbox({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// TextBox继承属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// TextBox继承属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -291,8 +325,6 @@ core.html.easyui.form.NumberBox = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
@@ -309,10 +341,17 @@ core.html.easyui.form.NumberBox = (function() {
 			formatter : this.formatter(),
 			parser : this.parser(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
@@ -324,15 +363,15 @@ core.html.easyui.form.NumberBox = (function() {
 	};
 
 	/**
-	 * Validate继承方法
+	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).numberbox("options");
+		return this.$jQuery().numberbox("options");
 	};
 
 	/**
@@ -342,67 +381,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).numberbox("destroy");
-	};
-
-	/**
-	 * 校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.validate = function() {
-
-		return $("#" + this.id()).numberbox("validate");
-	};
-
-	/**
-	 * 判断是否校验通过
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.isValid = function() {
-
-		return $("#" + this.id()).numberbox("isValid");
-	};
-
-	/**
-	 * 启用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enableValidation = function() {
-
-		return $("#" + this.id()).numberbox("enableValidation");
-	};
-
-	/**
-	 * 禁用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disableValidation = function() {
-
-		return $("#" + this.id()).numberbox("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).numberbox("resetValidation");
-	};
-
-	/**
-	 * 启用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enable = function() {
-
-		return $("#" + this.id()).numberbox("enable");
+		return this.$jQuery().numberbox("destroy");
 	};
 
 	/**
@@ -412,49 +391,47 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).numberbox("disable");
+		return this.$jQuery().numberbox("disable");
 	};
 
 	/**
-	 * 只读
+	 * 启用
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.readonly = function(mode) {
+	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).numberbox("readonly", mode);
-	};
-
-	/**
-	 * TextBox继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.textbox = function() {
-
-		return $("#" + this.id()).numberbox("textbox");
+		return this.$jQuery().numberbox("enable");
 	};
 
 	/**
 	 * 
 	 * @returns
 	 */
-	Constructor.prototype.button = function() {
+	Constructor.prototype.fix = function() {
 
-		return $("#" + this.id()).numberbox("button");
+		return this.$jQuery().numberbox("fix");
 	};
 
 	/**
-	 * 改变宽度
+	 * 设置值
 	 * 
-	 * @param width
+	 * @param value{string}
 	 * @returns
 	 */
-	Constructor.prototype.resize = function(width) {
+	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).numberbox("resize", width);
+		return this.$jQuery().numberbox("setValue", value);
+	};
+
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().numberbox("getValue");
 	};
 
 	/**
@@ -464,7 +441,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).numberbox("clear");
+		return this.$jQuery().numberbox("clear");
 	};
 
 	/**
@@ -474,82 +451,7 @@ core.html.easyui.form.NumberBox = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).numberbox("reset");
-	};
-
-	/**
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.initValue = function(value) {
-
-		return $("#" + this.id()).numberbox("initValue", value);
-	};
-
-	/**
-	 * 设置显示文本
-	 * 
-	 * @param text
-	 * @returns
-	 */
-	Constructor.prototype.setText = function(text) {
-
-		return $("#" + this.id()).numberbox("setText", text);
-	};
-
-	/**
-	 * 获取显示文本
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getText = function() {
-
-		return $("#" + this.id()).numberbox("getText");
-	};
-
-	/**
-	 * 设置值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.setValue = function(value) {
-
-		return $("#" + this.id()).numberbox("setValue", value);
-	};
-
-	/**
-	 * 获取值
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValue = function() {
-
-		return $("#" + this.id()).numberbox("getValue");
-	};
-
-	/**
-	 * 获取图标对象
-	 * 
-	 * @param index
-	 * @returns
-	 */
-	Constructor.prototype.getIcon = function(index) {
-
-		return $("#" + this.id()).numberbox("getIcon", index);
-	};
-
-	/**
-	 * 方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.fix = function() {
-
-		return $("#" + this.id()).numberbox("fix");
+		return this.$jQuery().numberbox("reset");
 	};
 
 	// 返回构造函数

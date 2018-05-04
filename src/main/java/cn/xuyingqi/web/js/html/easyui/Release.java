@@ -47,11 +47,13 @@ public class Release {
 
 				// 引用了button,base,layout,datagrid
 				"html/easyui/form/Form.js", "html/easyui/form/ValidateBox.js", "html/easyui/form/TextBox.js",
-				"html/easyui/form/Textarea.js", "html/easyui/form/PasswordBox.js", "html/easyui/form/Combo.js",
-				"html/easyui/form/ComboBox.js", "html/easyui/form/TagBox.js", "html/easyui/form/NumberBox.js",
-				"html/easyui/form/DateBox.js", "html/easyui/form/DateTimeBox.js", "html/easyui/form/Spinner.js",
-				"html/easyui/form/NumberSpinner.js", "html/easyui/form/TimeSpinner.js",
-				"html/easyui/form/DateTimeSpinner.js", "html/easyui/form/Slider.js", "html/easyui/form/FileBox.js",
+				"html/easyui/form/Textarea.js", "html/easyui/form/PasswordBox.js", "html/easyui/form/MaskedBox.js",
+				"html/easyui/form/Combo.js", "html/easyui/form/ComboBox.js", "html/easyui/form/ComboTree.js",
+				"html/easyui/form/ComboGrid.js", "html/easyui/form/ComboTreeGrid.js", "html/easyui/form/TagBox.js",
+				"html/easyui/form/NumberBox.js", "html/easyui/form/Calendar.js", "html/easyui/form/DateBox.js",
+				"html/easyui/form/Spinner.js", "html/easyui/form/TimeSpinner.js", "html/easyui/form/DateTimeBox.js",
+				"html/easyui/form/DateTimeSpinner.js", "html/easyui/form/NumberSpinner.js",
+				"html/easyui/form/Slider.js", "html/easyui/form/FileBox.js",
 
 				// 引用了button,form
 				"html/easyui/base/SearchBox.js", };

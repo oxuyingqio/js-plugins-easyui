@@ -4,65 +4,58 @@
  * @desc	拖动条模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.Slider(String id)
+ * @constructor	core.html.easyui.form.Slider(string id/object jQuery)
  * 
- * @method	Object/core.html.easyui.form.Slider			id()						获取/设置ID
- * 			Object/core.html.easyui.form.Slider			width()						获取/设置宽度
- * 			Object/core.html.easyui.form.Slider			height()					获取/设置高度
- * 			Object/core.html.easyui.form.Slider			mode()						获取/设置拖动条方向
- * 			Object/core.html.easyui.form.Slider			reversed()					获取/设置方向反转
- * 			Object/core.html.easyui.form.Slider			showTip()					获取/设置显示值信息
- * 			Object/core.html.easyui.form.Slider			disabled()					获取/设置禁用
- * 			Object/core.html.easyui.form.Slider			range()						获取/设置拖动条范围
- * 			Object/core.html.easyui.form.Slider			value()						获取/设置值
- * 			Object/core.html.easyui.form.Slider			min()						获取/设置最小值
- * 			Object/core.html.easyui.form.Slider			max()						获取/设置最大值
- * 			Object/core.html.easyui.form.Slider			step()						获取/设置步幅
- * 			Object/core.html.easyui.form.Slider			rule()						获取/设置
- * 			Object/core.html.easyui.form.Slider			tipFormatter()				获取/设置格式化显示信息
- * 			Object/core.html.easyui.form.Slider			converter()					获取/设置转换某些值
- * 			Object/core.html.easyui.form.Slider			onChange()					获取/设置改变事件
- * 			Object/core.html.easyui.form.Slider			onSlideStart()				获取/设置开始拖动事件
- * 			Object/core.html.easyui.form.Slider			onSlideEnd()				获取/设置结束拖动事件
- * 			Object/core.html.easyui.form.Slider			onComplete()				获取/设置完整
- * 			core.html.easyui.form.Slider				init()						初始化组件模板
- * 			Object										options()				
- * 			Object										destroy()					销毁对象
- * 			Object										resize(Object param)		改变大小
- * 			Object										getValue()					获取值
- * 			Object										getValues()					获取值
- * 			Object										setValue(Object value)		设置值
- * 			Object										setValues(Object value)		设置值
- * 			Object										clear()						清除
- * 			Object										reset()						重置
- * 			Object										enable()					启用
- * 			Object										disable()					禁用
+ * @extend	core.html.easyui.base.Draggable
  * 
- * @date	2016年9月1日 11:19:58
+ * @method	继承core.html.easyui.base.Draggable所有方法
+ * 			number/core.html.easyui.form.Slider		width(number width)					获取/设置宽度
+ * 			number/core.html.easyui.form.Slider		height(number height)				获取/设置高度
+ * 			string/core.html.easyui.form.Slider		mode(string mode)					获取/设置拖动条方向
+ * 			boolean/core.html.easyui.form.Slider	reversed(boolean reversed)			获取/设置方向反转
+ * 			boolean/core.html.easyui.form.Slider	showTip(boolean showTip)			获取/设置显示值信息
+ * 			boolean/core.html.easyui.form.Slider	range(boolean range)				获取/设置拖动条范围
+ * 			number/core.html.easyui.form.Slider		value(number value)					获取/设置值
+ * 			number/core.html.easyui.form.Slider		min(number min)						获取/设置最小值
+ * 			number/core.html.easyui.form.Slider		max(number max)						获取/设置最大值
+ * 			number/core.html.easyui.form.Slider		step(number step)					获取/设置步幅
+ * 			array/core.html.easyui.form.Slider		rule(array rule)					获取/设置
+ * 			function/core.html.easyui.form.Slider	tipFormatter(function tipFormatter)	获取/设置格式化显示信息
+ * 			function/core.html.easyui.form.Slider	converter(function converter)		获取/设置转换某些值
+ * 			function/core.html.easyui.form.Slider	onChange(function onChange)			获取/设置改变事件
+ * 			function/core.html.easyui.form.Slider	onSlideStart(function onSlideStart)	获取/设置开始拖动事件
+ * 			function/core.html.easyui.form.Slider	onSlideEnd(function onSlideEnd)		获取/设置结束拖动事件
+ * 			function/core.html.easyui.form.Slider	onComplete(function onComplete)		获取/设置完整
+ * 			core.html.easyui.form.Slider			init()								初始化组件模板
+ * 			object									options()				
+ * 			void									destroy()							销毁对象
+ * 			void									resize(object param)				改变大小
+ * 			string									getValue()							获取值
+ * 			array									getValues()							获取值
+ * 			void									setValue(string value)				设置值
+ * 			void									setValues(array value)				设置值
+ * 			void									clear()								清除
+ * 			void									reset()								重置
+ * 			void									enable()							启用
+ * 			void									disable()							禁用
+ * 
+ * @date	2018年5月4日 15:46:29
  */
-
 core.html.easyui.form.Slider = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(_id) {
+	var Constructor = function() {
 
-		// 校验ID
-		if (_id === null || _id === undefined) {
-			new core.lang.Exception(this, "core.html.easyui.form.Slider", "构造参数异常", "ID属性不能为空");
-		}
+		// 调用父类构造
+		core.html.easyui.form.Slider.superClass.constructor.call(this, arguments[0]);
+		// 默认参数修改
+		this.disabled($.fn.slider.defaults.disabled);
 
 		/**
 		 * 属性
 		 */
-		/**
-		 * ID
-		 */
-		var id = _id;
 		/**
 		 * 宽度
 		 */
@@ -83,10 +76,6 @@ core.html.easyui.form.Slider = (function() {
 		 * 显示值信息
 		 */
 		var showTip = $.fn.slider.defaults.showTip;
-		/**
-		 * 禁用
-		 */
-		var disabled = $.fn.slider.defaults.disabled;
 		/**
 		 * 拖动条范围
 		 */
@@ -141,25 +130,10 @@ core.html.easyui.form.Slider = (function() {
 		var onComplete = $.fn.slider.defaults.onComplete;
 
 		/**
-		 * 获取/设置ID
-		 * 
-		 * @param id
-		 */
-		this.id = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return id;
-			default:
-				id = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置宽度
 		 * 
-		 * @param width
+		 * @param width{number}
+		 * @returns {number/core.html.easyui.form.Slider}
 		 */
 		this.width = function() {
 
@@ -175,7 +149,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置高度
 		 * 
-		 * @param height
+		 * @param height{number}
+		 * @returns {number/core.html.easyui.form.Slider}
 		 */
 		this.height = function() {
 
@@ -191,7 +166,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置拖动条方向
 		 * 
-		 * @param mode
+		 * @param mode{string}
+		 * @returns {string/core.html.easyui.form.Slider}
 		 */
 		this.mode = function() {
 
@@ -207,7 +183,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置方向反转
 		 * 
-		 * @param reversed
+		 * @param reversed{boolean}
+		 * @returns {boolean/core.html.easyui.form.Slider}
 		 */
 		this.reversed = function() {
 
@@ -223,7 +200,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置显示值信息
 		 * 
-		 * @param showTip
+		 * @param showTip{boolean}
+		 * @returns {boolean/core.html.easyui.form.Slider}
 		 */
 		this.showTip = function() {
 
@@ -237,25 +215,10 @@ core.html.easyui.form.Slider = (function() {
 		};
 
 		/**
-		 * 获取/设置禁用
-		 * 
-		 * @param disabled
-		 */
-		this.disabled = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return disabled;
-			default:
-				disabled = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置拖动条范围
 		 * 
-		 * @param range
+		 * @param range{boolean}
+		 * @returns {boolean/core.html.easyui.form.Slider}
 		 */
 		this.range = function() {
 
@@ -271,7 +234,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置值
 		 * 
-		 * @param value
+		 * @param value{number}
+		 * @returns {number/core.html.easyui.form.Slider}
 		 */
 		this.value = function() {
 
@@ -287,7 +251,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置最小值
 		 * 
-		 * @param min
+		 * @param min{number}
+		 * @returns {number/core.html.easyui.form.Slider}
 		 */
 		this.min = function() {
 
@@ -303,7 +268,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置最大值
 		 * 
-		 * @param max
+		 * @param max{number}
+		 * @returns {number/core.html.easyui.form.Slider}
 		 */
 		this.max = function() {
 
@@ -319,7 +285,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置步幅
 		 * 
-		 * @param step
+		 * @param step{number}
+		 * @returns {number/core.html.easyui.form.Slider}
 		 */
 		this.step = function() {
 
@@ -335,7 +302,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置
 		 * 
-		 * @param rule
+		 * @param rule{array}
+		 * @returns {array/core.html.easyui.form.Slider}
 		 */
 		this.rule = function() {
 
@@ -351,7 +319,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置格式化显示信息
 		 * 
-		 * @param tipFormatter
+		 * @param tipFormatter{function}
+		 * @returns {function/core.html.easyui.form.Slider}
 		 */
 		this.tipFormatter = function() {
 
@@ -367,7 +336,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置转换某些值
 		 * 
-		 * @param converter
+		 * @param converter{function}
+		 * @returns {function/core.html.easyui.form.Slider}
 		 */
 		this.converter = function() {
 
@@ -383,7 +353,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置改变事件
 		 * 
-		 * @param onChange
+		 * @param onChange{function}
+		 * @returns {function/core.html.easyui.form.Slider}
 		 */
 		this.onChange = function() {
 
@@ -399,7 +370,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置开始拖动事件
 		 * 
-		 * @param onSlideStart
+		 * @param onSlideStart{function}
+		 * @returns {function/core.html.easyui.form.Slider}
 		 */
 		this.onSlideStart = function() {
 
@@ -415,7 +387,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置结束拖动事件
 		 * 
-		 * @param onSlideEnd
+		 * @param onSlideEnd{function}
+		 * @returns {function/core.html.easyui.form.Slider}
 		 */
 		this.onSlideEnd = function() {
 
@@ -431,7 +404,8 @@ core.html.easyui.form.Slider = (function() {
 		/**
 		 * 获取/设置完整
 		 * 
-		 * @param onComplete
+		 * @param onComplete{function}
+		 * @returns {function/core.html.easyui.form.Slider}
 		 */
 		this.onComplete = function() {
 
@@ -452,26 +426,31 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Slider", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.Slider", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.base.Draggable", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.slider({
+		this.$jQuery().slider({
+			// Draggable继承属性
+			proxy : this.proxy(),
+			revert : this.revert(),
+			cursor : this.cursor(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			handle : this.handle(),
+			disabled : this.disabled(),
+			edge : this.edge(),
+			axis : this.axis(),
+			delay : this.delay(),
 			// 属性
-			id : this.id(),
 			width : this.width(),
 			height : this.height(),
 			mode : this.mode(),
 			reversed : this.reversed(),
 			showTip : this.showTip(),
-			disabled : this.disabled(),
 			range : this.range(),
 			value : this.value(),
 			min : this.min(),
@@ -481,6 +460,12 @@ core.html.easyui.form.Slider = (function() {
 			tipFormatter : this.tipFormatter(),
 			converter : this.converter(),
 
+			// Draggable继承事件
+			onBeforeDrag : this.onBeforeDrag(),
+			onStartDrag : this.onStartDrag(),
+			onDrag : this.onDrag(),
+			onEndDrag : this.onEndDrag(),
+			onStopDrag : this.onStopDrag(),
 			// 事件
 			onChange : this.onChange(),
 			onSlideStart : this.onSlideStart(),
@@ -496,11 +481,11 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).slider("options");
+		return this.$jQuery().slider("options");
 	};
 
 	/**
@@ -510,57 +495,60 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).slider("destroy");
+		return this.$jQuery().slider("destroy");
 	};
 
 	/**
 	 * 改变大小
 	 * 
+	 * @param param{object}
 	 * @returns
 	 */
 	Constructor.prototype.resize = function(param) {
 
-		return $("#" + this.id()).slider("resize", param);
+		return this.$jQuery().slider("resize", param);
 	};
 
 	/**
 	 * 获取值
 	 * 
-	 * @returns
+	 * @returns {string}
 	 */
 	Constructor.prototype.getValue = function() {
 
-		return $("#" + this.id()).slider("getValue");
+		return this.$jQuery().slider("getValue");
 	};
 
 	/**
 	 * 获取值
 	 * 
-	 * @returns
+	 * @returns {array}
 	 */
 	Constructor.prototype.getValues = function() {
 
-		return $("#" + this.id()).slider("getValues");
+		return this.$jQuery().slider("getValues");
 	};
 
 	/**
 	 * 设置值
 	 * 
+	 * @param value{string}
 	 * @returns
 	 */
 	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).slider("setValue", value);
+		return this.$jQuery().slider("setValue", value);
 	};
 
 	/**
 	 * 设置值
 	 * 
+	 * @param values{array}
 	 * @returns
 	 */
 	Constructor.prototype.setValues = function(values) {
 
-		return $("#" + this.id()).slider("setValues", values);
+		return this.$jQuery().slider("setValues", values);
 	};
 
 	/**
@@ -570,7 +558,7 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).slider("clear");
+		return this.$jQuery().slider("clear");
 	};
 
 	/**
@@ -580,7 +568,7 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).slider("reset");
+		return this.$jQuery().slider("reset");
 	};
 
 	/**
@@ -590,7 +578,7 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).slider("enable");
+		return this.$jQuery().slider("enable");
 	};
 
 	/**
@@ -600,7 +588,7 @@ core.html.easyui.form.Slider = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).slider("disable");
+		return this.$jQuery().slider("disable");
 	};
 
 	// 返回构造函数

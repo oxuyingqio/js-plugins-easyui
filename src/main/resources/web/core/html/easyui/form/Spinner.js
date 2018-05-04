@@ -4,35 +4,48 @@
  * @desc	微调框模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.Spinner(String id)
+ * @constructor	core.html.easyui.form.Spinner(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.TextBox
  * 
- * @method	Object/core.html.easyui.form.Spinner		min()				获取/设置最小值
- * 			Object/core.html.easyui.form.Spinner		max()				获取/设置最大值
- * 			Object/core.html.easyui.form.Spinner		increment()			获取/设置步幅
- * 			Object/core.html.easyui.form.Spinner		spinAlign()			获取/设置位置
- * 			Object/core.html.easyui.form.Spinner		spin()				获取/设置用户点击旋转调用函数
- * 			function/core.html.easyui.form.Spinner		onSpinUp()			获取/设置抬起事件
- * 			function/core.html.easyui.form.Spinner		onSpinDown()		获取/设置按下事件
- * 			core.html.easyui.form.Spinner				init()				初始化组件模板
+ * @method	继承core.html.easyui.form.TextBox所有方法
+ * 			string/core.html.easyui.form.Spinner		min(string min)					获取/设置最小值
+ * 			string/core.html.easyui.form.Spinner		max(string max)					获取/设置最大值
+ * 			number/core.html.easyui.form.Spinner		increment(number increment)		获取/设置步幅
+ * 			string/core.html.easyui.form.Spinner		spinAlign(string spinAlign)		获取/设置位置
+ * 			function/core.html.easyui.form.Spinner		spin(function spin)				获取/设置用户点击旋转调用函数
+ * 			function/core.html.easyui.form.Spinner		onSpinUp(function onSpinUp)		获取/设置抬起事件
+ * 			function/core.html.easyui.form.Spinner		onSpinDown(function onSpinDown)	获取/设置按下事件
+ * 			core.html.easyui.form.Spinner				init()							初始化组件模板
+ * 			object										options()
+ * 			void										destroy()
+ * 			void										resize(number width)
+ * 			void										enable()
+ * 			void										disable()
+ * 			string										getValue()
+ * 			void										readonly(boolean mode)
+ * 			void										setValue(string value)
+ * 			void										clear()
+ * 			void										reset()
  * 
- * @date	2016年8月31日 11:23:11
+ * @date	2018年5月4日 14:16:32
  */
-
 core.html.easyui.form.Spinner = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.Spinner.superClass.constructor.call(this, id);
+		core.html.easyui.form.Spinner.superClass.constructor.call(this, arguments[0]);
+		// 修改默认参数
+		this.width($.fn.spinner.defaults.width);
 		this.height($.fn.spinner.defaults.height);
+		this.value($.fn.spinner.defaults.value);
+		this.editable($.fn.spinner.defaults.editable);
+		this.disabled($.fn.spinner.defaults.disabled);
+		this.readonly($.fn.spinner.defaults.readonly);
 
 		/**
 		 * 属性
@@ -73,7 +86,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置最小值
 		 * 
-		 * @param min
+		 * @param min{string}
+		 * @returns {string/core.html.easyui.form.Spinner}
 		 */
 		this.min = function() {
 
@@ -89,7 +103,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置最大值
 		 * 
-		 * @param max
+		 * @param max{string}
+		 * @returns {string/core.html.easyui.form.Spinner}
 		 */
 		this.max = function() {
 
@@ -105,7 +120,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置步幅
 		 * 
-		 * @param increment
+		 * @param increment{number}
+		 * @returns {number/core.html.easyui.form.Spinner}
 		 */
 		this.increment = function() {
 
@@ -121,7 +137,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置位置
 		 * 
-		 * @param spinAlign
+		 * @param spinAlign{string}
+		 * @returns {string/core.html.easyui.form.Spinner}
 		 */
 		this.spinAlign = function() {
 
@@ -137,7 +154,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置用户点击旋转调用函数
 		 * 
-		 * @param spin
+		 * @param spin{function}
+		 * @returns {function/core.html.easyui.form.Spinner}
 		 */
 		this.spin = function() {
 
@@ -153,7 +171,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置抬起事件
 		 * 
-		 * @param onSpinUp
+		 * @param onSpinUp{function}
+		 * @returns {function/core.html.easyui.form.Spinner}
 		 */
 		this.onSpinUp = function() {
 
@@ -169,7 +188,8 @@ core.html.easyui.form.Spinner = (function() {
 		/**
 		 * 获取/设置按下事件
 		 * 
-		 * @param onSpinDown
+		 * @param onSpinDown{function}
+		 * @returns {function/core.html.easyui.form.Spinner}
 		 */
 		this.onSpinDown = function() {
 
@@ -182,7 +202,7 @@ core.html.easyui.form.Spinner = (function() {
 			}
 		};
 	};
-	// 继承文本框模板
+	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.TextBox);
 
 	/**
@@ -192,37 +212,51 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.Spinner", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.Spinner", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.Spinner", "构造参数异常", "Document不存在.");
 		}
-		
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
+
 		// 参数配置
-		$jQuery.spinner({
-			// 属性
+		this.$jQuery().spinner({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// TextBox继承属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// TextBox继承属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -232,8 +266,6 @@ core.html.easyui.form.Spinner = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
@@ -245,10 +277,17 @@ core.html.easyui.form.Spinner = (function() {
 			spinAlign : this.spinAlign(),
 			spin : this.spin(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
@@ -263,15 +302,15 @@ core.html.easyui.form.Spinner = (function() {
 	};
 
 	/**
-	 * Validate继承方法
+	 * 方法
 	 */
 	/**
 	 * 
-	 * @returns
+	 * @returns {object}
 	 */
 	Constructor.prototype.options = function() {
 
-		return $("#" + this.id()).spinner("options");
+		return this.$jQuery().spinner("options");
 	};
 
 	/**
@@ -281,57 +320,18 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.destroy = function() {
 
-		return $("#" + this.id()).spinner("destroy");
+		return this.$jQuery().spinner("destroy");
 	};
 
 	/**
-	 * 校验
+	 * 改变宽度
 	 * 
+	 * @param width{number}
 	 * @returns
 	 */
-	Constructor.prototype.validate = function() {
+	Constructor.prototype.resize = function(width) {
 
-		return $("#" + this.id()).spinner("validate");
-	};
-
-	/**
-	 * 判断是否校验通过
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.isValid = function() {
-
-		return $("#" + this.id()).spinner("isValid");
-	};
-
-	/**
-	 * 启用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enableValidation = function() {
-
-		return $("#" + this.id()).spinner("enableValidation");
-	};
-
-	/**
-	 * 禁用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disableValidation = function() {
-
-		return $("#" + this.id()).spinner("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).spinner("resetValidation");
+		return this.$jQuery().spinner("resize", width);
 	};
 
 	/**
@@ -341,7 +341,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.enable = function() {
 
-		return $("#" + this.id()).spinner("enable");
+		return this.$jQuery().spinner("enable");
 	};
 
 	/**
@@ -351,49 +351,39 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.disable = function() {
 
-		return $("#" + this.id()).spinner("disable");
+		return this.$jQuery().spinner("disable");
+	};
+
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().spinner("getValue");
 	};
 
 	/**
 	 * 只读
 	 * 
+	 * @param mode{boolean}
 	 * @returns
 	 */
 	Constructor.prototype.readonly = function(mode) {
 
-		return $("#" + this.id()).spinner("readonly", mode);
+		return this.$jQuery().spinner("readonly", mode);
 	};
 
 	/**
-	 * TextBox继承方法
-	 */
-	/**
+	 * 设置值
 	 * 
+	 * @param value{string}
 	 * @returns
 	 */
-	Constructor.prototype.textbox = function() {
+	Constructor.prototype.setValue = function(value) {
 
-		return $("#" + this.id()).spinner("textbox");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.button = function() {
-
-		return $("#" + this.id()).spinner("button");
-	};
-
-	/**
-	 * 改变宽度
-	 * 
-	 * @param width
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(width) {
-
-		return $("#" + this.id()).spinner("resize", width);
+		return this.$jQuery().spinner("setValue", value);
 	};
 
 	/**
@@ -403,7 +393,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.clear = function() {
 
-		return $("#" + this.id()).spinner("clear");
+		return this.$jQuery().spinner("clear");
 	};
 
 	/**
@@ -413,70 +403,7 @@ core.html.easyui.form.Spinner = (function() {
 	 */
 	Constructor.prototype.reset = function() {
 
-		return $("#" + this.id()).spinner("reset");
-	};
-
-	/**
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.initValue = function(value) {
-
-		return $("#" + this.id()).spinner("initValue", value);
-	};
-
-	/**
-	 * 设置显示文本
-	 * 
-	 * @param text
-	 * @returns
-	 */
-	Constructor.prototype.setText = function(text) {
-
-		return $("#" + this.id()).spinner("setText", text);
-	};
-
-	/**
-	 * 获取显示文本
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getText = function() {
-
-		return $("#" + this.id()).spinner("getText");
-	};
-
-	/**
-	 * 设置值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.setValue = function(value) {
-
-		return $("#" + this.id()).spinner("setValue", value);
-	};
-
-	/**
-	 * 获取值
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValue = function() {
-
-		return $("#" + this.id()).spinner("getValue");
-	};
-
-	/**
-	 * 获取图标对象
-	 * 
-	 * @param index
-	 * @returns
-	 */
-	Constructor.prototype.getIcon = function(index) {
-
-		return $("#" + this.id()).spinner("getIcon", index);
+		return this.$jQuery().spinner("reset");
 	};
 
 	// 返回构造函数

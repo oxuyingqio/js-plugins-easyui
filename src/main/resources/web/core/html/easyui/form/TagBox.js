@@ -4,41 +4,35 @@
  * @desc	标签模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.TagBox(String id)
+ * @constructor	core.html.easyui.form.TagBox(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.ComboBox
  * 
- * @method	Object/core.html.easyui.form.TagBox		hasDownArrow()		获取/设置是否显示向下箭头
- * 			Object/core.html.easyui.form.TagBox		tagFormatter()		获取/设置格式化值
- * 			Object/core.html.easyui.form.TagBox		tagStyler()			获取/设置样式
- * 			Object/core.html.easyui.form.TagBox		onClickTag()		获取/设置点击事件
- * 			Object/core.html.easyui.form.TagBox		onBeforeRemoveTag()	获取/设置移除前事件
- * 			Object/core.html.easyui.form.TagBox		onRemoveTag()		获取/设置移除事件
- *			core.html.easyui.form.TagBox			init()				初始化组件模板
+ * @method	继承core.html.easyui.form.ComboBox所有方法
+ * 			function/core.html.easyui.form.TagBox	tagFormatter(function tagFormatter)				获取/设置格式化值
+ * 			function/core.html.easyui.form.TagBox	tagStyler(function tagStyler)					获取/设置样式
+ * 			function/core.html.easyui.form.TagBox	onClickTag(function onClickTag)					获取/设置点击事件
+ * 			function/core.html.easyui.form.TagBox	onBeforeRemoveTag(function onBeforeRemoveTag)	获取/设置移除前事件
+ * 			function/core.html.easyui.form.TagBox	onRemoveTag(function onRemoveTag)				获取/设置移除事件
+ *			core.html.easyui.form.TagBox			init()											初始化组件模板
  * 
- * @date	2017年1月17日 13:26:23
+ * @date	2018年5月4日 10:57:32
  */
-
 core.html.easyui.form.TagBox = (function() {
 
 	/**
 	 * 构造函数
-	 * 
-	 * @param id{String}
-	 *            ID
 	 */
-	var Constructor = function(id) {
+	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.TagBox.superClass.constructor.call(this, id);
+		core.html.easyui.form.TagBox.superClass.constructor.call(this, this, arguments[0]);
+		// 修改默认参数
+		this.hasDownArrow($.fn.tagbox.defaults.hasDownArrow);
 
 		/**
 		 * 属性
 		 */
-		/**
-		 * 是否显示向下箭头
-		 */
-		var hasDownArrow = $.fn.tagbox.defaults.hasDownArrow;
 		/**
 		 * 格式化值
 		 */
@@ -65,25 +59,10 @@ core.html.easyui.form.TagBox = (function() {
 		var onRemoveTag = $.fn.tagbox.defaults.onRemoveTag;
 
 		/**
-		 * 获取/设置是否显示向下箭头
-		 * 
-		 * @param hasDownArrow
-		 */
-		this.hasDownArrow = function() {
-
-			switch (arguments.length) {
-			case 0:
-				return hasDownArrow;
-			default:
-				hasDownArrow = arguments[0];
-				return this;
-			}
-		};
-
-		/**
 		 * 获取/设置格式化值
 		 * 
-		 * @param tagFormatter
+		 * @param tagFormatter{function}
+		 * @returns {function/core.html.easyui.form.TagBox}
 		 */
 		this.tagFormatter = function() {
 
@@ -99,7 +78,8 @@ core.html.easyui.form.TagBox = (function() {
 		/**
 		 * 获取/设置样式
 		 * 
-		 * @param tagStyler
+		 * @param tagStyler{function}
+		 * @returns {function/core.html.easyui.form.TagBox}
 		 */
 		this.tagStyler = function() {
 
@@ -115,7 +95,8 @@ core.html.easyui.form.TagBox = (function() {
 		/**
 		 * 获取/设置点击事件
 		 * 
-		 * @param onClickTag
+		 * @param onClickTag{function}
+		 * @returns {function/core.html.easyui.form.TagBox}
 		 */
 		this.onClickTag = function() {
 
@@ -131,7 +112,8 @@ core.html.easyui.form.TagBox = (function() {
 		/**
 		 * 获取/设置移除前事件
 		 * 
-		 * @param onBeforeRemoveTag
+		 * @param onBeforeRemoveTag{function}
+		 * @returns {function/core.html.easyui.form.TagBox}
 		 */
 		this.onBeforeRemoveTag = function() {
 
@@ -147,7 +129,8 @@ core.html.easyui.form.TagBox = (function() {
 		/**
 		 * 获取/设置移除事件
 		 * 
-		 * @param onRemoveTag
+		 * @param onRemoveTag{function}
+		 * @returns {function/core.html.easyui.form.TagBox}
 		 */
 		this.onRemoveTag = function() {
 
@@ -161,7 +144,7 @@ core.html.easyui.form.TagBox = (function() {
 		};
 
 	};
-	// 继承下拉框模板
+	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.ComboBox);
 
 	/**
@@ -171,37 +154,51 @@ core.html.easyui.form.TagBox = (function() {
 	 */
 	Constructor.prototype.init = function() {
 
-		// 校验ID个数
-		var idLength = $("[id='" + this.id() + "']").length;
-		if (idLength === 0) {
-			new core.lang.Exception(this, "core.html.easyui.form.TagBox", "构造参数异常", "DIV(ID:" + this.id() + ")不存在.");
-		} else if (idLength > 1) {
-			new core.lang.Warning(this, "core.html.easyui.form.TagBox", "构造参数警告", "DIV(ID:" + this.id() + ")存在多个.");
+		// 校验Document是否存在
+		if (this.$jQuery().length === 0) {
+
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.TagBox", "构造参数异常", "Document不存在.");
 		}
 
-		// 获取jQuery对象
-		var $jQuery = $("#" + this.id());
 		// 参数配置
-		$jQuery.tagbox({
-			// 属性
+		this.$jQuery().tagbox({
+			// Tooltip继承属性
+			position : this.position(),
+			content : this.content(),
+			trackMouse : this.trackMouse(),
+			deltaX : this.deltaX(),
+			deltaY : this.deltaY(),
+			showEvent : this.showEvent(),
+			hideEvent : this.hideEvent(),
+			showDelay : this.showDelay(),
+			hideDelay : this.hideDelay(),
 			// Validate继承属性
-			id : this.id(),
 			required : this.required(),
 			validType : this.validType(),
 			delay : this.delay(),
 			missingMessage : this.missingMessage(),
 			invalidMessage : this.invalidMessage(),
 			tipPosition : this.tipPosition(),
-			deltaX : this.deltaX(),
 			novalidate : this.novalidate(),
 			editable : this.editable(),
 			disabled : this.disabled(),
 			readonly : this.readonly(),
 			validateOnCreate : this.validateOnCreate(),
 			validateOnBlur : this.validateOnBlur(),
-			// TextBox继承属性
+			// LinkButton继承属性
 			width : this.width(),
 			height : this.height(),
+			id : this.id(),
+			toggle : this.toggle(),
+			selected : this.selected(),
+			group : this.group(),
+			plain : this.plain(),
+			text : this.text(),
+			iconCls : this.iconCls(),
+			iconAlign : this.iconAlign(),
+			size : this.size(),
+			// TextBox继承属性
+			cls : this.cls(),
 			prompt : this.prompt(),
 			value : this.value(),
 			type : this.type(),
@@ -211,12 +208,45 @@ core.html.easyui.form.TagBox = (function() {
 			labelAlign : this.labelAlign(),
 			multiline : this.multiline(),
 			icons : this.icons(),
-			iconCls : this.iconCls(),
-			iconAlign : this.iconAlign(),
 			iconWidth : this.iconWidth(),
 			buttonText : this.buttonText(),
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
+			// Panel继承属性
+			title : this.title(),
+			left : this.left(),
+			top : this.top(),
+			headerCls : this.headerCls(),
+			bodyCls : this.bodyCls(),
+			style : this.style(),
+			fit : this.fit(),
+			border : this.border(),
+			doSize : this.doSize(),
+			noheader : this.noheader(),
+			halign : this.halign(),
+			titleDirection : this.titleDirection(),
+			collapsible : this.collapsible(),
+			minimizable : this.minimizable(),
+			maximizable : this.maximizable(),
+			closable : this.closable(),
+			tools : this.tools(),
+			header : this.header(),
+			footer : this.footer(),
+			openAnimation : this.openAnimation(),
+			openDuration : this.openDuration(),
+			closeAnimation : this.closeAnimation(),
+			closeDuration : this.closeDuration(),
+			collapsed : this.collapsed(),
+			minimized : this.minimized(),
+			maximized : this.maximized(),
+			closed : this.closed(),
+			href : this.href(),
+			cache : this.cache(),
+			loadingMessage : this.loadingMessage(),
+			extractor : this.extractor(),
+			method : this.method(),
+			queryParams : this.queryParams(),
+			loader : this.loader(),
 			// Combo继承属性
 			panelWidth : this.panelWidth(),
 			panelHeight : this.panelHeight(),
@@ -226,6 +256,8 @@ core.html.easyui.form.TagBox = (function() {
 			panelMaxHeight : this.panelMaxHeight(),
 			panelAlign : this.panelAlign(),
 			multiple : this.multiple(),
+			multivalue : this.multivalue(),
+			reversed : this.reversed(),
 			selectOnNavigation : this.selectOnNavigation(),
 			separator : this.separator(),
 			hasDownArrow : this.hasDownArrow(),
@@ -237,37 +269,55 @@ core.html.easyui.form.TagBox = (function() {
 			groupFormatter : this.groupFormatter(),
 			mode : this.mode(),
 			url : this.url(),
-			method : this.method(),
 			data : this.data(),
-			queryParams : this.queryParams(),
 			limitToList : this.limitToList(),
 			showItemIcon : this.showItemIcon(),
 			groupPosition : this.groupPosition(),
 			filter : this.filter(),
 			formatter : this.formatter(),
-			loader : this.loader(),
 			loadFilter : this.loadFilter(),
 			// 属性
-			hasDownArrow : this.hasDownArrow(),
 			tagFormatter : this.tagFormatter(),
 			tagStyler : this.tagStyler(),
 
-			// 事件
-			// Validate继承事件
+			// Tooltip继承事件
+			onShow : this.onShow(),
+			onHide : this.onHide(),
+			onUpdate : this.onUpdate(),
+			onPosition : this.onPosition(),
+			onDestroy : this.onDestroy(),
+			// ValidateBox继承事件
 			onBeforeValidate : this.onBeforeValidate(),
 			onValidate : this.onValidate(),
+			// LinkButton继承事件
+			onClick : this.onClick(),
 			// TextBox继承事件
 			onChange : this.onChange(),
 			onResize : this.onResize(),
 			onClickButton : this.onClickButton(),
 			onClickIcon : this.onClickIcon(),
+			// Panel继承事件
+			onBeforeLoad : this.onBeforeLoad(),
+			onLoad : this.onLoad(),
+			onLoadError : this.onLoadError(),
+			onBeforeOpen : this.onBeforeOpen(),
+			onOpen : this.onOpen(),
+			onBeforeClose : this.onBeforeClose(),
+			onClose : this.onClose(),
+			onBeforeDestroy : this.onBeforeDestroy(),
+			onBeforeCollapse : this.onBeforeCollapse(),
+			onCollapse : this.onCollapse(),
+			onBeforeExpand : this.onBeforeExpand(),
+			onExpand : this.onExpand(),
+			onMove : this.onMove(),
+			onMaximize : this.onMaximize(),
+			onRestore : this.onRestore(),
+			onMinimize : this.onMinimize(),
 			// Combo继承事件
 			onShowPanel : this.onShowPanel(),
 			onHidePanel : this.onHidePanel(),
 			// ComboBox继承事件
-			onBeforeLoad : this.onBeforeLoad(),
 			onLoadSuccess : this.onLoadSuccess(),
-			onLoadError : this.onLoadError(),
 			onSelect : this.onSelect(),
 			onUnselect : this.onUnselect(),
 			// 事件
@@ -277,332 +327,6 @@ core.html.easyui.form.TagBox = (function() {
 		});
 
 		return this;
-	};
-
-	/**
-	 * Validate继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.options = function() {
-
-		return $("#" + this.id()).tagbox("options");
-	};
-
-	/**
-	 * 销毁组件
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.destroy = function() {
-
-		return $("#" + this.id()).tagbox("destroy");
-	};
-
-	/**
-	 * 校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.validate = function() {
-
-		return $("#" + this.id()).tagbox("validate");
-	};
-
-	/**
-	 * 判断是否校验通过
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.isValid = function() {
-
-		return $("#" + this.id()).tagbox("isValid");
-	};
-
-	/**
-	 * 启用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enableValidation = function() {
-
-		return $("#" + this.id()).tagbox("enableValidation");
-	};
-
-	/**
-	 * 禁用校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disableValidation = function() {
-
-		return $("#" + this.id()).tagbox("disableValidation");
-	};
-
-	/**
-	 * 重置校验
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.resetValidation = function() {
-
-		return $("#" + this.id()).tagbox("resetValidation");
-	};
-
-	/**
-	 * 启用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.enable = function() {
-
-		return $("#" + this.id()).tagbox("enable");
-	};
-
-	/**
-	 * 禁用
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.disable = function() {
-
-		return $("#" + this.id()).tagbox("disable");
-	};
-
-	/**
-	 * 只读
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.readonly = function(mode) {
-
-		return $("#" + this.id()).tagbox("readonly", mode);
-	};
-
-	/**
-	 * TextBox继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.textbox = function() {
-
-		return $("#" + this.id()).tagbox("textbox");
-	};
-
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.button = function() {
-
-		return $("#" + this.id()).tagbox("button");
-	};
-
-	/**
-	 * 改变宽度
-	 * 
-	 * @param width
-	 * @returns
-	 */
-	Constructor.prototype.resize = function(width) {
-
-		return $("#" + this.id()).tagbox("resize", width);
-	};
-
-	/**
-	 * 清除
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.clear = function() {
-
-		return $("#" + this.id()).tagbox("clear");
-	};
-
-	/**
-	 * 重置
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.reset = function() {
-
-		return $("#" + this.id()).tagbox("reset");
-	};
-
-	/**
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.initValue = function(value) {
-
-		return $("#" + this.id()).tagbox("initValue", value);
-	};
-
-	/**
-	 * 设置显示文本
-	 * 
-	 * @param text
-	 * @returns
-	 */
-	Constructor.prototype.setText = function(text) {
-
-		return $("#" + this.id()).tagbox("setText", text);
-	};
-
-	/**
-	 * 获取显示文本
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getText = function() {
-
-		return $("#" + this.id()).tagbox("getText");
-	};
-
-	/**
-	 * 设置值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.setValue = function(value) {
-
-		return $("#" + this.id()).tagbox("setValue", value);
-	};
-
-	/**
-	 * 获取值
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValue = function() {
-
-		return $("#" + this.id()).tagbox("getValue");
-	};
-
-	/**
-	 * 获取图标对象
-	 * 
-	 * @param index
-	 * @returns
-	 */
-	Constructor.prototype.getIcon = function(index) {
-
-		return $("#" + this.id()).tagbox("getIcon", index);
-	};
-
-	/**
-	 * Combo继承方法
-	 */
-	/**
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.panel = function() {
-
-		return $("#" + this.id()).tagbox("panel");
-	};
-
-	/**
-	 * 显示面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.showPanel = function() {
-
-		return $("#" + this.id()).tagbox("showPanel");
-	};
-
-	/**
-	 * 隐藏面板
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.hidePanel = function() {
-
-		return $("#" + this.id()).tagbox("hidePanel");
-	};
-
-	/**
-	 * 获取值集合
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getValues = function() {
-
-		return $("#" + this.id()).tagbox("getValues");
-	};
-
-	/**
-	 * 设置值集合
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.setValues = function(values) {
-
-		return $("#" + this.id()).tagbox("setValues", values);
-	};
-
-	/**
-	 * ComboBox继承方法
-	 */
-	/**
-	 * 获取数据
-	 * 
-	 * @returns
-	 */
-	Constructor.prototype.getData = function() {
-
-		return $("#" + this.id()).tagbox("getData");
-	};
-
-	/**
-	 * 加载数据
-	 * 
-	 * @param data
-	 * @returns
-	 */
-	Constructor.prototype.loadData = function(data) {
-
-		return $("#" + this.id()).tagbox("loadData", data);
-	};
-
-	/**
-	 * 远程加载数据
-	 * 
-	 * @param url
-	 * @returns
-	 */
-	Constructor.prototype.reload = function(url) {
-
-		return $("#" + this.id()).tagbox("reload", url);
-	};
-
-	/**
-	 * 选择某值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.select = function(value) {
-
-		return $("#" + this.id()).tagbox("select", value);
-	};
-
-	/**
-	 * 取消选择某值
-	 * 
-	 * @param value
-	 * @returns
-	 */
-	Constructor.prototype.unselect = function(value) {
-
-		return $("#" + this.id()).tagbox("unselect", value);
 	};
 
 	// 返回构造函数

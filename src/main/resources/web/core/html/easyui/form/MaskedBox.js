@@ -1,23 +1,27 @@
 /**
- * @name	FileBox
+ * @name	MaskedBox
  * @package core.html.easyui.form
- * @desc	文件框模板
+ * @desc	模板
  * @type	类
  * 
- * @constructor	core.html.easyui.form.FileBox(string id/object jQuery)
+ * @constructor	core.html.easyui.form.MaskedBox(string id/object jQuery)
  * 
  * @extend	core.html.easyui.form.TextBox
  * 
  * @method	继承core.html.easyui.form.TextBox所有方法
- * 			string/core.html.easyui.form.FileBox	accept(string accept)		获取/设置指定文件类型
- * 			string/core.html.easyui.form.FileBox	multiple(string multiple)	获取/设置是否可接收多个文件
- * 			string/core.html.easyui.form.FileBox	separator(string separator)	获取/设置多文件名之间的分隔符
- * 			core.html.easyui.form.FileBox			init()						初始化组件模板
- * 			array									files()
+ * 			string/core.html.easyui.form.MaskedBox		passwordChar(string passwordChar)	获取/设置密码显示字符
+ * 			number/core.html.easyui.form.MaskedBox		checkInterval(number checkInterval)	获取/设置检查间隔时间
+ * 			number/core.html.easyui.form.MaskedBox		lastDelay(number lastDelay)			获取/设置延迟转换
+ * 			boolean/core.html.easyui.form.MaskedBox		revealed(boolean revealed)			获取/设置是否隐藏密码
+ * 			boolean/core.html.easyui.form.MaskedBox		showEye(boolean showEye)			获取/设置是否显示显示密码按钮
+ * 			core.html.easyui.form.MaskedBox				init()								初始化组件模板		
+ * 			object										options()
+ * 			void										initValue(string value)				显示密码
+ * 			void										setValue(string value)				隐藏密码
  * 
- * @date	2018年5月4日 16:00:06
+ * @date	2018年5月2日 16:11:07
  */
-core.html.easyui.form.FileBox = (function() {
+core.html.easyui.form.MaskedBox = (function() {
 
 	/**
 	 * 构造函数
@@ -25,97 +29,93 @@ core.html.easyui.form.FileBox = (function() {
 	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.FileBox.superClass.constructor.call(this, arguments[0]);
-		// 默认参数修改
-		this.buttonText($.fn.filebox.defaults.buttonText);
-		this.buttonIcon($.fn.filebox.defaults.buttonIcon);
-		this.buttonAlign($.fn.filebox.defaults.buttonAlign);
+		core.html.easyui.form.MaskedBox.superClass.constructor.call(this, arguments[0]);
 
 		/**
 		 * 属性
 		 */
 		/**
-		 * 指定文件类型
+		 * 
 		 */
-		var accept = $.fn.filebox.defaults.accept;
+		var mask = $.fn.maskedbox.defaults.mask;
 		/**
-		 * 是否可接收多个文件
+		 * 
 		 */
-		var multiple = $.fn.filebox.defaults.multiple;
+		var promptChar = $.fn.maskedbox.defaults.promptChar;
 		/**
-		 * 多文件名之间的分隔符
+		 * 
 		 */
-		var separator = $.fn.filebox.defaults.separator;
+		var masks = $.fn.maskedbox.defaults.masks;
 
 		/**
-		 * 获取/设置指定文件类型
+		 * 获取/设置
 		 * 
-		 * @param accept{string}
-		 * @returns {string/core.html.easyui.form.FileBox}
+		 * @param mask{string}
+		 * @returns {string/core.html.easyui.form.MaskedBox}
 		 */
-		this.accept = function() {
+		this.mask = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return accept;
+				return mask;
 			default:
-				accept = arguments[0];
+				mask = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置是否可接收多个文件
+		 * 获取/设置
 		 * 
-		 * @param multiple{string}
-		 * @returns {string/core.html.easyui.form.FileBox}
+		 * @param promptChar{string}
+		 * @returns {string/core.html.easyui.form.MaskedBox}
 		 */
-		this.multiple = function() {
+		this.promptChar = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return multiple;
+				return promptChar;
 			default:
-				multiple = arguments[0];
+				promptChar = arguments[0];
 				return this;
 			}
 		};
 
 		/**
-		 * 获取/设置多文件名之间的分隔符
+		 * 获取/设置
 		 * 
-		 * @param separator{string}
-		 * @returns {string/core.html.easyui.form.FileBox}
+		 * @param masks{string}
+		 * @returns {string/core.html.easyui.form.MaskedBox}
 		 */
-		this.separator = function() {
+		this.masks = function() {
 
 			switch (arguments.length) {
 			case 0:
-				return separator;
+				return masks;
 			default:
-				separator = arguments[0];
+				masks = arguments[0];
 				return this;
 			}
 		};
 	};
-	// 继承父类
+	// 继承文本框模板
 	core.lang.Class.extend(Constructor, core.html.easyui.form.TextBox);
 
 	/**
 	 * 初始化组件模板
 	 * 
-	 * @returns {core.html.easyui.form.FileBox}
+	 * @returns {core.html.easyui.form.MaskedBox}
 	 */
 	Constructor.prototype.init = function() {
 
 		// 校验Document是否存在
 		if (this.$jQuery().length === 0) {
 
-			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.TextBox", "构造参数异常", "Document不存在.");
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.MaskedBox", "构造参数异常", "Document不存在.");
 		}
 
 		// 参数配置
-		this.$jQuery().filebox({
+		this.$jQuery().maskedbox({
 			// Tooltip继承属性
 			position : this.position(),
 			content : this.content(),
@@ -167,9 +167,9 @@ core.html.easyui.form.FileBox = (function() {
 			buttonIcon : this.buttonIcon(),
 			buttonAlign : this.buttonAlign(),
 			// 属性
-			accept: this.accept(),
-			multiple: this.multiple(),
-			separator: this.separator(),
+			mask : this.mask(),
+			promptChar : this.promptChar(),
+			masks : this.masks(),
 
 			// Tooltip继承事件
 			onShow : this.onShow(),
@@ -197,11 +197,31 @@ core.html.easyui.form.FileBox = (function() {
 	 */
 	/**
 	 * 
-	 * @returns {array}
+	 * @returns {object}
 	 */
-	Constructor.prototype.files = function() {
+	Constructor.prototype.options = function() {
 
-		return this.$jQuery().filebox("files");
+		return this.$jQuery().maskedbox("options");
+	};
+
+	/**
+	 * 
+	 * @param value{string}
+	 * @returns
+	 */
+	Constructor.prototype.initValue = function(value) {
+
+		return this.$jQuery().maskedbox("initValue", value);
+	};
+
+	/**
+	 * 
+	 * @param value{string}
+	 * @returns
+	 */
+	Constructor.prototype.setValue = function(value) {
+
+		return this.$jQuery().maskedbox("setValue", value);
 	};
 
 	// 返回构造函数

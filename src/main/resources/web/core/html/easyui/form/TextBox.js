@@ -57,7 +57,7 @@ core.html.easyui.form.TextBox = (function() {
 	var Constructor = function(id) {
 
 		// 调用父类构造
-		core.html.easyui.form.Validate.call(this, arguments[0]);
+		core.html.easyui.form.ValidateBox.call(this, arguments[0]);
 		core.html.easyui.button.LinkButton.call(this, arguments[0]);
 		// 默认参数修改
 		this.width($.fn.textbox.defaults.width);
@@ -465,7 +465,7 @@ core.html.easyui.form.TextBox = (function() {
 		// 校验Document是否存在
 		if (this.$jQuery().length === 0) {
 
-			new core.lang.Exception(this.$jQuery(), "core.html.easyui.button.MenuButton", "构造参数异常", "Document不存在.");
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.TextBox", "构造参数异常", "Document不存在.");
 		}
 
 		// 参数配置
