@@ -70,7 +70,9 @@ public class Release {
 		}
 
 		// 循环遍历路径集合
-		for (int i = 0; i < packagePaths.length; i++) {
+		for (int i = 0, length = packagePaths.length; i < length; i++) {
+
+			LOGGER.debug("进度:" + (i + 1) + "/" + length);
 
 			FileUtils.recursionFile(new File(projectPath + jsCommonPath + packagePaths[i]),
 					new HandleSpecifyFormatFile(fileType, new CopyFileContent2SpecifiedFile(coreFile)));
