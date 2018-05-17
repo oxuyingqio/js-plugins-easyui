@@ -7817,6 +7817,7 @@ core.html.easyui.window.Window = (function() {
  * 			core.html.easyui.window.Dialog			init()								初始化
  * 			object									dialog()
  * 			void									open(function forceOpen)			打开面板
+ * 			void									close(function forceClose)			关闭面板
  * 
  * @date	2018年4月25日 14:05:00
  */
@@ -8036,6 +8037,18 @@ core.html.easyui.window.Dialog = (function() {
 	Constructor.prototype.open = function(forceOpen) {
 
 		return this.$jQuery().dialog("open", forceOpen);
+	};
+
+	/**
+	 * 关闭面板
+	 * 
+	 * @param forceClose{function}
+	 *            是否调用回调
+	 * @returns
+	 */
+	Constructor.prototype.close = function(forceClose) {
+
+		return this.$jQuery().dialog("close", forceClose);
 	};
 
 	// 返回构造函数
