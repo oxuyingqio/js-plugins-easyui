@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>core.html.easyui.form.NumberSpinner</title>
+<title>core.html.easyui.form.TextBox</title>
 
 <link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/icon.css">
 
 </head>
 <body>
-	<input id="numberspinner" type="text" />
+	<input id="maskedbox" type="text" />
 </body>
 
 <script type="text/javascript" src="/~/core/resource/jquery-1.12.4/jquery-1.12.4.js"></script>
@@ -27,14 +27,13 @@
 
 <script type="text/javascript" src="/~/core/html/easyui/form/ValidateBox.js"></script>
 <script type="text/javascript" src="/~/core/html/easyui/form/TextBox.js"></script>
-<script type="text/javascript" src="/~/core/html/easyui/form/Spinner.js"></script>
-<script type="text/javascript" src="/~/core/html/easyui/form/NumberBox.js"></script>
-<script type="text/javascript" src="/~/core/html/easyui/form/NumberSpinner.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/form/MaskedBox.js"></script>
 
 <script type="text/javascript">
 	$(function() {
-		var numberspinner = new core.html.easyui.form.NumberSpinner("numberspinner");
-		numberspinner.label("numberspinner:").labelWidth("120px").prompt("this is numberspinner").width("500px").init();
+
+		new core.html.easyui.form.MaskedBox("maskedbox").label("maskedbox:").width("300px").prompt("this is maskedbox")
+				.mask("9999 9999 9999").init();
 	});
 </script>
 

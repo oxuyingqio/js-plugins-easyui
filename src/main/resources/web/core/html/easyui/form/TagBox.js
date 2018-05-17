@@ -15,6 +15,8 @@
  * 			function/core.html.easyui.form.TagBox	onBeforeRemoveTag(function onBeforeRemoveTag)	获取/设置移除前事件
  * 			function/core.html.easyui.form.TagBox	onRemoveTag(function onRemoveTag)				获取/设置移除事件
  *			core.html.easyui.form.TagBox			init()											初始化组件模板
+ *			string									getValue()										获取值
+ *			array									getValues()										获取值
  * 
  * @date	2018年5月4日 10:57:32
  */
@@ -26,7 +28,7 @@ core.html.easyui.form.TagBox = (function() {
 	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.TagBox.superClass.constructor.call(this, this, arguments[0]);
+		core.html.easyui.form.TagBox.superClass.constructor.call(this, arguments[0]);
 		// 修改默认参数
 		this.hasDownArrow($.fn.tagbox.defaults.hasDownArrow);
 
@@ -327,6 +329,29 @@ core.html.easyui.form.TagBox = (function() {
 		});
 
 		return this;
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().tagbox("getValue");
+	};
+	
+	/**
+	 * 获取值
+	 * 
+	 * @returns {array}
+	 */
+	Constructor.prototype.getValues = function() {
+
+		return this.$jQuery().tagbox("getValues");
 	};
 
 	// 返回构造函数

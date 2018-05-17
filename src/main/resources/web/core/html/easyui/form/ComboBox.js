@@ -35,6 +35,8 @@
  * 			void										clear()
  * 			void										select(string value)					选择某值
  * 			void										unselect(string value)					取消选择某值
+ * 			string										getValue()								获取值
+ * 			array										getValues()								获取值
  * 
  * @date	2018年5月3日 15:04:37
  */
@@ -674,6 +676,29 @@ core.html.easyui.form.ComboBox = (function() {
 	Constructor.prototype.unselect = function(value) {
 
 		return this.$jQuery().combobox("unselect", value);
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().combobox("getValue");
+	};
+	
+	/**
+	 * 获取值
+	 * 
+	 * @returns {array}
+	 */
+	Constructor.prototype.getValues = function() {
+
+		return this.$jQuery().combobox("getValues");
 	};
 
 	// 返回构造函数

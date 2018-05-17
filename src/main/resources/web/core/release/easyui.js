@@ -1517,6 +1517,7 @@ core.html.easyui.button.SplitButton = (function() {
  * 			void											clear()								清除选中值
  * 			void											reset()								重置选中值
  * 			void											setValue(string value)				设置值
+ * 			string											getValue()							获取值
  * 
  * @date	2018年4月20日 10:34:28
  */
@@ -1962,6 +1963,19 @@ core.html.easyui.button.SwitchButton = (function() {
 	Constructor.prototype.setValue = function(value) {
 
 		return this.$jQuery().switchbutton("setValue", value);
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().switchbutton("getValue");
 	};
 
 	// 返回构造函数
@@ -11461,7 +11475,7 @@ core.html.easyui.datagrid.PropertyGrid = (function() {
  * 
  * @date	2018年5月2日 14:21:54
  */
-core.html.easyui.tree.Tree = (function() {
+core.html.easyui.datagrid.Tree = (function() {
 
 	/**
 	 * 构造函数
@@ -16516,6 +16530,8 @@ core.html.easyui.form.Combo = (function() {
  * 			void										clear()
  * 			void										select(string value)					选择某值
  * 			void										unselect(string value)					取消选择某值
+ * 			string										getValue()								获取值
+ * 			array										getValues()								获取值
  * 
  * @date	2018年5月3日 15:04:37
  */
@@ -17155,6 +17171,29 @@ core.html.easyui.form.ComboBox = (function() {
 	Constructor.prototype.unselect = function(value) {
 
 		return this.$jQuery().combobox("unselect", value);
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().combobox("getValue");
+	};
+	
+	/**
+	 * 获取值
+	 * 
+	 * @returns {array}
+	 */
+	Constructor.prototype.getValues = function() {
+
+		return this.$jQuery().combobox("getValues");
 	};
 
 	// 返回构造函数
@@ -18258,8 +18297,8 @@ core.html.easyui.form.ComboTreeGrid = (function() {
 			onAfterEdit : this.onAfterEdit(),
 			onCancelEdit : this.onCancelEdit(),
 			onHeaderContextMenu : this.onHeaderContextMenu(),
-			onRowContextMenu : this.onRowContextMenu()
-			// 事件
+			onRowContextMenu : this.onRowContextMenu(),
+			// TreeGrid继承事件
 			onBeforeCheckNode : this.onBeforeCheckNode(),
 			onCheckNode : this.onCheckNode(),
 			onContextMenu : this.onContextMenu()
@@ -18340,6 +18379,8 @@ core.html.easyui.form.ComboTreeGrid = (function() {
  * 			function/core.html.easyui.form.TagBox	onBeforeRemoveTag(function onBeforeRemoveTag)	获取/设置移除前事件
  * 			function/core.html.easyui.form.TagBox	onRemoveTag(function onRemoveTag)				获取/设置移除事件
  *			core.html.easyui.form.TagBox			init()											初始化组件模板
+ *			string									getValue()										获取值
+ *			array									getValues()										获取值
  * 
  * @date	2018年5月4日 10:57:32
  */
@@ -18351,7 +18392,7 @@ core.html.easyui.form.TagBox = (function() {
 	var Constructor = function() {
 
 		// 调用父类构造
-		core.html.easyui.form.TagBox.superClass.constructor.call(this, this, arguments[0]);
+		core.html.easyui.form.TagBox.superClass.constructor.call(this, arguments[0]);
 		// 修改默认参数
 		this.hasDownArrow($.fn.tagbox.defaults.hasDownArrow);
 
@@ -18652,6 +18693,29 @@ core.html.easyui.form.TagBox = (function() {
 		});
 
 		return this;
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().tagbox("getValue");
+	};
+	
+	/**
+	 * 获取值
+	 * 
+	 * @returns {array}
+	 */
+	Constructor.prototype.getValues = function() {
+
+		return this.$jQuery().tagbox("getValues");
 	};
 
 	// 返回构造函数
@@ -19669,6 +19733,7 @@ core.html.easyui.form.Calendar = (function() {
  * 			object										options()
  * 			object										calendar()					获取日期面板对象
  * 			void										cloneFrom(string from)		从xx复制
+ * 			string										getValue()					获取值
  * 
  * @date	2018年5月4日 13:55:49
  */
@@ -19689,6 +19754,9 @@ core.html.easyui.form.DateBox = (function() {
 		this.disabled($.fn.datebox.defaults.disabled);
 		this.formatter($.fn.datebox.defaults.formatter);
 		this.onSelect($.fn.datebox.defaults.onSelect);
+		// 额外参数修改
+		this.width($.fn.datebox.defaults.width);
+		this.height($.fn.datebox.defaults.height);
 
 		/**
 		 * 属性
@@ -20041,6 +20109,19 @@ core.html.easyui.form.DateBox = (function() {
 	Constructor.prototype.cloneFrom = function(from) {
 
 		return this.$jQuery().datebox("cloneFrom");
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().datebox("getValue");
 	};
 
 	// 返回构造函数
@@ -20492,6 +20573,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.TimeSpinner.superClass.constructor.call(this, arguments[0]);
+		// 额外参数修改
+		this.spin($.fn.timespinner.defaults.spin);
 
 		/**
 		 * 属性
@@ -20805,6 +20888,7 @@ core.html.easyui.form.TimeSpinner = (function() {
  * 			object										spinner()							获取spinner对象
  * 			void										setValue(string value)
  * 			void										cloneFrom(string from)
+ * 			string										getValue()							获取值
  * 
  * @date	2018年5月4日 14:44:09
  */
@@ -20814,7 +20898,7 @@ core.html.easyui.form.DateTimeBox = (function() {
 	 * 构造函数
 	 */
 	var Constructor = function() {
-
+		
 		// 调用父类构造
 		core.html.easyui.form.DateBox.call(this, arguments[0]);
 		core.html.easyui.form.TimeSpinner.call(this, arguments[0]);
@@ -20823,6 +20907,10 @@ core.html.easyui.form.DateTimeBox = (function() {
 		this.closeText($.fn.datetimebox.defaults.closeText);
 		this.okText($.fn.datetimebox.defaults.okText);
 		this.showSeconds($.fn.datetimebox.defaults.showSeconds);
+		// 额外参数修改
+		this.buttons($.fn.datetimebox.defaults.buttons);
+		this.formatter($.fn.datetimebox.defaults.formatter);
+		this.parser($.fn.datetimebox.defaults.parser);
 
 		/**
 		 * 属性
@@ -21109,6 +21197,19 @@ core.html.easyui.form.DateTimeBox = (function() {
 
 		return this.$jQuery().datetimebox("cloneFrom");
 	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().datetimebox("getValue");
+	};
 
 	// 返回构造函数
 	return Constructor;
@@ -21139,6 +21240,9 @@ core.html.easyui.form.DateTimeSpinner = (function() {
 		core.html.easyui.form.DateTimeSpinner.superClass.constructor.call(this, arguments[0]);
 		// 默认参数修改
 		this.selections($.fn.datetimespinner.defaults.selections);
+		// 额外参数修改
+		this.formatter($.fn.datetimespinner.defaults.formatter);
+		this.parser($.fn.datetimespinner.defaults.parser);
 	};
 	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.TimeSpinner);
@@ -21278,6 +21382,8 @@ core.html.easyui.form.NumberSpinner = (function() {
 		// 调用父类构造
 		core.html.easyui.form.Spinner.call(this, arguments[0]);
 		core.html.easyui.form.NumberBox.call(this, arguments[0]);
+		// 额外参数修改
+		this.spin($.fn.numberspinner.defaults.spin);
 	};
 
 	/**
@@ -21831,6 +21937,8 @@ core.html.easyui.form.Slider = (function() {
 			}
 		};
 	};
+	// 继承父类
+	core.lang.Class.extend(Constructor, core.html.easyui.base.Draggable);
 
 	/**
 	 * 初始化组件模板
@@ -21842,7 +21950,7 @@ core.html.easyui.form.Slider = (function() {
 		// 校验Document是否存在
 		if (this.$jQuery().length === 0) {
 
-			new core.lang.Exception(this.$jQuery(), "core.html.easyui.base.Draggable", "构造参数异常", "Document不存在.");
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.Slider", "构造参数异常", "Document不存在.");
 		}
 
 		// 参数配置

@@ -418,6 +418,8 @@ core.html.easyui.form.Slider = (function() {
 			}
 		};
 	};
+	// 继承父类
+	core.lang.Class.extend(Constructor, core.html.easyui.base.Draggable);
 
 	/**
 	 * 初始化组件模板
@@ -429,7 +431,7 @@ core.html.easyui.form.Slider = (function() {
 		// 校验Document是否存在
 		if (this.$jQuery().length === 0) {
 
-			new core.lang.Exception(this.$jQuery(), "core.html.easyui.base.Draggable", "构造参数异常", "Document不存在.");
+			new core.lang.Exception(this.$jQuery(), "core.html.easyui.form.Slider", "构造参数异常", "Document不存在.");
 		}
 
 		// 参数配置

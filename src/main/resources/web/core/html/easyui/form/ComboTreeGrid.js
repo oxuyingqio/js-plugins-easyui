@@ -338,8 +338,8 @@ core.html.easyui.form.ComboTreeGrid = (function() {
 			onAfterEdit : this.onAfterEdit(),
 			onCancelEdit : this.onCancelEdit(),
 			onHeaderContextMenu : this.onHeaderContextMenu(),
-			onRowContextMenu : this.onRowContextMenu()
-			// 事件
+			onRowContextMenu : this.onRowContextMenu(),
+			// TreeGrid继承事件
 			onBeforeCheckNode : this.onBeforeCheckNode(),
 			onCheckNode : this.onCheckNode(),
 			onContextMenu : this.onContextMenu()

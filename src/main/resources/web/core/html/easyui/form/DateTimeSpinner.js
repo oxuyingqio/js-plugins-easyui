@@ -24,6 +24,9 @@ core.html.easyui.form.DateTimeSpinner = (function() {
 		core.html.easyui.form.DateTimeSpinner.superClass.constructor.call(this, arguments[0]);
 		// 默认参数修改
 		this.selections($.fn.datetimespinner.defaults.selections);
+		// 额外参数修改
+		this.formatter($.fn.datetimespinner.defaults.formatter);
+		this.parser($.fn.datetimespinner.defaults.parser);
 	};
 	// 继承父类
 	core.lang.Class.extend(Constructor, core.html.easyui.form.TimeSpinner);

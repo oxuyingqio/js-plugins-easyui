@@ -14,13 +14,18 @@
 
 <script type="text/javascript" src="/~/core/resource/jquery-1.12.4/jquery-1.12.4.js"></script>
 
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.4.5/locale/easyui-lang-zh_CN.js"></script>
 
 <script type="text/javascript" src="/~/core/release/core.js"></script>
-<!-- <script type="text/javascript" src="/~/core/release/easyui.js"></script> -->
 
 <script type="text/javascript" src="/~/core/package.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/button/LinkButton.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/base/Tooltip.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script>
 
 <script type="text/javascript" src="/~/core/html/easyui/form/ValidateBox.js"></script>
 <script type="text/javascript" src="/~/core/html/easyui/form/TextBox.js"></script>
@@ -31,7 +36,7 @@
 <script type="text/javascript">
 	$(function() {
 		
-		new core.html.easyui.form.TagBox("tagbox").label("tagbox:").width("300px").url(
+		new core.html.easyui.form.TagBox($("#tagbox")).label("tagbox:").width("300px").url(
 				"http://localhost:8080/~/core/html/easyui/form/combobox.json").valueField("id").textField("text")
 				.hasDownArrow(true).init();
 	});

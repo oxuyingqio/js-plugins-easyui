@@ -33,6 +33,8 @@ core.html.easyui.form.TimeSpinner = (function() {
 
 		// 调用父类构造
 		core.html.easyui.form.TimeSpinner.superClass.constructor.call(this, arguments[0]);
+		// 额外参数修改
+		this.spin($.fn.timespinner.defaults.spin);
 
 		/**
 		 * 属性

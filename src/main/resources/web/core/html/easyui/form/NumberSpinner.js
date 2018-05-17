@@ -27,6 +27,8 @@ core.html.easyui.form.NumberSpinner = (function() {
 		// 调用父类构造
 		core.html.easyui.form.Spinner.call(this, arguments[0]);
 		core.html.easyui.form.NumberBox.call(this, arguments[0]);
+		// 额外参数修改
+		this.spin($.fn.numberspinner.defaults.spin);
 	};
 
 	/**

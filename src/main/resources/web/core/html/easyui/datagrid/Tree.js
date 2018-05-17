@@ -81,7 +81,7 @@
  * 
  * @date	2018年5月2日 14:21:54
  */
-core.html.easyui.tree.Tree = (function() {
+core.html.easyui.datagrid.Tree = (function() {
 
 	/**
 	 * 构造函数

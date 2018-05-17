@@ -18,6 +18,7 @@
  * 			object										spinner()							获取spinner对象
  * 			void										setValue(string value)
  * 			void										cloneFrom(string from)
+ * 			string										getValue()							获取值
  * 
  * @date	2018年5月4日 14:44:09
  */
@@ -27,7 +28,7 @@ core.html.easyui.form.DateTimeBox = (function() {
 	 * 构造函数
 	 */
 	var Constructor = function() {
-
+		
 		// 调用父类构造
 		core.html.easyui.form.DateBox.call(this, arguments[0]);
 		core.html.easyui.form.TimeSpinner.call(this, arguments[0]);
@@ -36,6 +37,10 @@ core.html.easyui.form.DateTimeBox = (function() {
 		this.closeText($.fn.datetimebox.defaults.closeText);
 		this.okText($.fn.datetimebox.defaults.okText);
 		this.showSeconds($.fn.datetimebox.defaults.showSeconds);
+		// 额外参数修改
+		this.buttons($.fn.datetimebox.defaults.buttons);
+		this.formatter($.fn.datetimebox.defaults.formatter);
+		this.parser($.fn.datetimebox.defaults.parser);
 
 		/**
 		 * 属性
@@ -321,6 +326,19 @@ core.html.easyui.form.DateTimeBox = (function() {
 	Constructor.prototype.cloneFrom = function(from) {
 
 		return this.$jQuery().datetimebox("cloneFrom");
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().datetimebox("getValue");
 	};
 
 	// 返回构造函数

@@ -30,6 +30,7 @@
  * 			void											clear()								清除选中值
  * 			void											reset()								重置选中值
  * 			void											setValue(string value)				设置值
+ * 			string											getValue()							获取值
  * 
  * @date	2018年4月20日 10:34:28
  */
@@ -475,6 +476,19 @@ core.html.easyui.button.SwitchButton = (function() {
 	Constructor.prototype.setValue = function(value) {
 
 		return this.$jQuery().switchbutton("setValue", value);
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().switchbutton("getValue");
 	};
 
 	// 返回构造函数

@@ -21,6 +21,7 @@
  * 			object										options()
  * 			object										calendar()					获取日期面板对象
  * 			void										cloneFrom(string from)		从xx复制
+ * 			string										getValue()					获取值
  * 
  * @date	2018年5月4日 13:55:49
  */
@@ -41,6 +42,9 @@ core.html.easyui.form.DateBox = (function() {
 		this.disabled($.fn.datebox.defaults.disabled);
 		this.formatter($.fn.datebox.defaults.formatter);
 		this.onSelect($.fn.datebox.defaults.onSelect);
+		// 额外参数修改
+		this.width($.fn.datebox.defaults.width);
+		this.height($.fn.datebox.defaults.height);
 
 		/**
 		 * 属性
@@ -393,6 +397,19 @@ core.html.easyui.form.DateBox = (function() {
 	Constructor.prototype.cloneFrom = function(from) {
 
 		return this.$jQuery().datebox("cloneFrom");
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().datebox("getValue");
 	};
 
 	// 返回构造函数
