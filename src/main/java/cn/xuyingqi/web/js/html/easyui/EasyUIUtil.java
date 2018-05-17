@@ -2,6 +2,8 @@ package cn.xuyingqi.web.js.html.easyui;
 
 import java.io.File;
 
+import org.apache.log4j.Logger;
+
 import cn.xuyingqi.util.util.FileUtils;
 
 /**
@@ -11,6 +13,11 @@ import cn.xuyingqi.util.util.FileUtils;
  *
  */
 public class EasyUIUtil {
+
+	/**
+	 * 日志
+	 */
+	private static final Logger LOGGER = Logger.getLogger(Release.class);
 
 	/**
 	 * 下载指定主题到指定文件夹内
@@ -77,24 +84,38 @@ public class EasyUIUtil {
 				easyuiURL + commonFile + theme + "/images/tree_icons.png",
 				easyuiURL + commonFile + theme + "/images/validatebox_warning.png" };
 
-		for (int i = 0; i < themeFiles.length; i++) {
+		for (int i = 0, length = themeFiles.length; i < length; i++) {
+
+			LOGGER.debug("进度:" + (i + 1) + "/" + length);
 
 			FileUtils.downloadNetworkResource(themeFiles[i], localFile);
 		}
+
+		LOGGER.debug("操作结束");
 	}
 
 	public static void main(String[] args) {
 
 		EasyUIUtil.downloadTheme("material-teal", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[1/10]");
 		EasyUIUtil.downloadTheme("metro-blue", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[2/10]");
 		EasyUIUtil.downloadTheme("metro-gray", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[3/10]");
 		EasyUIUtil.downloadTheme("metro-green", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[4/10]");
 		EasyUIUtil.downloadTheme("metro-orange", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[5/10]");
 		EasyUIUtil.downloadTheme("metro-red", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[6/10]");
 		EasyUIUtil.downloadTheme("ui-cupertino", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[7/10]");
 		EasyUIUtil.downloadTheme("ui-dark-hive", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[8/10]");
 		EasyUIUtil.downloadTheme("ui-pepper-grinder", new File("D:/Users/XuYQ/Desktop"));
+		LOGGER.debug("[9/10]");
 		EasyUIUtil.downloadTheme("ui-sunny", new File("D:/Users/XuYQ/Desktop"));
-		System.out.println("操作结束");
+		LOGGER.debug("[10/10]");
+		LOGGER.debug("[操作结束]");
 	}
 }

@@ -16,7 +16,9 @@ import cn.xuyingqi.util.util.FileUtils;
  */
 public class Release {
 
-	// 日志
+	/**
+	 * 日志
+	 */
 	private static final Logger LOGGER = Logger.getLogger(Release.class);
 
 	/**

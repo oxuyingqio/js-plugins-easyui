@@ -83,7 +83,7 @@ core.html.easyui.button.SplitButton = (function() {
 			// menu继承事件
 			onShow : this.onShow(),
 			onHide : this.onHide(),
-			onClick : this.onClick(),
+			onClick : this.onClick()
 		});
 
 		return this;

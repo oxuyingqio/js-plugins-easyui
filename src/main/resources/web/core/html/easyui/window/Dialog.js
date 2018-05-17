@@ -15,6 +15,7 @@
  * 			array/core.html.easyui.window.Dialog	buttons(array buttons)				获取/设置按钮组
  * 			core.html.easyui.window.Dialog			init()								初始化
  * 			object									dialog()
+ * 			void									open(function forceOpen)			打开面板
  * 
  * @date	2018年4月25日 14:05:00
  */
@@ -170,6 +171,9 @@ core.html.easyui.window.Dialog = (function() {
 			text : this.text(),
 			iconAlign : this.iconAlign(),
 			size : this.size(),
+			// 属性
+			toolbar : this.toolbar(),
+			buttons : this.buttons(),
 
 			// Draggable继承事件
 			onBeforeDrag : this.onBeforeDrag(),
@@ -216,6 +220,21 @@ core.html.easyui.window.Dialog = (function() {
 	Constructor.prototype.dialog = function() {
 
 		return this.$jQuery().dialog("dialog");
+	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 打开面板
+	 * 
+	 * @param forceOpen{function}
+	 *            是否调用回调
+	 * @returns
+	 */
+	Constructor.prototype.open = function(forceOpen) {
+
+		return this.$jQuery().dialog("open", forceOpen);
 	};
 
 	// 返回构造函数
