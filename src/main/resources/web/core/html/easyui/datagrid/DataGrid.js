@@ -136,7 +136,7 @@
  * 			void										sort(object param)									排序
  * 			void										setWidth(number width)								设置宽度
  * 			void										setHeight(number height)							设置高度
- * 			number										getCurrentDataNum()									获取当前页数据条数
+ * 			number										getCurrentPageDataNum()								获取当前页数据条数
  * 			number										getTotalDataNum()									获取记录总条数
  * 			number										getPageSize()										获取分页数
  * 			number										getPageNum()										获取总页数
