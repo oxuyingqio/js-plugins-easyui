@@ -16,8 +16,8 @@
  * 			boolean/core.html.easyui.form.MaskedBox		showEye(boolean showEye)			获取/设置是否显示显示密码按钮
  * 			core.html.easyui.form.MaskedBox				init()								初始化组件模板		
  * 			object										options()
- * 			void										initValue(string value)				显示密码
- * 			void										setValue(string value)				隐藏密码
+ * 			void										initValue(string value)				
+ * 			void										setValue(string value)				
  * 
  * @date	2018年5月2日 16:11:07
  */

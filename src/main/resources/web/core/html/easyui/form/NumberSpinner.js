@@ -158,6 +158,19 @@ core.html.easyui.form.NumberSpinner = (function() {
 
 		return this.$jQuery().numberspinner("setValue", value);
 	};
+	
+	/**
+	 * 扩展方法
+	 */
+	/**
+	 * 获取值
+	 * 
+	 * @returns {string}
+	 */
+	Constructor.prototype.getValue = function() {
+
+		return this.$jQuery().numberspinner("getValue");
+	};
 
 	// 返回构造函数
 	return Constructor;
