@@ -4,32 +4,79 @@
 <meta charset="UTF-8">
 <title>core.html.easyui.layout.Panel</title>
 
-<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-1.5/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/material-teal/easyui.css">
+<link rel="stylesheet" type="text/css" href="/~/core/resource/jquery-easyui-themes/icon.css">
 
 </head>
 <body>
-	<div id="panel"></div>
 </body>
 
-<script type="text/javascript" src="/~/core/resource/jquery-3.1.0/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-3.1.1/jquery-3.1.1.js"></script>
 
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.5.4/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/~/core/resource/jquery-easyui-1.5.5.4/locale/easyui-lang-zh_CN.js"></script>
 
-<script type="text/javascript" src="/~/core/release/core.min.js"></script>
-<script type="text/javascript" src="/~/core/release/easyui.js"></script>
+<script type="text/javascript" src="/~/core/release/core.js"></script>
 
-<!-- <script type="text/javascript" src="/~/core/package.js"></script> -->
+<script type="text/javascript" src="/~/core/package.js"></script>
 
-<!-- <script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script> -->
+<script type="text/javascript" src="/~/core/html/easyui/base/Resizable.js"></script>
+
+<script type="text/javascript" src="/~/core/html/easyui/layout/Panel.js"></script>
+<script type="text/javascript" src="/~/core/html/easyui/layout/Layout.js"></script>
 
 <script type="text/javascript">
 	$(function() {
-		var panel = new core.html.easyui.layout.Panel("panel");
-		panel.height("500px");
-		panel.title("test");
-		panel.init();
+
+		// body设置布局
+		var body = new core.html.easyui.layout.Layout($("body")).init();
+
+		// 北
+		var north = [];
+		body.add({
+			region : "north",
+			id : "north",
+			title : "客户基本信息",
+			height : "20%",
+			content : north.join("")
+		});
+
+		// 中
+		var center = [];
+		center.push("<div id='cd1' style='width:24%;height:100%;float:left;padding-right:3px;'><div id='cp1'/></div>");
+		center.push("<div id='cd2' style='width:24%;height:100%;float:left;padding-right:3px;'><div id='cp2'/></div>");
+		center.push("<div id='cd3' style='width:24%;height:100%;float:left;padding-right:3px;'><div id='cp3'/></div>");
+		center.push("<div id='cd4' style='width:24%;height:100%;float:right;'><div id='cp4'/></div>");
+		body.add({
+			region : "center",
+			height : "20%",
+			content : center.join("")
+		});
+
+		// 南
+		var south = [];
+		south.push("<div id='sd1'><div id='sp1'/></div>");
+		south.push("<div id='sd2'><div id='sp2'/></div>");
+		south.push("<div id='sd3'><div id='sp3'/></div>");
+		south.push("<div id='sd4'><div id='sp4'/></div>");
+		body.add({
+			region : "south",
+			title : "south",
+			height : "60%",
+			content : south.join("")
+		});
+
+		var userInfoPanel = new core.html.easyui.layout.Panel($("#cp1"));
+		userInfoPanel.height("100%").title("用户监控").border(true).init();
+
+		var meterReadInfoPanel = new core.html.easyui.layout.Panel($("#cp2"));
+		meterReadInfoPanel.height("100%").title("昨日抄表").border(true).init();
+
+		var useGasInfoPanel = new core.html.easyui.layout.Panel($("#cp3"));
+		useGasInfoPanel.height("100%").title("用气监控").border(true).init();
+
+		var rechargeInfoPanel = new core.html.easyui.layout.Panel($("#cp4"));
+		rechargeInfoPanel.height("100%").title("充值监控").border(true).init();
 	});
 </script>
 
