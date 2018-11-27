@@ -27,7 +27,7 @@ core.html.easyui.form.FileBox = (function() {
 		// 调用父类构造
 		core.html.easyui.form.FileBox.superClass.constructor.call(this, arguments[0]);
 		// 默认参数修改
-		this.buttonText($.fn.filebox.defaults.buttonText);
+		this.buttonText("选择文件");
 		this.buttonIcon($.fn.filebox.defaults.buttonIcon);
 		this.buttonAlign($.fn.filebox.defaults.buttonAlign);
 
