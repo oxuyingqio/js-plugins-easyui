@@ -9,15 +9,15 @@
  * @extend	core.html.easyui.datagrid.DataGrid
  * 
  * @method	继承core.html.easyui.datagrid.DataGrid所有方法
- * 			boolean/core.html.easyui.datagrid.PropertyGrid	showGroup(boolean showGroup)				获取/设置
- * 			string/core.html.easyui.datagrid.PropertyGrid	groupField(string groupField)				获取/设置
- * 			function/core.html.easyui.datagrid.PropertyGrid	groupFormatter(function groupFormatter)		获取/设置
- * 			core.html.easyui.propertygrid.Datagrid			init()										初始化组件模板
- * 			object											groups()
- * 			void											expandGroup(number groupIndex)
- * 			void											collapseGroup(number groupIndex)
+ *        	boolean/core.html.easyui.datagrid.PropertyGrid	showGroup(boolean showGroup) 				获取/设置
+ *        	string/core.html.easyui.datagrid.PropertyGrid	groupField(string groupField)				获取/设置
+ *			function/core.html.easyui.datagrid.PropertyGrid	groupFormatter(function groupFormatter) 	获取/设置
+ *         	core.html.easyui.propertygrid.Datagrid 			init() 										初始化组件模板
+ *         	object 											groups()
+ *         	void 											expandGroup(number groupIndex)
+ *         	void 											collapseGroup(number groupIndex)
  * 
- * @date	2018年4月27日 16:12:54
+ * @date	2019年1月3日 14:05:41
  */
 core.html.easyui.datagrid.PropertyGrid = (function() {
 
@@ -28,6 +28,7 @@ core.html.easyui.datagrid.PropertyGrid = (function() {
 
 		// 调用父类构造
 		core.html.easyui.datagrid.PropertyGrid.superClass.constructor.call(this, arguments[0]);
+		this.singleSelect($.fn.propertygrid.defaults.singleSelect);
 
 		/**
 		 * 属性
@@ -113,7 +114,7 @@ core.html.easyui.datagrid.PropertyGrid = (function() {
 		}
 
 		// 参数配置
-		this.$jQuery().datagrid({
+		this.$jQuery().propertygrid({
 			// Panel继承属性
 			id : this.id(),
 			title : this.title(),
