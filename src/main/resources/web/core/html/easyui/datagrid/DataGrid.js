@@ -163,9 +163,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		// 默认参数修改
 		this.method($.fn.datagrid.defaults.method);
 		this.pageNumber($.fn.datagrid.defaults.pageNumber);
-		this
-				.pageSize(core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize") == null ? $.fn.datagrid.defaults.pageSize
-						: core.html.util.Cookie.getInstance().get("coreHtmlEasyuiDatagridDataGridPageSize"));
+		this.pageSize($.fn.datagrid.defaults.pageSize);
 		this.pageList($.fn.datagrid.defaults.pageList);
 		this.queryParams($.fn.datagrid.defaults.queryParams);
 		this.loader($.fn.datagrid.defaults.loader);
@@ -1495,182 +1493,203 @@ core.html.easyui.datagrid.DataGrid = (function() {
 
 			new core.lang.Exception(this.$jQuery(), "core.html.easyui.datagrid.DataGrid", "构造参数异常", "Document不存在.");
 		}
+		
+// 备份this对象
+		var _this = this;
+		// 获取cookie
+		var cookie = core.html.util.Cookie.getInstance();
 
 		// 参数配置
-		this.$jQuery().datagrid({
-			// Panel继承属性
-			id : this.id(),
-			title : this.title(),
-			iconCls : this.iconCls(),
-			width : this.width(),
-			height : this.height(),
-			left : this.left(),
-			top : this.top(),
-			cls : this.cls(),
-			headerCls : this.headerCls(),
-			bodyCls : this.bodyCls(),
-			style : this.style(),
-			fit : this.fit(),
-			border : this.border(),
-			doSize : this.doSize(),
-			noheader : this.noheader(),
-			content : this.content(),
-			halign : this.halign(),
-			titleDirection : this.titleDirection(),
-			collapsible : this.collapsible(),
-			minimizable : this.minimizable(),
-			maximizable : this.maximizable(),
-			closable : this.closable(),
-			tools : this.tools(),
-			header : this.header(),
-			footer : this.footer(),
-			openAnimation : this.openAnimation(),
-			openDuration : this.openDuration(),
-			closeAnimation : this.closeAnimation(),
-			closeDuration : this.closeDuration(),
-			collapsed : this.collapsed(),
-			minimized : this.minimized(),
-			maximized : this.maximized(),
-			closed : this.closed(),
-			href : this.href(),
-			cache : this.cache(),
-			loadingMessage : this.loadingMessage(),
-			extractor : this.extractor(),
-			method : this.method(),
-			queryParams : this.queryParams(),
-			loader : this.loader(),
-			// Resizable继承属性
-			disabled : this.disabled(),
-			handles : this.handles(),
-			minWidth : this.minWidth(),
-			minHeight : this.minHeight(),
-			maxWidth : this.maxWidth(),
-			maxHeight : this.maxHeight(),
-			edge : this.edge(),
-			// LinkButton继承属性
-			toggle : this.toggle(),
-			selected : this.selected(),
-			group : this.group(),
-			plain : this.plain(),
-			text : this.text(),
-			iconAlign : this.iconAlign(),
-			size : this.size(),
-			// Pagination继承属性
-			total : this.total(),
-			pageSize : this.pageSize(),
-			pageNumber : this.pageNumber(),
-			pageList : this.pageList(),
-			loading : this.loading(),
-			buttons : this.buttons(),
-			layout : this.layout(),
-			links : this.links(),
-			showPageList : this.showPageList(),
-			showRefresh : this.showRefresh(),
-			showPageInfo : this.showPageInfo(),
-			beforePageText : this.beforePageText(),
-			afterPageText : this.afterPageText(),
-			displayMsg : this.displayMsg(),
-			// 属性
-			columns : this.columns(),
-			frozenColumns : this.frozenColumns(),
-			fitColumns : this.fitColumns(),
-			resizeHandle : this.resizeHandle(),
-			resizeEdge : this.resizeEdge(),
-			autoRowHeight : this.autoRowHeight(),
-			toolbar : this.toolbar(),
-			striped : this.striped(),
-			nowrap : this.nowrap(),
-			idField : this.idField(),
-			url : this.url(),
-			data : this.data(),
-			loadMsg : this.loadMsg(),
-			emptyMsg : this.emptyMsg(),
-			pagination : this.pagination(),
-			rownumbers : this.rownumbers(),
-			singleSelect : this.singleSelect(),
-			ctrlSelect : this.ctrlSelect(),
-			checkOnSelect : this.checkOnSelect(),
-			selectOnCheck : this.selectOnCheck(),
-			scrollOnSelect : this.scrollOnSelect(),
-			pagePosition : this.pagePosition(),
-			sortName : this.sortName(),
-			sortOrder : this.sortOrder(),
-			multiSort : this.multiSort(),
-			remoteSort : this.remoteSort(),
-			showHeader : this.showHeader(),
-			showFooter : this.showFooter(),
-			scrollbarSize : this.scrollbarSize(),
-			rownumberWidth : this.rownumberWidth(),
-			editorHeight : this.editorHeight(),
-			rowStyler : this.rowStyler(),
-			loadFilter : this.loadFilter(),
-			editors : this.editors(),
-			view : this.view(),
+		this.$jQuery().datagrid(
+				{
+					// Panel继承属性
+					id : this.id(),
+					title : this.title(),
+					iconCls : this.iconCls(),
+					width : this.width(),
+					height : this.height(),
+					left : this.left(),
+					top : this.top(),
+					cls : this.cls(),
+					headerCls : this.headerCls(),
+					bodyCls : this.bodyCls(),
+					style : this.style(),
+					fit : this.fit(),
+					border : this.border(),
+					doSize : this.doSize(),
+					noheader : this.noheader(),
+					content : this.content(),
+					halign : this.halign(),
+					titleDirection : this.titleDirection(),
+					collapsible : this.collapsible(),
+					minimizable : this.minimizable(),
+					maximizable : this.maximizable(),
+					closable : this.closable(),
+					tools : this.tools(),
+					header : this.header(),
+					footer : this.footer(),
+					openAnimation : this.openAnimation(),
+					openDuration : this.openDuration(),
+					closeAnimation : this.closeAnimation(),
+					closeDuration : this.closeDuration(),
+					collapsed : this.collapsed(),
+					minimized : this.minimized(),
+					maximized : this.maximized(),
+					closed : this.closed(),
+					href : this.href(),
+					cache : this.cache(),
+					loadingMessage : this.loadingMessage(),
+					extractor : this.extractor(),
+					method : this.method(),
+					queryParams : this.queryParams(),
+					loader : this.loader(),
+					// Resizable继承属性
+					disabled : this.disabled(),
+					handles : this.handles(),
+					minWidth : this.minWidth(),
+					minHeight : this.minHeight(),
+					maxWidth : this.maxWidth(),
+					maxHeight : this.maxHeight(),
+					edge : this.edge(),
+					// LinkButton继承属性
+					toggle : this.toggle(),
+					selected : this.selected(),
+					group : this.group(),
+					plain : this.plain(),
+					text : this.text(),
+					iconAlign : this.iconAlign(),
+					size : this.size(),
+					// Pagination继承属性
+					total : this.total(),
+					pageSize : (cookie.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_PAGE_SIZE") === null || cookie
+							.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_PAGE_SIZE") === undefined) ? this
+							.pageSize() : cookie.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_PAGE_SIZE"),
+					pageNumber : this.pageNumber(),
+					pageList : this.pageList(),
+					loading : this.loading(),
+					buttons : this.buttons(),
+					layout : this.layout(),
+					links : this.links(),
+					showPageList : this.showPageList(),
+					showRefresh : this.showRefresh(),
+					showPageInfo : this.showPageInfo(),
+					beforePageText : this.beforePageText(),
+					afterPageText : this.afterPageText(),
+					displayMsg : this.displayMsg(),
+					// 属性
+					columns : this.columns(),
+					frozenColumns : this.frozenColumns(),
+					fitColumns : this.fitColumns(),
+					resizeHandle : this.resizeHandle(),
+					resizeEdge : this.resizeEdge(),
+					autoRowHeight : this.autoRowHeight(),
+					toolbar : this.toolbar(),
+					striped : this.striped(),
+					nowrap : this.nowrap(),
+					idField : this.idField(),
+					url : this.url(),
+					data : this.data(),
+					loadMsg : this.loadMsg(),
+					emptyMsg : this.emptyMsg(),
+					pagination : this.pagination(),
+					rownumbers : this.rownumbers(),
+					singleSelect : this.singleSelect(),
+					ctrlSelect : this.ctrlSelect(),
+					checkOnSelect : this.checkOnSelect(),
+					selectOnCheck : this.selectOnCheck(),
+					scrollOnSelect : this.scrollOnSelect(),
+					pagePosition : this.pagePosition(),
+					sortName : (cookie.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_NAME") === null || cookie
+							.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_NAME") === undefined) ? this
+							.sortName() : cookie.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_NAME"),
+					sortOrder : (cookie.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_ORDER") === null || cookie
+							.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_ORDER") === undefined) ? this
+							.sortOrder() : cookie.get("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_ORDER"),
+					multiSort : this.multiSort(),
+					remoteSort : this.remoteSort(),
+					showHeader : this.showHeader(),
+					showFooter : this.showFooter(),
+					scrollbarSize : this.scrollbarSize(),
+					rownumberWidth : this.rownumberWidth(),
+					editorHeight : this.editorHeight(),
+					rowStyler : this.rowStyler(),
+					loadFilter : this.loadFilter(),
+					editors : this.editors(),
+					view : this.view(),
 
-			// Panel继承事件
-			onBeforeLoad : this.onBeforeLoad(),
-			onLoad : this.onLoad(),
-			onLoadError : this.onLoadError(),
-			onBeforeOpen : this.onBeforeOpen(),
-			onOpen : this.onOpen(),
-			onBeforeClose : this.onBeforeClose(),
-			onClose : this.onClose(),
-			onBeforeDestroy : this.onBeforeDestroy(),
-			onDestroy : this.onDestroy(),
-			onBeforeCollapse : this.onBeforeCollapse(),
-			onCollapse : this.onCollapse(),
-			onBeforeExpand : this.onBeforeExpand(),
-			onExpand : this.onExpand(),
-			onResize : this.onResize(),
-			onMove : this.onMove(),
-			onMaximize : this.onMaximize(),
-			onRestore : this.onRestore(),
-			onMinimize : this.onMinimize(),
-			// Resizable继承事件
-			onStartResize : this.onStartResize(),
-			onStopResize : this.onStopResize(),
-			// LinkButton继承事件
-			onClick : this.onClick(),
-			// Pagination继承事件
-			onSelectPage : this.onSelectPage(),
-			onBeforeRefresh : this.onBeforeRefresh(),
-			onRefresh : this.onRefresh(),
-			onChangePageSize : this.onChangePageSize(),
-			// 事件
-			onLoadSuccess : this.onLoadSuccess(),
-			onClickRow : this.onClickRow(),
-			onDblClickRow : this.onDblClickRow(),
-			onClickCell : this.onClickCell(),
-			onDblClickCell : this.onDblClickCell(),
-			onBeforeSortColumn : this.onBeforeSortColumn(),
-			onSortColumn : this.onSortColumn(),
-			onResizeColumn : this.onResizeColumn(),
-			onBeforeSelect : this.onBeforeSelect(),
-			onSelect : this.onSelect(),
-			onBeforeUnselect : this.onBeforeUnselect(),
-			onUnselect : this.onUnselect(),
-			onSelectAll : this.onSelectAll(),
-			onUnselectAll : this.onUnselectAll(),
-			onBeforeCheck : this.onBeforeCheck(),
-			onCheck : this.onCheck(),
-			onBeforeUncheck : this.onBeforeUncheck(),
-			onUncheck : this.onUncheck(),
-			onCheckAll : this.onCheckAll(),
-			onUncheckAll : this.onUncheckAll(),
-			onBeforeEdit : this.onBeforeEdit(),
-			onBeginEdit : this.onBeginEdit(),
-			onEndEdit : this.onEndEdit(),
-			onAfterEdit : this.onAfterEdit(),
-			onCancelEdit : this.onCancelEdit(),
-			onHeaderContextMenu : this.onHeaderContextMenu(),
-			onRowContextMenu : this.onRowContextMenu()
-		});
+					// Panel继承事件
+					onBeforeLoad : this.onBeforeLoad(),
+					onLoad : this.onLoad(),
+					onLoadError : this.onLoadError(),
+					onBeforeOpen : this.onBeforeOpen(),
+					onOpen : this.onOpen(),
+					onBeforeClose : this.onBeforeClose(),
+					onClose : this.onClose(),
+					onBeforeDestroy : this.onBeforeDestroy(),
+					onDestroy : this.onDestroy(),
+					onBeforeCollapse : this.onBeforeCollapse(),
+					onCollapse : this.onCollapse(),
+					onBeforeExpand : this.onBeforeExpand(),
+					onExpand : this.onExpand(),
+					onResize : this.onResize(),
+					onMove : this.onMove(),
+					onMaximize : this.onMaximize(),
+					onRestore : this.onRestore(),
+					onMinimize : this.onMinimize(),
+					// Resizable继承事件
+					onStartResize : this.onStartResize(),
+					onStopResize : this.onStopResize(),
+					// LinkButton继承事件
+					onClick : this.onClick(),
+					// Pagination继承事件
+					onSelectPage : this.onSelectPage(),
+					onBeforeRefresh : this.onBeforeRefresh(),
+					onRefresh : this.onRefresh(),
+					onChangePageSize : this.onChangePageSize(),
+					// 事件
+					onLoadSuccess : this.onLoadSuccess(),
+					onClickRow : this.onClickRow(),
+					onDblClickRow : this.onDblClickRow(),
+					onClickCell : this.onClickCell(),
+					onDblClickCell : this.onDblClickCell(),
+					onBeforeSortColumn : this.onBeforeSortColumn(),
+					onSortColumn : function(sort, order) {
+
+						// 设置cookie
+						cookie.set("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_NAME", sort, 3650);
+						cookie.set("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_SORT_ORDER", order, 3650);
+
+						// 调用自定义
+						_this.onSortColumn()(sort, order);
+					},
+					onResizeColumn : this.onResizeColumn(),
+					onBeforeSelect : this.onBeforeSelect(),
+					onSelect : this.onSelect(),
+					onBeforeUnselect : this.onBeforeUnselect(),
+					onUnselect : this.onUnselect(),
+					onSelectAll : this.onSelectAll(),
+					onUnselectAll : this.onUnselectAll(),
+					onBeforeCheck : this.onBeforeCheck(),
+					onCheck : this.onCheck(),
+					onBeforeUncheck : this.onBeforeUncheck(),
+					onUncheck : this.onUncheck(),
+					onCheckAll : this.onCheckAll(),
+					onUncheckAll : this.onUncheckAll(),
+					onBeforeEdit : this.onBeforeEdit(),
+					onBeginEdit : this.onBeginEdit(),
+					onEndEdit : this.onEndEdit(),
+					onAfterEdit : this.onAfterEdit(),
+					onCancelEdit : this.onCancelEdit(),
+					onHeaderContextMenu : this.onHeaderContextMenu(),
+					onRowContextMenu : this.onRowContextMenu()
+				});
 
 		$(this.getPager()).pagination({
-			
+
 			onChangePageSize : function(pageSize) {
-				
-				core.html.util.Cookie.getInstance().set("coreHtmlEasyuiDatagridDataGridPageSize", pageSize);
+
+				// 设置cookie
+				cookie.set("COOKIE_CORE_HTML_EASYUI_DATAGRID_DATAGRID_PAGE_SIZE", pageSize, 3650);
 			}
 		});
 
@@ -2318,7 +2337,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	Constructor.prototype.setWidth = function(width) {
 
 		return this.resize({
-			
+
 			width : width
 		});
 	};
@@ -2333,7 +2352,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 	Constructor.prototype.setHeight = function(height) {
 
 		return this.resize({
-			
+
 			height : height
 		});
 	};
@@ -2378,7 +2397,7 @@ core.html.easyui.datagrid.DataGrid = (function() {
 		var options = $(this.getPager()).pagination("options");
 		var total = options.total;
 		var max = Math.ceil(total / options.pageSize);
-		
+
 		return max;
 	}
 
