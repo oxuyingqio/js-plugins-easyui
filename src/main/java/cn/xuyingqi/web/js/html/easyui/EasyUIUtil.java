@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.apache.log4j.Logger;
 
-import cn.xuyingqi.util.util.FileUtils;
+import cn.xuyingqi.util.FileUtils;
 
 /**
  * EasyUI工具
