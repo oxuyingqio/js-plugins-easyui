@@ -32,6 +32,7 @@ public class Release {
 		String jsCommonPath = "/src/main/resources/web/core/";
 		// HTML EasyUI扩展包路径集合
 		String[] packagePaths = { "package.js", "html/easyui/extend", "html/easyui/button",
+				"html/easyui/form/CheckBox.js", "html/easyui/form/RadioButton.js",
 
 				// 引用了button
 				"html/easyui/base/Draggable.js", "html/easyui/base/Droppable.js", "html/easyui/base/Resizable.js",
