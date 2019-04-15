@@ -58,10 +58,19 @@
   left: 50%;
   margin-left: -8px;
 }
+.sidemenu-collapsed .collapsed-icon {
+  position: relative;
+}
+.sidemenu-collapsed .collapsed-text {
+  text-align: center;
+}
 .sidemenu-tooltip {
   padding: 0;
   margin: 0 -12px;
   border: 0;
+}
+.sidemenu-tooltip.tooltip-left {
+  margin: 0 12px;
 }
 .sidemenu-tooltip .tooltip-arrow-outer,
 .sidemenu-tooltip .tooltip-arrow {
