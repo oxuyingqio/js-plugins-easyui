@@ -13490,6 +13490,7 @@ core.html.easyui.datagrid.TreeGrid = (function() {
 		this.idField($.fn.treegrid.defaults.idField);
 		this.loader($.fn.treegrid.defaults.loader);
 		this.loadFilter($.fn.treegrid.defaults.loadFilter);
+		this.view($.fn.treegrid.defaults.view);
 		this.onClickRow($.fn.treegrid.defaults.onClickRow);
 		this.onDblClickRow($.fn.treegrid.defaults.onDblClickRow);
 		this.onClickCell($.fn.treegrid.defaults.onClickCell);
