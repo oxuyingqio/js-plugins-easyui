@@ -32,9 +32,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>cn.xuyingqi</groupId>
-			<artifactId>web-js</artifactId>
+			<artifactId>js</artifactId>
 			<version>${xuyingqi.version}</version>
-			<classifier>web</classifier>
 		</dependency>
 	</dependencies>
 
